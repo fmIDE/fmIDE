@@ -1,14 +1,16 @@
 ![fmIDE Logo][fmIDE]
 # fmIDE
-A FileMaker Integrated Development Environment
+[A FileMaker Integrated Development Environment]
 
-Made [by FileMaker Developers][MrWatson.de] for FileMaker Developers.
 
 fmIDE is
 
 - A FileMaker module to make integration of your FileMaker database into your development processes and analysis tools easier and tighter!
+- Made [by FileMaker Developers][MrWatson.de] for FileMaker Developers.
 - A single script API
 - A vision!
+- ✨ Magical 🦄
+- Coming **very** soon!
 
 ---
 
