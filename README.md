@@ -10,23 +10,25 @@ fmIDE is
 - A single script API
 - A vision!
 - ✨ Magical 🦄
-- Coming **very** soon!
 
+Get the [latest release from from GitHub](https://github.com/fmIDE/fmIDE/releases)
+
+Read the documentation in the [fmIDE Wiki][]
+
+- [Installing fmIDE](https://github.com/fmIDE/fmIDE/wiki/#installing-fmide)
 ---
 
-Official launch coming at the [fmGuru conference][] Sat. 8th October 2022
+fmIDE was launched official at the [fmGuru Rome FileMaker Week Conference][] Sat. 8th October 2022 in Rome
 
 "give wings to your FileMaker Development"
 
 
-[![Rome FileMaker Week](https://www.mettilealialtuosviluppofilemaker.com/wp-content/uploads/2022/06/Sorgente_Logo_Rome-Filemaker-week-768x298.png)][fmGuru conference]
-
-Watch this Space for more!
+[![Rome FileMaker Week](https://www.mettilealialtuosviluppofilemaker.com/wp-content/uploads/2022/06/Sorgente_Logo_Rome-Filemaker-week-768x298.png)][fmGuru Rome FileMaker Week Conference]
 
 ---
 
 [fmIDE]:https://github.com/fmIDE/fmIDE/wiki/images/fmIDE.png
 [fmIDE Integrate]:docs/fmIDE_Integrate.png
-[fmIDE Logo]:docs/fmIDE_Logo.png
-[fmGuru conference]:https://www.mettilealialtuosviluppofilemaker.com/en/
+[fmIDE Wiki]:https://github.com/fmIDE/fmIDE/wiki
+[fmGuru Rome FileMaker Week Conference]:https://www.mettilealialtuosviluppofilemaker.com/en/
 [MrWatson.de]:http://www.mrwatson.de
