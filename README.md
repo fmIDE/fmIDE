@@ -27,8 +27,8 @@ fmIDE was launched official at the [fmGuru Rome FileMaker Week Conference][] Sat
 
 ---
 
-[fmIDE]:https://github.com/fmIDE/fmIDE/wiki/images/fmIDE.png
-[fmIDE Integrate]:docs/fmIDE_Integrate.png
+[fmIDE]:https://github.com/fmIDE/fmIDE/wiki/images/fmide.png
+[fmIDE Integrate]:docs/fmide-integrate.png
 [fmIDE Wiki]:https://github.com/fmIDE/fmIDE/wiki
 [fmGuru Rome FileMaker Week Conference]:https://www.mettilealialtuosviluppofilemaker.com/en/
 [MrWatson.de]:http://www.mrwatson.de
