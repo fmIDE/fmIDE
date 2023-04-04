@@ -3,13 +3,15 @@
 [A FileMaker Integrated Development Environment]
 
 
+fmIDE is a FileMaker module - a single API script - to make integration of your FileMaker database into your development processes and analysis tools easier and tighter!
+
+Once integrated into each of your FileMaker files, you can jump directly from your analysis tools to anything in the FileMaker development environment with just a click and a keypress - whether it be a script, layout, table, field or custom function.
+ 
 fmIDE is
 
-- A FileMaker module to make integration of your FileMaker database into your development processes and analysis tools easier and tighter!
-- Made [by FileMaker Developers][MrWatson.de] for FileMaker Developers.
-- A single script API
-- A vision!
+- made [by FileMaker Developers][MrWatson.de] for FileMaker Developers.
 - ✨ Magical 🦄
+- a vision come true!
 
 Get the [latest release from from GitHub](https://github.com/fmIDE/fmIDE/releases)
 
