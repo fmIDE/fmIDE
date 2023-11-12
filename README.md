@@ -17,7 +17,7 @@ Get the [latest release from from GitHub](https://github.com/fmIDE/fmIDE/release
 
 Read the documentation in the [fmIDE Wiki][]
 
-- [Installing fmIDE](https://github.com/fmIDE/fmIDE/wiki/#installing-fmide)
+- [Installing fmIDE](https://github.com/fmIDE/fmIDE/wiki/About-fmIDE-Installation-and-Setup)
 ---
 
 fmIDE was launched official at the [fmGuru Rome FileMaker Week Conference][] Sat. 8th October 2022 in Rome
