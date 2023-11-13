@@ -51,22 +51,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	(* fmIDE_keyboard_buffer_retype.scpt
- *
- * Re-types the text saved in the fmIDE keyboard buffer file. It produces keystrokes as if the content of the text buffer is being retyped.
- *
- * Use the fmIDE Store Keyboard Buffer action to prepare the fmIDE_keyboard_buffer.txt file.
- * 
- * This script should be triggered from a key *using no modifier keys* - for example, function key F12 - otherwise the modifier keys modify the characters being typed!
- * 
- * This script (or, rather, the app that runs it) requires 
- *
- *  - permission to access the documents folder
- *  - permission to perform automation
- * 
- * © 2022 russell@MrWatson.de
- *
- *)try	-- Get the text contents of the file	set thefile to ((path to documents folder as text) &amp; "fmIDE_keyboard_buffer.txt")	set theText to (read file thefile as «class utf8»)	-- display dialog theText		-- Use System Events to produce keystrokes as if the text is being retyped.	tell application "System Events"		keystroke theText	end tellend try		return inputend run</string>
+					<string>property fmIDE_keyboard_buffer_file_name : "fmIDE_keyboard_buffer.txt"on run {input, parameters}		(* fmIDE_save_clipboard_to_keyboard_buffer.scpt * * Saves the clipboard text in the fmIDE keyboard buffer file. It produces keystrokes as if the content of the text buffer is being retyped. * * This script can be triggered from a key *with modifier keys* - for example, SHIFT+F12! *  * Use together with the fmIDE &gt; Retype Keyboard Buffer workflow. * * For example, *  * - if the fmIDE &gt; Retype Keyboard Buffer workflow is available via the F12 key. * - Press SHIFT+F12 and then just F12 to retype the clipboard *  * This script (or, rather, the app that runs it) requires  * *  - permission to access the documents folder *  - permission to perform automation *  * © 2023 russell@MrWatson.de * *)	try		-- Get the text from the clipboard		set theText to (the clipboard as text)		-- Write the text contents of the file		set theFilePath to ((path to documents folder as text) &amp; fmIDE_keyboard_buffer_file_name)		set thefile to open for access theFilePath		write theText to myFile		close access thefile	end try		return inputend run...</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -83,15 +68,15 @@
 				<key>Class Name</key>
 				<string>RunScriptAction</string>
 				<key>InputUUID</key>
-				<string>FDA684D7-3449-442B-940D-BFD1FBCC57BD</string>
+				<string>16F081B7-AA49-4EBB-A94E-5A35F7E6E1D6</string>
 				<key>Keywords</key>
 				<array>
 					<string>Run</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>37B24E5C-1E75-4493-BD7B-BC715A9526AC</string>
+				<string>A9C84754-45D7-42DA-AEA1-CE4B96E0C8FD</string>
 				<key>UUID</key>
-				<string>C3FEF049-C7C3-41F3-8884-685982F6FF48</string>
+				<string>A5E22665-C7E7-46DD-993C-5AF18A4F28C2</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Automator</string>
@@ -117,8 +102,6 @@ end run</string>
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
@@ -153,7 +136,7 @@ end run</string>
 		<key>serviceProcessesInput</key>
 		<false/>
 		<key>systemImageName</key>
-		<string>NSTouchBarPlay</string>
+		<string>NSActionTemplate</string>
 		<key>useAutomaticInputType</key>
 		<false/>
 		<key>workflowTypeIdentifier</key>
