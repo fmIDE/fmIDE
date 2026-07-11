@@ -24,9 +24,6 @@ fmIDE was launched official at the [fmGuru Rome FileMaker Week Conference][] Sat
 
 "give wings to your FileMaker Development"
 
-
-[![Rome FileMaker Week](https://www.mettilealialtuosviluppofilemaker.com/wp-content/uploads/2022/06/Sorgente_Logo_Rome-Filemaker-week-768x298.png)][fmGuru Rome FileMaker Week Conference]
-
 ---
 
 [fmIDE]:https://github.com/fmIDE/fmIDE/wiki/images/fmide.png
