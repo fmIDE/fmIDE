@@ -1,0 +1,10 @@
+Let(
+[
+
+pRange = pTo+1 - pFrom
+
+];
+
+pFrom + Floor ( Random * pRange )
+
+)

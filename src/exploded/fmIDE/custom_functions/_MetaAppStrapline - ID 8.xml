@@ -1,0 +1,9 @@
+<CustomFunction id="8" name="_MetaAppStrapline" access="All">
+	<UUID modifications="2" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-09-15T23:08:19">58FAE65E-C5D3-4AA8-AA14-52E9B0694EB7</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="7079ECAC7FD3281EB84F01F074559B2D">_58FAE65E-C5D3-4AA8-AA14-52E9B0694EB7</DDRREF>
+		<Text><![CDATA["A FileMaker Integrated Development Environment"]]></Text>
+	</Calculation>
+	<Display>_MetaAppStrapline</Display>
+</CustomFunction>

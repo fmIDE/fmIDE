@@ -1,0 +1,18 @@
+Let([
+
+¢ts = Get ( CurrentHostTimeStamp ) ;
+¢ms = Get ( CurrentTimeUTCMilliseconds )
+
+];
+
+SerialIncrement ( "0000" ; Year ( ¢ts ) ) &
+SerialIncrement (  "-00" ; Month ( ¢ts ) ) &
+SerialIncrement (  "-00" ; Day ( ¢ts ) ) &
+
+SerialIncrement (  "_00" ; Hour ( ¢ts ) ) &
+SerialIncrement (  "-00" ; Minute ( ¢ts ) ) &
+SerialIncrement (  "-00" ; Seconds ( ¢ts ) ) &
+
+SerialIncrement ( "-000" ; Mod ( ¢ms ; 1000  ) )
+
+)

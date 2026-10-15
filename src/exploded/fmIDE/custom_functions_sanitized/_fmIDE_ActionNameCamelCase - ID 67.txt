@@ -1,0 +1,7 @@
+/* _fmIDE_ActionNameCamelCase ( pActionName )
+
+Converts the action name to the internal CamelCase format
+
+20260622 @mrwatson-de: v0.2 Added "-" 
+*/
+Substitute ( Proper( pActionName ) ; ["-" ; ""] ; ["_" ; ""] ; ["/" ; ""] ; [" " ; ""] )

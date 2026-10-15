@@ -1,0 +1,9 @@
+
+
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "[]" 
+				; ["[0].Set Field.ThingamajigURI::_gGlobalThingamjigParameters.value"; Quote( "It's " ) & " & Get ( CurrentHostTimestamp )" ; JSONString ]
+				; ["[1].Show Custom Dialog.message_value" ; Quote("Value set: ") & " & ThingamajigURI::_gGlobalThingamjigParameters" ; JSONString ]
+				) ]
+
+

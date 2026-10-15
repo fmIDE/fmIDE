@@ -1,0 +1,9 @@
+<CustomFunction id="26" name="_IsKeyCTRL" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-10-08T07:02:53">EE0C0E8B-7375-4863-A847-BABE1DE179FF</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="172E85FE07E212E7C68576498923DBE8">_EE0C0E8B-7375-4863-A847-BABE1DE179FF</DDRREF>
+		<Text><![CDATA[Mod( Get( ActiveModifierKeys) ; 4*2 )  >= 4]]></Text>
+	</Calculation>
+	<Display>_IsKeyCTRL</Display>
+</CustomFunction>

@@ -1,0 +1,8 @@
+
+Set Variable [ $OverlayRef[1] ; Get(ScriptParameter) ]
+
+// Show Custom Dialog [ Title: "Overlay" ; Message: "You clicked" ; Default Button: "OK" ]
+
+Set Variable [ $o[1] ; MBS("Overlay.ReleaseAll") ]
+
+

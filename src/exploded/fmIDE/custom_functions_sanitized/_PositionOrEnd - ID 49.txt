@@ -1,0 +1,16 @@
+/* _PositionOrEnd ( pText ; pSearchString ; pStart ; pOccurrence )
+
+identical to FileMaker Position except that it returns length+1 instead of 0
+
+20260221 @mrwatson-de v1.0
+*/
+
+Let(
+[
+vPos = Position ( pText ; pSearchString ; pStart ; pOccurrence )
+
+];
+
+Case( vPos ; vPos ; Length( pText ) + 1 )
+
+)

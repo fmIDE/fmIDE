@@ -1,0 +1,15 @@
+
+# 20230307 @mrwatson-de fmWorkMate API
+
+Perform Script [ "Prepare Quiet" ; Specified: From list ; Parameter: ]
+
+# FIXME
+# External Data Sources need to be plugged:
+  
+  FileA	FileMaker	File Path: file:FileA
+  FileB	FileMaker	File Path: file:FileB
+  $TempFileRefTest	FileMaker	File Path: $TempFileRefTest
+  fmGuruDemo	FileMaker	File Path: file:fmGuruDemo
+  
+
+

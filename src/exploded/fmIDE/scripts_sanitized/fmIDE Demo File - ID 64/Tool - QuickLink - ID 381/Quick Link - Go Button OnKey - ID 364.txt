@@ -1,0 +1,9 @@
+
+Set Variable [ $key[1] ; Get ( TriggerKeystroke ) ]
+Set Variable [ $code[1] ; Code( $key ) ]
+
+If [ $code = 9 ]
+	Go to Field [ Select/perform ; fmIDE::_gQuickLinkFmpUrl ]
+	Exit Script [ 0 ]
+End If
+

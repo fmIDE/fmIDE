@@ -1,0 +1,8 @@
+
+
+Set Variable [ $action[1] ; JSONSetElement ( "{}"
+				;["Store Keyboard Buffer.text"; "Hello World" ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action ]
+
+

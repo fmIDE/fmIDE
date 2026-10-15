@@ -1,0 +1,6 @@
+# Passing just a layout_name performs a Go to Layout action
+
+Set Variable [ $layout_name[1] ; Case ( Get ( LayoutName ) ≠ "Home" ;  "Home" ;  "Splash" ) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "layout_name" ; $layout_name ; JSONString ) ]
+
+

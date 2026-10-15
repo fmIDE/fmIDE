@@ -1,0 +1,11 @@
+
+
+# Create over relationship
+Set Field [ fmIDE_Test.Example_CRT::Title ; fmIDE_Test::Title ]
+Set Field [ fmIDE_Test.Example_CRT::Group ; fmIDE_Test::Suite ]
+Set Field [ fmIDE_Test.Example_CRT::Example ; fmIDE_Test::fmIDE_Parameter ]
+Set Field [ fmIDE_Test.Example_CRT::Type ; fmIDE_Test::_kfmIDE_ParameterSyntaxName ]
+Set Field [ fmIDE_Test.Example_CRT::Select ; 1 ]
+Go to Related Record [ Table: fmIDE_Test.Example_CRT ; Layout: "fmIDE Examples" ]
+
+

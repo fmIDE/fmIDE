@@ -1,0 +1,7 @@
+
+# 2022-01-07 RW: Neu
+
+Set Variable [ $TempFileRef_CC[1] ; "filemac:/CrossCheck/CrossCheck" ]
+Open File [ Open hidden: OFF ; "$TempFileRefTest" ]
+
+

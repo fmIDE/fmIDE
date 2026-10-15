@@ -1,0 +1,1 @@
++GetValue( Substitute( Get( ApplicationVersion ) ; "." ; ¶ ) ; 1 )

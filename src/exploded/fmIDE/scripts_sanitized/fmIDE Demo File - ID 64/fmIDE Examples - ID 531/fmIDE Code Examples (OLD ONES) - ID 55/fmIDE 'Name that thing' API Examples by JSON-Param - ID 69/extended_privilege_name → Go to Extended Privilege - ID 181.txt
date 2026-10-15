@@ -1,0 +1,6 @@
+# Passing extended_privilege_name performs a Go to Extended Privilege action
+
+Set Variable [ $extended_privilege_name[1] ; "fmurlscript" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "extended_privilege_name" ; $extended_privilege_name ; JSONString ) ]
+
+

@@ -1,0 +1,16 @@
+
+# 20121031 MrW
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+# Script settings
+Set Variable [ $AppName[1] ; Get( FileName ) ]
+
+Set Variable [ $ToEmail[1] ; "russell@mrwatson.de" ]
+Set Variable [ $Subject[1] ; $AppName & " Feedback" ]
+Set Variable [ $Message[1] ; "Hello MrWatson!¶¶" & $AppName & " is ..." ]
+
+Send Mail [ ⚠️ PARAMETER "Email" NOT PARSED ⚠️ ]
+
+

@@ -1,0 +1,17 @@
+
+# Param
+Set Variable [ $fmide_parameter[1] ; Get( ScriptParameter ) ]
+
+If [ IsEmpty ( $fmide_parameter ) ]
+	# empty => REPEAT fmIDE action (=Use fmide parameter again)
+	Set Variable [ $fmide_parameter[1] ; $$fmide_parameter ]
+Else
+	# not empty => Remember parameter for next time
+	Set Variable [ $$fmide_parameter[1] ; $fmide_parameter ]
+End If
+
+Set Variable [ $target_script[1] ; fmDevJobTask::FileName_BaseName_External & "::" & "fmIDE" ]
+
+Perform Script [ Specified: By name ; $target_script ; Parameter: $fmide_parameter ]
+
+

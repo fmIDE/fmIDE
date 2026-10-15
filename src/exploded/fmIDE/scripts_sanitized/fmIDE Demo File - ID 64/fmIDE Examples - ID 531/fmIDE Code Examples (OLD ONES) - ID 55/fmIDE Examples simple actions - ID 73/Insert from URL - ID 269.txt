@@ -1,0 +1,13 @@
+
+
+# @var $result
+Insert Text [ Select ; Target: $output ; ""Result from postman-echo.com/get API:¶" & 
+				JSONFormatElements ( $result )" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( ""
+				; ["[0].Insert from URL.url" ; "https://postman-echo.com/get?CurrentHostTimestamp=" & Get( CurrentHostTimeStamp ) ; JSONString]
+				; ["[0].Insert from URL.target" ; "$result" ; JSONString]
+				; ["[1].Show Custom Dialog.message_value" ; $output ; JSONString]
+				
+				) ]
+
+

@@ -1,0 +1,84 @@
+
+# 20260402 @mrwatson-de New
+
+Set Variable [ $_JSP[1] ; _JSP ]
+Set Variable [ $manual[1] ; JSONGetElement ( $_JSP ; "manual" ) ]
+
+
+
+
+
+
+Set Variable [ $count_test_skipped_inactive[1] ; 0 ]
+Set Variable [ $count_test_skipped_manual[1] ; 0 ]
+Set Variable [ $count_test_skipped_precondition_not_met[1] ; 0 ]
+Set Variable [ $count_tested[1] ; 0 ]
+Set Variable [ $count_test_error[1] ; 0 ]
+Set Variable [ $count_test_pass[1] ; 0 ]
+Set Variable [ $count_test_fail[1] ; 0 ]
+
+Set Variable [ $startµs[1] ; Get ( CurrentTimeUTCMicroseconds ) ]
+
+Set Variable [ $i[1] ; 1 ]
+Set Variable [ $n[1] ; Get ( FoundCount ) ]
+Loop [ Flush: Always ]
+	Exit Loop If [ $i > $n ]
+	Go to Record/Request/Page [ With dialog: OFF ; $i ]
+	
+	If [ 0 ]
+		# SWITCH
+	Else If [ not fmIDE_Test::IsActive ]
+		Set Variable [ $count_test_skipped_inactive[1] ; $count_test_skipped_inactive + 1 ]
+	Else If [ not $manual and fmIDE_Test::IsTestManual ]
+		Set Variable [ $count_test_skipped_manual[1] ; $count_test_skipped_manual + 1 ]
+	Else If [ not IsEmpty ( fmIDE_Test::TestPreCondition ) and not Evaluate ( fmIDE_Test::TestPreCondition ) ]
+		Set Variable [ $count_test_skipped_precondition_not_met[1] ; $count_test_skipped_precondition_not_met + 1 ]
+	Else
+		Perform Script [ "Tests: Run 1 Test" ; Specified: From list ; Parameter: ]
+		If [ fmIDE_Test::IsTested ]
+			Set Variable [ $count_tested[1] ; $count_tested + 1 ]
+			Set Variable [ $count_test_pass[1] ; $count_test_pass + fmIDE_Test::_kIsTestPass ]
+			Set Variable [ $count_test_fail[1] ; $count_test_fail + fmIDE_Test::_kIsTestFail ]
+		Else
+			Set Variable [ $count_test_error[1] ; $count_test_error + 1 ]
+		End If
+	End If
+	
+	Set Variable [ $i[1] ; $i + 1 ]
+End Loop
+
+Set Variable [ $endµs[1] ; Get ( CurrentTimeUTCMicroseconds ) ]
+
+# # Save results
+Set Variable [ $test_results[1] ; Let(
+				[
+				vDecimalPlaces = 0 ;
+				vTimeTotal =  GetAsTime ( ($endµs - $startµs)/1000000) ;
+				vTimePerTest = vTimeTotal / $n * 1000
+				
+				];
+				
+				List ( 
+				" ";
+				"⚫️ Tests	" & $n ;
+				" ";
+				"🔴 Fail	" & $count_test_fail ;
+				_LabelNumber ( "⚡️ Error	" ; $count_test_error ; "" ) ;
+				"🟠 Skipped	" & Sum( $count_test_skipped_manual ; $count_test_skipped_inactive ; $count_test_skipped_precondition_not_met ) ;
+				_LabelNumber ( "⚪️ (manual)	" ; $count_test_skipped_manual ; "" ) ;
+				_LabelNumber ( "⚪️ (inactive)	" ; $count_test_skipped_inactive ; "" ) ;
+				_LabelNumber ( "⚪️ (irrelevant)	" ; $count_test_skipped_precondition_not_met ; "" ) ;
+				"🟢 Pass	" & $count_test_pass ;
+				"¶" ;
+				"⏳ duration	" & Round ( vTimeTotal ; vDecimalPlaces ) & "s";
+				"⏳ per test	" & Round ( vTimePerTest ; vDecimalPlaces ) & "ms" ;
+				)
+				
+				) ]
+Set Field [ fmIDE_Test::_gTestResults ; $test_results ]
+
+Go to Record/Request/Page [ First ]
+
+Perform Script [ "Tests: Show Test Results" ; Specified: From list ; Parameter: ]
+
+

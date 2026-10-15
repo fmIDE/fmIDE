@@ -1,0 +1,6 @@
+# Passing external_data_source_name performs a Go to External Data Source action
+
+Set Variable [ $external_data_source_name[1] ; "FileA" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "$external_data_source_name=" & Quote( $external_data_source_name ) ]
+
+

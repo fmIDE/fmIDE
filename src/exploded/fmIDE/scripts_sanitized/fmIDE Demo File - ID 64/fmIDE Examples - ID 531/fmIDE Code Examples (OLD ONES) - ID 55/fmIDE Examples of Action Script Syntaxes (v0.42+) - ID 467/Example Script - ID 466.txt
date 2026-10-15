@@ -1,0 +1,10 @@
+Go to Layout [ Layout: "fmIDE Actions" ; Animation: None ]
+Enter Find Mode [ Pause: OFF ]
+Set Field [ fmIDE_Action::ActionName ; "Set" ]
+Perform Find
+Set Variable [ $last_error[1] ; Get( LastError ) ]
+Show Custom Dialog [ Title: "fmIDE" ; Message: Case(
+				$last_error ; "Error " & $last_error ; 
+				"Found " & Get( FoundCount ) & " " &  Get ( LayoutTableName ) & " records"
+				) ; Default Button: "OK" ]
+

@@ -1,0 +1,19 @@
+
+
+
+# This script demonstrates the fmIDE action given by the script's name
+# A single action object is passed to fmIDE
+
+Set Variable [ $action_name[1] ; Get( ScriptName ) ]
+Set Variable [ $key[1] ; "#It is " & Get ( CurrentHostTimeStamp ) & "!¶" ]
+// Set Variable [ $times[1] ; 2 ]
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( ""
+				; ["[0].Go to Script.script_name" ; Get ( ScriptName ) ; JSONString]
+				; ["[1].Go to Script Step.script_step_number" ; 1 ; JSONNumber]
+				; ["[2].Press.key" ; $key ; JSONString]
+				; ["[3].Press.command_key" ; "S" ; JSONString]
+				
+				) ]
+
+

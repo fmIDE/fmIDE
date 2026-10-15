@@ -1,0 +1,29 @@
+# Converts the clipboard to the given FileMaker element type
+
+
+
+# Click the following link before iserting the next case
+
+# Go to end of script fmp://$/fmIDE?script=fmIDE&$script_step_number=-3
+# Seleect last block fmp://$/fmIDE?script=fmIDE&$script_step_number=-6&$script_step_number_to=-3
+
+
+# Param
+Set Variable [ $_JSP[1] ; Case( not IsEmpty( Get ( ScriptParameter ) ) ; Get ( ScriptParameter ) ; "{}" ) ]
+Set Variable [ $element[1] ; JSONGetElement( $_JSP ; "element" ) ]
+
+
+Set Variable [ $element[1] ; Trim ( Substitute ( Proper ( $element ) ; [" ";""] ; ["_";""] ; ["-";""] ; ["/";""] ) ) ]
+
+If [ $element = "" ]
+	# Switch on element
+	
+Else If [ $element = "ScriptStep" ]
+	Set Variable [ $r[1] ; MBS("Clipboard.GetFileMakerData"; "Script Steps") ]
+	
+Else If [ $element = "Table" ]
+	Set Variable [ $r[1] ; MBS("Clipboard.GetFileMakerData"; "Table") ]
+	
+End If
+
+

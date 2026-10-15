@@ -1,0 +1,12 @@
+<CustomFunction id="37" name="_RemoveEmptyLines" access="All">
+	<UUID modifications="2" userName="R.Watson" accountName="Admin" timestamp="2025-09-25T17:10:42">668E7270-5B56-4880-B984-C3B2B588E4AC</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="2F86E4F086639D60321DF96809418460">_668E7270-5B56-4880-B984-C3B2B588E4AC</DDRREF>
+		<Text><![CDATA[While([vResult = ¶ & pValues & ¶]; Position( vResult ; "¶¶" ; 1 ; 1 ) ;[vResult = Substitute( vResult ; "¶¶" ; ¶ )];Middle ( vResult ; 2 ; Length ( vResult ) - 2 ))]]></Text>
+	</Calculation>
+	<Display>_RemoveEmptyLines ( pValues )</Display>
+	<ObjectList membercount="1">
+		<Parameter name="pValues"></Parameter>
+	</ObjectList>
+</CustomFunction>

@@ -1,0 +1,34 @@
+[+].Set Error Capture = 1
+[+].If = == Get ( FileName ) ≠ "fmIDE"
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "wrong database" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] ; ["record" ; fmIDE_Test::__UUID ; JSONString] )
+[+].End If
+[+].Go to Layout.layout_name = "fmIDE Tests"
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "layout" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] ; ["record" ; fmIDE_Test::__UUID ; JSONString] )
+[+].End If
+[+].Enter Find Mode = 0
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "find mode" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] ; ["record" ; fmIDE_Test::__UUID ; JSONString] )
+[+].End If
+[+].Set Field
+[:]..target = "fmIDE_Test::Title"
+[:]..calculation = == "==fmIDE Macro regression*"
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "Set Field Title" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] ; ["record" ; fmIDE_Test::__UUID ; JSONString] )
+[+].End If
+[+].Perform Find
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "find" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] ; ["record" ; fmIDE_Test::__UUID ; JSONString] )
+[+].End If
+[+].If = == Get ( FoundCount ) ≠ 39
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "wrong test count" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] ; ["record" ; fmIDE_Test::__UUID ; JSONString] )
+[+].End If
+[+].If = == not ( While ( [ i = 1 ; ok = 1 ; ids = "ABE1DEAC-ADA5-5484-87BB-E886531E6F39" & ¶ & "0B0CE0B2-BCB7-5853-A8FF-F445DAE6918D" & ¶ & "E8CE9689-582B-5E54-951C-89EB536E075E" & ¶ & "3EF644B8-0902-5DD0-9CC9-AFBC989712AB" & ¶ & "40341957-FEAF-5F3D-97A7-6A476EEF736A" & ¶ & "D7DA99E3-E3C4-59D7-9271-D48ACA7B2749" & ¶ & "730F8E04-65CE-5839-A020-16A84FC07973" & ¶ & "F66CED20-D3B7-51A2-83D1-97E98FCFFAE8" & ¶ & "122F69B5-DB77-5DD4-8223-E8120A51101A" & ¶ & "054485DF-E143-58A9-8B87-E99F3EAD6830" & ¶ & "77F148CD-B5DB-5C80-B53A-529AE1C7DB50" & ¶ & "8CAF45E5-9180-547C-8545-1D507C445B92" & ¶ & "4DF63968-4574-5E61-B9FB-038F9EBDE8BC" & ¶ & "AE2C1793-01AC-5E12-B5D1-3A08E45844F1" & ¶ & "3F1C602D-0344-5973-BA79-47A2AC0CDB2D" & ¶ & "AC381C35-A375-5827-B043-69DF2F52963F" & ¶ & "0A97E7CC-211C-5CE7-AF57-00DD5770F77A" & ¶ & "A20CB25D-798A-52DC-B5BE-8099E3956ECA" & ¶ & "AAC2C991-B49F-50A8-B32C-E6C6D611E2CD" & ¶ & "09DE9BD7-43BE-5401-ADED-3E1F2771C3A8" & ¶ & "5B7AA366-CF28-5203-8852-13B156A21860" & ¶ & "3FF5D6F0-403C-5D5C-9889-38917E8BE98C" & ¶ & "BA36CDA1-70F1-5D6A-AAE2-20C106C92DEF" & ¶ & "F3A9EA14-56EA-5FD3-B634-B8EE0B034F10" & ¶ & "7FB3D1FA-567E-5EB4-92D0-1C15CD6ACFE9" & ¶ & "343E5A38-5714-5CF2-807B-CBFDC8420B41" & ¶ & "0F53E783-289D-5CCA-B321-069A4A4826AC" & ¶ & "E8AAE517-C747-5A69-A359-66F5E01256DB" & ¶ & "5BBFD4CA-CFAE-58DB-AC48-3BD7A5E35292" & ¶ & "187EE0CA-6694-5918-80F5-5A7AD8CE548A" & ¶ & "CF47CCCB-FBF1-59DA-AEED-493405FF2CAD" & ¶ & "2CBCD1AC-FA4F-5352-960C-F1BB4BDE9FB1" & ¶ & "99A4373D-5CB6-58E9-B91D-0D07E2B733FE" & ¶ & "AE15FEED-FC91-5DD0-B2FC-EE21BFC50694" & ¶ & "D9C3D7B6-420D-5BC0-B960-A092DCF9FDA2" & ¶ & "6B8029A2-E118-5F6F-BD4A-F3A898863185" & ¶ & "CC120346-D705-5E4F-83DD-9CF47BEF5914" & ¶ & "A7037169-5B58-55FF-85F4-FF2AC400721A" & ¶ & "C5D6C169-DF81-55D9-BC5D-E0E3B3E177A3" ] ; i <= Get ( FoundCount ) ; [ ok = ok and not IsEmpty ( FilterValues ( ids ; GetNthRecord ( fmIDE_Test::__UUID ; i ) ) ) ; i = i + 1 ] ; ok ) )
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "unexpected found record" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] ; ["record" ; fmIDE_Test::__UUID ; JSONString] )
+[+].End If
+[+].Perform Script.script_name = "Tests: Sort"
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "sort" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] ; ["record" ; fmIDE_Test::__UUID ; JSONString] )
+[+].End If
+[+].Perform Script.script_name = "Tests: Run Found Tests automatically"
+[+].Exit Script = == JSONSetElement ( "{}" ; ["runnerError" ; $$fmide_get_last_error ; JSONNumber] ; ["summary" ; fmIDE_Test::_gTestResults ; JSONString] ; ["foundCount" ; Get ( FoundCount ) ; JSONNumber] ; ["window" ; Get ( WindowName ) ; JSONString] )

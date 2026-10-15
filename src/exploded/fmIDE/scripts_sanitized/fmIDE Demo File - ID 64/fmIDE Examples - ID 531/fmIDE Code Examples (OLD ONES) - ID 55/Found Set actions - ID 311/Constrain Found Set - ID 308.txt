@@ -1,0 +1,18 @@
+
+# This script demonstrates Performing a find with fmIDE
+
+# See https://github.com/fmIDE/fmIDE/wiki/fmIDE-Actions#constrain-found-set
+
+# Constrain the found set to example scripts about layouts
+
+Set Variable [ $Param[1] ; JSONSetElement ( "[]"
+				
+				;["[0].GoToLayout.layout_name" ; "Example" ; JSONString ]
+				
+				;["[1].Constrain Found Set.query.request[0].criteria[0].field_name"  ; GetFieldName ( fmIDE_Example::Script ) ; JSONString ]
+				;["[1].Constrain Found Set.query.request[0].criteria[0].value" ; "Layout" ; JSONString ]
+				
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $Param ]
+
+

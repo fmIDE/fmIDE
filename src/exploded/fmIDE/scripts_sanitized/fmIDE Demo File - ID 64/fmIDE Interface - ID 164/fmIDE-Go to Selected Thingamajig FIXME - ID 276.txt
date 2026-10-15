@@ -1,0 +1,98 @@
+
+# 20221004 MrW Fixed bug where wrong line would be read when the cursor is at the end of the line
+
+Set Error Capture [ ON ]
+
+Set Variable [ $thingamajig[1] ; Let ( 
+				[
+				
+				¢ActiveFieldContents   = Get ( ActiveFieldContents ) ;
+				¢ActiveSelectionStart  = Get ( ActiveSelectionStart ) ;
+				¢ActiveSelectionSize   = Get ( ActiveSelectionSize ) ;
+				
+				¢Line = Case (
+				
+				    /* If something is selected get selected text */
+				    ¢ActiveSelectionSize ; Middle ( ¢ActiveFieldContents ; ¢ActiveSelectionStart ; ¢ActiveSelectionSize ) ; 
+				
+				    /* Otherwise get line under cursor */
+				    /* Note: If the cursor is at the end of the line, don't count the EOL to the right of the cursor */
+				    Let(¢SelectionLineNr = PatternCount ( Left ( ¢ActiveFieldContents ; ¢ActiveSelectionStart - Case (¢ActiveSelectionSize=0 and Middle ( ¢ActiveFieldContents ; ¢ActiveSelectionStart ; 1 )="¶" ; 1 ) ) ; "¶" ) +1 ;
+				        GetValue( ¢ActiveFieldContents ; ¢SelectionLineNr )
+				    )
+				  );
+				
+				
+				/* Remove leading Text */
+				¢PosParamsStart = Position ( ¢Line ; "&" ; 1 ; 1 ) ;
+				¢PosLastSpace = Position ( ¢Line ; " " ; ¢PosParamsStart ; -1 ) ;
+				¢Thingamajig = Case( ¢PosLastSpace ; Right ( ¢Line ; Length ( ¢Line ) - ¢PosLastSpace ) ; ¢Line )
+				
+				///* Debug: */;$$Thingamajig = ¢Thingamajig & "/" & ¢PosParamsStart & "/" & ¢PosLastSpace
+				
+				];
+				
+				¢Thingamajig
+				
+				
+				
+				) ]
+
+Set Variable [ $fmide_url[1] ; /*Let ( 
+				[
+				
+				¢default_fmp = "fmp19" ;
+				¢default_server = "" ;
+				
+				¢thingamajig = $thingamajig ;
+				¢pos = Position( ¢thingamajig & "&" ; "&" ; 1 ; 1 ) ;
+				¢fmide_parameters = Right( ¢thingamajig ; Length( ¢thingamajig )+1 - ¢pos ) ;
+				¢fmide_file_uri_path = Left( ¢thingamajig ; ¢pos-1) ;
+				
+				¢fmide_file_uri_path_bits = Substitute ( ¢fmide_file_uri_path ; "/" ; "¶" ) ;
+				¢fmide_file_uri_path_bit_count = ValueCount ( ¢fmide_file_uri_path_bits ) ;
+				
+				¢fmide_file_name = Case( ¢fmide_file_uri_path_bit_count ≥ 1 ; GetValue ( ¢fmide_file_uri_path_bits ; ¢fmide_file_uri_path_bit_count ) ) ;
+				¢fmide_server = Case( ¢fmide_file_uri_path_bit_count ≥ 2 ; GetValue ( ¢fmide_file_uri_path_bits ; ¢fmide_file_uri_path_bit_count-1 ) ) ;
+				¢fmide_fmp = Case( ¢fmide_file_uri_path_bit_count ≥ 3 ; GetValue ( ¢fmide_file_uri_path_bits ; ¢fmide_file_uri_path_bit_count-2 ) ) ;
+				
+				
+				
+				
+				$fmp = Case( not IsEmpty( ¢fmide_fmp ) ; ¢fmide_fmp ; not IsEmpty( ¢default_fmp ) ; ¢default_fmp ; "fmp" ) ;
+				$server = Case( not IsEmpty( ¢fmide_server ) ; ¢fmide_server ; not IsEmpty( ¢default_server ) ; ¢default_server ; "$" ) ;
+				$file_name  = ¢fmide_file_name ;
+				$parameters = ¢fmide_parameters ;
+				
+				
+				¢url_template = "{{$fmp}}://{{$server}}/{{$file_name}}?script=fmIDE{{$parameters}}" ;
+				¢url = Case ( not IsEmpty ( $file_name ) ; G_TX_Format_Text ( ¢url_template ) ) ;
+				$$fmide_url = ¢url ;
+				
+				$fmp = "" ;
+				$server = "" ;
+				$file_name = "" ;
+				$parameters = ""
+				
+				];
+				
+				¢url
+				
+				)*/ ]
+Set Variable [ $fmide_url[1] ; Let ( 
+				[
+				
+				¢fmp_default = "fmp19" ;
+				¢server_default = "" ;
+				¢fmide_thingamajig_uri = $thingamajig
+				
+				];
+				
+				fmIDE.FmpUrlFromThingamajig ( ¢fmp_default ; ¢server_default ; ¢fmide_thingamajig_uri )
+				) ]
+Set Variable [ $fmide_url[1] ; /*$fmide_url & Case ( G_IS_ShiftKey and G_IS_AltKey ; "&$fmide_debug=1" )*/ ]
+If [ not IsEmpty ( $fmide_url ) ]
+	Open URL [ In external browser: OFF ; With dialog: OFF ; ⚠️ PARAMETER "URL" NOT PARSED ⚠️ ]
+End If
+
+

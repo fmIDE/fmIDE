@@ -1,0 +1,12 @@
+<CustomFunction id="59" name="_Truelean" access="All">
+	<UUID modifications="2" userName="R.Watson" accountName="Admin" timestamp="2026-06-13T10:47:21">EEB5DEDC-6811-4426-9FFC-5313D8869C0F</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="A46D9F7B1C40A8C6920FCF706C108A32">_EEB5DEDC-6811-4426-9FFC-5313D8869C0F</DDRREF>
+		<Text><![CDATA[Case ( pBoolean ; 1 )]]></Text>
+	</Calculation>
+	<Display>_Truelean ( pBoolean )</Display>
+	<ObjectList membercount="1">
+		<Parameter name="pBoolean"></Parameter>
+	</ObjectList>
+</CustomFunction>

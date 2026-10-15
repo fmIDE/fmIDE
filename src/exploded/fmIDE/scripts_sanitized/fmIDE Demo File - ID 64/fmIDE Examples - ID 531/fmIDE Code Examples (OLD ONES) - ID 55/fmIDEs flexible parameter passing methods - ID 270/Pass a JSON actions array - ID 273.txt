@@ -1,0 +1,15 @@
+
+# # action array
+
+# The second fmIDE parameter format is the array of actions - without the `actions` element.
+# This is a very compact and elegant format and is used frequently
+
+
+Set Variable [ $Param[1] ; JSONSetElement ( ""
+				; ["[0].Go to Layout.layout_name" ; "Example" ; JSONString]
+				; ["[1].Show all Records" ; "" ; JSONString]
+				; ["[2].Go to Record.record" ; "Last" ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $Param ]
+
+

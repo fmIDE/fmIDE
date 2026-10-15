@@ -1,0 +1,22 @@
+
+Set Variable [ $Databases[1] ; SortValues ( DatabaseNames ) ]
+# FOR EACH Database IN Databases
+Set Variable [ $Zähler[1] ; 1 ]
+Set Variable [ $ZählerMax[1] ; ValueCount( $Databases ) ]
+Loop [ Flush: Always ]
+	Exit Loop If [ GetAsNumber( $Zähler ) > GetAsNumber( $ZählerMax ) ]
+	Set Variable [ $Database[1] ; GetValue( $Databases ; $Zähler ) ]
+	Set Variable [ $Database[1] ; $Database & ".fmp12" ]
+	
+	# Database verarbeiten
+	New Record/Request
+	Set Field [ fmDevJobTask::FileName ; $Database ]
+	Commit Records/Requests [ With dialog: OFF ]
+	
+	# NEXT Database
+	Set Variable [ $Zähler[1] ; $Zähler + 1 ]
+End Loop
+
+
+
+

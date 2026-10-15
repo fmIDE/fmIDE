@@ -1,0 +1,34 @@
+[+].Set Error Capture = 1
+[+].Set
+[:]..target = "$out_saved_counter"
+[:]..calculation = == $$codex_exit_output_1
+[+].Set
+[:]..target = "$$codex_exit_output_1"
+[:]..calculation = == 0
+[+].Set
+[:]..target = "$out_folder"
+[:]..calculation = == Get ( TemporaryPath ) & "fmIDE.ExitRegression." & Get ( UUID ) & "/"
+[+].Set
+[:]..target = "$out_child"
+[:]..calculation = == Substitute ( "[+].Exit Script = == Let ( [ $$codex_exit_output_1 = $$codex_exit_output_1 + 1 ] ; \"Grüße «fmIDE» \\\"quoted\\\"\" )" & Char ( 13 ) & "" ; "__OUTPUT__" ; Quote ( $out_folder ) )
+#@test
+[+].Perform Script
+[:]..script_name = "fmIDE"
+[:]..script_parameter = == $out_child
+#@endtest
+[+].Set
+[:]..target = "$out_result"
+[:]..calculation = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["result" ; Get ( ScriptResult ) ; JSONString] ; ["calls" ; $$codex_exit_output_1 ; JSONNumber] )
+[+].Set
+[:]..target = "$$codex_exit_output_1"
+[:]..calculation = == $out_saved_counter
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == 1
+[+].Set
+[:]..target = "$out_cleaned"
+[:]..calculation = == 1
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == ""
+[+].Exit Script = == JSONSetElement ( $out_result ; ["filesOK" ; $out_files_ok ; JSONBoolean] ; ["cleaned" ; $out_cleaned ; JSONBoolean] ; ["ioErrors" ; $out_io_errors ; JSONString] )

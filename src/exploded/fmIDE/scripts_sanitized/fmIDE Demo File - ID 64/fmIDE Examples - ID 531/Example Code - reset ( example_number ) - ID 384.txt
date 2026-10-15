@@ -1,0 +1,53 @@
+
+# 20250926 @mrwatson-de New
+# 20261014 @codex Fix #206: use the loop index and Set Field so example resets do not depend on layout focus.
+
+Set Error Capture [ ON ]
+
+# Param
+Set Variable [ $example_number[1] ; +Get ( ScriptParameter ) ]
+
+If [ $example_number = 0 ]
+	# all
+	Set Variable [ $i[1] ; 1 ]
+	Set Variable [ $n[1] ; 1000 ]
+Else
+	# Only one
+	Set Variable [ $i[1] ; $example_number ]
+	Set Variable [ $n[1] ; $example_number ]
+End If
+Loop [ Flush: Always ]
+	Exit Loop If [ $i > $n ]
+	
+	If [ 0 ]
+		# SWITCH
+		
+	Else If [ $i = 1 ]
+		Insert Text [ Select ; Target: $example_code ; "[
+							{"Go to Layout" : 
+								{"layout_name" : "fmIDE Actions"}
+							},
+							{"Enter Find Mode" : null},
+							{"Set Field" : 
+								{"fmIDE_Action::ActionName" : {"text" : "Set"}}
+							},
+							{"Perform Find" : null}
+						]" ]
+		
+	Else If [ $i = 2 ]
+		Insert Text [ Select ; Target: $example_code ; "[0].Go to Layout.layout_name="fmIDE 'Name that Thing' API Parameters"
+						[1].Enter Find Mode=""
+						[2].Set Field.NameThatThingParameter::ParameterName.text="name"
+						[3].Perform Find=""
+						[4].Perform Script.script_name="fmIDE 'Name that Thing' API Parameters - Sort by Category"" ]
+		
+	Else
+		# Finished
+		Exit Loop If [ 1 ]
+	End If
+	
+	Set Field [ fmIDE_Example::_gExample_fmIDE_ScriptParameter ; $example_code ]
+	Set Variable [ $i[1] ; $i + 1 ]
+End Loop
+
+

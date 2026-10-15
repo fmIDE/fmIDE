@@ -1,0 +1,1 @@
+Position( pText ; pFind ; 1 ; 1 ) > 0

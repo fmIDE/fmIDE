@@ -1,0 +1,15 @@
+<CustomFunction id="49" name="_PositionOrEnd" access="All">
+	<UUID modifications="0" userName="R.Watson" accountName="Admin" timestamp="2026-02-21T07:23:42">4B7E8C85-D313-4004-88AF-AFC45939ABC5</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="36DB42F3316EBF38CB88C79825304DBF">_4B7E8C85-D313-4004-88AF-AFC45939ABC5</DDRREF>
+		<Text><![CDATA[/* _PositionOrEnd ( pText ; pSearchString ; pStart ; pOccurrence )identical to FileMaker Position except that it returns length+1 instead of 020260221 @mrwatson-de v1.0*/Let([vPos = Position ( pText ; pSearchString ; pStart ; pOccurrence )];Case( vPos ; vPos ; Length( pText ) + 1 ))]]></Text>
+	</Calculation>
+	<Display>_PositionOrEnd ( pText ; pSearchString ; pStart ; pOccurrence )</Display>
+	<ObjectList membercount="4">
+		<Parameter name="pText"></Parameter>
+		<Parameter name="pSearchString"></Parameter>
+		<Parameter name="pStart"></Parameter>
+		<Parameter name="pOccurrence"></Parameter>
+	</ObjectList>
+</CustomFunction>

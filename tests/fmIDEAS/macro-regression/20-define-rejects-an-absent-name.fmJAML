@@ -1,0 +1,9 @@
+[+].Set Error Capture = 1
+[+].Set
+[:]..target = "$mr_empty_before"
+[:]..calculation = == GetPersistentData ( "fmide_macros" ; "" )
+#@test
+[+].fmIDE Define Macro
+[:]..code = == "[+].Exit Script = == 1"
+#@endtest
+[+].Exit Script = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["empty_store_unchanged" ; Exact ( GetPersistentData ( "fmide_macros" ; "" ) ; $mr_empty_before ) ; JSONBoolean] )

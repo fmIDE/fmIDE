@@ -1,0 +1,9 @@
+<CustomFunction id="11" name="_MetaURLAppIssues" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-09-15T23:06:19">D8AC0F64-64FD-4A9D-A181-DB0A2C02296D</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="AA9E33C0EDE5F6FE14A1E624734C549D">_D8AC0F64-64FD-4A9D-A181-DB0A2C02296D</DDRREF>
+		<Text><![CDATA[_MetaURLAppRepo & "/issues"]]></Text>
+	</Calculation>
+	<Display>_MetaURLAppIssues</Display>
+</CustomFunction>

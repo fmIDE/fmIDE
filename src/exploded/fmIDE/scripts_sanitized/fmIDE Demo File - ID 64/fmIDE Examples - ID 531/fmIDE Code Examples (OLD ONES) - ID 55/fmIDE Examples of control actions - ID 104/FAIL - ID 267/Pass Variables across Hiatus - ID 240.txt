@@ -1,0 +1,22 @@
+
+# @var $test $testmessage_value
+Insert Text [ Select ; Target: $message_value ; ""$test = " & $test & ¶ & 
+				"$test2 = " & $test2" ]
+
+Set Variable [ $actions[1] ; JSONSetElement ( "[]" 
+				;["[0].Set Variable.target" ; "$test"    ; JSONString]
+				;["[0].Set Variable.value" ; Quote( "Hello" )    ; JSONString]
+				
+				;["[1].Set Variable.target" ; "$test2"    ; JSONString]
+				;["[1].Set Variable.value" ; Quote( "Bye" )    ; JSONString]
+				
+				;["[2].Show Custom Dialog.message_value" ; $message_value  ; JSONString]
+				
+				;["[3].Pause.seconds" ; 2 ; JSONNumber]
+				;["[3].Pause.hiatus" ; True ; JSONBoolean]
+				
+				;["[4].Show Custom Dialog.message_value" ; $message_value  ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

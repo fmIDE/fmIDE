@@ -1,0 +1,9 @@
+<CustomFunction id="6" name="_MetaAppIsPartOfFmWorkMate" access="All">
+	<UUID modifications="2" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-09-15T23:07:50">76A54D44-51B8-476A-A284-753B29F3DD7E</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="9BF55A5D51230A8EA20D4BAA0F468EEC">_76A54D44-51B8-476A-A284-753B29F3DD7E</DDRREF>
+		<Text><![CDATA[0]]></Text>
+	</Calculation>
+	<Display>_MetaAppIsPartOfFmWorkMate</Display>
+</CustomFunction>

@@ -1,0 +1,23 @@
+[+].Exit Script = ===
+Let ( [
+vIDs = ExecuteSQL ( "SELECT \"__UUID\" FROM \"NameThatThingParameter\" ORDER BY \"ParameterName\"" ; "" ; ¶ ) ;
+vFields = "ParameterName¶DataType¶Description¶DevState¶DefaultAction¶Active¶Category¶DefaultValue¶TriggeredActions¶_kWikiTableMarkdown" ;
+vRecords = Case ( Left ( vIDs ; 1 ) = "?" ; "[]" ; While ( [ vI = 1 ; vRecords = "[]" ] ; vI <= ValueCount ( vIDs ) ; [
+    vID = GetValue ( vIDs ; vI ) ;
+    vRecord = While ( [ vF = 1 ; vRecord = JSONSetElement ( "{}" ; "id" ; vID ; JSONString ) ] ; vF <= ValueCount ( vFields ) ; [
+        vField = GetValue ( vFields ; vF ) ;
+        vValue = ExecuteSQL ( "SELECT \"" & vField & "\" FROM \"NameThatThingParameter\" WHERE \"__UUID\" = ?" ; "" ; "" ; vID ) ;
+        vRecord = JSONSetElement ( vRecord ; vField ; vValue ; JSONString ) ;
+        vF = vF + 1
+    ] ; vRecord ) ;
+    vRecords = JSONSetElement ( vRecords ; "[+]" ; vRecord ; JSONObject ) ;
+    vI = vI + 1
+] ; vRecords ) )
+] ; JSONSetElement ( "{}"
+;["application" ; Get ( ApplicationVersion ) ; JSONString]
+;["file" ; Get ( FilePath ) ; JSONString]
+;["release" ; $fmide_release ; JSONString]
+;["queryError" ; Case ( Left ( vIDs ; 1 ) = "?" ; vIDs ; "" ) ; JSONString]
+;["parameters" ; vRecords ; JSONArray]
+) )
+===

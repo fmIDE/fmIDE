@@ -1,0 +1,36 @@
+
+
+
+Show All Records
+Show Omitted Only
+
+Set Variable [ $action_name[1] ; Get( ScriptName ) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "Set Error Capture" ]
+
+Go to Record/Request/Page [ Next ; Exit after last: OFF ]
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( ""
+				; ["Set Error Capture.off" ; True ; JSONBoolean ]
+				) ]
+
+Go to Record/Request/Page [ Next ; Exit after last: OFF ]
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( ""
+				; ["Set Error Capture.on" ; True ; JSONBoolean ]
+				) ]
+
+Go to Record/Request/Page [ Next ; Exit after last: OFF ]
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( ""
+				; ["Set Error Capture.on" ; False ; JSONBoolean ]
+				) ]
+
+Go to Record/Request/Page [ Next ; Exit after last: OFF ]
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( ""
+				; ["Set Error Capture.off" ; False ; JSONBoolean ]
+				) ]
+
+Go to Record/Request/Page [ Next ; Exit after last: OFF ]
+
+

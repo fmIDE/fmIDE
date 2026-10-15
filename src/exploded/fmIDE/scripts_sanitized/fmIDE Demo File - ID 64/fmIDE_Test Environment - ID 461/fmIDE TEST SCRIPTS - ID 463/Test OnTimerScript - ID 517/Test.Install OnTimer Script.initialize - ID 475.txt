@@ -1,0 +1,11 @@
+
+# This script initialises the fmIDE_Test `Install OnTimer Script`
+
+# 1. resets a global variable 
+# 2. Install OnTimer script to increment the global variable 10 times a second
+# 3. It pauses for 1/2 second
+
+Install OnTimer Script [ "Test.Install OnTimer Script.Increment $$fmide_test_counter" ; 1/10 ]
+Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+
+

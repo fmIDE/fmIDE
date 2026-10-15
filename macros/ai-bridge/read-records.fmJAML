@@ -1,0 +1,195 @@
+# AI Bridge.Read Records
+# Inputs arrive through Run Macro frontmatter; see manifest.json.
+[+].Set Error Capture = 1
+[+].Set.$bridge_macro = ===
+"AI Bridge.Read Records"
+===
+[+].Set.$bridge_data = ===
+"{}"
+===
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "" ; JSONString ]
+)
+===
+[+].If = == IsEmpty ( $expected_file_path ) or not ( Exact ( Get ( FilePath ) ; $expected_file_path ) or ( Left ( $expected_file_path ; 1 ) = "/" and Exact ( Right ( Get ( FilePath ) ; Length ( $expected_file_path ) ) ; $expected_file_path ) ) )
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "expected_file_path must identify this database" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].If = == IsEmpty ( $layout_name )
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "layout_name is required" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].Set.$bridge_limit = ===
+Case ( IsEmpty ( $limit ) ; 100 ; GetAsNumber ( $limit ) )
+===
+[+].Set.$bridge_offset = ===
+Case ( IsEmpty ( $offset ) ; 1 ; GetAsNumber ( $offset ) )
+===
+[+].If = == $bridge_limit < 1 or $bridge_limit > 1000 or Int ( $bridge_limit ) ≠ $bridge_limit or $bridge_offset < 1 or Int ( $bridge_offset ) ≠ $bridge_offset
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "limit must be 1..1000; offset must be a positive integer" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].If = == not IsEmpty ( $query_json ) and JSONGetElementType ( $query_json ; "" ) ≠ JSONArray
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "query_json must be a JSON array" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].Set.$bridge_request = ===
+JSONSetElement ( "{}"
+; [ "layouts" ; $layout_name ; JSONString ]
+; [ "limit" ; $bridge_limit ; JSONNumber ]
+; [ "offset" ; $bridge_offset ; JSONNumber ]
+)
+===
+[+].If = == not IsEmpty ( $query_json )
+[+].Set.$bridge_request = ===
+JSONSetElement ( $bridge_request ; "query" ; $query_json ; JSONArray )
+===
+[+].End If
+[+].Execute FileMaker Data API
+[:]..request = == $bridge_request
+[:]..target = "$bridge_response"
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; Case ( $$fmide_get_last_error ; "fmide" ; "" ) ; JSONString ]
+; [ "code" ; $$fmide_get_last_error ; JSONNumber ]
+; [ "message" ; "Execute FileMaker Data API" ; JSONString ]
+; [ "detail" ; $$fmide_get_last_error_detail ; JSONString ]
+; [ "location" ; $$fmide_get_last_error_location ; JSONString ]
+; [ "description" ; $$fmide_get_last_error_description ; JSONString ]
+)
+===
+[+].If = == JSONGetElement ( $bridge_error ; "code" ) ≠ 0
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].Set.$bridge_data = ===
+JSONSetElement ( "{}"
+; [ "response" ; $bridge_response ; JSONObject ]
+)
+===
+[+].If = == JSONGetElement ( $bridge_response ; "messages[0].code" ) ≠ "0"
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "data_api" ; JSONString ]
+; [ "code" ; GetAsNumber ( JSONGetElement ( $bridge_response ; "messages[0].code" ) ) ; JSONNumber ]
+; [ "message" ; JSONGetElement ( $bridge_response ; "messages[0].message" ) ; JSONString ]
+)
+===
+[+].End If
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===

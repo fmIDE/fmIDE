@@ -1,0 +1,7 @@
+
+# 20110818 MrW Sadly changing to list view resets the WebViewer
+
+Adjust Window [ Resize to Fit ]
+Set Variable [ $$window.midimised[1] ; 1 ]
+
+

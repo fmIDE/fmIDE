@@ -1,0 +1,133 @@
+/* fmJAML_changes
+   __                _         __  __ _      
+  / _|              | |  /\   |  \/  | |     
+ | |_ _ __ ___      | | /  \  | \  / | |     
+ |  _| '_ ` _ \ _   | |/ /\ \ | |\/| | |     
+ | | | | | | | | |__| / ____ \| |  | | |____ 
+ |_| |_| |_| |_|\____/_/    \_\_|  |_|______|
+                                             
+                                             
+`code from your keyboard`
+
+**fmJAML** = **F**ile**M**aker **J**SON **A**s a **M**arkdown **L**angauge
+
+Since CF length is limited to 30000 chars this CF contains JUST the history; the main function is the fmJAML CF.
+
+2026-09-29 @mrwatson-de v0.36
+- Fix #44 Standardise info between fmJAML and fmIDE: release, release_tag and version
+2026-09-22 @mrwatson-de v0.35
+- Add #42: Support for referencing current fmJAML JSON output using the `$fmjaml__json` variable
+- Add #43: 'herecalc' operator `=`, which makes it possible to have multiline calculations 
+- It is thus also possible to define variables en bloc using an empty path which gets dropped: "= =¶Let([«variable definitions»];0)¶==="
+2026-09-21 @mrwatson-de v0.34
+- Add #41: Array constructor syntax: `path[]`
+2026-09-16 @mrwatson-de v0.33
+- Fix #25: Support for Objects and Multiple Path Ellipsis
+- Fix #38 Fail Fast when invalid JSON produced
+2026-09-03 @mrwatson-de v0.32
+- Fix #37: All variables now in `lower_snake_case`
+2026-08-24 @mrwatson-de v0.31.1
+- Reduce comments
+2026-07-10 @mrwatson-de v0.31
+- Remove the v from the version
+2026-07-09 @mrwatson-de v0.30
+- Add #36 `;info;` and `;version;`
+2026-06-30 @mrwatson-de v0.29
+- Automatically type "true" and "false" values as JSONBoolean
+2026-06-29 @mrwatson-de v0.28
+- Rename $$fmJAML__debug* vars to  $$fmJAML_debug*
+- Rename $$fmJAML_debug_log to  $$fmJAML_log
+- Remove unnecessary debug code
+2026-06-17 @mrwatson-de v0.27
+- Fix #33: Add fmJAML: Value operators ==…===== (plus the origin of the cult characters Foo and Baz)
+2026-06-16 @mrwatson-de v0.26
+- Add `==` hereline operator to construct the string for the remaining text in the line
+  - Composes with the `===` heredoc operator to make it possible to quote multiline text: `= == === multiline text ===`
+- Don't coerce empty strings into JSON
+- Optimised CF space
+2026-06-13 @mrwatson-de v0.25
+- Optimised space
+2026-06-10 @mrwatson-de v0.24
+- Fix #28 automatic data type for simple numbers..
+2026-06-09 @mrwatson-de v0.23
+- Fix #27 DPS Parsing was truncating the value if it contained semi-colons.
+2026-06-08 @mrwatson-de v0.22
+- BREAKING CHANGE: Swap CF-parameters to be more logical and visually consistent (input JSON comes *before* appended fmJAML JSON, so parameter pOptionalInitialJSON must come before pFmJAML)
+2026-05-28 @mrwatson-de v0.21
+2026-05-15 @mrwatson-de v0.20
+- dps requires a closing `;` and is only processed when present
+- Consolidated debugging
+2026-05-13 @mrwatson-de v0.19
+- Add second parameter `pOptionalInitialJSON` so fmJAML can build on it.
+- Add `>` replace operator for strings `'search'>'replace'`
+2026-05-11 @mrwatson-de v0.18
+- Add 'drop-if-regex-match' op: `!~regex~`
+2026-05-10 @mrwatson-de v0.17
+- Add trimming of tabs
+- Change line-comment character to `#` to better harmonise with line oriented UNIX aesthetic
+- Standardise fmJAML variable names with two underscores `($)$fmJAML__*`
+- Change unnecessary $var to ¢var
+- Document CF better
+2026-05-08 @mrwatson-de v0.16
+- Add data type `J`for JSONRaw
+- Standardise order of data types
+- Create further tests
+  - Passing 66/69 tests: tabs in empty lines and support for object notation not yet implemented
+2026-05-05 @mrwatson-de v0.15
+- Improve DPS
+  - Fix mapping operator `-`
+  - Ignore whitespace within DPS
+- Rewrite DPS parser with clear and correct logic
+  - Replace drop logic with `$fmJAML_context`, `$fmJAML_clause_empty` and `¢eoClause` state machine model
+  - Extend semantics to cover `?`, `-`, `?:` and `-:` contexts
+  - Simplify DPS parser state and remove obsolete code
+2026-04-28 @mrwatson-de v0.14
+- Add mapping operator `-` for empty-value mapping. [#16](https://github.com/fmIDE/fmJAML/issues/16)
+- Rename Data Type String to Data Processing String (DPS). [#17](https://github.com/fmIDE/fmJAML/issues/17)
+- Simplify DPS vars & debug globals for terminology consistency. [#6](https://github.com/fmIDE/fmJAML/issues/6)
+- Defer `D`, `I`, `M`, and `R` formatting/encoding until JSON output, so DPS tests operate on coerced *FileMaker* values.
+- Move full version history to `fmJAML_changes` because of the custom-function size limit.
+2026-04-26 @mrwatson.de v0.13
+- Add divide operator `/`
+- Improve performance by using Choose instead of Case in the Data Processing String
+2026-04-22 @mrwatson.de v0.12
+- Add eol-operator `¶`
+2026-04-18 @mrwatson.de v0.11
+- Ignore empty lines
+- Ignore lines with only `//`comment
+- Ignore line 1 if it starts with  the shebang `#!fmjaml`
+2026-04-15 @mrwatson-de v0.10
+- Wrap fmJAML as a CF (and for fmIDE unwrap it)
+- Add initial support for constructing JSON objects
+- Remove fmIDE actions object wrapper
+2026-04-14 @mrwatson-de v0.9
+- Fix `?` operator with (DRY) lazy path dropping inc. EOF
+- Extend the trim operator naturally to cover JSON formatting:
+  - `*`-> trim (= spaces),
+  - `**`-> trim horizontally (+ trim TAB),
+  - `***`-> trim vertically (+ trim EOL),
+  - `****`-> trim compact JSON (+ trim WS inside JSON)
+  - `*****`-> trim format JSON (+ add WS inside JSON)
+2026-04-12 @mrwatson-de v0.8
+- Remove references to fmIDE
+- Remove CF to detect Caps lock
+- Improve comments & history
+2026-04-03 @mrwatson-de v0.7
+- Add Data Type String - Optional operator (?)
+2026-04-01 @mrwatson-de v0.6
+- Add Data Type String - Trim operator (*[*[*]])
+2026-03-25 @mrwatson-de v0.5
+- Add fmJAML Logo(s) (inc. fmJAML42 - animated Logo fun)
+2026-03-20 @mrwatson-de v0.4
+- Add Data Type String - Not operator (!)
+2026-03-18 @mrwatson-de v0.3
+- Add support for [+] in older FIleMaker versions
+2026-03-17 @mrwatson-de v0.2
+- Add Data Type String / Simple data types
+2026-03-15 @mrwatson-de v0.1.1
+- Fix data type to Object when no `=` and Null when no expression 
+2026-03-10 @mrwatson-de v0.1
+- A DSL comes to life
+
+*/
+""

@@ -1,0 +1,18 @@
+
+
+Insert Text [ Select ; Target: $fmIDE_Param ; "[+].Go to Layout = "fmIDE Actions"
+				[+].Enter Find Mode
+				[+].Set.fmIDE_Action::ActionName.text = "Set"
+				[+].Perform Find
+				[+].Set.$last_error.value = "Get ( LastError )"
+				[+].Show Custom Dialog.title = "fmIDE"
+				[:]..message_value = ===
+				Case(
+				$last_error ; "Error " & $last_error ; 
+				"Found " & Get( FoundCount ) & " " &  Get ( LayoutTableName ) & " records"
+				)
+				===
+				[:]..buttons = "OK"
+				" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $fmIDE_Param ]
+

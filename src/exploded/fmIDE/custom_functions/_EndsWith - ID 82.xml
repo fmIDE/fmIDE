@@ -1,0 +1,13 @@
+<CustomFunction id="82" name="_EndsWith" access="All">
+	<UUID modifications="1" userName="R. Watson" accountName="Admin" timestamp="2026-10-11T08:52:46">0FE81AC4-216B-4222-95A1-5214EBBFA6DA</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="1DF720CA72FC77022923707BA110B370">_0FE81AC4-216B-4222-95A1-5214EBBFA6DA</DDRREF>
+		<Text><![CDATA[Right( pText ; Length( pEndsWith ) ) = pEndsWith]]></Text>
+	</Calculation>
+	<Display>_EndsWith ( pText ; pEndsWith )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pText"></Parameter>
+		<Parameter name="pEndsWith"></Parameter>
+	</ObjectList>
+</CustomFunction>

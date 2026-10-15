@@ -1,0 +1,8 @@
+
+
+Perform Script [ "DEV Script bearbeiten ( File, Script, Line )" ; Specified: From list ; Parameter: fmDevJobTask::FileName  & "|" &
+				fmDevJobTask::ScrName  & "|" &
+				fmDevJobTask::ScriptStepNumber  & "|" &
+				fmDevJobTask::ScriptStepNumberTo ]
+
+

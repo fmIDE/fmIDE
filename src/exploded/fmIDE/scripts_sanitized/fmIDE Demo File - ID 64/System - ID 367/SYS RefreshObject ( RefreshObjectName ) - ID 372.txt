@@ -1,0 +1,7 @@
+
+
+Set Variable [ $RefreshObjectName[1] ; Get( ScriptParameter ) ]
+
+Refresh Object [ Name: $RefreshObjectName ]
+
+

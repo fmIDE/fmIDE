@@ -1,0 +1,3 @@
+Go to Related Record [ Table: fmIDE_Action ; Layout: "fmIDE Actions" ]
+View As [ View as Form ]
+

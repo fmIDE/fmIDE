@@ -1,0 +1,17 @@
+# /##
+# Opens the script workspace in the current file.
+
+# Parameters: ¶-delimited
+# None
+
+# Dependencies:
+# @referencedByName
+# @requires MBS Plugin Version 7.4
+
+# History:
+# @history 20171111 MrW Created
+
+# #/
+
+Open Script Workspace
+

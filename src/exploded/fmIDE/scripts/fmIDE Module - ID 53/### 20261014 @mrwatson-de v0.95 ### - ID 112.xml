@@ -1,0 +1,2840 @@
+<Script>
+	<ScriptReference id="112" name="### 20261014 @mrwatson-de v0.95 ###" UUID="00C8DCFA-25FC-4DD7-A60B-03116BF25589"></ScriptReference>
+	<ObjectList membercount="257">
+		<Step hash="04445786279B6BF7DC71EB11D81E332A" index="0" id="89" name="# (comment)" enable="True">
+			<UUID>401A7FA6-112B-4DF0-8C9A-41D9A7E15359</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="4F3A02FBC9EC4706D4EB91D43D23CE73">_401A7FA6-112B-4DF0-8C9A-41D9A7E15359</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="File: fmIDE"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0F664A8E5979E2835D445EA138B28F4B" index="1" id="103" name="Exit Script" enable="True">
+			<UUID>4F8781CD-7924-4D6B-8B72-50BF0F195614</UUID>
+			<OwnerID></OwnerID>
+			<Options>16384</Options>
+			<DDRREF kind="StepText" hash="EDE4B6E982A7BF33F871C698A0561F39">_4F8781CD-7924-4D6B-8B72-50BF0F195614</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Calculation">
+					<Calculation datatype="1" position="0">
+						<Calculation>
+							<DDRREF kind="ChunkList" hash="2CF4D1572FA1897CA2E922EFBDD54AD5">_4F8781CD-7924-4D6B-8B72-50BF0F195614_0</DDRREF>
+							<Text><![CDATA[Get( FileName ) & ":	" & Trim( Substitute( Get( ScriptName ) ; "#" ; "" ) )]]></Text>
+						</Calculation>
+					</Calculation>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CB7875A9E86E0705977ACBA6F11786BC" index="2" id="89" name="# (comment)" enable="True">
+			<UUID>E992592D-D515-4C97-996A-A148CAE383B0</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="96AA9843A177F237B2BD7C6793B246F3">_E992592D-D515-4C97-996A-A148CAE383B0</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="/##"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="5EA775884989DEAACD12A52FC89E4DC6" index="3" id="89" name="# (comment)" enable="True">
+			<UUID>CD2E0A7D-4D73-46C9-A7EB-77BFA860B060</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="BE54EA7E30B3E5B8B9BA06C19091C410">_CD2E0A7D-4D73-46C9-A7EB-77BFA860B060</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Module change history"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0B7FACD0FCD4299EA9A01713B973A0AD" index="4" id="89" name="# (comment)" enable="True">
+			<UUID>A444C790-0466-434D-A9F7-EE3085A1059F</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="2B2AAFC920A4A98E1474D6C39BD8C1DA">_A444C790-0466-434D-A9F7-EE3085A1059F</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A0C33F5CB8A93B29F9D536F52DF47F8B" index="5" id="89" name="# (comment)" enable="True">
+			<UUID>FACA6580-3D05-4701-93CC-95603263EF43</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9F741907F02D139805B7DA4186D11E42">_FACA6580-3D05-4701-93CC-95603263EF43</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="#####################################################################################"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3F0F00A832E3BE7AA87A5C99D32D3E54" index="6" id="89" name="# (comment)" enable="True">
+			<UUID>3AADBB2E-4A68-4EE3-B14B-D23666A937A5</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DB7F007A6C06AFB4863B8483010365D9">_3AADBB2E-4A68-4EE3-B14B-D23666A937A5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="` 1. Add history lines below"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="4773F85D1F025C27A7F896E465D8116E" index="7" id="89" name="# (comment)" enable="True">
+			<UUID>107EEDA3-46D8-4098-B316-52E25CD3AD7C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="E4CF9806719BCC25E437A812B44BCE26">_107EEDA3-46D8-4098-B316-52E25CD3AD7C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="` 2. Change the script name to reflect the version"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9AB9EF72EB44B920663D57716291E3CC" index="8" id="89" name="# (comment)" enable="True">
+			<UUID>21260B53-D301-4B61-841A-D85EA4C0D2CD</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D5B3CADCC4EDEFD9091B01B675BF9DB7">_21260B53-D301-4B61-841A-D85EA4C0D2CD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="` 3. Run the `Update_fmide_version ` script following this one to extract the version number and paste it into the fmIDE Script at line 2"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A851F52801CB46ACD60067ADE64F5433" index="9" id="89" name="# (comment)" enable="True">
+			<UUID>8DDFBF63-ED98-4D69-93B9-EC4B0B6BF02A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="26BFEA1B8009556D03C1AFD05FBCE670">_8DDFBF63-ED98-4D69-93B9-EC4B0B6BF02A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="`    - You *may* be able to click this link to run the script in this FileMaker: fmp://$/fmide?script=Update_fmide_version"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3449735B58A221C4AD7066C502625485" index="10" id="89" name="# (comment)" enable="True">
+			<UUID>D5532F80-5AB7-4D94-9C6D-DFD47BCB7A68</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5CAB767971D8A5E92C122C771867FFAF">_D5532F80-5AB7-4D94-9C6D-DFD47BCB7A68</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="#####################################################################################"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="62AAA74C5764F7D84735BBC314E728B5" index="11" id="89" name="# (comment)" enable="True">
+			<UUID>8F0D5850-C115-4A6F-9761-FB1A609B4647</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="872697CD04FE4D22CA77FCC2AFC669F7">_8F0D5850-C115-4A6F-9761-FB1A609B4647</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7908125ECD3A356E2980427BA7D4EB88" index="12" id="89" name="# (comment)" enable="True">
+			<UUID>73BBC823-E25E-4656-8AD9-6A3CA29D9A67</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="CD7EC7D269E1FEA6E07F1C64D0E1C460">_73BBC823-E25E-4656-8AD9-6A3CA29D9A67</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20261014 @mrwatson-de v0.95&#13;- Fix #189 macro reserved-parameter handling&#13;- Fix #202 preserve the opening frontmatter delimiter when running macros&#13;- Fix #179 calculation-wrapper handling for script_step_search&#13;- Fix #204 preserve the synchronous Exit Script result when writing response files; write the correct one/five output files&#13;- Add 55 focused regression tests for macros, script-step search, persistent data and Exit Script output&#13;- Add eight composable AI Bridge macros with named frontmatter parameters and JSON results&#13;- Improve action documentation: 185 summaries, detailed examples and the Wiki list view&#13;- Export local documentation for 185 actions and 102 Name that Thing parameters&#13;- Add MrWatson style, fmJAML/fmIDEAS, CLI, recovery and development guides, plus codex agent skills&#13;- Add repeatable XML/exploded-source refresh, documentation export and release-candidate tooling&#13;- Fix #206 reset all example code by loop index and write defaults without requiring layout focus&#13;- Fix #210 standardise filesystem path parameters on file_path; retain legacy aliases with canonical-key precedence and one evaluation (codex)&#13;  - Migrate path parameters in tests, examples, action/usage docs and AI Bridge helpers; add six native file_path contract regressions (codex)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0B1B8BEEEE9030EE0D7567018266B04B" index="13" id="89" name="# (comment)" enable="True">
+			<UUID>43E5C3D9-5669-4365-AD16-EF5AF61D461F</UUID>
+			<OwnerID></OwnerID>
+			<Options>33554436</Options>
+			<DDRREF kind="StepText" hash="4BB44647B8CBFF9A609097BB9ECD6ECE">_43E5C3D9-5669-4365-AD16-EF5AF61D461F</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="HiddenStepsCount">
+					<HiddenStepsCount value="77"></HiddenStepsCount>
+				</Parameter>
+				<Parameter type="Comment">
+					<Comment value="20261013 @mrwatson-de v0.94&#13;- Implements #170 Debugging easier to control from data viewer&#13;- Fix #183 Read and Reset table identity variables&#13;- Fix #187 in Action `Set Web Viewer` stop swallowing the action parameter into the web viewer name &#13;- Fix #201 Handle record-number parameter explicitly&#13;- Fix #193 Remove shadowed empty `fmIDE Run Macro` branch&#13;- Fix #194 Macro actions to handle macro-name evaluation consistently"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E81B3E49DAF3A7CF626418061607B7FB" index="14" id="89" name="# (comment)" enable="True">
+			<UUID>2B4C535C-C6E0-461F-B676-56CE3EA90FAE</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="B01286572B88303179EA782212C99366">_2B4C535C-C6E0-461F-B676-56CE3EA90FAE</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20261011 @mrwatson-de v0.93&#13;- Fix #169 Change `script_search` and `script_step_search` to calculated and drop the &apos;…_value&apos; properties  (Breaking Change)&#13;- Normalised the generated JSON for the Name that Thing API"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D6D72DCE4B60F58EE32FE8DE8DF0C17A" index="15" id="89" name="# (comment)" enable="True">
+			<UUID>F6602CFC-0ABE-466E-BA8B-794E28E47BB6</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="753C0A09B53E9A745C388AB862416EA6">_F6602CFC-0ABE-466E-BA8B-794E28E47BB6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20261009 @mrwatson-de v0.92.2&#13;- Fix Action `Convert Clipboard` with parameter `to`&#13;- Fix fmIDE Version number&#13;- Fix #168 Error handling: Renamed old vars from `fmide_last_error` to `fmide_**get_**last_error`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0E8E0F8FF755968471BDADF78027313C" index="16" id="89" name="# (comment)" enable="True">
+			<UUID>3DC9BB63-FE1C-4DDD-AB64-7BBCCC93CFBD</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C63A80DB620154622A12FE2EFAB4FC70">_3DC9BB63-FE1C-4DDD-AB64-7BBCCC93CFBD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20261006 @mrwatson-de v0.92.1&#13;- Improve Action `Show/Hide Text Ruler`&#13;  - to treat -1 as toggle&#13;  - to ignore quotes&#13;  - fail fast when state unknown"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1C21926EA2896BB6A3FABE8B874844E8" index="17" id="89" name="# (comment)" enable="True">
+			<UUID>8B94FD1B-BAD0-4022-9623-E4A0B3D06346</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="FA94B28DDF47CE03B745A35CCEBD7234">_8B94FD1B-BAD0-4022-9623-E4A0B3D06346</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20261006 @mrwatson-de v0.92&#13;- Add #166 Action `fmIDE Call` to call fmIDE in other files.&#13;  - This is the most beautiful fmIDEAS I have seen to write solution-wide processes:&#13;  - fmIDE → FileA → FileB → back in FileA → back to fmIDE:&#13;&#13;    [+].Show Custom Dialog = == Get ( FileName )&#13;    [+].fmIDE Call.FileA[]&#13;    [:][+].Show Custom Dialog = == Get ( FileName )&#13;    [:][+].fmIDE Call.FileB[]&#13;    [:][:][+].Show Custom Dialog = == Get ( FileName )&#13;    [:][+].Show Custom Dialog = == &quot;Back in &quot; &amp; Get ( FileName )&#13;    [+].Show Custom Dialog = == &quot;Back in &quot; &amp; Get ( FileName )&#13;&#13;- Fix #164 Short Form for Action `Press` → `.key`&#13;- Fix $$fmide_get_last_error_description reset&#13;- Fix Action `Select Script Folder` to retry &amp; do error handling&#13;- Standardised Version number format in history comments to *with* `v`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AD815EAD91A2748706BDB594FBCA4C9C" index="18" id="89" name="# (comment)" enable="True">
+			<UUID>24EBF467-821D-429A-8192-126DA7C4A2AD</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9E3D83F4F135B638C9F5F1BC209E897F">_24EBF467-821D-429A-8192-126DA7C4A2AD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20261006 @mrwatson-de v0.91&#13;- Improve error handling&#13;  - extend to include description in $$fmide_get_last_error_description (using embeded fmIDE.GetFileMakerErrorMessage CF)&#13;  - unknown action throws error 4 Command is unknown&#13;  - Fix last error variable name in Action `Set Zoom Level`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CBDC514708C7A2A2BE26B9E318EFFE99" index="19" id="89" name="# (comment)" enable="True">
+			<UUID>E391F810-3A9C-430F-8005-82209E2D6AE3</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="3B0CB1386C34C284141FA7BD2EE6D48F">_E391F810-3A9C-430F-8005-82209E2D6AE3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20261003 @mrwatson-de v0.89&#13;- Add Action `Set Multi-User` (for turning agentic access in a local file on/off)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="27FD58A948DC349F6F49355C22D2B387" index="20" id="89" name="# (comment)" enable="True">
+			<UUID>5B665F82-D2F3-496F-9CE1-F6B24AB9B880</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0051300ED9106352317E303441226F91">_5B665F82-D2F3-496F-9CE1-F6B24AB9B880</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20261001 @mrwatson-de v0.88&#13;- Add support for writing asynchronous script results automatically to a file/folder by setting variables:&#13;  - `$fmide_on_exit_script_write_data_to_file_path` to write just the script result&#13;  - `$fmide_on_exit_script_write_data_to_folder_path` to write&#13;    - `script_result.txt`&#13;    - `last_error.txt`&#13;    - `last_error_detail.txt`&#13;    - `last_error_location.txt`&#13;  - written as utf-8 text files"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1F3D812D45EC84852715207DA1139D6C" index="21" id="89" name="# (comment)" enable="True">
+			<UUID>5A5AEE02-3A6B-4FF5-9F17-F616E714BF4A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="49ED68CBDDD8925F933D4C1462DFD603">_5A5AEE02-3A6B-4FF5-9F17-F616E714BF4A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260929 @mrwatson-de v0.87&#13;- ***BREAKING CHANGE***&#13;  - With this change $fmide_version no longer contains a &apos;v&apos;. Use `$fmide_release_tag` if you need the v.&#13;- Fix #154 Standardise release/version info between fmJAML and fmIDE: `$fmjaml_release`, `$fmjaml_release_tag` and `$fmjaml_version`&#13;- Update to fmJAML v0.37 to include the standardised parameters"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F31547E91559D4FAC38E304278642BA2" index="22" id="89" name="# (comment)" enable="True">
+			<UUID>7F413B6B-0D0D-4BE7-A1D2-6A678939FCA2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="1302CCED03F254B8AA5DC19DFE128A75">_7F413B6B-0D0D-4BE7-A1D2-6A678939FCA2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260924 @mrwatson-de v0.86&#13;- Add Action `Speak`&#13;- Add Action `Scroll Window`&#13;- Add Action `Show/Hide Text Ruler`&#13;- Add Action `New File`&#13;- Add Action `RecoverFile`&#13;- Add Action `Print`&#13;- Fix #149 Handle default = 1 correctly (e.g. with_dialog)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E58DB159AB370B4218F8C8336D376EA5" index="23" id="89" name="# (comment)" enable="True">
+			<UUID>55FB2235-1337-4CF9-8C34-599CF252AC73</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="3E6E71E4E9E949A9D6F8F3E775437AAE">_55FB2235-1337-4CF9-8C34-599CF252AC73</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260922 @mrwatson-de v0.85&#13;- Update fmJAML to v0.35&#13;  - Add #42: Support for referencing current fmJAML JSON output using the `$fmjaml__json` variable&#13;  - Add #43: &apos;herecalc&apos; operator `=`, which makes it possible to have multiline calculations &#13;- Add `= evaluation line` (actually only discovered)&#13;  - `= «calculation»` evaluates the calculation without affecting the JSON.&#13;  - `= =/«multiline-calculation»/===` can be used to define multiple variables.&#13;- ***BREAKING CHANGE***&#13;  - Fix #138 Action `View as` property &apos;value&apos; changed from calculated to fixed value"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="83FBD104483A2F42CF6B1138C559E4AE" index="24" id="89" name="# (comment)" enable="True">
+			<UUID>61E6671D-58E5-482D-8691-B702E760A7BE</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="E2B91D926A695FC74EF30004B5230CA2">_61E6671D-58E5-482D-8691-B702E760A7BE</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260920 @mrwatson-de v0.84.1&#13;- Fix Actions &quot;Go To Script&quot; and &quot;Open Script&quot; to set focus to the script (MBS 16.4 required!)&#13;  - which fixed the `Press CMD-A in a script` test"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="576C2C41F5106C47D793BAE72652482D" index="25" id="89" name="# (comment)" enable="True">
+			<UUID>8A763C79-E7A3-46A1-9418-DF77B9172ACA</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="105208B2F9F60210EA2A15EE351D5489">_8A763C79-E7A3-46A1-9418-DF77B9172ACA</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260920 @mrwatson-de v0.84&#13;- Update fmJAML to v0.34 which supports&#13;  - `path[]` array constructor"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="872553E7F134F606F7FFE105553AFBB4" index="26" id="89" name="# (comment)" enable="True">
+			<UUID>F9342934-B9CF-42C3-9B1A-C6E2C453A25D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="813A38E2513A68C0932E0673BC3E3DF3">_F9342934-B9CF-42C3-9B1A-C6E2C453A25D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260920 @mrwatson-de v0.83&#13;- Add Action `Save a Copy as`&#13;- Fix Action `fmIDE Get Macro` - target was broken"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="517DC85A1D56B9E76A59B7D697FCE28F" index="27" id="89" name="# (comment)" enable="True">
+			<UUID>DDFFCA98-6B3E-4C3B-8F1A-D0118A226F01</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="1CC83C3689D7DC13D3FEA74DDD609183">_DDFFCA98-6B3E-4C3B-8F1A-D0118A226F01</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260916 @mrwatson-de v0.82&#13;- Add #139 Go to «Thing».by:number: Interpret negative numbers &apos;from the end&apos; (-1 → n)&#13;- Update fmJAML to v0.33 which supports &#13;  - objects / object path inheritance&#13;- Add abililty to specify actions / action object with fmJAML"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="EECDA1E6E0DBE337AA0560474380C379" index="28" id="89" name="# (comment)" enable="True">
+			<UUID>0608AC1D-A392-4AE5-B6B8-F2F40029E4FE</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="04660E78D1DE4E3160431FA0C5DD2497">_0608AC1D-A392-4AE5-B6B8-F2F40029E4FE</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260911 @mrwatson-de v0.81&#13;- Add #139 Go to «Thing».by:number: Interpret negative numbers &apos;from the end&apos; (-1 → n)&#13;- Improve Action `Go to Value List` to support by number value_list_number&#13;- Improve Action `Go to Base Field` to support&#13;  - base_table_id&#13;  - table_id&#13;  - field_id&#13;  - field_number&#13;  - field_name = &quot;id::id&quot;&#13;  - field_number&#13;- Improve Action `FmideGetMacro ` &#13;  - Add target property (instead of exiting the script)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="98EE17091760255C0CBA95D39C3BC6B7" index="29" id="89" name="# (comment)" enable="True">
+			<UUID>8E28CF03-45BA-4E50-BA3D-E5E7BD294AA2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="E1CA6B05BE2A574AE1A93896A0DB1F0B">_8E28CF03-45BA-4E50-BA3D-E5E7BD294AA2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260910 @mrwatson-de v0.80&#13;- Add Action `Copy All Records/Requests`&#13;- Add Action `Copy Record/Request`&#13;- Add Action `Duplicate Record/Request`&#13;- Add Action `Delete Portal Row`&#13;- Add Action `Unsort Records`&#13;- Add Action `Rename File`&#13;- Add Action `Edit User Dictionary`&#13;- Add Action `Flush Cache to Disk`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F3A873A7E0B87997E7AC4DB6726EBC4C" index="30" id="89" name="# (comment)" enable="True">
+			<UUID>7223B17D-CC95-44AA-B83A-C6F259C42EAD</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="466EC0BBCBEF4269584566B00C9FBC12">_7223B17D-CC95-44AA-B83A-C6F259C42EAD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260909 @mrwatson-de v0.79&#13;- Add Action `Show Omitted Only`&#13;- Add Action `Omit Record`&#13;- Add Action `Omit Multiple Records`&#13;- Add Action `Delete All Records`&#13;- Add Action `Modify LastFind`&#13;- Add Action `Set Web Viewer`&#13;- Fix Action `Perform JavaScript in Web Viewer`&#13;- Fix #136 Rename Variables `$$fmide_last_error` &amp; co. with `get_` to reflect the Get ( … ) function they imitate&#13;- Change error dialog button from `Cancel` to `Exit Script` and change to pause if SHIFT+OPT are being held when selected.&#13;- Add Documentation"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="54339A61E204F4F6FFDE64FDB2A1221C" index="31" id="89" name="# (comment)" enable="True">
+			<UUID>0C4947B2-B07C-4A36-AF84-AFEDB2679604</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="EEBECB3491D6A9EF1477FCEEB53CABB7">_0C4947B2-B07C-4A36-AF84-AFEDB2679604</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260908 @mrwatson-de v0.78&#13;- Improve Action `Save a Copy as XML` with a short form that only takes the file_path"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F1633BA4DB96A17D0B6A3D726CC8D4CB" index="32" id="89" name="# (comment)" enable="True">
+			<UUID>6E26FF3F-A7FC-4F59-9601-A4A9AC57C6C1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D805BFD5BFFB3617DAE6D3C346E576A6">_6E26FF3F-A7FC-4F59-9601-A4A9AC57C6C1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260908 @mrwatson-de v0.77&#13;- Add Action `Select Script Folder`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C0D7950011DE0F25A3B02A48731F8D1B" index="33" id="89" name="# (comment)" enable="True">
+			<UUID>C52F4727-24FD-48A0-9345-FBB6107583FB</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C20240FF20EEEFAD5B0F3991A9B95991">_C52F4727-24FD-48A0-9345-FBB6107583FB</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260906 @mrwatson-de v0.76&#13;- Add Action `New Window`&#13;- Add Action `Close Window`&#13;- Improve Action `Set`&#13;  - #129 Support for short form target with dots&#13;  - #130 Support for repetitions, incl. short form integer repetitions (JSONArrays)&#13;- Improve `ConfigurePersistentData`/`SetPersistentData` to use `calculation`rather than `value`&#13;- Fix &#13;  - Fix #82 Custom Menus dialog Crash&#13;  - Fix #83 Custom Functions dialog Crash&#13;  - Fix occasional Hiatus Crash"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BB12DC0D27E4495B974B36B5494BF2FB" index="34" id="89" name="# (comment)" enable="True">
+			<UUID>29C5CC33-5C39-4DFD-A4FD-1B4EBDA673CD</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C8750EF34FC63C5C6014C91B72F1F22E">_29C5CC33-5C39-4DFD-A4FD-1B4EBDA673CD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260904 @mrwatson-de v0.75&#13;- Add Action `Perform JavaScript in Web Viewer`&#13;- Add Action `Go to File Access` and alias `Go to File Authorization`&#13;- Improve Acton `Go to List of Records`&#13;  - Add parameter `new_window`&#13;  - Add parameter `window_name`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A54D8FEF8E4C0CC6E5B59F2D542CB371" index="35" id="89" name="# (comment)" enable="True">
+			<UUID>91DB4D69-E67C-4247-B501-FCBA50F7BA73</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="EA988A8C140D8FAE729A447889554339">_91DB4D69-E67C-4247-B501-FCBA50F7BA73</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260903 @mrwatson-de v0.74&#13;- Add #123 Action `Set Window Title`&#13;- Add #124 Action `Hiatus`&#13;- Remove `.hiatus` parameter from Action `Pause` **BREAKING CHANGE**&#13;- Implement #120 the fmIDESS `fmIDE Subscript System`to be able to embed and run subscripts in the ain fmIDE script&#13;- Implement window variables&#13;- Fix #121 to store fmIDE Macros under &quot;fmide_macros&quot; (plural)&#13;- Fix #119 to improve Action `Install OnTimer Script` to also be able to install OnTimer scripts&#13;- Fix #116 $$fmide_last_error_location&#13;- Fix variable $fmide_fmjaml_per_cf to have the `fmide_` prefix&#13;- Update fmJAML to v0.32 with all variables in `lower_snake_case`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="00C5C8E2C625F549327EE83BB4BA1267" index="36" id="89" name="# (comment)" enable="True">
+			<UUID>C79461FE-AEA7-43AE-AE24-21ECB7779DE5</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="AE4B5C809D530BF7D0C636D652DF1117">_C79461FE-AEA7-43AE-AE24-21ECB7779DE5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260901 @mrwatson-de v0.73&#13;- ***BREAKING CHANGE***&#13;- Implement #118 Standardise Parameter `.by` (+ fix #101)&#13;  - Action `Perform Script`&#13;    - `.specified=&quot;By Name&quot;` -&gt; `.by=&quot;name&quot;`&#13;  - Action `Go to Portal Row`&#13;    - `.row=&quot;Calulation&quot;` -&gt; `.by=&quot;number&quot;`&#13;  - Action `Go to Record/Request/Page`/`GoToRecord`/`GoToRequest`/`GoToPage`&#13;    - `.position` -&gt; `.by`&#13;  - Action `Go to Account`&#13;  - Action `Go to BaseLayout`&#13;  - Action `Go to Custom Function`&#13;  - Action `Go to Custom Menu`&#13;  - Action `Go to Custom Menu Item`&#13;  - Action `Go to Custom Menu Set`&#13;  - Action `Go to Extended Privilege`&#13;  - Action `Go to External Data Source`&#13;  - Action `Go to Layout`&#13;  - Action `Go to Layout Field`&#13;  - Action `Go to Portal Row`&#13;  - Action `Go to Privilege Set`&#13;  - Action `Go to Script`&#13;  - Action `Go to Table`&#13;  - Action `Go to Table Occurrence`&#13;  - Action `Go to Theme`&#13;  - Action `Go to Value List`&#13;  - Action `Open Script`&#13;  - Action `Select Script`&#13;  - not yet:&#13;    - Action `FindScriptStep`&#13;    - Action `Go to BaseField`&#13;    - Action `Go to BaseTable`&#13;    - Action `Select Script Steps`&#13;  - always evaluated:&#13;    - Action `Go to List of Records`&#13;    - Action `Go to Object`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D9D9C7BFE1E89F585E00A96204A6E0D1" index="37" id="89" name="# (comment)" enable="True">
+			<UUID>67E203FB-D970-43E9-A889-847DB6A3B78C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="EAC306F274B314408A1251E8CCA7C035">_67E203FB-D970-43E9-A889-847DB6A3B78C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260831 @mrwatson-de v0.72&#13;- Removed deprecated Actions&#13;  - `GoToOriginalLayout` -&gt; use `GoToLayout`&#13;  - `GoToOriginalWindow` -&gt; use `GoToWindow`&#13;  - `Assert` -&gt; roll your own with `If`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="41F9F92AAF3461F969B7E826286BCBA6" index="38" id="89" name="# (comment)" enable="True">
+			<UUID>E749C6DB-A698-472E-99B0-37D59F467118</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="FAECEB9B6B29C0809AD45BCD6223C6D9">_E749C6DB-A698-472E-99B0-37D59F467118</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260831 @mrwatson-de v0.71&#13;- Improve&#13;  - Actions `Select Window` to have similar short form semantic as Go to Layout:&#13;    - Add Short form `Select Window` -&gt; `Select Window (original window)`&#13;    - Add Short form `Select Window =` -&gt; `Select Window (original window)`&#13;  - Action parameters to match fmIDE Name that Thing parameter conventions (Breaking Change)&#13;    - Action `Go to Portal Row` parameter `number` renamed to `row_number`&#13;    - Action `Go to Record/Request/Page`&#13;      - Parameter `by_calculation` renamed to `number`&#13;      - Added parameter aliases `record_number`, `request_number` and `page_number`&#13;      - Any ONE parametrer from `number`/`record_number`/`request_number`/`page_number` can be used&#13;        - i.e. the four parameters are interchangable and NOT dependent on mode&#13;  - Action `Show/Hide Toolbars` to support boolean in the show parameter&#13;  - Action `Store Keyboard Buffer ` to have short form&#13;- Fix&#13;  - Action `Go to Theme` to evaluate `theme_name`&#13;  - Action `Insert Text` and `Insert Calculated Result` to evaluate `select`&#13;  - #85 Variable leakage between actions&#13;  - Various variable bugs - tx Codex&#13;  - Action `Cut` to use CMD+X instead of CMD+C&#13;  - Action `Refresh Window` to use parameter `flush_cached_join_results` instead of `flush_cached_join_script_results`&#13;  - Action `Move Resize Window ` evaluate `window_name`&#13;  - and various other AI-found bugs fixed&#13;  - Action `Set Error Logging` to correctly evaluate the custom logging calculation&#13;- 359 automatic tests passing"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C26E9C0121954C937EB97492D3B70ADE" index="39" id="89" name="# (comment)" enable="True">
+			<UUID>136E8277-8C4B-4C34-BF38-F6915982A8E2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F26D2EC73C187FF37B56924A60A05AAE">_136E8277-8C4B-4C34-BF38-F6915982A8E2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260830 @mrwatson-de v0.70&#13;- Test table now highlights the test code exactly using @test / @endtest&#13;- 354 automatic tests passing"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6C91AED0D75E109687AF6D3FA449D035" index="40" id="89" name="# (comment)" enable="True">
+			<UUID>98EAC148-BB75-4A22-A76C-8C925E0C60B0</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="CD990F10495DD24D49C1E34ED4718E60">_98EAC148-BB75-4A22-A76C-8C925E0C60B0</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260828 @mrwatson-de v0.69&#13;- Add&#13;  - Action `Run Menu Command`&#13;- Improve&#13;  - Action `Go to Script`&#13;    - Add parameter `.specified = &quot;By Name&quot;`&#13;  - Action `fmIDE Run Macro`&#13;    - Add short form fmIDE Run Macro = «string»` -&gt; `fmIDE Run Macro.macro_name = «string»`&#13;- Fix&#13;  - Action `Go to Account` to evaluate the account_name&#13;  - Action `Exit Script` - parameter `calculation` renamed to `script_result`&#13;  - Actions `fmIDE * macro` help urls&#13;- Remove&#13;  - Acton `Get Resource`&#13;- Tidy Code&#13;  - Correct canonical action names `fmIDERunMacro` to `FmideRunMacro`, etc.&#13;- 343"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="456B8F23700CE3BCDEB8DC397C48720F" index="41" id="89" name="# (comment)" enable="True">
+			<UUID>E30612DF-9291-4F4F-B695-C08A96809381</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F4A6459B06F2EF7BFA9913C8B29F6A3B">_E30612DF-9291-4F4F-B695-C08A96809381</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260827 @mrwatson-de v0.68&#13;- Breaking Change!&#13;- Fix `Set Clipboard Text` parameters:&#13;  - .text = == «calculation»&#13;  - .type = == «calculation»&#13;- Fix `Set Clipboard Object` parameters:&#13;  - .text = == «calculation»&#13;  - .type = == «calculation» (defaults to &apos;auto&apos;)&#13;- Add Alias `Set FileMaker Data` for `Set Clipboard Object` to reflect the MBS function name&#13;- Paste changed back to by menu"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D2B1BD9788A1F63E1FCE076A49F7870C" index="42" id="89" name="# (comment)" enable="True">
+			<UUID>54E494BD-9260-455A-8BC6-B15BBF7B17FE</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="905173972066A79CD83664090F2F3B15">_54E494BD-9260-455A-8BC6-B15BBF7B17FE</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260824 @mrwatson-de v0.67&#13;- Fix Set Error Logging short form&#13;- fmJAML v0.31.1"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="71740C1F6CE9AB339FCF1125ABD7CF1B" index="43" id="89" name="# (comment)" enable="True">
+			<UUID>8E95F3EB-A800-4C22-8704-63425FC766C3</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="92EC24B4BD47EC2D1439E9D959502629">_8E95F3EB-A800-4C22-8704-63425FC766C3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260801 @mrwatson-de v0.66&#13;- Partly Fix #109:&#13;  - fmIDE.GetBaseTableName now returns the BaseTableName correctly of a TO even when the file is hosted"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="12E4A05711671F3DCBDB20F9C808FB6C" index="44" id="89" name="# (comment)" enable="True">
+			<UUID>B60C23BB-4F98-4A6F-AB01-429528605632</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="4835C75C2F05C66E5B8BD03ECC63B14D">_B60C23BB-4F98-4A6F-AB01-429528605632</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260728 @mrwatson-de v0.65&#13;- Fix `Execute FileMaker Data API`&#13;  - Correct implementation of `select`&#13;  - Document support for static and dynamic requests&#13;  - Change tests to use new tidied `fmIDE_Test` base layout&#13;- Add fmide_last_error_location&#13;- Fix error handling to always mark errors as *thrown*"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BE8EE6DD16E048CA7C2C108B0DBF7392" index="45" id="89" name="# (comment)" enable="True">
+			<UUID>853FF4C1-B01C-44B9-81C5-85832FA32BF3</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="3CBDF3E95486E0A5C26CEFA246254254">_853FF4C1-B01C-44B9-81C5-85832FA32BF3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260727 @mrwatson-de v0.64&#13;- Fix `Show Custom Dialog`&#13;  - to use standard JSON syntax&#13;  - to accept up to 3 inputs&#13;  - to allow 0 to 3 buttons to commit changes&#13;  - to use injected Set-actions to set the target (neat)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0ED022F6BF65DA1436C2405E5E48B553" index="46" id="89" name="# (comment)" enable="True">
+			<UUID>4EE2C182-423E-4D14-B793-6980AF6A9C45</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DDE824B9FBEB523AE3A48F6A8237DE7D">_4EE2C182-423E-4D14-B793-6980AF6A9C45</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260720 @mrwatson-de v0.63&#13;- Fix `Pause.hiatus` that broke in v0.53"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9FB5A7E1684F4420DFD92C880080D15B" index="47" id="89" name="# (comment)" enable="True">
+			<UUID>43917CF5-7574-4561-90EB-9246651C284B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="AC8719C6477D75E059C4E1175A31D413">_43917CF5-7574-4561-90EB-9246651C284B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260715 @mrwatson-de v0.62&#13;- Implement #106 fmIDE: Debugger: Conditional breakpoints&#13;- Internal layouts with navigation logo"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0306D8D9AABB1EC44C4C157CD7283887" index="48" id="89" name="# (comment)" enable="True">
+			<UUID>A43459F7-1D55-4409-8E69-14494EA633FC</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="A3E47ED89AD81FE10328866E23EFFDB4">_A43459F7-1D55-4409-8E69-14494EA633FC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260714 @mrwatson-de v0.61&#13;- Deprecated&#13;  - Action `Assert`&#13;  - Action `Get Field Names`&#13;  - Action `Get Resource`&#13;  - Action `Get Version`&#13;  - Action `Go to Original Layout`&#13;  - Action `Go to Original Window`&#13;  - Action `Open Preferences`&#13;  - Action `Show Version`&#13;- Removed&#13;  - Action `Set Pref`&#13;  - Action `Try`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1B8445E6CDE2641BF15D243842958D8D" index="49" id="89" name="# (comment)" enable="True">
+			<UUID>3F31234F-5412-4642-961E-7AB5AC930E1E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5BCDCB38FDAF28E508EA2C61B2CA36E6">_3F31234F-5412-4642-961E-7AB5AC930E1E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260711 @mrwatson-de v0.60&#13;- fmJAML v0.31&#13;- old fmJAML Splash removed"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A0218FCCCA5F0FFF2B2A594485C80165" index="50" id="89" name="# (comment)" enable="True">
+			<UUID>E3228EB5-DEEF-43AB-B2E6-1355C8858B8D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="CF8D917748D573BEDFC16155E622EE6C">_E3228EB5-DEEF-43AB-B2E6-1355C8858B8D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260708 @mrwatson-de v0.59&#13;- Fix #96 Error is no longer repeatedly reported: triggered only when $fmide__last_error_thrown is set"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="09617F9CCE534FE1C339D67DB2C8E5DC" index="51" id="89" name="# (comment)" enable="True">
+			<UUID>38CB7AED-3691-4A8E-B44C-DE3138933C02</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7C678DE7E51BEFDD2849D3A4BA85C42D">_38CB7AED-3691-4A8E-B44C-DE3138933C02</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260706 @mrwatson-de v0.58&#13;- Fix #103 Only one exit script point (prerequisite for support for returning script parameter to a ke&lt; hook)&#13;  - Implemented using fmide__inject_actions&#13;  - All actions that return values, now return them via an injected Exit Script action&#13;- Simplify:&#13;  - Drop Action `Get Version` - Instead use `[+].Exit Script = == $fmide_version`&#13;  - Drop Action `Show Version` - Instead use `[+].Show Custom Dialog = == $fmide_version`&#13;- Fix #104 rename incorrect var $$fmide_allow_user_abort to $$fmide_allow_abort_state"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2B682AA385B182833966126386CAF17C" index="52" id="89" name="# (comment)" enable="True">
+			<UUID>5ADEDEFF-E509-4834-9B18-99D2D4A3DAF0</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D98651949B64DD74734B7A92E588905E">_5ADEDEFF-E509-4834-9B18-99D2D4A3DAF0</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260701 @mrwatson-de v0.57&#13;- Extended fmIDE Macros to have `.name`, `.code` and `.metadata`attributes&#13;- Add Action `fmIDE Get Macro`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6FF6DC5F3A6813884BC611328C8D737F" index="53" id="89" name="# (comment)" enable="True">
+			<UUID>28161B57-FABA-481E-A1B9-10089562D540</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="64DA1446092F694AE7E6357D1CFF2D2F">_28161B57-FABA-481E-A1B9-10089562D540</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260629 @mrwatson-de v0.56&#13;- fmJAML @version: 2026-06-29 @mrwatson-de v0.28&#13;  - Automatically recognise `true` and `false` values as booleans&#13;- Add Action `Configure Persistent Data`&#13;  - Add Action Alias `Set Persistent Data`&#13;  - Add Action Alias `Delete Persistent Data`&#13;- Add Action `fmIDE Define Macro`&#13;- Add Action `fmIDE Run Macro`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D9AC4F9BFD2A8F53A62C4F6B48C9A134" index="54" id="89" name="# (comment)" enable="True">
+			<UUID>A4D20C3D-4173-42CB-B546-9D76C9255B98</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="2A6222556DE302149E8F39758C289391">_A4D20C3D-4173-42CB-B546-9D76C9255B98</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260626 @mrwatson-de v0.55&#13;- Improve Action `Perform Script` (BREAKING CHANGE)&#13;  - Add option `.selection = &quot;By name&quot;`&#13;  - Rename option `.script_file_name` to `.file_name`&#13;  - Evaluate `.script_parameter`&#13;- Improve Action `Go to Layout:&#13;  - Change option `.by = &quot;name&quot;` to evaluate `.layout_name`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D7B832DF359E2373FE7707DF9BB0F911" index="55" id="89" name="# (comment)" enable="True">
+			<UUID>8B41D03D-0FC5-45D5-9EBF-839259E66496</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="A98FED5AA2AD9D7566E95BD72B2F97A1">_8B41D03D-0FC5-45D5-9EBF-839259E66496</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260624 @mrwatson-de v0.54&#13;- Add Action `Set Zoom Level`&#13;- Add Action `View As`&#13;- 46% of FileMaker Script Steps implemented to some extent&#13;- 282 automatic tests passing"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="B1758BB7BCEAA3CBB5FAAFDAAF06A4F0" index="56" id="89" name="# (comment)" enable="True">
+			<UUID>9E9DD0FD-A8B9-4A8C-980F-429CB8F77BB3</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="FBAA61CAFE73F9B42148A4FF27EC47F2">_9E9DD0FD-A8B9-4A8C-980F-429CB8F77BB3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260623 @mrwatson-de v0.53&#13;- Add Action `Cut`&#13;- Add Action `Clear`&#13;- Add Action `Undo/Redo`, inc. Alias `Undo` and `Redo`&#13;- Add Action `Select All`&#13;- Add Action `Set Selection`&#13;- Add Action `Delete Record/Request`&#13;- Add Action `Go to List of Records`&#13;- Add Action `Open Record/Request`&#13;- Add Action `Revert Record/Request`&#13;- Add Action `Adjust Window`&#13;- Add Action `Open File`&#13;- Add Action `Close File`&#13;- Add Action `Exit Application`&#13;- Fix `Pause` to have Parity with FileMaker&#13;  - with `.duration` (seconds) and `.indefinitely` (boolean)&#13;  - dropped ms&#13;- 45% of FileMaker Script Steps implemented to some extent&#13;- 276 automatic tests passing&#13;- Happy birthday fmIDE - 4 years old!"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F99287E32D87627654E65AD6C119BA97" index="57" id="89" name="# (comment)" enable="True">
+			<UUID>CDE96638-5821-40D0-A34D-2213CECA526B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="4CAE15D75CBD3C5F25A3099D28D491DB">_CDE96638-5821-40D0-A34D-2213CECA526B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260622 @mrwatson-de v0.52&#13;- Add Action `Re-Login`&#13;  - and extend action_name cleaning to also remove `-`&#13;- Extend `Refresh Window` to support flushing options&#13;- Extend `Go to Object` to support `.repetition`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="55D04F78707A74B23D0B9F926153C040" index="58" id="89" name="# (comment)" enable="True">
+			<UUID>3B1F011B-B519-4539-8E25-648AA32E89A7</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="B6648218E948BD21C2EC25CF86EC5EAA">_3B1F011B-B519-4539-8E25-648AA32E89A7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260619 @mrwatson-de v0.51&#13;- fmJAML @version: 2026-06-17 @mrwatson-de v0.27&#13;  - With support for value operators &quot;==&quot;, &quot;===&quot;, &quot;====&quot;, &quot;=====&quot;&#13;- Drop `.text` parameter in Action `Set`&#13;- Fix handling of null in Action `Perform Find`&#13;  - This needs a central fix"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3E14200E35B9F04067A3EE46EE112580" index="59" id="89" name="# (comment)" enable="True">
+			<UUID>C27BD833-ACE1-4DFA-BF89-DFC1B77A2060</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D9C815D3AF832590A1BA4BBE54444651">_C27BD833-ACE1-4DFA-BF89-DFC1B77A2060</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260618 @mrwatson-de v0.50&#13;- Fix Action parameters to be evaluated:&#13;  - `Go to Object = == &quot;object name&quot;`&#13;  - `Insert from URL.url= == &quot;url&quot;`&#13;  - `..curl_options= == &quot;url&quot;`&#13;- Fix Name that Thing `object_name` Parameter to quote the object name&#13;- Extend `Commit Records` Action to support `skip_data_entry_validation` and `override_ess_locking_conflicts` &#13;- Extend `Go to Portal Row` Action to support `with_dialog`&#13;- Fix `Insert from URL` with no target&#13;- Fix `Beep` for Parity: no `.times`&#13;- Fix variable names so that they don&apos;t clash&#13;- Reinstated Action `GoToOriginalWindow` … sigh"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="B6D0654753706A7B878CF8218E919532" index="60" id="89" name="# (comment)" enable="True">
+			<UUID>68BA2C84-582C-42CE-A45D-8E00B5AA7357</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="20CED03EA93DBD2099F1C9F22E231ACB">_68BA2C84-582C-42CE-A45D-8E00B5AA7357</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260617 @mrwatson-de v0.49&#13;- Add 10 Actions for Data File manipulation (above all to support the fmIDE testing environment)&#13;  - `Get File Exists`&#13;  - `Get File Size`&#13;  - `Create Data File`&#13;  - `Delete File`&#13;  - `Open Data File`&#13;  - `Close Data File`&#13;  - `Read from Data File`&#13;  - `Write to Data File`&#13;  - `Get Data File Position`&#13;  - `Set Data File Position`&#13;- Add Action `Move/Resize Window`&#13;- Add Action `Select Window`&#13;- Fix diabling actions using `//`&#13;- Improve error handling to not show error on skipped lines (although errors are still repeatedly shown)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A4A681F3529F15D76F847EAF003E8108" index="61" id="89" name="# (comment)" enable="True">
+			<UUID>5836C509-0D16-4574-BB50-84686AE9B8EA</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="1ECAFDFC0D2FF90F0B0305A1D612188F">_5836C509-0D16-4574-BB50-84686AE9B8EA</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260615 @mrwatson-de v0.48&#13;- Add error handling&#13;  - Add Action `Set Error Capture`&#13;    - Sets $fmide_error_capture_state = equivalent to Get ( ErrorCaptureState )&#13;  - Add Action `Allow User Abort`&#13;    - Sets $fmide_allow_abort_state = equivalent to Get ( AllowAbortState )&#13;  - Add Try Loop to capture errors and shows dialog&#13;    - Catch error and show fmIDE-dialog when MBS can&apos;t find script in script workspace&#13;- Remove Action `GoToOriginalWindow` - deprecated and removed"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2A54743D54441CA6F16906C22FE72219" index="62" id="89" name="# (comment)" enable="True">
+			<UUID>752B8CF3-16F1-4815-96F1-18B91D51AA06</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6630735E1E7137B91A65CDEE6AFC1DF0">_752B8CF3-16F1-4815-96F1-18B91D51AA06</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260613 @mrwatson-de v0.47&#13;- Make $fmJAML_per_CF a settable option&#13;- Improve Action `Go to Record/Request/Page`&#13;  - add short forms&#13;    - with «string» to be one of the allowed values or a calculation&#13;    - with «number» -&gt; `.by_calculation`&#13;  - fail fast if `Prev` used&#13;  - improved keys:&#13;    - `.by_calculation` instead of `.number`&#13;    - `.position` instead of `.record`&#13;    - `.value` removed&#13;- Improve Action `Open URL`:&#13;  - Add option `external`&#13;  - BREAKING CHANGE: All options now accept calculation: &#13;- Improve Action `Assert`: Add option `external`&#13;- fmIDE and fmJAML passing 172 automatic tests&#13;- Simplify installation and cutomisation of fmIDE&#13;  - Separated the fmIDE Module to the front of the Script List and marked it for copying&#13;  - Simplified the customisation of naming conventions in the Callback interface scripts:&#13;    - Both scripts now work by default for the FileMaker standard situation of&#13;      `base_layout_name` = `table_name` = `base_table_name` &#13;    - Script `fmIDE.GetBaseTableName` fixed to work automagically&#13;      by using the new base table functionality supported since fm 19.4&#13;    - Documented the customisation process clearly in the scripts&#13;  - =&gt; Installation by copying the complete fmIDE Module folder now works out of the box with no customisation &#13;    for standard FileMaker databases where `base_layout_name` = `table_name` = `base_table_name` "></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0D60395218491C8A7631F84591E6C792" index="63" id="89" name="# (comment)" enable="True">
+			<UUID>A3AEE05C-6244-473B-BBAF-F2670CD37A85</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="69449BB069FC367EA346A6DB72BB13FC">_A3AEE05C-6244-473B-BBAF-F2670CD37A85</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260608 @mrwatson-de v0.46&#13;- Fix `Insert from URL` to support short forms for «target» and =«url»&#13;- Fix `Press` action to pause for 1ms to allow the mbs key press to work&#13;- Start adding `Insert Text` and `Insert Calculated Text` Actions"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E8703A7FE94EDD58AFBFFFF6EFB6CD90" index="64" id="89" name="# (comment)" enable="True">
+			<UUID>A20E3DF2-D1BB-4BE0-A558-B70C147D5F30</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="97F71816D26C3E932991B952F2F07381">_A20E3DF2-D1BB-4BE0-A558-B70C147D5F30</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260605 @mrwatson-de v0.45&#13;- BREAKING CHANGES to fmIDE Action Script JSON:&#13;  - By default action scripts expect calculations where the equivalent script step expects calculations&#13;  - A calculation can be identified by a `.calc` sub element&#13;Fix #43 Simplify syntax to allow &quot;Set $i = $i+1&quot;&#13;  - Fix #3 Method of returning parameters&#13;    - `Exit Script` action now works like `Exit Script` step&#13;    - Note: When called by fmpurl use `Insert from URL` in your action script to pass return parameters asynchronously via webhook&#13;  - Fix #39 Go to Script: Support for dynamic names"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BBA2A44EBB201D7DF93B59FA923C41CD" index="65" id="89" name="# (comment)" enable="True">
+			<UUID>1FBACCB6-61A8-4851-881A-F590D0A0A306</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D9ED11CA4DEF332A8B9928965C09FBDD">_1FBACCB6-61A8-4851-881A-F590D0A0A306</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260531 @mrwatson-de v0.44&#13;- Add Actions&#13;  - `Copy`&#13;  - `Copy Script`&#13;  - `Freeze Window`&#13;  - `Select Script`&#13;- Add short forms:&#13;  - `Go to Account` (implicit `.account_name`)&#13;  - `Go to Base Layout` (implicit `.base_table_name`)&#13;  - `Go to Base Table` (implicit `.base_table_name`)&#13;  - `Go to Table` (implicit `.t_o_name`)&#13;  - `Go to Base Field` (implicit `.field_name` / `.field_id`)&#13;  - `Go to Table Occurrence` (implicit `.t_o_name`)&#13;  - `Go to Custom Function ` (implicit `.custom_function_name`)&#13;  - `Go to Custom Menu` (implicit `.custom_menu_name`)&#13;  - `Go to Custom Menu Item` (implicit `.custom_menu_item_name`)&#13;  - `Go to Custom Menu Set` (implicit `.custom_menu_set_name`)&#13;  - `Go to External Data Source` (implicit `.external_data_source_name`)&#13;  - `Go to Extended Privilege` (implicit `.extended_privilege_name`)&#13;  - `Go to Theme` (implicit `.theme_name`)&#13;  - `Go to Value List` (implicit `.value_list_name`)&#13;  - `Open URL` (implicit `.url`)&#13;  - `Select Window` (implicit `.window_name`)&#13;  - `Show Custom Dialog` (implicit `.message`)&#13;- *BREAKING CHANGE*&#13;  - Short form of `Pause` changed to implicit `.s` from `.ms` since `.s` is the FM-default (=expected) unit"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="4164B5121E89885D2FA4E6CE269C5676" index="66" id="89" name="# (comment)" enable="True">
+			<UUID>8B138CB0-290A-4433-8919-05E195591480</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C815379524750430A453E2C866EC6BC6">_8B138CB0-290A-4433-8919-05E195591480</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260530 @mrwatson-de v0.43&#13;- Add partial error handling: $$fmide_last_error and $$fmide_last_error_detail set after (native) actions&#13;- Improve Action `Go to Record/Request/Page`&#13;  - Add aliases `Go to Request` and `Go to Page`&#13;  - Add short forms&#13;    - `Go to Record/Request/Page=&quot;next/previous/first/last&quot;` (implicit `.record`)&#13;    - `Go to Record/Request/Page=«number»` (implicit `.number`)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2ADCC457E075BE805AB3EFD13CAF97B7" index="67" id="89" name="# (comment)" enable="True">
+			<UUID>9491F09A-01E0-4AC1-8E11-64EEEA7AC49D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5CEDE26F705C26C56A03A001B4724117">_9491F09A-01E0-4AC1-8E11-64EEEA7AC49D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260528 @mrwatson-de v0.42&#13;- Improve usability&#13;  - Add fmJAML `code from your keyboard` as a compact input DSL. Welcome!&#13;    - Vigorously extend, test and refine fmJAML&#13;    - Add fmJAML shebang `#!fmjaml` to identify the fmIDE parameter as fmJAML (particularly for object JSON)&#13;    - v0.15 with full support for optional operator `?` and mapping operator `-`&#13;    - v0.19 with `!~regex~` op and pOptionalInitialJSON&#13;    - fmJAML Custom Function can be either embedded or run from the CF&#13;  - Add fmIDE Tests (on the back of fmJAML) with 134 tests to date, proving fmIDE and fmJAML do what they should&#13;  - Add fmIDE debugger with $fmide_debugger frontmatter&#13;  - Add support on non-Mac or non-MBS systems to get deeper into script by showing dialog with script info to copy&#13;  - Add Example Scripts demonstrating possible JSON coding methods&#13;- Actions&#13;  - Add `Allow User Abort` Action&#13;  - Add `Assert` Action&#13;  - Fix `*If` Action short forms to test properly&#13;  - Fix `Go to Script` Action to ignore existing MBS / fmAutoMate search&#13;- New System Requirement&#13;  - Use JSONGetElementType and thus fmIDE requires FM 19.5.1 or greater"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9E14FF4171AE4C5D29EADDF1C8FED19E" index="68" id="89" name="# (comment)" enable="True">
+			<UUID>E760A75F-616C-4E10-AEAA-E98171A3AC74</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9BC22AF3C6FD7AC8DFC34F5513F63F33">_E760A75F-616C-4E10-AEAA-E98171A3AC74</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20241014 @mrwatson-de v0.41&#13;- Add support for dynamic `script_name`s, `_stub`s, `_number`s and `_id`s - using `.value`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3FF3F581B38BD7296B266A4CDBE07D3D" index="69" id="89" name="# (comment)" enable="True">
+			<UUID>2A6ECBAF-9846-4DD9-86C4-79D71A8B5BA3</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="AD416D56F919CBDAA927CA42662CB404">_2A6ECBAF-9846-4DD9-86C4-79D71A8B5BA3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20241011 @mrwatson-de v0.40&#10;- Add action `Show Version`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F9AE646498CD2DE3C1F6EC96A7789C9D" index="70" id="89" name="# (comment)" enable="True">
+			<UUID>C9D7FFCC-BDC5-4F57-80C4-CD97C133452C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="82F893941656BB3A0A616E9F0D1CB683">_C9D7FFCC-BDC5-4F57-80C4-CD97C133452C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20240927 @mrwatson-de v0.39&#13;- Fix #37 - Name that Thing by passing variable definitions: `$script_name=&quot;Test&quot;`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="85B71E4E5D4DB20128A2238FA352619E" index="71" id="89" name="# (comment)" enable="True">
+			<UUID>19B27BCD-13D1-4C5C-AA02-9AEE184539D5</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="00103FE3BEEAF1973CF17A714B625532">_19B27BCD-13D1-4C5C-AA02-9AEE184539D5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20240607 @mrwatson-de v0.38&#13;- Fix #35 so Go to Field works when only base_table_name is supplied"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C3BF44818176746290C381DDA95ABC89" index="72" id="89" name="# (comment)" enable="True">
+			<UUID>7E4C1590-F943-4BAC-9AAE-98773B4D222A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="02CA38DD631C7848DC9813592BFAC406">_7E4C1590-F943-4BAC-9AAE-98773B4D222A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20240606 @mrwatson-de v0.37&#13;- Implement #34 Add action `New Record/Request`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D50D9C16F688D1911BAF65D5CF910E66" index="73" id="89" name="# (comment)" enable="True">
+			<UUID>EEFBCF44-0D4F-41FE-AC89-E83115D6669F</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5C20FA9AD44689C614DB42342CBA7130">_EEFBCF44-0D4F-41FE-AC89-E83115D6669F</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20240516 @mrwatson-de v0.36&#13;- Fix #33 Improve fmIDE installation by using PSBN for recursive script calls to avoid broken calls"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9FC1B9A317A97CA0787959FBADAA4223" index="74" id="89" name="# (comment)" enable="True">
+			<UUID>5B1362BD-FEFA-418B-9049-91DE850512EC</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="06C939640AD88E7EBA5D4AAFD1A41D6E">_5B1362BD-FEFA-418B-9049-91DE850512EC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20240423 @mrwatson-de v0.35.1&#13;- Implement #32 Perform Find, Constrain Found Set, Extend Found Set&#13;- v35"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C5523AEC37BA562D748F0F0DB32FD3F9" index="75" id="89" name="# (comment)" enable="True">
+			<UUID>A8157725-2F84-43A8-8198-1EE9CA56E53B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="B6F83D7D9E6247E1C115F37F26EFF654">_A8157725-2F84-43A8-8198-1EE9CA56E53B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20240422 @mrwatson-de v0.34&#13;- Fix #31 Go to Layout Part Pause"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="5317F648099CB1FC7E6259DA2AFD3BDD" index="76" id="89" name="# (comment)" enable="True">
+			<UUID>B83E9F28-BD73-4D34-80B0-1391F51DDE3B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6227D068AB52F73424689483ADF64247">_B83E9F28-BD73-4D34-80B0-1391F51DDE3B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20240202 @mrwatson-de v0.33&#13;- Fixed #29 GoToLayoutField when window is in background"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="DCFC25D73F898A89CC06E40CD6309F3D" index="77" id="89" name="# (comment)" enable="True">
+			<UUID>EC046DDE-E5B6-41A0-8E19-E1A414D98C92</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="60B0B64B89D096F6710583DFB1AD73B1">_EC046DDE-E5B6-41A0-8E19-E1A414D98C92</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20230103 @mrwatson-de v0.32&#13;- Changed the `Set Field` action to accept the target as the JSON key and require .value or .text&#13;- Improved fmIDE Script documentation&#13;- Added a (fantastic) `fmIDE script fmpurl MBS link action`(*) to replace-update the script contents&#13;(*) Need to find a better name for those things! Maybe a `fmIDE script action button`?"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="5F6A478A4E7231D0C4A1E66CD679DA77" index="78" id="89" name="# (comment)" enable="True">
+			<UUID>AE66BA75-E9A0-484A-B42B-BAAF674E8B6D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="3D8E848D4E4A6C87B974FE582E2878A4">_AE66BA75-E9A0-484A-B42B-BAAF674E8B6D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221221 @mrwatson-de v0.31.1&#13;- Standardised Version number format in history comments"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="8FE0DB41FBBEAEA999CAAA09653CB00C" index="79" id="89" name="# (comment)" enable="True">
+			<UUID>B6AD5558-CBFD-4F80-8536-1EEF7CD3D041</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D3689011794502112BEF9390FE13397D">_B6AD5558-CBFD-4F80-8536-1EEF7CD3D041</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221207 @mrwatson-de v0.31&#13;- Added action `Perform Script`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="4C287AB120B286342A6E939233E132A8" index="80" id="89" name="# (comment)" enable="True">
+			<UUID>E91C2333-7726-4056-91E8-9A08AA0DB2AB</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7F8D53FC395457982F97273FEFA3DCDC">_E91C2333-7726-4056-91E8-9A08AA0DB2AB</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221111 @mrwatson-de v0.30&#13;- Fixed `Go to Table Occurrence`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C68D76707652FACC60C304E15495F28A" index="81" id="89" name="# (comment)" enable="True">
+			<UUID>41BC8183-C672-4F69-B250-50DBA90EBFE6</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7E242A0907EE5CC122C15B253E70D603">_41BC8183-C672-4F69-B250-50DBA90EBFE6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221110 @mrwatson-de v0.29.1&#13;- Added `object_bounds_*` parameter names - but not yet processed"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="4D544D468EE6ACF4C81CE439FA4C2FFD" index="82" id="89" name="# (comment)" enable="True">
+			<UUID>CC8F22E9-1E60-47F8-AB84-2A25D6C6879D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9D986CDF4E41F97BDDA883CF49D7CCB0">_CC8F22E9-1E60-47F8-AB84-2A25D6C6879D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221109 @mrwatson-de v0.29&#13;- Fixed #25 - Layout objects processed correctly&#13;- Added short syntax to `Set` Action: `Set.$varname=&quot;Value&quot;`&#13;- Improved Changes Script to also save the fmIDE script and copy the scripts text contents"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="076EEB832157EA86F2401D674894982E" index="83" id="89" name="# (comment)" enable="True">
+			<UUID>FD2DA9B7-410B-464F-A460-02BE9EA285C1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="83259F53DC373C531BFADD54FDF93450">_FD2DA9B7-410B-464F-A460-02BE9EA285C1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221028 @mrwatson-de v0.28&#13;- Added `shift` and `option` parameters to the `Press` function"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="59FC3580B6C80C4C719EC5F5EA8E486F" index="84" id="89" name="# (comment)" enable="True">
+			<UUID>E47D0414-0537-40C1-9D26-F9DFFF32A97D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="BE631B26042CA2520B3B1446653C6909">_E47D0414-0537-40C1-9D26-F9DFFF32A97D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221025 @mrwatson-de v0.27&#13;- Added support for some standard message buttons:&#13;  - message__OK&#13;  - message__OK_Cancel&#13;  - message__Cancel_OK&#13;  - message__Yes_No&#13;  - message__No_Yes"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="8F5435B126DDB62F5C69C01EB04431C5" index="85" id="89" name="# (comment)" enable="True">
+			<UUID>9EEE0897-7E42-4ED2-8926-7C417D65F889</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="941DBB592B2ACD9FDE58C139CE0CABA0">_9EEE0897-7E42-4ED2-8926-7C417D65F889</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221017 @mrwatson-de v0.26&#13;- Added compact parameter passing by `key=value` (for example: &quot;[0].Beep.times=3&quot;)&#13;- Added action `Show All Records`&#13;- Added action `Set Clipboard Text`&#13;- Added action `Set Clipboard Objects`&#13;- Fixed Insert from URL when targeting fields"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="79781AB1D0E2733C7AF58C63FF20693D" index="86" id="89" name="# (comment)" enable="True">
+			<UUID>9EF124DD-9209-4F74-85A4-AFB746364B92</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="536D53262E59C8A742FBF4327E7A6611">_9EF124DD-9209-4F74-85A4-AFB746364B92</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221014 @mrwatson-de v0.25.2&#13;- Fix #11 Parameter syntax for specifying calc using `_value`&#13;- Fix #16 Change Author handle MrW to GitHub handle @mrwatson-de&#13;- Changed `Select Script Steps.lines` to `Select Script Steps.range`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9EBF6774EDB487ABF225EFAF7C8AF628" index="87" id="89" name="# (comment)" enable="True">
+			<UUID>C46B92A0-D306-4F58-8F00-9784C0B9288F</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="95D06AA1F14D7E7BD5972B047B309A36">_C46B92A0-D306-4F58-8F00-9784C0B9288F</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221014 @mrwatson-de v0.25.1&#13;- Fix #11 Parameter syntax for specifying calc using `_value`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F81156E95AEDFDA38CFF563E7F2F079D" index="88" id="89" name="# (comment)" enable="True">
+			<UUID>DD62DD7B-ECC4-4949-B061-C0940981F854</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="4C75A5AD0E987E5AC44F44CAAA7E3EB3">_DD62DD7B-ECC4-4949-B061-C0940981F854</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221014 @mrwatson-de v0.25&#13;- Added fmIDE Action `Insert from URL` (Thanks to idea from Marcel Moré and Holger Herbst at the virtual FileMaker Stammtisch Hannover)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="240A6CF1FC879E5E22AD4ED1EE57579C" index="89" id="89" name="# (comment)" enable="True">
+			<UUID>2D7DCE5B-C951-48DE-A750-7A4469B6AE29</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="17354D3E4139C9F3ED0C8B7AFF4824E0">_2D7DCE5B-C951-48DE-A750-7A4469B6AE29</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221013 @mrwatson-de v0.24&#13;- Fix #12 Message with buttons compact syntax with separator `__`&#13;- Fix #4 Hiatus: Salvage local variables&#13;- Added `Select Script Steps.lines` parameter"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3479CE310A1AE5565DDA547B45AA31C5" index="90" id="89" name="# (comment)" enable="True">
+			<UUID>AD6CCEFA-1D75-44F0-A824-5086BCFA1AF7</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="20AA59665B17FC5E7A861BD68D9C293D">_AD6CCEFA-1D75-44F0-A824-5086BCFA1AF7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221008 @mrwatson-de v0.23.1&#13;- Reformatted the history entries&#13;  - without @history prefix&#13;  - with comments always as bullet points"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E77CD9C213FF7BA157AE05E2D20289CC" index="91" id="89" name="# (comment)" enable="True">
+			<UUID>E5992E03-20D9-4678-AAB5-4D1CAB119A96</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="8E2A5CD09C7966C52A7B29BED42FB96D">_E5992E03-20D9-4678-AAB5-4D1CAB119A96</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20261011 @mrwatson-de v0.93&#10;  - Fix #169 Change `script_search` and `script_step_search` to calculated and drop the &apos;…_value&apos; properties  (Breaking Change)&#10;  - Normalised the generated JSON for the Name that Thing API"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="873B1813B02622AB14BD4C8026CFCF5A" index="92" id="89" name="# (comment)" enable="True">
+			<UUID>6D66B9B2-8735-4FBF-9993-72316B99DF55</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F763BD776945A6134A2BB19E4C2D1053">_6D66B9B2-8735-4FBF-9993-72316B99DF55</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20261009 @mrwatson-de v0.92.2&#10;  - Fix Action `Convert Clipboard` with parameter `to`&#10;  - Fix fmIDE Version number&#10;  - Fix #168 Error handling: Renamed old vars from `fmide_last_error` to `fmide_**get_**last_error`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CCEFF9E63A47D00012874F95EC1A85A1" index="93" id="89" name="# (comment)" enable="True">
+			<UUID>2A35BE69-4ADF-43C0-8530-E70B2BEC7C7B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="391A23B155F19AE25055FBAB18A557BA">_2A35BE69-4ADF-43C0-8530-E70B2BEC7C7B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20261006 @mrwatson-de v0.92.1&#10;  - Improve Action `Show/Hide Text Ruler`&#10;    - to treat -1 as toggle&#10;    - to ignore quotes&#10;    - fail fast when state unknown"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="22D2DC5912BC37009D4AF495F5702A1B" index="94" id="89" name="# (comment)" enable="True">
+			<UUID>C04467C6-227B-4F72-91BB-CAD1C52FD8F4</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="11D948BDC8220096E3999080224F7D2A">_C04467C6-227B-4F72-91BB-CAD1C52FD8F4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20261006 @mrwatson-de v0.92&#10;  - Add #166 Action `fmIDE Call` to call fmIDE in other files.&#10;    - This is the most beautiful fmIDEAS I have seen to write solution-wide processes:&#10;    - fmIDE → FileA → FileB → back in FileA → back to fmIDE:&#10;  &#10;      [+].Show Custom Dialog = == Get ( FileName )&#10;      [+].fmIDE Call.FileA[]&#10;      [:][+].Show Custom Dialog = == Get ( FileName )&#10;      [:][+].fmIDE Call.FileB[]&#10;      [:][:][+].Show Custom Dialog = == Get ( FileName )&#10;      [:][+].Show Custom Dialog = == &quot;Back in &quot; &amp; Get ( FileName )&#10;      [+].Show Custom Dialog = == &quot;Back in &quot; &amp; Get ( FileName )&#10;  &#10;  - Fix #164 Short Form for Action `Press` → `.key`&#10;  - Fix $$fmide_get_last_error_description reset&#10;  - Fix Action `Select Script Folder` to retry &amp; do error handling&#10;  - Standardised Version number format in history comments to *with* `v`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="FCC0E2C6274251F671ED60BD890704E9" index="95" id="89" name="# (comment)" enable="True">
+			<UUID>5B09FF23-601C-4009-BB5B-D81628F1995D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F0437408E7A0F5367806477424C8DF1A">_5B09FF23-601C-4009-BB5B-D81628F1995D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20261006 @mrwatson-de v0.91&#10;  - Improve error handling&#10;    - extend to include description in $$fmide_get_last_error_description (using embeded fmIDE.GetFileMakerErrorMessage CF)&#10;    - unknown action throws error 4 Command is unknown&#10;    - Fix last error variable name in Action `Set Zoom Level`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="17D422E713857670ED0E60A0FC539D0D" index="96" id="89" name="# (comment)" enable="True">
+			<UUID>E08C3B8A-2B2A-4B13-AE2C-4E4310B491B5</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="EC2A9981AAE43B62AD4F4B4CCF49B147">_E08C3B8A-2B2A-4B13-AE2C-4E4310B491B5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20261003 @mrwatson-de v0.89&#10;  - Add Action `Set Multi-User` (for turning agentic access in a local file on/off)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1CE6B4241BAB48188633E79D294BDA09" index="97" id="89" name="# (comment)" enable="True">
+			<UUID>26CCFBC6-49E4-4418-A55A-5909DC7DDBA2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7FACEE11288F357FD0CE858595370874">_26CCFBC6-49E4-4418-A55A-5909DC7DDBA2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20261001 @mrwatson-de v0.88&#10;  - Add support for writing asynchronous script results automatically to a file/folder by setting variables:&#10;    - `$fmide_on_exit_script_write_data_to_file_path` to write just the script result&#10;    - `$fmide_on_exit_script_write_data_to_folder_path` to write&#10;      - `script_result.txt`&#10;      - `last_error.txt`&#10;      - `last_error_detail.txt`&#10;      - `last_error_location.txt`&#10;    - written as utf-8 text files"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2F40997096B48236F91625919ADE8524" index="98" id="89" name="# (comment)" enable="True">
+			<UUID>AE26261F-5696-4D09-8090-034F1E21DEC9</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5A74F8E34F7870F37FFCC9520470243A">_AE26261F-5696-4D09-8090-034F1E21DEC9</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260929 @mrwatson-de v0.87&#10;  - ***BREAKING CHANGE***&#10;    - With this change $fmide_version no longer contains a &apos;v&apos;. Use `$fmide_release_tag` if you need the v.&#10;  - Fix #154 Standardise release/version info between fmJAML and fmIDE: `$fmjaml_release`, `$fmjaml_release_tag` and `$fmjaml_version`&#10;  - Update to fmJAML v0.37 to include the standardised parameters"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="4DFD6CD6169AF18D40313F85164ECA89" index="99" id="89" name="# (comment)" enable="True">
+			<UUID>7E1F3596-3F17-4D1A-85CD-39E4FDEB6A85</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="304DB39765150C1B2C56BCC48628C2FA">_7E1F3596-3F17-4D1A-85CD-39E4FDEB6A85</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260924 @mrwatson-de v0.86&#10;  - Add Action `Speak`&#10;  - Add Action `Scroll Window`&#10;  - Add Action `Show/Hide Text Ruler`&#10;  - Add Action `New File`&#10;  - Add Action `RecoverFile`&#10;  - Add Action `Print`&#10;  - Fix #149 Handle default = 1 correctly (e.g. with_dialog)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="EA5FFD489C51E8C72527B227B6D1BAD8" index="100" id="89" name="# (comment)" enable="True">
+			<UUID>AB9785ED-C69F-458C-BBCF-49A0A0275BC1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DCB8929FBBF7454E9410E44C0BCF82EB">_AB9785ED-C69F-458C-BBCF-49A0A0275BC1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260922 @mrwatson-de v0.85&#10;  - Update fmJAML to v0.35&#10;    - Add #42: Support for referencing current fmJAML JSON output using the `$fmjaml__json` variable&#10;    - Add #43: &apos;herecalc&apos; operator `=`, which makes it possible to have multiline calculations &#10;  - Add `= evaluation line` (actually only discovered)&#10;    - `= «calculation»` evaluates the calculation without affecting the JSON.&#10;    - `= =/«multiline-calculation»/===` can be used to define multiple variables.&#10;  - ***BREAKING CHANGE***&#10;    - Fix #138 Action `View as` property &apos;value&apos; changed from calculated to fixed value"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="91B389996E96AA1D4C90457710610DC5" index="101" id="89" name="# (comment)" enable="True">
+			<UUID>D51AA57A-A6F4-42D2-AA4A-07DD1949F113</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="921E4BA22700F60C7524822C7933C84D">_D51AA57A-A6F4-42D2-AA4A-07DD1949F113</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260920 @mrwatson-de v0.84.1&#10;  - Fix Actions &quot;Go To Script&quot; and &quot;Open Script&quot; to set focus to the script (MBS 16.4 required!)&#10;    - which fixed the `Press CMD-A in a script` test"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6689268B6C854D93034DD102C2E1107A" index="102" id="89" name="# (comment)" enable="True">
+			<UUID>F7AC396E-D5DF-415F-8E5D-2D905B11F76C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="37077217F2AA301024CC93EBBCF51764">_F7AC396E-D5DF-415F-8E5D-2D905B11F76C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260920 @mrwatson-de v0.84&#10;  - Update fmJAML to v0.34 which supports&#10;    - `path[]` array constructor"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7DFEC9703F11485C19FA80DEDF9CE39B" index="103" id="89" name="# (comment)" enable="True">
+			<UUID>FA8F3A63-DED9-4328-8274-A43B49270406</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="88C42B0F4633A556CB98F5F7E20004C5">_FA8F3A63-DED9-4328-8274-A43B49270406</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260920 @mrwatson-de v0.83&#10;  - Add Action `Save a Copy as`&#10;  - Fix Action `fmIDE Get Macro` - target was broken"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="11193977987D90298D8E675F70D72AFE" index="104" id="89" name="# (comment)" enable="True">
+			<UUID>4982FF6C-2F39-44B8-B48C-0960D23CF4D5</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="EA16A3BF3EFADEDDF84C1183EF26C579">_4982FF6C-2F39-44B8-B48C-0960D23CF4D5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260916 @mrwatson-de v0.82&#10;  - Add #139 Go to «Thing».by:number: Interpret negative numbers &apos;from the end&apos; (-1 → n)&#10;  - Update fmJAML to v0.33 which supports &#10;    - objects / object path inheritance&#10;  - Add abililty to specify actions / action object with fmJAML"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="29AD9AC09D6D01026EE2983388759561" index="105" id="89" name="# (comment)" enable="True">
+			<UUID>F9734765-D6E4-4305-9C5B-7BA0AB8828C2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6C152BE04A6A1C9255893A83D82C6754">_F9734765-D6E4-4305-9C5B-7BA0AB8828C2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260911 @mrwatson-de v0.81&#10;  - Add #139 Go to «Thing».by:number: Interpret negative numbers &apos;from the end&apos; (-1 → n)&#10;  - Improve Action `Go to Value List` to support by number value_list_number&#10;  - Improve Action `Go to Base Field` to support&#10;    - base_table_id&#10;    - table_id&#10;    - field_id&#10;    - field_number&#10;    - field_name = &quot;id::id&quot;&#10;    - field_number&#10;  - Improve Action `FmideGetMacro ` &#10;    - Add target property (instead of exiting the script)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="49A29C045C130B64EA325BB70549B859" index="106" id="89" name="# (comment)" enable="True">
+			<UUID>ECC452C7-DA6A-4654-907A-4E75AC36C2DC</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="8476B07A64386B2FC1280EEE9C8BBA45">_ECC452C7-DA6A-4654-907A-4E75AC36C2DC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260910 @mrwatson-de v0.80&#10;  - Add Action `Copy All Records/Requests`&#10;  - Add Action `Copy Record/Request`&#10;  - Add Action `Duplicate Record/Request`&#10;  - Add Action `Delete Portal Row`&#10;  - Add Action `Unsort Records`&#10;  - Add Action `Rename File`&#10;  - Add Action `Edit User Dictionary`&#10;  - Add Action `Flush Cache to Disk`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="5502F6A266E2C5D29152865CA1692764" index="107" id="89" name="# (comment)" enable="True">
+			<UUID>A5CDBCCE-930B-4DEE-954C-1B32C590B187</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="A2CA5D7934DDBF9790D243E29A6DDFC8">_A5CDBCCE-930B-4DEE-954C-1B32C590B187</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260909 @mrwatson-de v0.79&#10;  - Add Action `Show Omitted Only`&#10;  - Add Action `Omit Record`&#10;  - Add Action `Omit Multiple Records`&#10;  - Add Action `Delete All Records`&#10;  - Add Action `Modify LastFind`&#10;  - Add Action `Set Web Viewer`&#10;  - Fix Action `Perform JavaScript in Web Viewer`&#10;  - Fix #136 Rename Variables `$$fmide_last_error` &amp; co. with `get_` to reflect the Get ( … ) function they imitate&#10;  - Change error dialog button from `Cancel` to `Exit Script` and change to pause if SHIFT+OPT are being held when selected.&#10;  - Add Documentation"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D7CA2172FF17BD0317837C4239A1A58A" index="108" id="89" name="# (comment)" enable="True">
+			<UUID>FC961B32-136D-4A4E-9125-6CE82BA9AAE4</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7421CA465E15C5376C8DAFE35C4DC60C">_FC961B32-136D-4A4E-9125-6CE82BA9AAE4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260908 @mrwatson-de v0.78&#10;  - Improve Action `Save a Copy as XML` with a short form that only takes the file_path"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CF70CDDA3854F2CA2BD5913A9873809A" index="109" id="89" name="# (comment)" enable="True">
+			<UUID>6C8DF5EE-ED57-4CE6-8885-3A14D21B1E68</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="B8BE0EB9E3D3C80FDDFF6C999DA93180">_6C8DF5EE-ED57-4CE6-8885-3A14D21B1E68</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260908 @mrwatson-de v0.77&#10;  - Add Action `Select Script Folder`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="086BAF0297C5A646A85E8BCBD4D5ACF1" index="110" id="89" name="# (comment)" enable="True">
+			<UUID>F927E647-18D4-49B1-898F-0F8BC38F7559</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="25F24E5F35F089042A9C71C33E5B1E09">_F927E647-18D4-49B1-898F-0F8BC38F7559</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260906 @mrwatson-de v0.76&#10;  - Add Action `New Window`&#10;  - Add Action `Close Window`&#10;  - Improve Action `Set`&#10;    - #129 Support for short form target with dots&#10;    - #130 Support for repetitions, incl. short form integer repetitions (JSONArrays)&#10;  - Improve `ConfigurePersistentData`/`SetPersistentData` to use `calculation`rather than `value`&#10;  - Fix &#10;    - Fix #82 Custom Menus dialog Crash&#10;    - Fix #83 Custom Functions dialog Crash&#10;    - Fix occasional Hiatus Crash"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="29CE441FBFB86A427B0AD86C43E1641E" index="111" id="89" name="# (comment)" enable="True">
+			<UUID>96760C47-09CD-4E46-BCE7-C8D797A055E3</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="ED3DDA363A97943ABADB2E8FFD246C2B">_96760C47-09CD-4E46-BCE7-C8D797A055E3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260904 @mrwatson-de v0.75&#10;  - Add Action `Perform JavaScript in Web Viewer`&#10;  - Add Action `Go to File Access` and alias `Go to File Authorization`&#10;  - Improve Acton `Go to List of Records`&#10;    - Add parameter `new_window`&#10;    - Add parameter `window_name`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3B0CE3FCE1E167680A7EE096A0B1CE80" index="112" id="89" name="# (comment)" enable="True">
+			<UUID>D30DEB53-9E4E-4F6C-A43D-80A5D92C989D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="631E56A438DA36089F4363ACFB76B620">_D30DEB53-9E4E-4F6C-A43D-80A5D92C989D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260903 @mrwatson-de v0.74&#10;  - Add #123 Action `Set Window Title`&#10;  - Add #124 Action `Hiatus`&#10;  - Remove `.hiatus` parameter from Action `Pause` **BREAKING CHANGE**&#10;  - Implement #120 the fmIDESS `fmIDE Subscript System`to be able to embed and run subscripts in the ain fmIDE script&#10;  - Implement window variables&#10;  - Fix #121 to store fmIDE Macros under &quot;fmide_macros&quot; (plural)&#10;  - Fix #119 to improve Action `Install OnTimer Script` to also be able to install OnTimer scripts&#10;  - Fix #116 $$fmide_last_error_location&#10;  - Fix variable $fmide_fmjaml_per_cf to have the `fmide_` prefix&#10;  - Update fmJAML to v0.32 with all variables in `lower_snake_case`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C4E30E1E79BB3F110C6F4A5E4EF8A8E1" index="113" id="89" name="# (comment)" enable="True">
+			<UUID>2C115638-38A5-4AFD-B216-D68E19CC4AA7</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="568F246820CA9A6EC38E8483A1339CA8">_2C115638-38A5-4AFD-B216-D68E19CC4AA7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260901 @mrwatson-de v0.73&#10;  - ***BREAKING CHANGE***&#10;  - Implement #118 Standardise Parameter `.by` (+ fix #101)&#10;    - Action `Perform Script`&#10;      - `.specified=&quot;By Name&quot;` -&gt; `.by=&quot;name&quot;`&#10;    - Action `Go to Portal Row`&#10;      - `.row=&quot;Calulation&quot;` -&gt; `.by=&quot;number&quot;`&#10;    - Action `Go to Record/Request/Page`/`GoToRecord`/`GoToRequest`/`GoToPage`&#10;      - `.position` -&gt; `.by`&#10;    - Action `Go to Account`&#10;    - Action `Go to BaseLayout`&#10;    - Action `Go to Custom Function`&#10;    - Action `Go to Custom Menu`&#10;    - Action `Go to Custom Menu Item`&#10;    - Action `Go to Custom Menu Set`&#10;    - Action `Go to Extended Privilege`&#10;    - Action `Go to External Data Source`&#10;    - Action `Go to Layout`&#10;    - Action `Go to Layout Field`&#10;    - Action `Go to Portal Row`&#10;    - Action `Go to Privilege Set`&#10;    - Action `Go to Script`&#10;    - Action `Go to Table`&#10;    - Action `Go to Table Occurrence`&#10;    - Action `Go to Theme`&#10;    - Action `Go to Value List`&#10;    - Action `Open Script`&#10;    - Action `Select Script`&#10;    - not yet:&#10;      - Action `FindScriptStep`&#10;      - Action `Go to BaseField`&#10;      - Action `Go to BaseTable`&#10;      - Action `Select Script Steps`&#10;    - always evaluated:&#10;      - Action `Go to List of Records`&#10;      - Action `Go to Object`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="5F7FB93C1A75B8BB2B618E1F2846891E" index="114" id="89" name="# (comment)" enable="True">
+			<UUID>4E4A9FB4-82BC-4375-9F28-AA99989BE5F9</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D3A84F2166B535E0AD725749E3ED444D">_4E4A9FB4-82BC-4375-9F28-AA99989BE5F9</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260831 @mrwatson-de v0.72&#10;  - Removed deprecated Actions&#10;    - `GoToOriginalLayout` -&gt; use `GoToLayout`&#10;    - `GoToOriginalWindow` -&gt; use `GoToWindow`&#10;    - `Assert` -&gt; roll your own with `If`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9B747CE5010343BEC8E90AA0DA06A130" index="115" id="89" name="# (comment)" enable="True">
+			<UUID>E7DC5C5F-5C6D-4B83-BEE4-E4BC39C1355B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="904EAB709682320EAB8BDAB6AC422441">_E7DC5C5F-5C6D-4B83-BEE4-E4BC39C1355B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260831 @mrwatson-de v0.71&#10;  - Improve&#10;    - Actions `Select Window` to have similar short form semantic as Go to Layout:&#10;      - Add Short form `Select Window` -&gt; `Select Window (original window)`&#10;      - Add Short form `Select Window =` -&gt; `Select Window (original window)`&#10;    - Action parameters to match fmIDE Name that Thing parameter conventions (Breaking Change)&#10;      - Action `Go to Portal Row` parameter `number` renamed to `row_number`&#10;      - Action `Go to Record/Request/Page`&#10;        - Parameter `by_calculation` renamed to `number`&#10;        - Added parameter aliases `record_number`, `request_number` and `page_number`&#10;        - Any ONE parametrer from `number`/`record_number`/`request_number`/`page_number` can be used&#10;          - i.e. the four parameters are interchangable and NOT dependent on mode&#10;    - Action `Show/Hide Toolbars` to support boolean in the show parameter&#10;    - Action `Store Keyboard Buffer ` to have short form&#10;  - Fix&#10;    - Action `Go to Theme` to evaluate `theme_name`&#10;    - Action `Insert Text` and `Insert Calculated Result` to evaluate `select`&#10;    - #85 Variable leakage between actions&#10;    - Various variable bugs - tx Codex&#10;    - Action `Cut` to use CMD+X instead of CMD+C&#10;    - Action `Refresh Window` to use parameter `flush_cached_join_results` instead of `flush_cached_join_script_results`&#10;    - Action `Move Resize Window ` evaluate `window_name`&#10;    - and various other AI-found bugs fixed&#10;    - Action `Set Error Logging` to correctly evaluate the custom logging calculation&#10;  - 359 automatic tests passing"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F47D8C76E3F93A822EE0C58BC44E5D6F" index="116" id="89" name="# (comment)" enable="True">
+			<UUID>5C4823F0-189E-4117-8E4D-F78CB5EA30A3</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D89B76F3E330EB74BAE34065DDD5AB05">_5C4823F0-189E-4117-8E4D-F78CB5EA30A3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260830 @mrwatson-de v0.70&#10;  - Test table now highlights the test code exactly using @test / @endtest&#10;  - 354 automatic tests passing"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="741656AF743D6B0EE7732D607D14DFC3" index="117" id="89" name="# (comment)" enable="True">
+			<UUID>2B3A8DC1-52BF-4543-A269-B13529A73DA4</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0FFE660261674EAF1B96F21BB63625A9">_2B3A8DC1-52BF-4543-A269-B13529A73DA4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260828 @mrwatson-de v0.69&#10;  - Add&#10;    - Action `Run Menu Command`&#10;  - Improve&#10;    - Action `Go to Script`&#10;      - Add parameter `.specified = &quot;By Name&quot;`&#10;    - Action `fmIDE Run Macro`&#10;      - Add short form fmIDE Run Macro = «string»` -&gt; `fmIDE Run Macro.macro_name = «string»`&#10;  - Fix&#10;    - Action `Go to Account` to evaluate the account_name&#10;    - Action `Exit Script` - parameter `calculation` renamed to `script_result`&#10;    - Actions `fmIDE * macro` help urls&#10;  - Remove&#10;    - Acton `Get Resource`&#10;  - Tidy Code&#10;    - Correct canonical action names `fmIDERunMacro` to `FmideRunMacro`, etc.&#10;  - 343"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="337798F664496D77FAC88B7F4045067A" index="118" id="89" name="# (comment)" enable="True">
+			<UUID>76A790FF-5D5A-4288-B097-51C7501DA44B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="68AA160F981383CD78F385AB1B2E1730">_76A790FF-5D5A-4288-B097-51C7501DA44B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260827 @mrwatson-de v0.68&#10;  - Breaking Change!&#10;  - Fix `Set Clipboard Text` parameters:&#10;    - .text = == «calculation»&#10;    - .type = == «calculation»&#10;  - Fix `Set Clipboard Object` parameters:&#10;    - .text = == «calculation»&#10;    - .type = == «calculation» (defaults to &apos;auto&apos;)&#10;  - Add Alias `Set FileMaker Data` for `Set Clipboard Object` to reflect the MBS function name&#10;  - Paste changed back to by menu"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="FD671468F5AD3081781BDC4D25F56572" index="119" id="89" name="# (comment)" enable="True">
+			<UUID>0A05FF8C-7184-4A80-8BE4-3B77BC9FFCBD</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6155989A48FAD52329242B4C074A122E">_0A05FF8C-7184-4A80-8BE4-3B77BC9FFCBD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260824 @mrwatson-de v0.67&#10;  - Fix Set Error Logging short form&#10;  - fmJAML v0.31.1"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="15D844F76C63C8A5C3914033A32E72B6" index="120" id="89" name="# (comment)" enable="True">
+			<UUID>4FFF4D6D-55BD-421F-BED4-FFB30A9045F0</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9DA78531CBF9BF9C40AE978BD8D8F558">_4FFF4D6D-55BD-421F-BED4-FFB30A9045F0</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260801 @mrwatson-de v0.66&#10;  - Partly Fix #109:&#10;    - fmIDE.GetBaseTableName now returns the BaseTableName correctly of a TO even when the file is hosted"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CF0441C8590F7FD92A5B38D7A7260C5D" index="121" id="89" name="# (comment)" enable="True">
+			<UUID>1DFA4020-3F69-4D8E-B98A-827F7DC7CC53</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="74F5E09D1DAA14DBD4C410D291ED19DA">_1DFA4020-3F69-4D8E-B98A-827F7DC7CC53</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260728 @mrwatson-de v0.65&#10;  - Fix `Execute FileMaker Data API`&#10;    - Correct implementation of `select`&#10;    - Document support for static and dynamic requests&#10;    - Change tests to use new tidied `fmIDE_Test` base layout&#10;  - Add fmide_last_error_location&#10;  - Fix error handling to always mark errors as *thrown*"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="91AFB28AB81F6D17DE6DDDFDAB9B3062" index="122" id="89" name="# (comment)" enable="True">
+			<UUID>B1DA5386-7475-4C38-AFEE-834077F41659</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="8D8AB199C12C4DA35C7E682536640171">_B1DA5386-7475-4C38-AFEE-834077F41659</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260727 @mrwatson-de v0.64&#10;  - Fix `Show Custom Dialog`&#10;    - to use standard JSON syntax&#10;    - to accept up to 3 inputs&#10;    - to allow 0 to 3 buttons to commit changes&#10;    - to use injected Set-actions to set the target (neat)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3B031E197C20D18476D0D56F1424ADE5" index="123" id="89" name="# (comment)" enable="True">
+			<UUID>01A64E13-340F-44D7-83FA-1E55236181C5</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="37F2727EB362F58CD9AC336347544296">_01A64E13-340F-44D7-83FA-1E55236181C5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260720 @mrwatson-de v0.63&#10;  - Fix `Pause.hiatus` that broke in v0.53"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="112E5ABA313D65C7B3766118D54C447F" index="124" id="89" name="# (comment)" enable="True">
+			<UUID>AC702311-568B-46AF-93C2-84E109067D7B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6B20EAD8BD6E21BCCBF0CBB577AAB539">_AC702311-568B-46AF-93C2-84E109067D7B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260715 @mrwatson-de v0.62&#10;  - Implement #106 fmIDE: Debugger: Conditional breakpoints&#10;  - Internal layouts with navigation logo"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6EA5F2E2294917442DC8BAFDE5D28ADC" index="125" id="89" name="# (comment)" enable="True">
+			<UUID>955F62EF-18C3-450D-BA26-A085AAE91C21</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DB898B56C8370BFF83043501CE4F2EBC">_955F62EF-18C3-450D-BA26-A085AAE91C21</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260714 @mrwatson-de v0.61&#10;  - Deprecated&#10;    - Action `Assert`&#10;    - Action `Get Field Names`&#10;    - Action `Get Resource`&#10;    - Action `Get Version`&#10;    - Action `Go to Original Layout`&#10;    - Action `Go to Original Window`&#10;    - Action `Open Preferences`&#10;    - Action `Show Version`&#10;  - Removed&#10;    - Action `Set Pref`&#10;    - Action `Try`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7272CE2D69B3EEE07A1C80ECF42D6289" index="126" id="89" name="# (comment)" enable="True">
+			<UUID>184A45F9-5794-4F97-872F-50949D19BAC1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="8B3DB97F5804476FC670B7D8C682813B">_184A45F9-5794-4F97-872F-50949D19BAC1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260711 @mrwatson-de v0.60&#10;  - fmJAML v0.31&#10;  - old fmJAML Splash removed"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C82864B10631FFF1004E1024E7EF5882" index="127" id="89" name="# (comment)" enable="True">
+			<UUID>3C860E54-FC16-4A0D-9AC6-DB7BC82285A2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="2991CB1014285F59C3625C8481D6F496">_3C860E54-FC16-4A0D-9AC6-DB7BC82285A2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260708 @mrwatson-de v0.59&#10;  - Fix #96 Error is no longer repeatedly reported: triggered only when $fmide__last_error_thrown is set"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BA31CF8AE6A418E01CDBDD3E2092DCF2" index="128" id="89" name="# (comment)" enable="True">
+			<UUID>EC52DC36-E0E8-46F3-9324-F08A0DAA98EB</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="8D71BEB953F2185B291CA76BEC8B812B">_EC52DC36-E0E8-46F3-9324-F08A0DAA98EB</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260706 @mrwatson-de v0.58&#10;  - Fix #103 Only one exit script point (prerequisite for support for returning script parameter to a ke&lt; hook)&#10;    - Implemented using fmide__inject_actions&#10;    - All actions that return values, now return them via an injected Exit Script action&#10;  - Simplify:&#10;    - Drop Action `Get Version` - Instead use `[+].Exit Script = == $fmide_version`&#10;    - Drop Action `Show Version` - Instead use `[+].Show Custom Dialog = == $fmide_version`&#10;  - Fix #104 rename incorrect var $$fmide_allow_user_abort to $$fmide_allow_abort_state"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="237D93446C7AEA1F18F7C4BA5D110F56" index="129" id="89" name="# (comment)" enable="True">
+			<UUID>99CD5EBD-E746-4C39-963E-2D59ADD6AE17</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6DD6843E52A57E9827CAB03BFEF7982A">_99CD5EBD-E746-4C39-963E-2D59ADD6AE17</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260701 @mrwatson-de v0.57&#10;  - Extended fmIDE Macros to have `.name`, `.code` and `.metadata`attributes&#10;  - Add Action `fmIDE Get Macro`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1074D94795F10FBDFDF1FAF065CD3275" index="130" id="89" name="# (comment)" enable="True">
+			<UUID>C1F0F2C6-7830-449E-9BD0-55F3B03ABF96</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="45984D29A892FC7FFF52E0441DDE5B78">_C1F0F2C6-7830-449E-9BD0-55F3B03ABF96</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260629 @mrwatson-de v0.56&#10;  - fmJAML @version: 2026-06-29 @mrwatson-de v0.28&#10;    - Automatically recognise `true` and `false` values as booleans&#10;  - Add Action `Configure Persistent Data`&#10;    - Add Action Alias `Set Persistent Data`&#10;    - Add Action Alias `Delete Persistent Data`&#10;  - Add Action `fmIDE Define Macro`&#10;  - Add Action `fmIDE Run Macro`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="EAC344B96317AD9BE4315DD0A1AF35D2" index="131" id="89" name="# (comment)" enable="True">
+			<UUID>909910D4-C3FF-4303-9CCD-DC00F9EE9379</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="B8429DB9AB32B5921A2A5CDC3DC953ED">_909910D4-C3FF-4303-9CCD-DC00F9EE9379</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260626 @mrwatson-de v0.55&#10;  - Improve Action `Perform Script` (BREAKING CHANGE)&#10;    - Add option `.selection = &quot;By name&quot;`&#10;    - Rename option `.script_file_name` to `.file_name`&#10;    - Evaluate `.script_parameter`&#10;  - Improve Action `Go to Layout:&#10;    - Change option `.by = &quot;name&quot;` to evaluate `.layout_name`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="36CB02CF863E8367A43DD89F2855C19F" index="132" id="89" name="# (comment)" enable="True">
+			<UUID>8CE3D08B-226E-4AD9-B059-1DB1791D64D1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6FB2B12148411DDFCD5C35AD4445F0E1">_8CE3D08B-226E-4AD9-B059-1DB1791D64D1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260624 @mrwatson-de v0.54&#10;  - Add Action `Set Zoom Level`&#10;  - Add Action `View As`&#10;  - 46% of FileMaker Script Steps implemented to some extent&#10;  - 282 automatic tests passing"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="51DD5E162D98A3BE1D46EAA93EAE6EE3" index="133" id="89" name="# (comment)" enable="True">
+			<UUID>016FF038-DA5E-4C6D-93D3-47ABF4E9C30E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="876FF99D19025D8910690480DC1F24FC">_016FF038-DA5E-4C6D-93D3-47ABF4E9C30E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260623 @mrwatson-de v0.53&#10;  - Add Action `Cut`&#10;  - Add Action `Clear`&#10;  - Add Action `Undo/Redo`, inc. Alias `Undo` and `Redo`&#10;  - Add Action `Select All`&#10;  - Add Action `Set Selection`&#10;  - Add Action `Delete Record/Request`&#10;  - Add Action `Go to List of Records`&#10;  - Add Action `Open Record/Request`&#10;  - Add Action `Revert Record/Request`&#10;  - Add Action `Adjust Window`&#10;  - Add Action `Open File`&#10;  - Add Action `Close File`&#10;  - Add Action `Exit Application`&#10;  - Fix `Pause` to have Parity with FileMaker&#10;    - with `.duration` (seconds) and `.indefinitely` (boolean)&#10;    - dropped ms&#10;  - 45% of FileMaker Script Steps implemented to some extent&#10;  - 276 automatic tests passing&#10;  - Happy birthday fmIDE - 4 years old!"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="59B4C625B6027A218AB14D603013CA21" index="134" id="89" name="# (comment)" enable="True">
+			<UUID>68F24844-EC36-4A53-B78C-9CE55344EF28</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="E9C45DC0A90BD0B259C0B2468C8E2D90">_68F24844-EC36-4A53-B78C-9CE55344EF28</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260622 @mrwatson-de v0.52&#10;  - Add Action `Re-Login`&#10;    - and extend action_name cleaning to also remove `-`&#10;  - Extend `Refresh Window` to support flushing options&#10;  - Extend `Go to Object` to support `.repetition`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A639666E5086D7025650B8924ED557B0" index="135" id="89" name="# (comment)" enable="True">
+			<UUID>EA6B920B-5842-4F37-AB2E-CB6EC19D9773</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="EEB4BCC963AE94F7472BDA4B85F2F0B6">_EA6B920B-5842-4F37-AB2E-CB6EC19D9773</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260619 @mrwatson-de v0.51&#10;  - fmJAML @version: 2026-06-17 @mrwatson-de v0.27&#10;    - With support for value operators &quot;==&quot;, &quot;===&quot;, &quot;====&quot;, &quot;=====&quot;&#10;  - Drop `.text` parameter in Action `Set`&#10;  - Fix handling of null in Action `Perform Find`&#10;    - This needs a central fix"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6FE02C98046422C8C31D97427FDC7722" index="136" id="89" name="# (comment)" enable="True">
+			<UUID>CCF1967F-99B2-44F4-A0AD-AB84F0310442</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="545BDBC6E193CE3C41F5B83D31E85E39">_CCF1967F-99B2-44F4-A0AD-AB84F0310442</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260618 @mrwatson-de v0.50&#10;  - Fix Action parameters to be evaluated:&#10;    - `Go to Object = == &quot;object name&quot;`&#10;    - `Insert from URL.url= == &quot;url&quot;`&#10;    - `..curl_options= == &quot;url&quot;`&#10;  - Fix Name that Thing `object_name` Parameter to quote the object name&#10;  - Extend `Commit Records` Action to support `skip_data_entry_validation` and `override_ess_locking_conflicts` &#10;  - Extend `Go to Portal Row` Action to support `with_dialog`&#10;  - Fix `Insert from URL` with no target&#10;  - Fix `Beep` for Parity: no `.times`&#10;  - Fix variable names so that they don&apos;t clash&#10;  - Reinstated Action `GoToOriginalWindow` … sigh"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="75B2957DA02A8CAB1C872CDE20CAF4FA" index="137" id="89" name="# (comment)" enable="True">
+			<UUID>2811B795-DD5E-4F65-B6F1-04EF8E4BB283</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5C91DD0ABC2276BD9F0D5D4572C70772">_2811B795-DD5E-4F65-B6F1-04EF8E4BB283</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260617 @mrwatson-de v0.49&#10;  - Add 10 Actions for Data File manipulation (above all to support the fmIDE testing environment)&#10;    - `Get File Exists`&#10;    - `Get File Size`&#10;    - `Create Data File`&#10;    - `Delete File`&#10;    - `Open Data File`&#10;    - `Close Data File`&#10;    - `Read from Data File`&#10;    - `Write to Data File`&#10;    - `Get Data File Position`&#10;    - `Set Data File Position`&#10;  - Add Action `Move/Resize Window`&#10;  - Add Action `Select Window`&#10;  - Fix diabling actions using `//`&#10;  - Improve error handling to not show error on skipped lines (although errors are still repeatedly shown)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="409528E163FCC8084379C9591BCB0CAD" index="138" id="89" name="# (comment)" enable="True">
+			<UUID>04EBAFAC-A876-4F02-819F-639762452AF4</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0643058D40E2EFC08B837BADCD05B78C">_04EBAFAC-A876-4F02-819F-639762452AF4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260615 @mrwatson-de v0.48&#10;  - Add error handling&#10;    - Add Action `Set Error Capture`&#10;      - Sets $fmide_error_capture_state = equivalent to Get ( ErrorCaptureState )&#10;    - Add Action `Allow User Abort`&#10;      - Sets $fmide_allow_abort_state = equivalent to Get ( AllowAbortState )&#10;    - Add Try Loop to capture errors and shows dialog&#10;      - Catch error and show fmIDE-dialog when MBS can&apos;t find script in script workspace&#10;  - Remove Action `GoToOriginalWindow` - deprecated and removed"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9F977E2C8652B1134ED7672FBD0912C9" index="139" id="89" name="# (comment)" enable="True">
+			<UUID>F5FAB0BD-3F3C-4C84-8180-8DFDB5E73E78</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="8BEE1275D3C056478E9C043F7B3E8960">_F5FAB0BD-3F3C-4C84-8180-8DFDB5E73E78</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260613 @mrwatson-de v0.47&#10;  - Make $fmJAML_per_CF a settable option&#10;  - Improve Action `Go to Record/Request/Page`&#10;    - add short forms&#10;      - with «string» to be one of the allowed values or a calculation&#10;      - with «number» -&gt; `.by_calculation`&#10;    - fail fast if `Prev` used&#10;    - improved keys:&#10;      - `.by_calculation` instead of `.number`&#10;      - `.position` instead of `.record`&#10;      - `.value` removed&#10;  - Improve Action `Open URL`:&#10;    - Add option `external`&#10;    - BREAKING CHANGE: All options now accept calculation: &#10;  - Improve Action `Assert`: Add option `external`&#10;  - fmIDE and fmJAML passing 172 automatic tests&#10;  - Simplify installation and cutomisation of fmIDE&#10;    - Separated the fmIDE Module to the front of the Script List and marked it for copying&#10;    - Simplified the customisation of naming conventions in the Callback interface scripts:&#10;      - Both scripts now work by default for the FileMaker standard situation of&#10;        `base_layout_name` = `table_name` = `base_table_name` &#10;      - Script `fmIDE.GetBaseTableName` fixed to work automagically&#10;        by using the new base table functionality supported since fm 19.4&#10;      - Documented the customisation process clearly in the scripts&#10;    - =&gt; Installation by copying the complete fmIDE Module folder now works out of the box with no customisation &#10;      for standard FileMaker databases where `base_layout_name` = `table_name` = `base_table_name`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2B8730FA7AD3FC4D9744957058A441EB" index="140" id="89" name="# (comment)" enable="True">
+			<UUID>4360DDF5-649F-4957-BCE1-5E3CEAA93F3A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C9133AC7A0000885611F7D29E694E69D">_4360DDF5-649F-4957-BCE1-5E3CEAA93F3A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260608 @mrwatson-de v0.46&#10;  - Fix `Insert from URL` to support short forms for «target» and =«url»&#10;  - Fix `Press` action to pause for 1ms to allow the mbs key press to work&#10;  - Start adding `Insert Text` and `Insert Calculated Text` Actions"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A68F2BA7E1C2AE5494040AB60D3FDBC2" index="141" id="89" name="# (comment)" enable="True">
+			<UUID>C427FC02-3A0B-44CD-BCB0-27D3861D8DBF</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="29E6FA3DD07B0F24382D4EDF13AAD319">_C427FC02-3A0B-44CD-BCB0-27D3861D8DBF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260605 @mrwatson-de v0.45&#10;  - BREAKING CHANGES to fmIDE Action Script JSON:&#10;    - By default action scripts expect calculations where the equivalent script step expects calculations&#10;    - A calculation can be identified by a `.calc` sub element&#10;  Fix #43 Simplify syntax to allow &quot;Set $i = $i+1&quot;&#10;    - Fix #3 Method of returning parameters&#10;      - `Exit Script` action now works like `Exit Script` step&#10;      - Note: When called by fmpurl use `Insert from URL` in your action script to pass return parameters asynchronously via webhook&#10;    - Fix #39 Go to Script: Support for dynamic names"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F570E6F7333AB33A8176EC1C85D60D4D" index="142" id="89" name="# (comment)" enable="True">
+			<UUID>AE0E7ED3-9B42-445C-880D-FD321A355760</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D5159B4E8E0025647BE7D41B1605B76E">_AE0E7ED3-9B42-445C-880D-FD321A355760</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260531 @mrwatson-de v0.44&#10;  - Add Actions&#10;    - `Copy`&#10;    - `Copy Script`&#10;    - `Freeze Window`&#10;    - `Select Script`&#10;  - Add short forms:&#10;    - `Go to Account` (implicit `.account_name`)&#10;    - `Go to Base Layout` (implicit `.base_table_name`)&#10;    - `Go to Base Table` (implicit `.base_table_name`)&#10;    - `Go to Table` (implicit `.t_o_name`)&#10;    - `Go to Base Field` (implicit `.field_name` / `.field_id`)&#10;    - `Go to Table Occurrence` (implicit `.t_o_name`)&#10;    - `Go to Custom Function ` (implicit `.custom_function_name`)&#10;    - `Go to Custom Menu` (implicit `.custom_menu_name`)&#10;    - `Go to Custom Menu Item` (implicit `.custom_menu_item_name`)&#10;    - `Go to Custom Menu Set` (implicit `.custom_menu_set_name`)&#10;    - `Go to External Data Source` (implicit `.external_data_source_name`)&#10;    - `Go to Extended Privilege` (implicit `.extended_privilege_name`)&#10;    - `Go to Theme` (implicit `.theme_name`)&#10;    - `Go to Value List` (implicit `.value_list_name`)&#10;    - `Open URL` (implicit `.url`)&#10;    - `Select Window` (implicit `.window_name`)&#10;    - `Show Custom Dialog` (implicit `.message`)&#10;  - *BREAKING CHANGE*&#10;    - Short form of `Pause` changed to implicit `.s` from `.ms` since `.s` is the FM-default (=expected) unit"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2169991F17706AA7FE97EE821814DD36" index="143" id="89" name="# (comment)" enable="True">
+			<UUID>D180B54F-A9DC-43BD-885D-B698681A78E4</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="569BCD24F3E9FCFF4FB0D2959106E3E8">_D180B54F-A9DC-43BD-885D-B698681A78E4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260530 @mrwatson-de v0.43&#10;  - Add partial error handling: $$fmide_last_error and $$fmide_last_error_detail set after (native) actions&#10;  - Improve Action `Go to Record/Request/Page`&#10;    - Add aliases `Go to Request` and `Go to Page`&#10;    - Add short forms&#10;      - `Go to Record/Request/Page=&quot;next/previous/first/last&quot;` (implicit `.record`)&#10;      - `Go to Record/Request/Page=«number»` (implicit `.number`)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="381C238ECF9232574F1517974A0C1BD2" index="144" id="89" name="# (comment)" enable="True">
+			<UUID>C0FF922D-A5DB-4498-B980-C112E67BCEEF</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7DE542E17860EBE706E551ED5F98F9B5">_C0FF922D-A5DB-4498-B980-C112E67BCEEF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20260528 @mrwatson-de v0.42&#10;  - Improve usability&#10;    - Add fmJAML `code from your keyboard` as a compact input DSL. Welcome!&#10;      - Vigorously extend, test and refine fmJAML&#10;      - Add fmJAML shebang `#!fmjaml` to identify the fmIDE parameter as fmJAML (particularly for object JSON)&#10;      - v0.15 with full support for optional operator `?` and mapping operator `-`&#10;      - v0.19 with `!~regex~` op and pOptionalInitialJSON&#10;      - fmJAML Custom Function can be either embedded or run from the CF&#10;    - Add fmIDE Tests (on the back of fmJAML) with 134 tests to date, proving fmIDE and fmJAML do what they should&#10;    - Add fmIDE debugger with $fmide_debugger frontmatter&#10;    - Add support on non-Mac or non-MBS systems to get deeper into script by showing dialog with script info to copy&#10;    - Add Example Scripts demonstrating possible JSON coding methods&#10;  - Actions&#10;    - Add `Allow User Abort` Action&#10;    - Add `Assert` Action&#10;    - Fix `*If` Action short forms to test properly&#10;    - Fix `Go to Script` Action to ignore existing MBS / fmAutoMate search&#10;  - New System Requirement&#10;    - Use JSONGetElementType and thus fmIDE requires FM 19.5.1 or greater"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="39DE0D2D338AA29978E6618FB6B527D4" index="145" id="89" name="# (comment)" enable="True">
+			<UUID>88BC11A6-A504-4B63-9D08-2B95B42438C4</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9BD9128AB07C125614B643545771B6F0">_88BC11A6-A504-4B63-9D08-2B95B42438C4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20241014 @mrwatson-de v0.41&#10;  - Add support for dynamic `script_name`s, `_stub`s, `_number`s and `_id`s - using `.value`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="313F7B19F22F4940D26588C09A8F0196" index="146" id="89" name="# (comment)" enable="True">
+			<UUID>701D86C2-2A7A-4E4B-8684-90AED4944255</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="BA83175B540C2A0B396712325DB569B1">_701D86C2-2A7A-4E4B-8684-90AED4944255</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20241011 @mrwatson-de v0.40&#10;- Add action `Show Version`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C17776DC38DDC7FEB95232EBC34AB0B0" index="147" id="89" name="# (comment)" enable="True">
+			<UUID>004C366A-858E-4650-860C-925AA1D31B8A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="07EC9C3AA71734C03B823465E43862C3">_004C366A-858E-4650-860C-925AA1D31B8A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20240927 @mrwatson-de v0.39&#10;  - Fix #37 - Name that Thing by passing variable definitions: `$script_name=&quot;Test&quot;`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="86F4C097E0B6A5657423BFA331E579A5" index="148" id="89" name="# (comment)" enable="True">
+			<UUID>1F76EF31-2D65-4AF8-A379-A676783669B7</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F913D96ACB6168E31E86A824EC3B1FEA">_1F76EF31-2D65-4AF8-A379-A676783669B7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20240607 @mrwatson-de v0.38&#10;  - Fix #35 so Go to Field works when only base_table_name is supplied"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="B128E10619EA5F60328BAC6A4CE6C106" index="149" id="89" name="# (comment)" enable="True">
+			<UUID>E92211C3-9BFB-4AC4-9627-0D1C26565C8B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0ED75F9EFB1C601013E2C77E42B29464">_E92211C3-9BFB-4AC4-9627-0D1C26565C8B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20240606 @mrwatson-de v0.37&#10;  - Implement #34 Add action `New Record/Request`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AAE9B7B8E12D55BB02F1EEB6F5C8FD4B" index="150" id="89" name="# (comment)" enable="True">
+			<UUID>D7C432F7-0FF5-4633-A202-76D6A8F9BC9D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="99D49C00DFAE0E9DD8278F0D519E0ADA">_D7C432F7-0FF5-4633-A202-76D6A8F9BC9D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20240516 @mrwatson-de v0.36&#10;  - Fix #33 Improve fmIDE installation by using PSBN for recursive script calls to avoid broken calls"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A74E1CCA7A4C6F54D7800FF5C828C96F" index="151" id="89" name="# (comment)" enable="True">
+			<UUID>0D9B1897-CB28-439E-945F-E2B12537611B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DACD88C84B497E1F024C101CF170BF60">_0D9B1897-CB28-439E-945F-E2B12537611B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20240423 @mrwatson-de v0.35.1&#10;  - Implement #32 Perform Find, Constrain Found Set, Extend Found Set&#10;  - v35"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="B147460C8AA94C410AF53652AFA5A5EB" index="152" id="89" name="# (comment)" enable="True">
+			<UUID>7F24DFF1-5FC8-4C5D-9BC0-15D5E334BC29</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D4704D8FF36DA669D09F7CC667FB2527">_7F24DFF1-5FC8-4C5D-9BC0-15D5E334BC29</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20240422 @mrwatson-de v0.34&#10;  - Fix #31 Go to Layout Part Pause"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3165F12D4BE39D2CF2C441FA2C7A3FA2" index="153" id="89" name="# (comment)" enable="True">
+			<UUID>6DBFFABC-42AD-4E56-A08E-98C9F7E7E47E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9792A8938FC25FDED45EE2B50AA6B4AB">_6DBFFABC-42AD-4E56-A08E-98C9F7E7E47E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20240202 @mrwatson-de v0.33&#10;  - Fixed #29 GoToLayoutField when window is in background"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="FF845A6F5F5525809C6CA39B04CC567F" index="154" id="89" name="# (comment)" enable="True">
+			<UUID>E1C2E868-2164-401A-AB02-774F7060C44D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F02087BCE66FE754A60097C241881D39">_E1C2E868-2164-401A-AB02-774F7060C44D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20230103 @mrwatson-de v0.32&#10;  - Changed the `Set Field` action to accept the target as the JSON key and require .value or .text&#10;  - Improved fmIDE Script documentation&#10;  - Added a (fantastic) `fmIDE script fmpurl MBS link action`(*) to replace-update the script contents&#10;  (*) Need to find a better name for those things! Maybe a `fmIDE script action button`?"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="31C4FA87E31338F7B801E3DD0B3A64B7" index="155" id="89" name="# (comment)" enable="True">
+			<UUID>AB454975-2234-4E2D-B217-00C044672453</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C2464EEB7E98AED80D936680C7E4D00E">_AB454975-2234-4E2D-B217-00C044672453</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221221 @mrwatson-de v0.31.1&#10;  - Standardised Version number format in history comments"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="374DBB25FE74A7F30D636A7255D54DBA" index="156" id="89" name="# (comment)" enable="True">
+			<UUID>CFDADF6F-5695-4F4B-820A-46E123F963EC</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="1DDC373A4220BF83AC642624DC371A66">_CFDADF6F-5695-4F4B-820A-46E123F963EC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221207 @mrwatson-de v0.31&#10;  - Added action `Perform Script`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AB588F72E755A7553C0A5D9A597E7721" index="157" id="89" name="# (comment)" enable="True">
+			<UUID>7F20C339-1925-404B-B2C6-929284FFC0AD</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="A8830581F0E5AF89F576941E8056B99F">_7F20C339-1925-404B-B2C6-929284FFC0AD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221111 @mrwatson-de v0.30&#10;  - Fixed `Go to Table Occurrence`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="5A4A302B69998E54E10D1F25E6AC8794" index="158" id="89" name="# (comment)" enable="True">
+			<UUID>F8A253CD-23F0-43B3-A448-9CCA345BDFE1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="57609577CE0A6B3C3825EFD6259339B9">_F8A253CD-23F0-43B3-A448-9CCA345BDFE1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221110 @mrwatson-de v0.29.1&#10;  - Added `object_bounds_*` parameter names - but not yet processed"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="8B49BD033E95631BDBDE3BEEDD96586B" index="159" id="89" name="# (comment)" enable="True">
+			<UUID>98409DB1-B005-4D04-B459-D57EF17D3729</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="04CF497CF8D6FFEC100C33552D9D3DDC">_98409DB1-B005-4D04-B459-D57EF17D3729</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221109 @mrwatson-de v0.29&#10;  - Fixed #25 - Layout objects processed correctly&#10;  - Added short syntax to `Set` Action: `Set.$varname=&quot;Value&quot;`&#10;  - Improved Changes Script to also save the fmIDE script and copy the scripts text contents"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="B8CC57B9E57A2C2C5E99F7345DC1ABE8" index="160" id="89" name="# (comment)" enable="True">
+			<UUID>AD55C131-E9B0-4BEB-B298-A3BFF0186FB9</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6D4FE2525CBC1BE4E3CD0F9FA322C01F">_AD55C131-E9B0-4BEB-B298-A3BFF0186FB9</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221028 @mrwatson-de v0.28&#10;  - Added `shift` and `option` parameters to the `Press` function"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="8F62C5E370E2EEC44CD172F9FD38945E" index="161" id="89" name="# (comment)" enable="True">
+			<UUID>27081461-A674-4E8F-B4B3-8F64D8CA7464</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="65E6C0B55E6ABB595C36D3C473754DF5">_27081461-A674-4E8F-B4B3-8F64D8CA7464</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221025 @mrwatson-de v0.27&#10;  - Added support for some standard message buttons:&#10;    - message__OK&#10;    - message__OK_Cancel&#10;    - message__Cancel_OK&#10;    - message__Yes_No&#10;    - message__No_Yes"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0BFAB551234A954EDBC633D485F6CAB6" index="162" id="89" name="# (comment)" enable="True">
+			<UUID>BB612525-BD9C-40E3-A4D0-0725ED98BA8E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="40B543DD7D98C0F284CD0CF060F0DAE2">_BB612525-BD9C-40E3-A4D0-0725ED98BA8E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221017 @mrwatson-de v0.26&#10;  - Added compact parameter passing by `key=value` (for example: &quot;[0].Beep.times=3&quot;)&#10;  - Added action `Show All Records`&#10;  - Added action `Set Clipboard Text`&#10;  - Added action `Set Clipboard Objects`&#10;  - Fixed Insert from URL when targeting fields"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D0C510DC90C6006BEE6BE6DDB15B2727" index="163" id="89" name="# (comment)" enable="True">
+			<UUID>C40FD60F-62E9-43D3-9A68-1684ADE899FA</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D19440427CD030866C186D4AD6CD6008">_C40FD60F-62E9-43D3-9A68-1684ADE899FA</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221014 @mrwatson-de v0.25.2&#10;  - Fix #11 Parameter syntax for specifying calc using `_value`&#10;  - Fix #16 Change Author handle MrW to GitHub handle @mrwatson-de&#10;  - Changed `Select Script Steps.lines` to `Select Script Steps.range`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6A863D18C6A974806C9A095B9A3CB514" index="164" id="89" name="# (comment)" enable="True">
+			<UUID>48712378-56F0-4876-A6D8-1AFFF20AAF85</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="13D620D32C95CE3A4AF564FCDD50914D">_48712378-56F0-4876-A6D8-1AFFF20AAF85</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221014 @mrwatson-de v0.25.1&#10;  - Fix #11 Parameter syntax for specifying calc using `_value`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A7EE29BCB43ABB956696B17D9DD3A79F" index="165" id="89" name="# (comment)" enable="True">
+			<UUID>DC7C87EE-E181-487C-9409-82AF3FAB148E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="B5BFC1A1581D6C7AC51E44B46163F6AD">_DC7C87EE-E181-487C-9409-82AF3FAB148E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221014 @mrwatson-de v0.25&#10;  - Added fmIDE Action `Insert from URL` (Thanks to idea from Marcel Moré and Holger Herbst at the virtual FileMaker Stammtisch Hannover)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D36C3E960D57B7AD00BB9DE5C02B1047" index="166" id="89" name="# (comment)" enable="True">
+			<UUID>AE929D4D-03EF-4961-858F-BB05BAD7294E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="3876AD66804C9C29ACC7EE359A8F96FD">_AE929D4D-03EF-4961-858F-BB05BAD7294E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221013 @mrwatson-de v0.24&#10;  - Fix #12 Message with buttons compact syntax with separator `__`&#10;  - Fix #4 Hiatus: Salvage local variables&#10;  - Added `Select Script Steps.lines` parameter"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="5F91FAD8D2A1756312A87DE89F31B2B4" index="167" id="89" name="# (comment)" enable="True">
+			<UUID>2BD22141-0F0D-4907-B6BF-60AF0E6B61D2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9CE9B00932A0712D270B69F35BFBDDD5">_2BD22141-0F0D-4907-B6BF-60AF0E6B61D2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value=" 20221008 @mrwatson-de v0.23.1&#10;  - Reformatted the history entries&#10;    - without @history prefix&#10;    - with comments always as bullet points&#10;"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="04B5CD1B92D7CF7381EA096CF702734B" index="168" id="89" name="# (comment)" enable="True">
+			<UUID>DE87C7CE-7365-434E-A071-854B31BE7FBD</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="98D6CF036DD98EFA402CAD1E168BDF92">_DE87C7CE-7365-434E-A071-854B31BE7FBD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6FB6307BFD75C9CCE57FB5F10974E6A5" index="169" id="89" name="# (comment)" enable="True">
+			<UUID>5DE47CCB-33A0-4086-81A5-F27E97CCA436</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5F6CED9B418E036885DB0C57CF2B0991">_5DE47CCB-33A0-4086-81A5-F27E97CCA436</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Sprint #1 (15 Weeks) Launch"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="845921E06D01C674448E2A7DD3E35557" index="170" id="89" name="# (comment)" enable="True">
+			<UUID>F4EB807C-E162-49E6-850B-2CD65B13736A</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="9B5CD5A6AEA455800EC826F1680CC11B">_F4EB807C-E162-49E6-850B-2CD65B13736A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A7B8B4B88CCEDBF0429C1F5AC9F4518D" index="171" id="89" name="# (comment)" enable="True">
+			<UUID>871949C2-A568-4695-9D1C-AF47621E2825</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="35FF06DEBD7D38372BC1A8234A0A11CA">_871949C2-A568-4695-9D1C-AF47621E2825</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221008 @mrwatson-de v0.23&#13;- Launch of fmIDE at fmGuru Konferenz, Rome (~15 Weeks)&#13;- Name that thing integration in CrossCheck (unofficial)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="B37F4612F6C00A4A7B8720BADCFB9DA5" index="172" id="89" name="# (comment)" enable="True">
+			<UUID>3A68F226-FD7C-45CE-9777-5AB901398A4D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="278BBEBE002018FE5E09A4E8318905F5">_3A68F226-FD7C-45CE-9777-5AB901398A4D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221007 @mrwatson-de v0.22&#13;- work in progress: salvaging variables across a Hiatus"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E8908D98A85954B5A93BA966E2EA5280" index="173" id="89" name="# (comment)" enable="True">
+			<UUID>74BC7890-CA29-4D92-A717-73A634679C8B</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="BBFA1EDC28F24077C5E5324A12ED720D">_74BC7890-CA29-4D92-A717-73A634679C8B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="766B6F25DC1DF7EC8776D094C1E8F27F" index="174" id="89" name="# (comment)" enable="True">
+			<UUID>ECFEA2D9-D69B-4A70-B386-116714B098A2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0DE56463254B25BEC17675FEE420F618">_ECFEA2D9-D69B-4A70-B386-116714B098A2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# 06.10.2022 (15 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="576A3E634B34E7401166BD4279C62382" index="175" id="89" name="# (comment)" enable="True">
+			<UUID>0E890E31-E5BE-46F1-85B8-FA796D24A460</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="65E0483E4A885244E8A6B67F45629FCA">_0E890E31-E5BE-46F1-85B8-FA796D24A460</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20221005 @mrwatson-de v0.21.2&#13;- renamed Changes script to support @mrwatson-de&apos;s automatic history generator"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AA6511D4FC5A07A3569C013F17563174" index="176" id="89" name="# (comment)" enable="True">
+			<UUID>5D49A5C2-AA5B-4AD0-9A2D-83A381E229CA</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="BBFADAC8B2BB56554AE515451F35E275">_5D49A5C2-AA5B-4AD0-9A2D-83A381E229CA</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# 29.09.2022 (14 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1CE3AD6135865CE5131717E43D81A3DF" index="177" id="89" name="# (comment)" enable="True">
+			<UUID>4EB3E173-5DAD-4438-BDF5-653016429A5B</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="DD840488566E212E34DBCD80B75C2834">_4EB3E173-5DAD-4438-BDF5-653016429A5B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="88BA6D3F7D8DAA00A71DC2D75402D4F3" index="178" id="89" name="# (comment)" enable="True">
+			<UUID>71ECBFCF-E073-49C1-A09E-13EDE9DA3162</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C48C103CF4CEE92516DDBA5EEE7B9F83">_71ECBFCF-E073-49C1-A09E-13EDE9DA3162</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220929 @mrwatson-de v0.21.1&#13;- Added ASCII logo to fmIDE README script&#13;- Refactored action_name-reformatting as a let-function&#13;- Fixed Comment action to not show dialog"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C9F006513DA51519D9AA7CDD1E6A3741" index="179" id="89" name="# (comment)" enable="True">
+			<UUID>49BE3983-DA7D-4279-B0B9-BD42BD58830D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="745F0FA0A2FF9874DE54958D97E92486">_49BE3983-DA7D-4279-B0B9-BD42BD58830D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220928 @mrwatson-de v0.21 (breaking change)&#13;- Rename fmIDE Callback Interface Scripts to be clearer and more homogenous&#13;  - fmIDE.GetBaseLayoutName instead of fmIDE.GetLayoutNameForTable&#13;  - fmIDE.GetBaseTableName instead of fmIDE.GetBaseTableForTable&#13;- Rename action `GoToBaseLayout` instead of `GoToLayoutForTable`&#13;- Added layout_field_name&#13;- Refresh window before opening database dialog, so that the current layout in the background shows correctly"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6B4983B77D0CB1A0361282A603E7E7C3" index="180" id="89" name="# (comment)" enable="True">
+			<UUID>2F83E8B5-2722-49A9-9DBF-79B45CF05DE3</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="EA04B599C43104C113DE5E14605C30F3">_2F83E8B5-2722-49A9-9DBF-79B45CF05DE3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220928 @mrwatson-de v0.20&#13;- Split field_name with :: into table_name &amp; field_name"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1A32F66CBD1C1AC6991323840CA36582" index="181" id="89" name="# (comment)" enable="True">
+			<UUID>DC3C676B-EF44-4DB8-A750-49BDC01F7124</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C168209027FE788C9FF4AD462C6CA8E6">_DC3C676B-EF44-4DB8-A750-49BDC01F7124</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220925 @mrwatson-de v0.19&#13;- Added `FindScriptStep`, but still buggy"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D0EBEC3B699FA74BC2521ABDBC312071" index="182" id="89" name="# (comment)" enable="True">
+			<UUID>DF604F81-3978-41BF-9DA5-31D6467DC232</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="105BDC2EDFB6CB94CE6C046258A3DF0A">_DF604F81-3978-41BF-9DA5-31D6467DC232</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220922 @mrwatson-de v0.18.2&#13;- Fixed bug causing $actions to be ignored - REALLY"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="54DFEDD366936E02A2CDEA46E1A6CB95" index="183" id="89" name="# (comment)" enable="True">
+			<UUID>81D995CB-6BE2-47D9-A5F0-F4367E91FCA4</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6F16FEB218BC321C9388388CFD5081A4">_81D995CB-6BE2-47D9-A5F0-F4367E91FCA4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220922 @mrwatson-de Vision&#13;- fmIDE thingamajig URIs - the latest and greatest magic 🦄 in the fmIDE toolkit for locating those things - unbelievable! AMAZING!"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="B4C7C7D1FED42ABEDEA2969209B89A75" index="184" id="89" name="# (comment)" enable="True">
+			<UUID>910B21C9-4DC3-4A20-BD79-44B591248DA2</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="73CBC2FC019C9039367D2E4F34814C13">_910B21C9-4DC3-4A20-BD79-44B591248DA2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="8CC7926C65A2C3AF2D7BCF144F41A015" index="185" id="89" name="# (comment)" enable="True">
+			<UUID>AE293A44-C2F4-4B53-9CC5-B5060997821E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="91AD6FF4663764223454368819D29EC6">_AE293A44-C2F4-4B53-9CC5-B5060997821E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Tweaking, reducing, refactoring, fleshing out, examples (13 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="79B0736BFC268A5B74EF0C7B77A90AC7" index="186" id="89" name="# (comment)" enable="True">
+			<UUID>A51376A9-CDFF-460E-9C83-65F148E5F527</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="10E91D081587AB7682F299329E08BB76">_A51376A9-CDFF-460E-9C83-65F148E5F527</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E269C0977ACC25D4434DDBDC6C36D368" index="187" id="89" name="# (comment)" enable="True">
+			<UUID>D4532EB4-C57E-44DC-A328-0D709CD5B4F7</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="534A9FF2413A6052D8091D034F608E0E">_D4532EB4-C57E-44DC-A328-0D709CD5B4F7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220922 @mrwatson-de v0.18&#13;- Refactored and simplified parameter handling using While loop&#13;- Added `layout_part_*`parameters and `Go to Layout Part`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="801900476865F1E64482F91742F9CB25" index="188" id="89" name="# (comment)" enable="True">
+			<UUID>313FEA93-26AC-4933-AE10-C7634F10CDB1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="033CD91162556EA4FCDC67F0AD99F0C1">_313FEA93-26AC-4933-AE10-C7634F10CDB1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220920 @mrwatson-de v0.17&#13;- Changed action.name to action.action_name, so that there is no clash in the JSON between the name of the action and a name attribute"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F5D2375095A0D3B53338CF868780CBD6" index="189" id="89" name="# (comment)" enable="True">
+			<UUID>EA87B0C4-40D2-4397-89D5-0F35FD954D1C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="AFDC21CC52662764AAD4FEAA16DF71B1">_EA87B0C4-40D2-4397-89D5-0F35FD954D1C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220919 @mrwatson-de 0.16.1&#13;- Moved fmIDEs home to https://github.com/fmIDE/fmIDE&#13;- Added links to documentation"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="40CCE16126C93DD5B375E3F3586C7061" index="190" id="89" name="# (comment)" enable="True">
+			<UUID>BBA592BB-A3A0-472E-8A90-1E9E032CB90C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="58F5526B3C925049E3DA433D5B49B4CB">_BBA592BB-A3A0-472E-8A90-1E9E032CB90C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220918 @mrwatson-de v0.16&#13;- Changed the parameter of Show Custom Dialog to messages instead of value (using Script print pdf as a guideline for parameter names)&#13;- Added the ability to stipulate the button names in a message_«button1»_«button2»_«button3» parameter. Neat."></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="250AA6B05BE54AEC7E185DB9891EAC51" index="191" id="89" name="# (comment)" enable="True">
+			<UUID>F105F331-125A-4B02-A4D3-7FE22D774AE5</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="5A4E46E8608837E974BDDACF908C6C9E">_F105F331-125A-4B02-A4D3-7FE22D774AE5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="96C82F1524CD2D21BE4DE047B176A2B6" index="192" id="89" name="# (comment)" enable="True">
+			<UUID>C8239D11-38E6-474E-8206-BE2A1E26E2DD</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="56A1BD99F4383E3D0F13A371985030A2">_C8239D11-38E6-474E-8206-BE2A1E26E2DD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Added and refined Actions (12 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2EF38018491CEFB5EA4EC1606BB545B4" index="193" id="89" name="# (comment)" enable="True">
+			<UUID>B7D19B1B-9CC8-4183-8B5F-00A4162D7CF7</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="845837866FE3AB8308F59E39E891E431">_B7D19B1B-9CC8-4183-8B5F-00A4162D7CF7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="13AE3A6696AD04D9D08652B14BEE1882" index="194" id="89" name="# (comment)" enable="True">
+			<UUID>25E5BCFF-8E03-4324-B1FF-96A353508DFC</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="51C0E4F6F5DC26A1271253F2C1E3A376">_25E5BCFF-8E03-4324-B1FF-96A353508DFC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220915 @mrwatson-de v0.15&#13;- Added action `Go to Layout Field ( layout_field_name )` (Mac only with AppleScript)&#13;- Considering renaming `object` to `layout_object` to harmonize layout_field and layout_object&#13;- Simplified Go to Layout to one action: `Go to Layout ( by, layout_name, layout_id, layout_number )`&#13;- Removed `* by id/number` actions"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C951CA12FF3FC340DC406B3336C879B9" index="195" id="89" name="# (comment)" enable="True">
+			<UUID>4B6C9C0E-1D89-4935-9D92-711024812C64</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="CB511D9D35E59FDB1470A59B3D14F8A5">_4B6C9C0E-1D89-4935-9D92-711024812C64</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220914 @mrwatson-de v0.14&#13;- Added action `Select Script Steps ( script_step_number, script_step_number_to )`&#13;- Added automatic action for script_step_number_to&#13;- Added debugging via variable `fmide_debug`&#13;- Removed parameter line_number"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="FCDD0A5710B42EA6461009282B55C576" index="196" id="89" name="# (comment)" enable="True">
+			<UUID>5BFB31EA-F60D-4133-949B-E65788B22683</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7BFF1B14C993ED61238DD81733ACBDB5">_5BFB31EA-F60D-4133-949B-E65788B22683</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220913 @mrwatson-de v0.13&#13;- Added action `Open URL ( url )`&#13;- Added action `Execute FileMaker Data API ( select, target, request )`&#13;- Added hiatus parameter to `Pause ( seconds, hiatus )`&#13;- Added buttons parameter to `Show Custom Dialog ( value, buttons )`&#13;- Added times parameter to `Press` action&#13;- Added `script_id`&#13;- Added `script_number`&#13;- Added `extended_privilege`&#13;- Added `privilege_set`&#13;- Improved `Press` action to handle multiple keys and DEL, BS and arrow keys&#13;- Tested and added a workaround to the delay during a hiatus, due to &apos;inaccuracies&apos; in the calculation of the delay&#13;- Removed action `Call fmIDE`&#13;- Removed action `Hiatus`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9B158F630537FED098FAF2AEE4A8ABCD" index="197" id="89" name="# (comment)" enable="True">
+			<UUID>E441C90C-1638-425B-9EA5-535D849CB878</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0FEDF029E02496317F0298EA7FF27FFC">_E441C90C-1638-425B-9EA5-535D849CB878</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220912 @mrwatson-de v0.12&#13;- Added support for empty / null actions&#13;- Added action `Press ( key, command_key )`&#13;- Added `Go to Script ( script_name_stub )` to go to script where only the stub name is known/safe&#13;- Added automatic actions for account_name, custom_menu/custom_menu_set/custom_menu_item, theme, etc."></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C1136BEDA0C946E39E2C7E0519287D94" index="198" id="89" name="# (comment)" enable="True">
+			<UUID>2E1ACBDC-8E29-42A4-9D7F-C44D08451582</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="98E8307A98B4FD7FA23232E8C587239A">_2E1ACBDC-8E29-42A4-9D7F-C44D08451582</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220910 @mrwatson-de Coined term &quot;fmIDE &apos;Name that thing&apos; API&quot;"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1428B95E2EDB8971EF26C1E77C2C2B37" index="199" id="89" name="# (comment)" enable="True">
+			<UUID>DFB7E255-8948-49C0-9415-4B9253F54F3C</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="88801E6DCC8DDEF8852EF133722061AC">_DFB7E255-8948-49C0-9415-4B9253F54F3C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="96DC6864EE6976E5A3414084D645E90E" index="200" id="89" name="# (comment)" enable="True">
+			<UUID>7EAD0945-C2A6-4243-B3CB-3ABB56D5F2C1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DF0BBC715A337DF2233508DC8775E7CE">_7EAD0945-C2A6-4243-B3CB-3ABB56D5F2C1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Presentation prep (11 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="64D2AD43715FD34400A27813FB97BF7E" index="201" id="89" name="# (comment)" enable="True">
+			<UUID>3782FC5D-36E0-4D8A-A573-3CE76FE01BF6</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="D842C0D9F51596E703020BF457B66B3F">_3782FC5D-36E0-4D8A-A573-3CE76FE01BF6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D89F77C1CD997687E026836CCA705539" index="202" id="89" name="# (comment)" enable="True">
+			<UUID>46BEA354-7EB5-4898-A1F5-F0F49E8EDFB4</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C81366BE225280AF5C98AF8B34E0FCE2">_46BEA354-7EB5-4898-A1F5-F0F49E8EDFB4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220904 @mrwatson-de Presentation prep.!"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="867C536B13E3A934C1853171B12C4602" index="203" id="89" name="# (comment)" enable="True">
+			<UUID>3CD60AF2-33BE-4B2A-81D6-6A16867C1BF6</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="E23083375FA1B2636C557053018B2E28">_3CD60AF2-33BE-4B2A-81D6-6A16867C1BF6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CFB8C6E8B319DA261121D046B615AC98" index="204" id="89" name="# (comment)" enable="True">
+			<UUID>24BE909E-28CE-4604-B2B3-74A3D9379418</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9F7608D44804FBB47E1FCC02E6FA1F6C">_24BE909E-28CE-4604-B2B3-74A3D9379418</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Tuning and Key functionality - StoreKeyboardBuffer (10 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BD2707750FF13BE5575F4F94BD1854F3" index="205" id="89" name="# (comment)" enable="True">
+			<UUID>C2F22290-AC06-4D96-9E2F-45873096B272</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="896547E7999DA1D7F323453EB25BE76B">_C2F22290-AC06-4D96-9E2F-45873096B272</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1ABAB3C3C0C312D27D3FC6EC434E5022" index="206" id="89" name="# (comment)" enable="True">
+			<UUID>661DB461-C9B0-4B5F-BB0D-FACF0B13B36A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="2E9F3997B68AF5F3C1470BA7156D0D67">_661DB461-C9B0-4B5F-BB0D-FACF0B13B36A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220902 @mrwatson-de v0.11&#13;- Added action `Hiatus ( seconds )`&#13;- Fixed automatic action `Go to Script Step`&#13;- Integrated fmIDE into fmCheckMate - WOW!"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1FFF79EDC9B3CFCA0CC26E047A6D6241" index="207" id="89" name="# (comment)" enable="True">
+			<UUID>316E918C-E5AE-406E-B72C-FE8285465780</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="27858BCD285FF2CC7B1365E4568D2BAB">_316E918C-E5AE-406E-B72C-FE8285465780</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220831 @mrwatson-de v0.10&#13;- Added action `Store Keyboard Buffer`&#13;- Integrated `Store Keyboard Buffer` into &quot;Go to&quot;-actions&#13;- Added `Go to Account ( account_name )`&#13;- Created &quot;Go to&quot;-action Examples"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="18F7F5CD24293B7625CE211BEFC81190" index="208" id="89" name="# (comment)" enable="True">
+			<UUID>1B8AF277-6EE0-4006-8FC4-7474C71ED75D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="45C2D7D41F41218F34B07D0E12B82B2A">_1B8AF277-6EE0-4006-8FC4-7474C71ED75D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220829 @mrwatson-de v0.9&#13;- Added support for compact action JSON, for example: `JSONSetElement( &quot;[]&quot;; &quot;[0].exit_loop_if.value&quot; ; &quot;$i &gt; $n&quot; ; JSONString )`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="178EB16F40A864107631F91EE450E13C" index="209" id="89" name="# (comment)" enable="True">
+			<UUID>9E96DB79-8E2C-4BB7-BC7B-EE76647A4E73</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="08CC143B028467A173FE5D1B932A4801">_9E96DB79-8E2C-4BB7-BC7B-EE76647A4E73</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6CA2B40A519DDC7A7E95054A936C8D06" index="210" id="89" name="# (comment)" enable="True">
+			<UUID>93607A82-FF35-4717-9FE8-674F85A20DDB</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="02F8FBF8F094DD6211C55176E2E3102C">_93607A82-FF35-4717-9FE8-674F85A20DDB</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# More Cool functionality pouring in (9 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D923F4D769E8844ED81F72E57182B931" index="211" id="89" name="# (comment)" enable="True">
+			<UUID>1DE0C6CF-F1F5-455C-8B11-0C1069CDD6D4</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="2534FA49CD73C6A6A086102DE0042EE9">_1DE0C6CF-F1F5-455C-8B11-0C1069CDD6D4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="93457F988558091B7C60219E5232744D" index="212" id="89" name="# (comment)" enable="True">
+			<UUID>25A48046-D430-40EE-9A4D-7AEF72CDE5C7</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="768611E3B4D1EB0ACA183E6BB61F0833">_25A48046-D430-40EE-9A4D-7AEF72CDE5C7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220823 @mrwatson-de v0.8&#13;- Added actions `Hello` and `GetVersion`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0F4A33F12C59262626DA6DF7BE84D1FE" index="213" id="89" name="# (comment)" enable="True">
+			<UUID>FF7B669A-7E58-4959-9BE6-26709D834BA0</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7BF65DE2E58064CC7653AACB81DD1B9D">_FF7B669A-7E58-4959-9BE6-26709D834BA0</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220823 @mrwatson-de&#13;- Created first page of fmIDE Wiki"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6C5E8DD76B430988221EE3F286698B99" index="214" id="89" name="# (comment)" enable="True">
+			<UUID>6613F587-353C-4D2B-9372-E6D3E1FCDDD5</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="3B52C86836E5DE9BD7803CD116E59E51">_6613F587-353C-4D2B-9372-E6D3E1FCDDD5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220822 @mrwatson-de&#13;- Created the example list layout with ability to play and edit examples and added first examples"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AC9D2AFDD9AF8A7DC0E6E02E444BD17F" index="215" id="89" name="# (comment)" enable="True">
+			<UUID>4EFB150B-C92E-4533-9B1E-C015B7CCFCFD</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="A4A3A9524E1A6F60FE4AE7E68B5EE669">_4EFB150B-C92E-4533-9B1E-C015B7CCFCFD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220819 @mrwatson-de v0.7&#13;- Added action `Go to Original Window`, and support for multiline simple-action pseudocode (with NO parameters)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0AC29601DDFF508F95357087FD11EEC9" index="216" id="89" name="# (comment)" enable="True">
+			<UUID>7FFDA46D-F09B-40C1-96F9-DE2E35927C80</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="5578ADCE43494E7ABEDB7F0CB3054950">_7FFDA46D-F09B-40C1-96F9-DE2E35927C80</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="37B33396002A7BF12CAF4828D38BC281" index="217" id="89" name="# (comment)" enable="True">
+			<UUID>8BE440A6-1C78-4DF2-8347-23283DA7FE02</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DBD30E4D26BDF17332730566C17E90F5">_8BE440A6-1C78-4DF2-8347-23283DA7FE02</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Cool functionality pouring in (9 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="774764651283DA3CF2E57DB684D38103" index="218" id="89" name="# (comment)" enable="True">
+			<UUID>37B00E10-8B9C-4A45-AF7B-01F175F077EE</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="8B2B1BF1D255EC5C0B59EBA8BB16746A">_37B00E10-8B9C-4A45-AF7B-01F175F077EE</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="ECAE2B7FF26ECE1370311604B6FDE125" index="219" id="89" name="# (comment)" enable="True">
+			<UUID>F4556612-5936-4306-9481-230028F11AC6</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0C3AD1D75C33CE2D5A0CDD2318D7D6D4">_F4556612-5936-4306-9481-230028F11AC6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220818 @mrwatson-de v0.6.1&#13;- Improved action `Go to Original Layout` to work with continuations"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2EB3A2FDE8F93C5A16537046B131EFCD" index="220" id="89" name="# (comment)" enable="True">
+			<UUID>8E6264BC-D50A-4D0B-A444-F43E1BF6538D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5AD1D3D345A4A1BA3DC77E70EB0B30A3">_8E6264BC-D50A-4D0B-A444-F43E1BF6538D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220818 @mrwatson-de 0.6&#13;- Implemented (first attempt at) Continuations! This is where the magic *really* starts 🪄"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="179A42621FEB41CB6E617BF04E0725C3" index="221" id="89" name="# (comment)" enable="True">
+			<UUID>05032E34-4448-48D8-A8CD-12CB9A711CA3</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5A0FC9D77C3545300DD7CC2A7643387C">_05032E34-4448-48D8-A8CD-12CB9A711CA3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220818 @mrwatson-de v0.5.1&#13;- Fixed issue where actions that use GUI-manipulation (menus or keys) would be performed in the wrong window (`Open Manage Custom Functions`, `Enter Layout Mode`, … )"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="66E994276F6ED9BBF6E41E330DAE4C8A" index="222" id="89" name="# (comment)" enable="True">
+			<UUID>9E800E07-0F8D-44CE-9A15-77AFB49F9754</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F220FB1247BF117DA71B23F075D98E98">_9E800E07-0F8D-44CE-9A15-77AFB49F9754</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220818 @mrwatson-de fmIDE&#13;- under test in advanter at GBS GmbH"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D24E99D018EEE6C26C335A5BB599F92F" index="223" id="89" name="# (comment)" enable="True">
+			<UUID>2D7A616B-CC5C-43D8-9FBC-931887AD1EB4</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="50596C980C58C837494369EDDDBAFEF3">_2D7A616B-CC5C-43D8-9FBC-931887AD1EB4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220818 @mrwatson-de v0.5&#13;- Added action `Go to Record ( record, exit_after_last, [value/number] )` and implemented Exit after Last functionality, which skips to corresponding `End Loop` / end of script"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7FC6A6101F4B70A61614C9C656C2C0A5" index="224" id="89" name="# (comment)" enable="True">
+			<UUID>2FA8F730-0713-4084-B379-CE159D83DB3E</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="A0BFA5DE121E8DF5F7A3A97FABD607B4">_2FA8F730-0713-4084-B379-CE159D83DB3E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0949E1589FEB0202036FAD9A6A11464F" index="225" id="89" name="# (comment)" enable="True">
+			<UUID>FF6F4E8E-461E-4F55-A317-232611A3C477</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="EEF007FDF0F5B93917C10E9588161DFF">_FF6F4E8E-461E-4F55-A317-232611A3C477</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# First footings (8 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7CD559B1985D7485FC45C061ABE900BE" index="226" id="89" name="# (comment)" enable="True">
+			<UUID>C7B168F8-9A29-40C9-A830-B0C8E6B0BB64</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="7AD97E0EC393471519950EABE60302E5">_C7B168F8-9A29-40C9-A830-B0C8E6B0BB64</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C3533363D30F0EFB32F7A8060792E4EE" index="227" id="89" name="# (comment)" enable="True">
+			<UUID>2B6D5D5F-EFC7-41B6-A84D-6DFDC2846A7D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F5151419B66BE948C9CFF24C2EF99C81">_2B6D5D5F-EFC7-41B6-A84D-6DFDC2846A7D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220817 @mrwatson-de v0.4&#13;- Added `If` + `Loop` control actions with action-stack for nested use and implemented skipping-technique"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7597164FE67E0464CA0C5084F11B5245" index="228" id="89" name="# (comment)" enable="True">
+			<UUID>E732B7B5-26A0-4E6E-AA5C-73669C3456C5</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9EF8721A6FA6B7344CDC96F0F6BD1452">_E732B7B5-26A0-4E6E-AA5C-73669C3456C5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220816 @mrwatson-de 0.3.1&#13;- Added (experimental) fmIDE API-Scripts to encapsulate solution-specific logic (`fmIDE.GetLayoutNameForTable`,`fmIDE.GetBaseTableForTable`)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="183B52BEDF206DF8651EC49277F60756" index="229" id="89" name="# (comment)" enable="True">
+			<UUID>92DE2327-F943-4BE6-BE29-325BE995551B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="9D691AC97CF225710B9FF861110A1821">_92DE2327-F943-4BE6-BE29-325BE995551B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220815 @mrwatson-de v0.3&#13;- Added basic commands and example scripts, coined term &apos;action&apos;"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="06FF3815D3EEDD32CDC514436AEE21B8" index="230" id="89" name="# (comment)" enable="True">
+			<UUID>6A14C668-C82F-4A4D-AF8D-38A068F6E87D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="BBE8BF04871BFBC6884F5CACCDA49BF2">_6A14C668-C82F-4A4D-AF8D-38A068F6E87D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220809 @mrwatson-de v0.2.1&#13;- Refined step names"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C8A23E7D45CD4BF06BB6AE4DA4306260" index="231" id="89" name="# (comment)" enable="True">
+			<UUID>EBE73C1B-E1DE-4DCD-BCB1-AD8B8030B51F</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="AC05382A907CD92AD207D9CA28F38FA5">_EBE73C1B-E1DE-4DCD-BCB1-AD8B8030B51F</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220808 @mrwatson-de&#13;- Github Repo created"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AD9ABCDDF42F36934BC960622841B3D9" index="232" id="89" name="# (comment)" enable="True">
+			<UUID>C463D46E-CDCB-4269-88EB-E76A70040AEA</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="DB59E01934D14B292F2CE901EC7823DC">_C463D46E-CDCB-4269-88EB-E76A70040AEA</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="33B4B8F99D4408233DD47314A986D759" index="233" id="89" name="# (comment)" enable="True">
+			<UUID>BCB090F1-2249-4808-B3B5-BE56F0F091A6</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="528993320FAD94FFFFDB826A3DD776BC">_BCB090F1-2249-4808-B3B5-BE56F0F091A6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Inspiration - KISS! (~4 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F8BCA543AE362E95681962572CB7FEF9" index="234" id="89" name="# (comment)" enable="True">
+			<UUID>7E4A9D7A-B4AF-4C55-BFA7-2755E4DA244A</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="2451C13E7122252494C3ED42E4AD288E">_7E4A9D7A-B4AF-4C55-BFA7-2755E4DA244A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="496691F68B8A6A18F7E99DE4C98D3ACC" index="235" id="89" name="# (comment)" enable="True">
+			<UUID>57EBD415-6513-486F-8BC1-4529B10E7DEB</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="FFD48D17F219CD0A1427D75EA9E9751E">_57EBD415-6513-486F-8BC1-4529B10E7DEB</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220719 @mrwatson-de v0.2&#13;- Started"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="609D95F20C3F36F9E9C6A92A14625E1A" index="236" id="89" name="# (comment)" enable="True">
+			<UUID>CE6BD4FD-221D-4536-BF09-78EDFDC5F422</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="28424C03B7FCD50EBE734B6E71E32D02">_CE6BD4FD-221D-4536-BF09-78EDFDC5F422</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220718 @mrwatson-de&#13;- Smoothed the splash screen animation and added fade in and out"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="933DD754423A7F0805DF7C81A3B8F979" index="237" id="89" name="# (comment)" enable="True">
+			<UUID>CF27FCCC-5896-45EC-A64E-406A295E3BE1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="12A05252C350D6C383BF3115D0C1E5E9">_CF27FCCC-5896-45EC-A64E-406A295E3BE1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220717 @mrwatson-de&#13;- Weekend of ideas - first fmIDE one script to rule them all"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3E5C58DCE787157C9B7C1D4B8EC58AA5" index="238" id="89" name="# (comment)" enable="True">
+			<UUID>533A1732-F375-4A95-9BF0-93D0F5BBC97D</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="65C79AF85E3C93A2F752E9F1020B0849">_533A1732-F375-4A95-9BF0-93D0F5BBC97D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="FEE0BC369A2E9796D75433F5B46EB423" index="239" id="89" name="# (comment)" enable="True">
+			<UUID>4C115E6F-1587-49D7-BCAE-47102F7A5FF1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="945A955C05DF2F7DC6423BE0C0158AEA">_4C115E6F-1587-49D7-BCAE-47102F7A5FF1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Going public with an aim (~2 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6CBA0A191478BEA511AF2195240AC5AA" index="240" id="89" name="# (comment)" enable="True">
+			<UUID>1B84D095-7413-44B0-8EBE-F1DA653358FF</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="58655505233C2018F246C9672AF6699D">_1B84D095-7413-44B0-8EBE-F1DA653358FF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A91DDBBF4CC52F1BA63DD023ACF052DE" index="241" id="89" name="# (comment)" enable="True">
+			<UUID>39FDF466-B87A-4A23-8941-C605E44E455C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D8304C3A68DDF563E4EA13A71A908973">_39FDF466-B87A-4A23-8941-C605E44E455C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220705 @mrwatson-de&#13;- CrossCheck integration 0.3 Extended with goto table function which uses solution-specific knowledge of layout names, plus fmIDE.OpenManageDatabase"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E11D1EE8C41BC3E2C02D488018D73571" index="242" id="89" name="# (comment)" enable="True">
+			<UUID>F465DFA3-45B2-4901-8ABB-EF7EF9810016</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="B1F792433D1D0D99CA1A254CBF91D139">_F465DFA3-45B2-4901-8ABB-EF7EF9810016</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220626 @mrwatson-de&#13;- Demoed the CrossCheck integration and presented the fmIDE idea at the FileMaker-Konferenz 2022 in Hamburg"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="49C25243E539ED638B8D6176B2099537" index="243" id="89" name="# (comment)" enable="True">
+			<UUID>C15EBFC0-5398-401B-9397-7B04B5D6EC02</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="2B91A76F8A65A9B01BE9DBE949F8AA1E">_C15EBFC0-5398-401B-9397-7B04B5D6EC02</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220625 @mrwatson-de&#13;- Created Demo file, logo and splash screen"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C2123B16EB8162AF816E1475393926EE" index="244" id="89" name="# (comment)" enable="True">
+			<UUID>762D8327-6F3D-444A-B4AC-89F3F1B2877B</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="964B9169AF1C79F1C4C69DA03A563582">_762D8327-6F3D-444A-B4AC-89F3F1B2877B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D649C9DD724B4FA626F76966CC1747B4" index="245" id="89" name="# (comment)" enable="True">
+			<UUID>AE0A24E2-6B89-4FA6-A00F-60F70137FE8D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C7B9FED97AC5E958313F9720FABC94AC">_AE0A24E2-6B89-4FA6-A00F-60F70137FE8D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Birth: (0)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1F586607C7EC502FAB6FF6030DF9E417" index="246" id="89" name="# (comment)" enable="True">
+			<UUID>B50640D2-4925-483C-A50A-0944EB0067C9</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="9D27B57B369B3091BAE077E25E20DE60">_B50640D2-4925-483C-A50A-0944EB0067C9</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="74105D133266E406FD2315C5D1EA9EF6" index="247" id="89" name="# (comment)" enable="True">
+			<UUID>2C457104-FCBB-4042-90B5-58C7FD4DE77C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D3EE7B3605F93732FFF62D943CBEC988">_2C457104-FCBB-4042-90B5-58C7FD4DE77C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220623 @mrwatson-de v0.1&#13;- First attempt at an fmIDE module with seperate scripts, fmIDE.OpenManageDatabase, etc. (similar to fmScriptWorkspace)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="69EB5B3A8603841EEC0F3B1CE727A1F6" index="248" id="89" name="# (comment)" enable="True">
+			<UUID>D83D6ED4-C083-4CDC-8888-9C7D91D590A6</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="F0AD31BF4AE4373AE962F10E09436642">_D83D6ED4-C083-4CDC-8888-9C7D91D590A6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="DC87764C74E601A5D1F4D14A752BE43E" index="249" id="89" name="# (comment)" enable="True">
+			<UUID>9F543F17-10F2-4993-9E2A-AAE156EA9C56</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="C53BAE638F19C2DC963A59A22DAE842B">_9F543F17-10F2-4993-9E2A-AAE156EA9C56</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Prehistory (-21 weeks):"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F3B6E138CAF03976EFC66432D11CE84B" index="250" id="89" name="# (comment)" enable="True">
+			<UUID>92B7F60C-3186-4AD5-B5D1-CFD777824021</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="628239E08EC13BE93EBF790EB11E0FBE">_92B7F60C-3186-4AD5-B5D1-CFD777824021</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3E1DDD0B8A3D2C59AC8701B0EFE9C3B2" index="251" id="89" name="# (comment)" enable="True">
+			<UUID>19AD0733-8DAB-4A93-9FB4-A7A818E387D6</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="704178346C143936AB53058F6E2602CC">_19AD0733-8DAB-4A93-9FB4-A7A818E387D6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220426 @mrwatson-de&#13;- CrossCheck integration 0.2 Extended with proprietary code to goto layout, layout object or database definition in advanter"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7A5D2A118B3BB1786559F714938832AD" index="252" id="89" name="# (comment)" enable="True">
+			<UUID>A018D86E-06B9-43EC-AC5F-C0C6966FDC56</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="340F52592C013638CB0597D688A25DA8">_A018D86E-06B9-43EC-AC5F-C0C6966FDC56</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220128 @mrwatson-de &#13;- Crosscheck integration 0.1 Goto script, script step with fmScriptWorkspace"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="65EAB0C715F2A118B1F0D51966DF75E4" index="253" id="89" name="# (comment)" enable="True">
+			<UUID>AFA60768-42E0-461A-95D5-9B12AD0733D6</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="66EB5C7874849922A35DE0E7756D5C77">_AFA60768-42E0-461A-95D5-9B12AD0733D6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="############################################################################"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7FC85B34C79E47C611CE7FC0967E6D85" index="254" id="89" name="# (comment)" enable="True">
+			<UUID>6F87DEDF-2EFB-4EB1-B966-125EE5F37B46</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="3A8E3E9D78D415C047AACE60A803F52C">_6F87DEDF-2EFB-4EB1-B966-125EE5F37B46</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CB22232CEFDBF3F636F2764E5AB5BF70" index="255" id="89" name="# (comment)" enable="True">
+			<UUID>334819E9-779E-4C2B-91FD-06E56F376C94</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="3BD222A2A32868E2CF726091F4080335">_334819E9-779E-4C2B-91FD-06E56F376C94</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="#/"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="43E38DA2A603B47FC879EE042C8F4545" index="256" id="89" name="# (comment)" enable="True">
+			<UUID>A1C9028D-5EA8-439B-9DBD-3B5D1B677FD5</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="8B4D5D8D414BCB624C5492340577AB5B">_A1C9028D-5EA8-439B-9DBD-3B5D1B677FD5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+	</ObjectList>
+</Script>

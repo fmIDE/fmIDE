@@ -1,0 +1,30 @@
+# /##
+# Jumps (=selects and scrolls) to the given line in the currently open script in the script workspace.
+# Negative numbers are relative to the end of the script
+
+# Parameters: ¶-delimited
+# @param LineNumber - the number of the line that should be brought into focus
+
+# Dependencies:
+# @referencedByName
+# @requires MBS Plugin Version 7.4 to select line
+# @requires MBS Plugin Version 8.6.0.04 to scroll to line
+
+# History:
+# @history 20181220 MrW ..and scroll to the selected line
+# @history 20181219 MrW Check line number + documented
+# @history 20170815 MrW Created
+
+# #/
+
+# Parameter
+Set Variable [ $LineNumber[1] ; Get( ScriptParameter ) ]
+
+# Var
+If [ $LineNumber ]
+	# Go to line
+	Set Variable [ $r[1] ; MBS("ScriptWorkspace.SelectLine" ; $LineNumber ) ]
+	Set Variable [ $r[1] ; MBS("ScriptWorkspace.ScrollToSelection"  ) ]
+End If
+
+

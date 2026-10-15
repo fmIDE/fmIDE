@@ -1,0 +1,544 @@
+<Script>
+	<ScriptReference id="111" name="fmIDE README" UUID="12939C0F-1456-4004-8BEA-14EB9B3481C8"></ScriptReference>
+	<ObjectList membercount="49">
+		<Step hash="95EDA321AEF57A60FAEAD54862EC13F9" index="0" id="89" name="# (comment)" enable="True">
+			<UUID>CE400065-89C9-4C7E-909A-85D0A4BA55F5</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="45469864D8F5624D72A9CF3521DDCEF3">_CE400065-89C9-4C7E-909A-85D0A4BA55F5</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="/##"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E92D8BA4FB7E8C5DF8109D63F4EC48C4" index="1" id="89" name="# (comment)" enable="True">
+			<UUID>3FFB6DC1-4119-433F-A24C-358D419777E2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6FE7843A88AA068EC8A8215503A5A1AD">_3FFB6DC1-4119-433F-A24C-358D419777E2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="                                                                                          &#13;                                      .(@@@@@@@@&amp;/.                                       &#13;             .%%%%%%%%%%%%%%./@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.                              &#13;          %%%%%%%%%%%%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*.///////*                &#13;        %%&amp;@@@@@@@@@@@@@@@@@@@@@@@@(********@********#@@@@@@@@@@@@@@(////////             &#13;      (%%%&amp;@@@@@@@@@@@@@@@@@@@************@@@@@************@@@@@@@@@@@@@@@@@///           &#13;     *%%%%&amp;@@@@@@@@@@@@@@@@************@@@@@@@@@@@************@@@@@@@@@@@@@@////          &#13;     %%%%%&amp;@@@@@@@@@@@@@*************@@@@@@@@@@@@@@@************(@@@@@@@@@@@////          &#13;     %%%%%&amp;@@@@@@@@@@@/***********@@@@@@@@@@@@@@@@@@@@@***********(@@@@@@@@@@@/*          &#13;     %%%%@@@@@@@@@@@@***********@@@@@@@@@@@@@@@@@@@@@@@@@***********@@@@@@@@@@@*          &#13;      %%@@@@@@@@@@@&amp;*********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*********@@@@@@@@@@@@         &#13;       @@@@@@@@@@@@********@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@********@@@@@@@@@@@@        &#13;      @@@@@@@@@@@@******@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@******@@@@@@@@@@@@       &#13;     @@@@@@@@@@@@@****@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@****@@@@@@@@@@@@(      &#13;     @@@@@@@@@@@@&amp;*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*@@@@@@@@@@@@@      &#13;    @@@@@@@@@@@@@@@@@(**@@@@@@@@@@@@@@@@@@**@@@*********@@@********%@@@@@@@@@@@@@@@@*     &#13;    @@@@@@@@@@@@@@@@*****&amp;#************@@@**@@@**@@@@@@**@@***@@@@@@@@@@@@@@@@@@@@@@@     &#13;    @@@@@@@@@@@@@@@@@/**@@#**@@@**@@@**@@@**@@@**@@@@@@**@@********%@@@@@@@@@@@@@@@@@     &#13;    @@@@@@@@@@@@@@@@@/**@@#**@@@**@@@**@@@**@@@**@@@@@**(@@***@@@@@@@@@@@@@@@@@@@@@@@     &#13;    @@@@@@@@@@@@@@@@@@*@@@@*#@@@**@@@/*@@@**@@@%******/@@@@@*******%@@@@@@@@@@@@@@@@(     &#13;     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,    &#13;     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@///////@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%,,,   &#13;      @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//////@@@(/////@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,  &#13;     ((@@@@@@@@@@@@@@@@@@@@@@@@@@@@/////@@@@@@@@@/////@@@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,  &#13;     (((@@@@@@@@@@@@@@@@@@@@@@@@@@///(@@@@@@@@@@@@@(///@@@@@@@@@@@@@@@@@@@@@@@@@@,,,,,,,  &#13;     /(((@@@@@@@@@@@@@@@@@@@/*@@@@/@@@@@@@@@@@@@@@@@@@/@@@@*/@@@@@@@@@@@@@@@@@@%,,,,,,,,  &#13;      (((((@@@@@@@@@@@@@@@@@@***(@@@@@@@@@@@@@@@@@@@@@@@(***@@@@@@@@@@@@@@@@@@@,,,,,,,,   &#13;       (((((#@@@@@@@@@@@@@@@@******@@@@@@@@@@@@@@@@@@@******@@@@@@@@@@@@@@@@@@@,,,,,,,,   &#13;        ((((#@@@@@@@@@@@@@@@@@%******(@@@@@@@@@@@@@(******&amp;@@@@@@@@@@@@@@@@@@@@,,,,,,,    &#13;         ,((#@@@@@@@@@@@@@@@@@@@********@@@@@@@@@********@@@@@@@@@@@@@@@@@@@@@@,,,,,.     &#13;            ((((((((@@@@@@@@@@@@@@@*******#@@@#*******@@@@@@@@@@@@@@@@@@@@@@@@@,,,,       &#13;               (((((((((@@@@@@@@@@@@@@@@/*******/@@@@@@@@@@@@@@@&amp;,,,,,,,,,,,,,,,,         &#13;                    (((((((((@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#,,,,,,,,,,,,,,,,,,            &#13;                                     .(@@@@@@@@@@@(,,,,,,,,,,,,,,,,,,,,,,,,               &#13;                                                     ,,,,,,,,,,,,,,,,                     &#13;                                                                                          &#13;"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3538813689E94A100D09BFEADEE613F4" index="2" id="89" name="# (comment)" enable="True">
+			<UUID>D3C97FC3-0F2C-4CC9-8FC8-30212E05EF2E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D3C7F4BEA7B21326E562BB8A1EF4F1E3">_D3C97FC3-0F2C-4CC9-8FC8-30212E05EF2E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# fmIDE"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="66E218AB37CB0CBD5AC90397A0507E31" index="3" id="89" name="# (comment)" enable="True">
+			<UUID>3F38A5D4-7B90-47B4-A5EF-857D27043B0E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="471BD917A5D348DF59D2D73EB812E6EC">_3F38A5D4-7B90-47B4-A5EF-857D27043B0E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="[A FileMaker Integrated Development Environment]"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A977CFFCC7E20FB205D48D96AB1FECA2" index="4" id="89" name="# (comment)" enable="True">
+			<UUID>72F5614E-FEE6-4D1C-9D7C-193B909EA07C</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="2B2AAFC920A4A98E1474D6C39BD8C1DA">_72F5614E-FEE6-4D1C-9D7C-193B909EA07C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1C02913413FA7948C4A6531329A8AF2D" index="5" id="89" name="# (comment)" enable="True">
+			<UUID>F1CF9439-7239-43A4-B428-312F45A152F8</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="A3DE573B96FC7AEA5FA4B59684C8A8CC">_F1CF9439-7239-43A4-B428-312F45A152F8</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="A FileMaker Module which makes it possible to automate activities in the FileMaker Development Environment"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="4D24C638E0E65550B6C0FD81184B6D1C" index="6" id="89" name="# (comment)" enable="True">
+			<UUID>B4762A5F-2765-4A43-986A-B7D26A2525DA</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="C2CA9996951DF2435A5641211BD37424">_B4762A5F-2765-4A43-986A-B7D26A2525DA</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3DC20D8FD0974D3EB2EE7C1286EE7080" index="7" id="89" name="# (comment)" enable="True">
+			<UUID>F9C25FB0-3F88-4E5D-8BEA-2C0E669CD6C3</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="51E23E1367B77FAAF74CDA35A542D642">_F9C25FB0-3F88-4E5D-8BEA-2C0E669CD6C3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@author MrWatson russell@mrwatson.de"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CF9319D9639E439667A76D1A11D03DBC" index="8" id="89" name="# (comment)" enable="True">
+			<UUID>A16078F7-026E-4148-9DBC-E21F1FEC479E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="D84B69241FCBC35CAEF813064C203F40">_A16078F7-026E-4148-9DBC-E21F1FEC479E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@version @see line 2 of the fmIDE script fmp://$/fmIDE?script=fmIDE&amp;$script_name=fmIDE&amp;$script_step_number=2"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AB96A884F0045F927D418A17A1B1A31C" index="9" id="89" name="# (comment)" enable="True">
+			<UUID>1A02F47E-0EB4-44D4-9C95-74C3F5BE55EA</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="58B5E46AF63FB35969B8AC9B47B49B5B">_1A02F47E-0EB4-44D4-9C95-74C3F5BE55EA</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C7D27B2D6BC1C8CDF59B638A240ABF84" index="10" id="89" name="# (comment)" enable="True">
+			<UUID>C231863B-A2AA-4D5F-87F9-F72FCFE9DC25</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="2CCA692342920ABB21BD7B8E419191E0">_C231863B-A2AA-4D5F-87F9-F72FCFE9DC25</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="---"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1DEAA48DB7ECC0FAE417868CA9DC5205" index="11" id="89" name="# (comment)" enable="True">
+			<UUID>5B7CCAD5-A6ED-4AE9-BEDD-F57B3CBF692B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0473E7C24EC26E508D80E6077B64B9F6">_5B7CCAD5-A6ED-4AE9-BEDD-F57B3CBF692B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# DOCUMENTATION &amp; LINKS"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="327BF6935D7CE622DBD70A7901C5B6D0" index="12" id="89" name="# (comment)" enable="True">
+			<UUID>F00720C2-D315-4240-ADEB-F2640D28034A</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="5A04315E96C34FD4B819425655F9118F">_F00720C2-D315-4240-ADEB-F2640D28034A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="841071B973942C3AFCC06CDDAACE4F40" index="13" id="89" name="# (comment)" enable="True">
+			<UUID>025C7AF8-0668-496B-BE89-716617B113B7</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="A3F03E95961C757421AECEBBF5D89291">_025C7AF8-0668-496B-BE89-716617B113B7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@see Wiki: https://github.com/fmIDE/fmIDE/wiki"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D264D44BE2BF7FD815A41E473E98EBC2" index="14" id="89" name="# (comment)" enable="True">
+			<UUID>625CA308-27AB-4A45-B39F-5A2B46850BE4</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="FE961475039423ED5FE0B092830A5BFE">_625CA308-27AB-4A45-B39F-5A2B46850BE4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@see Get: https://github.com/fmIDE/fmIDE/releases/latest"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1DB73B7066653973BAF9B14F61F083DE" index="15" id="89" name="# (comment)" enable="True">
+			<UUID>619E9414-7535-4B28-93D3-35F1895DC984</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="86584F0B7C36678EB2F44A435CB6F265">_619E9414-7535-4B28-93D3-35F1895DC984</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@see Repo: https://github.com/fmIDE/fmIDE"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9E373259269F220E9957677380A040FC" index="16" id="89" name="# (comment)" enable="True">
+			<UUID>504FAEBC-5A88-4DA3-9202-9F01F65E616D</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="CED9D55ED2A7442999B496838BDD695A">_504FAEBC-5A88-4DA3-9202-9F01F65E616D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1E208613E21AE07EADBCB5C805C5F149" index="17" id="89" name="# (comment)" enable="True">
+			<UUID>F7FF1E44-846B-4524-8A93-5E01B57DD36A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="CF286B1B32CFC951D0862DF57CD6FAC8">_F7FF1E44-846B-4524-8A93-5E01B57DD36A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@see the changes script &apos;###…&apos; for details fmp://$/fmIDE?script=fmIDE&amp;$script_name_stub=%23%23%23&amp;$script_step_number=2"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="63C3F0FC0D14AE13DAA2D3B6B5AFC877" index="18" id="89" name="# (comment)" enable="True">
+			<UUID>5C242AEA-DD59-4383-BE39-5B80E941506E</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="13BD1622A2EAEEC29D1E7D2B2556AA16">_5C242AEA-DD59-4383-BE39-5B80E941506E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A3AEEBB1F5C7824D3F0B3ABEEB545684" index="19" id="89" name="# (comment)" enable="True">
+			<UUID>0E8B4713-B1FF-4F9B-8350-6AD4E315AA51</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6BBA549E9EC79AB08DC0AE02F109FD6C">_0E8B4713-B1FF-4F9B-8350-6AD4E315AA51</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="---"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="02F3027683E92B1DA1087E6B1406C0BA" index="20" id="89" name="# (comment)" enable="True">
+			<UUID>2E50D882-5503-45E2-AF72-166217BDF5FC</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="E903DA0C19959DCBF5010E87CA545233">_2E50D882-5503-45E2-AF72-166217BDF5FC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# DEPENDENCIES"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D04D8F83434AA2DDA2FFB74C2325CBB1" index="21" id="89" name="# (comment)" enable="True">
+			<UUID>7C7ED648-ABA4-46B2-896C-8FDA4A5E82A3</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="69D3971682FBFDABA7D8B8FAAF7C788D">_7C7ED648-ABA4-46B2-896C-8FDA4A5E82A3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="8B1FEBD8FD7C733583F0F3F29BC3D37E" index="22" id="89" name="# (comment)" enable="True">
+			<UUID>E14FBD59-E0F2-49CD-A5BB-88F29A23D03B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DD4E48256F62129C28CEDFBEAD75A744">_E14FBD59-E0F2-49CD-A5BB-88F29A23D03B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@needs FileMaker 19+"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="EC88182FA7AFF61A2DDACD77002BA3D5" index="23" id="89" name="# (comment)" enable="True">
+			<UUID>8602B371-5C3C-4C52-98B5-FD436485154D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="583470DB5DB2E2E13249269D4B393FF4">_8602B371-5C3C-4C52-98B5-FD436485154D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@needs Mac"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AF51FDB293EDB500E6FA6117952BB194" index="24" id="89" name="# (comment)" enable="True">
+			<UUID>D7C123D4-914D-4651-B556-8437C09235C1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5FDF89496AD7E71FE1D5565406EAA72D">_D7C123D4-914D-4651-B556-8437C09235C1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@needs MBS Plugin"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2AC17E6CCF38A015A675241D6E81EFBD" index="25" id="89" name="# (comment)" enable="True">
+			<UUID>B4C5B1BF-11A7-4110-A5A3-86D3B3451904</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="4CA7863C9D0B22B7D2856A0F4A7FF404">_B4C5B1BF-11A7-4110-A5A3-86D3B3451904</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CE4A5B62DD8C74A58A14028A38B319A1" index="26" id="89" name="# (comment)" enable="True">
+			<UUID>D2A1F5CC-F2F5-41D3-B215-E0298ABAAEBF</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="BA6F38745F47CF46A0A20F8407039277">_D2A1F5CC-F2F5-41D3-B215-E0298ABAAEBF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="---"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="31F5E88B6FE7C556347F57233655763F" index="27" id="89" name="# (comment)" enable="True">
+			<UUID>9D9639C5-E36F-470B-A4A5-783CA5A5C238</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="ED3173148E5D2775E6255D992FA51F76">_9D9639C5-E36F-470B-A4A5-783CA5A5C238</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# INSTALLATION"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1781FC8329D6663406C10490470FB7C2" index="28" id="89" name="# (comment)" enable="True">
+			<UUID>F5BE765E-33EA-4E2A-AF89-E3467CFC50CD</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="B14C60BF8DEE4C55425E2F2408CE65EB">_F5BE765E-33EA-4E2A-AF89-E3467CFC50CD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="055CFDE075A05826B2291E7BAA193433" index="29" id="89" name="# (comment)" enable="True">
+			<UUID>630AAA57-0842-4102-BA10-8412663938BA</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="74CA278933A232584960D9420E3FC25A">_630AAA57-0842-4102-BA10-8412663938BA</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@see &apos;Ìnstalling fmIDE&apos; in the fmIDE Wiki: https://github.com/fmIDE/fmIDE/wiki#installing-fmide"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="400FB66FFBBA4E360016EBCE93EA38C9" index="30" id="89" name="# (comment)" enable="True">
+			<UUID>15AE6215-A159-4FC4-9FA8-516391284D4E</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="0D1D08D77622BC288B8779226C151DCD">_15AE6215-A159-4FC4-9FA8-516391284D4E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="EBE939C3A7B3E38FBB5B80D5B44ABDDE" index="31" id="89" name="# (comment)" enable="True">
+			<UUID>A1C38355-1558-4BC3-B38D-64934357DA82</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="CC23E0984D723BCC8A9A71C96B1DBD76">_A1C38355-1558-4BC3-B38D-64934357DA82</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="---"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AC2642601401841931222307F7BF01D8" index="32" id="89" name="# (comment)" enable="True">
+			<UUID>1A65F030-1585-463B-8D8C-A0368EFE38F6</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="A73834CE63B7954DC118DD4DA785DBAB">_1A65F030-1585-463B-8D8C-A0368EFE38F6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# USE"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9158050890D67C1AD35B74D9301D4484" index="33" id="89" name="# (comment)" enable="True">
+			<UUID>15E9099D-7360-45A9-8664-995FD55666EF</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="42C25A902A02D8E4DDEAFBA92F8BE443">_15E9099D-7360-45A9-8664-995FD55666EF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="376D2FC6DABD0270E987EA43A4B5A170" index="34" id="89" name="# (comment)" enable="True">
+			<UUID>197F4874-8229-46B6-A1EB-CE7ED27C526C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0DC6AFD37D3F83A32B0CFA509FC786E7">_197F4874-8229-46B6-A1EB-CE7ED27C526C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@see the fmIDE Wiki: https://github.com/fmIDE/fmIDE/wiki"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A6555872E8F04893A99361A9BF54C49D" index="35" id="89" name="# (comment)" enable="True">
+			<UUID>318A521C-4EBF-48AE-A66E-E6ECAE842BD7</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="47E753446D1DD23C623B67740847584D">_318A521C-4EBF-48AE-A66E-E6ECAE842BD7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A15522F67C46150BE4E33626A7F70489" index="36" id="89" name="# (comment)" enable="True">
+			<UUID>81F4C07B-AE44-4D14-909E-1FAC0C505D43</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="E15C0C7A360C4AC0586BE586CF4EFC5B">_81F4C07B-AE44-4D14-909E-1FAC0C505D43</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="---"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9228760361352F79904CD283A850BA25" index="37" id="89" name="# (comment)" enable="True">
+			<UUID>935D5C73-CD04-4859-B7CC-9A31D3C42CAB</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="120CAD8C188DF79C740FC7E0791B5CAF">_935D5C73-CD04-4859-B7CC-9A31D3C42CAB</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# LICENCE"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="924272FB3D6FA5648CAAE0EBE994BEBF" index="38" id="89" name="# (comment)" enable="True">
+			<UUID>932F1745-5D8F-4E4A-88B5-B98E28DB9A37</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="26F5B86E9F1B10783F63534921B800EB">_932F1745-5D8F-4E4A-88B5-B98E28DB9A37</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@see https://github.com/fmIDE/fmIDE/blob/main/LICENSE"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1F315EBCEF48CE6A37FA02972D3CA03F" index="39" id="89" name="# (comment)" enable="True">
+			<UUID>5188DC50-86F2-49DB-B66F-F42ABFF38BE1</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="1AE2B3B23D65013491B1C2A896D06304">_5188DC50-86F2-49DB-B66F-F42ABFF38BE1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F0202DA573288E0E2C738E241395F634" index="40" id="89" name="# (comment)" enable="True">
+			<UUID>DD77FA1D-D3B6-4EE2-86D9-C4E6A23996D1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="4397CD503C6D37941F5240B1E5CE14AA">_DD77FA1D-D3B6-4EE2-86D9-C4E6A23996D1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="---"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6AE65ECA4005D8CB2AA206BF9E95BA0E" index="41" id="89" name="# (comment)" enable="True">
+			<UUID>EEF007B1-219F-40C2-AF39-36A24E28DDE3</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="D8882382629509F1527220C8D8D7E5B6">_EEF007B1-219F-40C2-AF39-36A24E28DDE3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BFA31AAA1325F385504B903C04D05B34" index="42" id="89" name="# (comment)" enable="True">
+			<UUID>CA040A24-65C5-4A4D-83C8-348D9AC6F266</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="AEF5E534F288C2C7FA55978E0B4E30FF">_CA040A24-65C5-4A4D-83C8-348D9AC6F266</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="Happy FileMaking"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9B8275661C65B534017F9C51800A9439" index="43" id="89" name="# (comment)" enable="True">
+			<UUID>5901AAAF-39A2-4B91-A71D-5735FFA4AB56</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="28691C98B6FD9F577203967887E32DDD">_5901AAAF-39A2-4B91-A71D-5735FFA4AB56</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6EA168FFAA55840C0B6F4DAE62EEDA0C" index="44" id="89" name="# (comment)" enable="True">
+			<UUID>9AABDFD8-1865-4C2F-A723-282540C90E19</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="FD3F65BAEB2AAE6A9D0BF81696229AF0">_9AABDFD8-1865-4C2F-A723-282540C90E19</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="MrWatson"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6DA6330089E51CD36BDBF2658D142485" index="45" id="89" name="# (comment)" enable="True">
+			<UUID>7AAB98C8-064F-4600-B340-8385FF2274FF</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="121E05A063FCBB6B820677EB17CC356A">_7AAB98C8-064F-4600-B340-8385FF2274FF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="667EE45A5412D3EAC08F94D54259CFBB" index="46" id="89" name="# (comment)" enable="True">
+			<UUID>3E0434F4-D233-4D22-BAB6-F1654D0D3E6C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="80E6945F3CA3B482BA0C190FF9814450">_3E0434F4-D233-4D22-BAB6-F1654D0D3E6C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="---"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A86715926657C398951FAB790E6CBBB5" index="47" id="89" name="# (comment)" enable="True">
+			<UUID>54B683ED-9E33-4F7A-AE39-4627F56F9AB4</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="7A46686CCAD6741634FE05F9EEB4123F">_54B683ED-9E33-4F7A-AE39-4627F56F9AB4</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="71B3602D893BA0D59E02F3F2D5186C81" index="48" id="89" name="# (comment)" enable="True">
+			<UUID>99E62D5A-0696-41C0-8DA6-A474675A32C0</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5EF5F1E0B8BA04B210B1D90BE77BCB78">_99E62D5A-0696-41C0-8DA6-A474675A32C0</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="#/"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+	</ObjectList>
+</Script>

@@ -1,0 +1,13 @@
+<CustomFunction id="33" name="_Default" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2025-09-25T09:43:25">4073BE88-0F1A-4A93-9693-30C6335C067D</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="5231ED9E4E101A1505DE3EA7AB056A06">_4073BE88-0F1A-4A93-9693-30C6335C067D</DDRREF>
+		<Text><![CDATA[Case( not IsEmpty( pValue ) ; pValue ; pDefault )]]></Text>
+	</Calculation>
+	<Display>_Default ( pValue ; pDefault )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pValue"></Parameter>
+		<Parameter name="pDefault"></Parameter>
+	</ObjectList>
+</CustomFunction>

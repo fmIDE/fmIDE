@@ -2,56 +2,28 @@
 
 # fmIDE
 
-**A FileMaker integrated development environment - for AI + U + Me.**
+**A FileMaker integrated development environment — for AI + U + Me.**
 
-fmIDE integrates the FileMaker Pro Client development environment into your classic or agentic development workflows.
+fmIDE connects FileMaker Pro's development environment to classic and agentic development workflows. Add the fmIDE script module to your solution files to open them up to external tools, documentation and AI agents.
 
-Add the fmIDE script to each of your FileMaker solution files and you open up your solution to external tools and AI agents.
+Your tools and AI pair programmer can **show you things** in FileMaker and **act** in your solution, using two complementary APIs:
 
-- You can jump from external tools, from your documentation to things in your solution.
-- You can write dynamic scripts and run them dynamically in your solution.
+- **[Name that Thing][Name that Thing] (nouns):** name a script, field, layout or other development object to open it in the relevant FileMaker context.
+- **[fmIDE Action Scripts (fmIDEAS)](docs/fmjaml-fmideas.md) (verbs):** build and run sequences of actions in readable fmJAML or JSON, including approved development tasks.
 
-This **enables AI agents to work with you** in your solution:
-
-- AI agents can **show** you anything in your solution.
-- AI agents can **act** in your solution and guide you through your development tasks - like a pair programmer.
-
-## What fmIDE gives you
-
-- **fmIDE 'Name that Thing' API** — (nouns) - name something to jump in to FileMaker and open it in the relevant development context.
-  - with **Optional fmIDE macOS services** — navigate deeper into the FileMaker dialogs
-- **fmIDE Action Script/fmIDEAS API** - (verbs) - pass an fmIDE action script, written in fmJAML (or JSON), to fmIDE to runperform repeatable FileMaker development actions.
-
-- **AI integration** — let an AI agent inspect a solution, navigate FileMaker, and perform approved development tasks through the same API.
-
-The fmIDE demo file provides
-
-- the fmIDE test system, which proves what fmIDE can do (and not)
-- documentation and examples
-- a quicklink tool to help construct and run fmp urls in the current FileMaker
+The **fmIDE demo file** includes documentation, examples, a test system and a Quicklink tool for constructing and running `fmp` URLs.
 
 ## Quick start
 
-1. Follow the [installation and setup guide][Installation].
-2. Enjoy
+1. Get the [latest release][GitHub Releases] and follow the [installation and setup guide][Installation].
+2. Explore the **fmIDE Examples** and **fmIDE Tests** layouts in the demo file.
+3. Call fmIDE in your solution through an `fmp` URL or [fmIDE-CLI](https://github.com/fmIDE/fmIDE-CLI), targeting the FileMaker version and file you want to use.
 
-## The basic workflow
+Navigate straight to an object and continue in FileMaker's native development interface, or run an action script to automate a task.
 
-When you need to inspect or change something in a FileMaker solution:
+## An action script in fmJAML
 
-1. Identify the object by its FileMaker name.
-2. Ask fmIDE to navigate to it or perform an action.
-3. Continue in FileMaker's native development interface.
-
-For example, your AI-agent, or an external tool can send an `fmp` URL that asks fmIDE to open a script or field by name. The FileMaker window is brought to the relevant context, so you can work with the object immediately.
-
-Alternatively, use the new fmIDE command line tool to call the fmIDE script in the filemaker version and file of your choice. See the [fmIDE-CLI repo](https://github.com/fmIDE/fmIDE-CLI) for more.
-
-fmIDE is designed to complement FileMaker's development tools. It does not replace Script Workspace, Manage Layouts, or Manage Database; it gets you to the right place faster and provides a consistent automation boundary around those tools.
-
-## fmIDE Action Scripts in fmJAML
-
-An fmIDE Action Script is a sequence of fmIDE actions, preferably written in fmJAML (or JSON), for example this fmJAML snippet shows selected examples in the examples layout of the fmIDE demo file, sorted by the `Examples: Sort` script:
+This example finds selected records in the demo file's **fmIDE Examples** layout, sorts them and goes to the first record:
 
 ```fmjaml
 [+].Go to Layout = "fmIDE Examples"
@@ -62,54 +34,27 @@ An fmIDE Action Script is a sequence of fmIDE actions, preferably written in fmJ
 [+].Go to Record/Request/Page = "First"
 ```
 
-Notes:
-
-- Values which are from a selection menu in FileMaker, such as a layout name or script name use direct values `= "«static value»"`
-- Otherwise use the `= == «calculation»` form to pass a FileMaker calculation (using the `==` 'Quote' value operator).
-
-
-- The **fmIDE Examples** layout contains working examples and is a good place to start experimenting. - The **fmIDE Tests** layout also contains hundreds of tests (in test suite `3 fmIDEAS`).
-
-Use the action documentation in the **fmIDE Actions Wiki Docs** layout or in the [fmIDE Wiki][Wiki] for the supported actions, parameters, error handling, and JSON forms.
-
-## Working with AI agents
-
-fmIDE can act as a controlled bridge between an AI agent and a FileMaker solution. A useful pattern is:
-
-1. Export the relevant FileMaker metadata with **Save a Copy as XML**.
-2. Inspect the XML to identify current layouts, tables, fields, scripts, and relationships.
-3. Generate a small fmIDEAS script for the requested action.
-4. Send it to fmIDE through an `fmp` URL.
-5. Check FileMaker's visible state and fmIDE's error variables before continuing.
-
-This keeps the agent grounded in the current solution and makes each change explicit and reviewable. The project’s separate `fmIDE-AI-Bridge` workspace contains examples, logs, metadata snapshots, and notes from this workflow.
-
-## macOS fmIDE-Services
-
-The `fmIDE-Services` folder contains two optional macOS services:
-
-- **Store Clipboard to Keyboard Buffer** stores clipboard text for later use.
-- **Retype Keyboard Buffer** types that text into the active FileMaker dialog.
-
-These services are useful when fmIDE can open a FileMaker development dialog but cannot operate the dialog's final controls. See [fmIDE-Services/README.md](fmIDE-Services/README.md) for installation and keyboard-shortcut setup.
+The layout and script names above are literal values. `= ==` preserves a FileMaker calculation for evaluation when the action runs. See the [fmJAML and fmIDEAS guide](docs/fmjaml-fmideas.md) for syntax and evaluation rules.
 
 ## Documentation and support
 
-- [fmIDE Wiki][Wiki]
-- [Installation and setup][Installation]
-- [Name that Thing API][Name that Thing]
-- [Latest releases][GitHub Releases]
-- [fmIDE-Services guide](fmIDE-Services/README.md)
+- [Documentation home](docs/README.md), [action reference](docs/actions/README.md) and [Name that Thing parameter reference](docs/parameters/README.md)
+- [Agent skills](.agents/skills/README.md), [AI Bridge macros](docs/ai-bridge.md) and [development guide](docs/development.md)
+- [Source XML and exploded scripts](src/README.md) and [native regression tests](tests/fmIDEAS/README.md)
+- [Optional macOS services](fmIDE-Services/README.md) and [existing wiki][Wiki]
+- [fmIDE website](https://fmworkmate.com/fmide.html) and [issues](https://github.com/fmIDE/fmIDE/issues)
 
-fmIDE was created by [FileMaker developers at MrWatson.de][MrWatson]. It was first presented at the fmGuru Rome FileMaker Week Conference in October 2022.
+Action documentation is also available inside the demo file on **fmIDE Actions Wiki Docs**.
+
+Created by [MrWatson][MrWatson]; first presented at the fmGuru Rome FileMaker Week Conference in October 2022.
 
 ## License
 
-fmIDE is distributed under the terms in [LICENSE](LICENSE).
+See [LICENSE](LICENSE).
 
-[fmIDE]: https://github.com/fmIDE/fmIDE/wiki/images/fmide.png
+[fmIDE]: docs/wiki/images/fmide.png
 [GitHub Releases]: https://github.com/fmIDE/fmIDE/releases
 [Wiki]: https://github.com/fmIDE/fmIDE/wiki
-[Installation]: https://github.com/fmIDE/fmIDE/wiki/About-fmIDE-Installation-and-Setup
-[Name that Thing]: https://github.com/fmIDE/fmIDE/wiki/fmIDE-'Name-that-Thing'-API
+[Installation]: docs/installation.md
+[Name that Thing]: docs/name-that-thing.md
 [MrWatson]: http://www.mrwatson.de

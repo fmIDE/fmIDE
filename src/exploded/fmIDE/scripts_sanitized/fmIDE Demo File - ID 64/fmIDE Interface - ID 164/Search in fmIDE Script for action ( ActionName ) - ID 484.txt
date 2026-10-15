@@ -1,0 +1,13 @@
+
+# 20261011 @mrwatson-de As calculation
+# 20260619 @mrwatson-de Refactored to encapsulate the name of the fmIDE_action_name var 
+
+# Params
+Set Variable [ $_JSP[1] ; _JSP ]
+Set Variable [ $action_name[1] ; JSONGetElement ( $_JSP ; "action_name" ) ]
+
+Perform Script [ "Search in fmIDE Script ( script_step_search )" ; Specified: From list ; Parameter: JSONSetElement ( "{}"
+				; ["script_step_search" ; Quote( "$fmide__action_name = " & Quote ( $action_name ) ) ; JSONString]
+				) ]
+
+

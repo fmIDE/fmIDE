@@ -1,0 +1,23 @@
+
+# 2021-12-13 RW: Neu
+
+If [ Get ( LayoutTableName ) ≠ "DevJob" ]
+	Go to Layout [ Layout: "fmDevJob List" ; Animation: None ]
+End If
+If [ Get ( FoundCount ) = 0 ]
+	Exit Script []
+End If
+
+Set Variable [ $$DevJobID[1] ; fmDevJob::__ID ]
+
+Go to Related Record [ Table: fmDevJobTask ; Layout: "fmDevJob Task List" ; Show related ]
+If [ Get ( LastError ) ]
+	Go to Layout [ Layout: "fmDevJob Task List" ; Animation: None ]
+	Show All Records
+	Show Omitted Only
+Else
+	Perform Script [ "DEV DevScriptList Sort" ; Specified: From list ; Parameter: ]
+	Go to Record/Request/Page [ First ]
+End If
+
+

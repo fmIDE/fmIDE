@@ -1,0 +1,3 @@
+
+# Please keep the name of this script in sync with @script "fmScriptWorkspace CHANGES"
+

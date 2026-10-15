@@ -1,0 +1,19 @@
+
+
+Show/Hide Toolbars [ Lock: OFF ; Include Edit Record Toolbar: OFF ; Show ]
+
+Set Variable [ $action[1] ; JSONSetElement ( "[]"
+				;["[0].Set.target" ; "$$seconds"  ; JSONString]
+				;["[0].Set.value" ; 1  ; JSONNumber]
+				;["[1].Show Custom Dialog.message_value" ; Quote( "Hi¶$$seconds=" ) & "& $$seconds" ; JSONString]
+				;["[2].Loop" ; "" ; JSONNull]
+				;["[3].	Set.value" ; "Get ( CurrentTimeUTCMilliseconds )"  ; JSONString]
+				;["[4].	Pause.seconds" ; 1 ; JSONNumber]
+				;["[4].	Pause.hiatus" ; True ; JSONBoolean]
+				;["[5].	Show Custom Dialog.message_value__OK_HALT" ; Quote( "Bye! (Delay=" ) & " & (Get ( CurrentTimeUTCMilliseconds ) - $$) & " & Quote ( "ms)" ) ; JSONString]
+				;["[6].	Exit Loop If.value" ; "Get( LastMessageChoice ) = 2" ; JSONString]
+				;["[7].End Loop" ; "" ; JSONNull]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action ]
+
+

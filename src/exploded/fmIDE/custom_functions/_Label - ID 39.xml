@@ -1,0 +1,14 @@
+<CustomFunction id="39" name="_Label" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2025-09-25T17:24:09">B17FFA90-2185-483B-9595-E94FD31459B3</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="0FDAA2810066F1DDA76ED090BB7E90B8">_B17FFA90-2185-483B-9595-E94FD31459B3</DDRREF>
+		<Text><![CDATA[Case( not IsEmpty( pText ) ; pPrefix & pText & pSuffix )]]></Text>
+	</Calculation>
+	<Display>_Label ( pPrefix ; pText ; pSuffix )</Display>
+	<ObjectList membercount="3">
+		<Parameter name="pPrefix"></Parameter>
+		<Parameter name="pText"></Parameter>
+		<Parameter name="pSuffix"></Parameter>
+	</ObjectList>
+</CustomFunction>

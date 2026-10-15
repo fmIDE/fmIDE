@@ -1,0 +1,36 @@
+
+# 20260928 @mrwatson-de Added auto_json and auto_format
+# 20260927 @mrwatson-de Need examples
+
+# Param
+Set Variable [ $_JSP[1] ; _JSP ]
+Set Variable [ $fmJAML[1] ; JSONGetElement ( $_JSP ; "fmjaml" ) ]
+Set Variable [ $auto_json[1] ; JSONGetElement ( $_JSP ; "auto_json" ) ]
+Set Variable [ $auto_format[1] ; JSONGetElement ( $_JSP ; "auto_format" ) ]
+Set Variable [ $convert[1] ; JSONGetElement ( $_JSP ; "convert" ) ]
+
+# Reset Data
+Set Field [ fmIDE::_gfmJAMLPlayground_InputText ; "" ]
+Set Field [ fmIDE::_gfmJAMLPlayground_OutputJSON ; "" ]
+
+# Set options
+If [ $auto_json ]
+	Set Field [ fmIDE::_gfmJAMLPlayground_OutputJSONAutomatic ; 1 ]
+End If
+If [ $auto_format ]
+	Set Field [ fmIDE::_gfmJAMLPlayground_OutputJSONFormatted ; 1 ]
+End If
+
+Perform Script [ "Intro Navigate" ; Specified: From list ; Parameter: JSONSetElement ( "{}" ; "to" ; "fmJAML Playground" ; JSONString ) ]
+Insert Calculated Result [ Select: ON ; Target: fmIDE::_gfmJAMLPlayground_InputText ; $fmJAML ]
+
+# Trigger
+Commit Records/Requests [ With dialog: OFF ]
+
+# One time convert
+If [ $convert and not fmIDE::_gfmJAMLPlayground_OutputJSONAutomatic ]
+	# Convert
+	Perform Script [ "fmJAML Playground Convert fmJAML to JSON" ; Specified: From list ; Parameter: ]
+End If
+
+

@@ -1,0 +1,12 @@
+<CustomFunction id="43" name="_CharactersRightOfTheCursor" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2025-09-25T22:07:34">5BC99AB7-691D-4F6F-9892-E4E7CE8FE674</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="48F34E67EE87D61091EDC105AF4C1B9D">_5BC99AB7-691D-4F6F-9892-E4E7CE8FE674</DDRREF>
+		<Text><![CDATA[Middle ( Get ( ActiveFieldContents ) ; Get ( ActiveSelectionStart ) ; pNumChars )]]></Text>
+	</Calculation>
+	<Display>_CharactersRightOfTheCursor ( pNumChars )</Display>
+	<ObjectList membercount="1">
+		<Parameter name="pNumChars"></Parameter>
+	</ObjectList>
+</CustomFunction>

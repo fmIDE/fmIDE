@@ -1,0 +1,9 @@
+<CustomFunction id="76" name="_fmIDEGetReleaseFromScript" access="All">
+	<UUID modifications="3" userName="R.Watson" accountName="Admin" timestamp="2026-09-29T14:04:13">1753F698-BE8F-4EA6-A6FA-CBB576DE78A8</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="5EAC9EBFA6889E37C2F00CCA7A558787">_1753F698-BE8F-4EA6-A6FA-CBB576DE78A8</DDRREF>
+		<Text><![CDATA[/* vAppChangesReleaseStringReturns the whole release string from the script starting with ###.20260929 @mrwatson-de v0.1*/Let([pAppChangesScriptNameStub = "###" ;vScriptNames = ScriptNames ( Get( FileName ) ) ;vAppChangesScriptNumber = ValueCount( Left( vScriptNames ; Position( ¶ & vScriptNames ; ¶ & pAppChangesScriptNameStub ; 1 ; 1 ) ) ) ;vAppChangesScriptName = GetValue( vScriptNames ; vAppChangesScriptNumber ) ;vAppChangesReleaseString = Trim( Substitute( vAppChangesScriptName ; pAppChangesScriptNameStub ; "" ) )];vAppChangesReleaseString)]]></Text>
+	</Calculation>
+	<Display>_fmIDEGetReleaseFromScript</Display>
+</CustomFunction>

@@ -1,0 +1,12 @@
+
+
+
+Set Field [ fmDevJobTask::OK ; 1 ]
+Omit Record
+If [ Get ( FoundCount ) ]
+	Perform Script [ "DEV Script bearbeiten ( File, Script, Line )" ; Specified: From list ; Parameter: fmDevJobTask::FileName  & "|" &
+					fmDevJobTask::ScrName  & "|" &
+					fmDevJobTask::ScriptStepNumber  & "|" &
+					fmDevJobTask::ScriptStepNumberTo ]
+End If
+

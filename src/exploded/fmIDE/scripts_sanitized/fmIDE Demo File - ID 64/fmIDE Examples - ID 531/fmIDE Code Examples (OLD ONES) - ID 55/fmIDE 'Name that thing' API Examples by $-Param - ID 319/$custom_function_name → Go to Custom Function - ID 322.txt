@@ -1,0 +1,9 @@
+# Passing a custom_function_name performs a Go to Custom Function action
+
+Set Variable [ $custom_function_name[1] ; "_IsWIN" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "$custom_function_name=" & Quote( $custom_function_name ) ]
+
+Set Variable [ $custom_function_name[1] ; "_IsMac" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "$custom_function_name=" & Quote( $custom_function_name ) ]
+
+

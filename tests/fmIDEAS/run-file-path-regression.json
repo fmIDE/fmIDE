@@ -1,0 +1,251 @@
+[
+  {
+    "Set Error Capture": "1"
+  },
+  {
+    "If": "IsEmpty ( $expected_file_path ) or not Exact ( Right ( Get ( FilePath ) ; Length ( $expected_file_path ) ) ; $expected_file_path ) or Get ( FileName ) ≠ \"fmIDE\""
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"database identity\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Go to Layout": {
+      "layout_name": "fmIDE Tests"
+    }
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"layout\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "If": "Get ( LayoutTableName ) ≠ \"fmIDE_Test\""
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"table\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Enter Find Mode": 0
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"find mode\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Set Field": {
+      "target": "fmIDE_Test::__UUID",
+      "calculation": "\"==A65757EA-02E1-5D0A-AFA5-34F12E689102\""
+    }
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"find UUID\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "New Record": ""
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"new find request\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Set Field": {
+      "target": "fmIDE_Test::__UUID",
+      "calculation": "\"==6BFAB703-220D-50D2-9143-3A5AAED894DE\""
+    }
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"find UUID\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "New Record": ""
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"new find request\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Set Field": {
+      "target": "fmIDE_Test::__UUID",
+      "calculation": "\"==646C4A3E-DEE2-5E0B-8F04-56F32293E72B\""
+    }
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"find UUID\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "New Record": ""
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"new find request\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Set Field": {
+      "target": "fmIDE_Test::__UUID",
+      "calculation": "\"==632C1D68-6ABA-5A92-B9D5-7F17624604E0\""
+    }
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"find UUID\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "New Record": ""
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"new find request\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Set Field": {
+      "target": "fmIDE_Test::__UUID",
+      "calculation": "\"==9CF3DD11-44C0-5B36-8A86-15669D7CA0C1\""
+    }
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"find UUID\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "New Record": ""
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"new find request\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Set Field": {
+      "target": "fmIDE_Test::__UUID",
+      "calculation": "\"==04B8EFFE-BF0A-5A13-976C-CB3FE65A6299\""
+    }
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"find UUID\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Perform Find": ""
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"Perform Find\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "If": "Get ( FoundCount ) ≠ 6"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"found count\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "If": "not While ( [ i = 1 ; ok = 1 ; ids = \"A65757EA-02E1-5D0A-AFA5-34F12E689102\" & Char ( 13 ) & \"6BFAB703-220D-50D2-9143-3A5AAED894DE\" & Char ( 13 ) & \"646C4A3E-DEE2-5E0B-8F04-56F32293E72B\" & Char ( 13 ) & \"632C1D68-6ABA-5A92-B9D5-7F17624604E0\" & Char ( 13 ) & \"9CF3DD11-44C0-5B36-8A86-15669D7CA0C1\" & Char ( 13 ) & \"04B8EFFE-BF0A-5A13-976C-CB3FE65A6299\" ] ; i ≤ Get ( FoundCount ) ; [ ok = ok and not IsEmpty ( FilterValues ( ids ; GetNthRecord ( fmIDE_Test::__UUID ; i ) ) ) ; i = i + 1 ] ; ok )"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"found UUIDs\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Perform Script": {
+      "script_name": "Tests: Sort"
+    }
+  },
+  {
+    "If": "$$fmide_get_last_error"
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"ok\" ; 0 ; JSONBoolean] ; [\"stage\" ; \"sort\" ; JSONString] ; [\"error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"detail\" ; $$fmide_get_last_error_detail ; JSONString] ; [\"file\" ; Get ( FilePath ) ; JSONString] )"
+  },
+  {
+    "End If": ""
+  },
+  {
+    "Perform Script": {
+      "script_name": "Tests: Run Found Tests automatically"
+    }
+  },
+  {
+    "Exit Script": "JSONSetElement ( \"{}\" ; [\"runner_error\" ; $$fmide_get_last_error ; JSONNumber] ; [\"summary\" ; fmIDE_Test::_gTestResults ; JSONString] ; [\"found_count\" ; Get ( FoundCount ) ; JSONNumber] ; [\"window\" ; Get ( WindowName ) ; JSONString] )"
+  }
+]

@@ -1,0 +1,23 @@
+/* _GitHubWikiPageNameFromTitle ( pTitle )
+
+Returns the name of the wiki page from the title.
+
+20260908 @mrwatson-de v1.0
+*/
+Substitute ( Lower ( pTitle ) 
+/* spaces */
+;[" ";"-"]
+;["_";"-"]
+/* remove punctuation */
+;["/";""]
+;["\\";""]
+;[":";""]
+;["*";""]
+;["?";""]
+;["\"";""]
+;["<";""]
+;[">";""]
+;["(";""]
+;[")";""]
+;["|";""]
+)

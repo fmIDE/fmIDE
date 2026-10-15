@@ -1,0 +1,8 @@
+
+# 20130627 MrW  Show status bar
+# 20130618 MrW 
+
+Show/Hide Toolbars [ Lock: OFF ; Include Edit Record Toolbar: OFF ; Show ]
+Halt Script
+
+

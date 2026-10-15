@@ -1,0 +1,9 @@
+<CustomFunction id="69" name="_IsFileHosted" access="All">
+	<UUID modifications="0" userName="R.Watson" accountName="Admin" timestamp="2026-06-26T15:31:14">678ACCE1-8DC4-4583-9EB2-21E1F7EC2729</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="E76C4AEA2CA376D35B9C07D4205404EF">_678ACCE1-8DC4-4583-9EB2-21E1F7EC2729</DDRREF>
+		<Text><![CDATA[/* _IsFileHosted-> 1 Wenn this file is being hosted, 0 if in client modeBenutzung:Wenn[G_IS_FileHosted]  #Ablauf im gehosteten ModusSonst  #Ablauf im lokalen ModusEnd (wenn)2012-08-29 RW: Version 1*/Left( Get( FilePath ) ; 6 ) = "fmnet:"]]></Text>
+	</Calculation>
+	<Display>_IsFileHosted</Display>
+</CustomFunction>

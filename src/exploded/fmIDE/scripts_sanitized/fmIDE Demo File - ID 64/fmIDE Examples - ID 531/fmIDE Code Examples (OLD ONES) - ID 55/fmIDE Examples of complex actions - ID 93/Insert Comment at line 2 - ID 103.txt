@@ -1,0 +1,38 @@
+
+# 20220819 MrW New
+
+Set Variable [ $script_step_number[1] ; 2 ]
+Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+				["[0].action_name" ; "Go to Script" ; JSONString]; ["[0].script_step_number" ; $script_step_number ; JSONNumber];
+				["[1].action_name" ; "Paste" ; JSONString]
+				) ]
+
+Insert Text [ Select ; Target: $script_names ; "Open Manage Custom Functions
+				Open Manage Custom Menus
+				Open Manage Database
+				Open Manage DataSources
+				Open Manage External Data Sources
+				Open Manage Layouts
+				Open Manage Scripts
+				Open Manage Security
+				Open Manage Themes
+				Open Manage Value Lists
+				Open Preferences
+				Open Upload To Host
+				Open ScriptWorkspace
+				" ]
+
+# FOR EACH script_name in script_names
+Set Variable [ $i[1] ; 1 ]
+Set Variable [ $n[1] ; 10 ]
+Loop [ Flush: Always ]
+	Exit Loop If [ $i > $n ]
+	Set Variable [ $script_name[1] ; GetValue( $script_names ; $i ) ]
+	
+	Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( $actions ; "[0].script_name" ; $script_name ; JSONString ) ]
+	
+	# NEXT script_name
+	Set Variable [ $i[1] ; $i + 1 ]
+End Loop
+
+

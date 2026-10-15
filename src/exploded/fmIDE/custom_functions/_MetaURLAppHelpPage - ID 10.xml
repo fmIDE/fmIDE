@@ -1,0 +1,9 @@
+<CustomFunction id="10" name="_MetaURLAppHelpPage" access="All">
+	<UUID modifications="2" userName="R.Watson" accountName="Admin" timestamp="2026-02-06T17:20:47">CBC8190F-CB00-40E7-B637-571C6BCA72F0</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="6AF922CF759104C3DA5523753062B6CC">_CBC8190F-CB00-40E7-B637-571C6BCA72F0</DDRREF>
+		<Text><![CDATA[/*2026-02-06 @mrwatson-de Fix GH-112 Link to help*/_MetaURLHelpPage & "?" & _URLParam ( "ver" ; _MetaAppVersion ) &"#" & GetAsURLEncoded ( Lower( _MetaAppName ) )]]></Text>
+	</Calculation>
+	<Display>_MetaURLAppHelpPage</Display>
+</CustomFunction>

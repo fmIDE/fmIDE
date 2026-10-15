@@ -1,0 +1,7 @@
+
+Set Variable [ $FieldContents[1] ; Get ( ActiveFieldContents ) ]
+Enter Find Mode [ Pause: OFF ]
+Insert Calculated Result [ Select: ON ; $FieldContents ]
+Select All
+
+

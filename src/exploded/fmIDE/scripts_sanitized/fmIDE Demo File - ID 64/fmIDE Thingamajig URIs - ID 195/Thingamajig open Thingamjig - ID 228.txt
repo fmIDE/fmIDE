@@ -1,0 +1,20 @@
+
+
+
+// Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+# Input vars
+Set Variable [ $ThingamajigURI[1] ; ThingamajigURI::Thingamajig URI ]
+Set Variable [ $DefaultFmpProtocol[1] ; ThingamajigURI::_gDefaultFmpProtocol ]
+Set Variable [ $DefaultServer[1] ; ThingamajigURI::_gDefaultServer ]
+Set Variable [ $GlobalThingamjigParameters[1] ; Substitute ( ThingamajigURI::_gGlobalThingamjigParameters ; "¶" ; "" ) ]
+
+
+
+Set Variable [ $fmIDE_fmp_url[1] ; fmIDE.FmpUrlFromThingamajig ( $DefaultFmpProtocol ; $DefaultServer ; $ThingamajigURI ) & $GlobalThingamjigParameters ]
+Set Variable [ $$fmIDE_fmp_url[1] ; $fmIDE_fmp_url ]
+
+Open URL [ In external browser: OFF ; With dialog: OFF ; ⚠️ PARAMETER "URL" NOT PARSED ⚠️ ]
+
+

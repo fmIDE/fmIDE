@@ -1,0 +1,6 @@
+
+# 20260630 @mrwatson-de Corrected Parameter order
+
+Set Field [ fmIDE::_gfmJAMLPlayground_OutputJSON ; fmJAML ( "" ; fmIDE::_gfmJAMLPlayground_InputText ) ]
+
+

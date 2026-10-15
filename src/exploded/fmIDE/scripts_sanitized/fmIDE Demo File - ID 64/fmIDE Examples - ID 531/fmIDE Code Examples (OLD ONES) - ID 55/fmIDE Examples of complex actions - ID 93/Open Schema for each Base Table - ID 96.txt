@@ -1,0 +1,21 @@
+
+Set Variable [ $base_tables[1] ; ExecuteSQL ( "SELECT DISTINCT BaseTableName FROM FileMaker_Tables" ; "" ; "¶" ) ]
+
+Set Variable [ $actions[1] ; "[]" ]
+Set Variable [ $i[1] ; 1 ]
+Set Variable [ $n[1] ; ValueCount( $base_tables ) ]
+Loop [ Flush: Always ]
+	Exit Loop If [ $i > $n ]
+	Set Variable [ $base_table_name[1] ; GetValue( $base_tables ; $i ) ]
+	Set Variable [ $action_index[1] ; "[" & $i - 1 & "]" ]
+	
+	Set Variable [ $actions[1] ; JSONSetElement ( $actions ; 
+					[$action_index & ".action_name" ; "Go to Table" ; JSONString] ;
+					[$action_index & ".base_table_name" ; $base_table_name ; JSONString]
+					 ) ]
+	
+	Set Variable [ $i[1] ; $i + 1 ]
+End Loop
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+

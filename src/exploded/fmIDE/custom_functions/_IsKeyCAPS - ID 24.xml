@@ -1,0 +1,9 @@
+<CustomFunction id="24" name="_IsKeyCAPS" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-10-08T07:02:53">2CA6B517-6971-4D2F-88F7-96795565FCBE</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="291FBFF87B357131177759F96E233730">_2CA6B517-6971-4D2F-88F7-96795565FCBE</DDRREF>
+		<Text><![CDATA[Mod( Get( ActiveModifierKeys) ; 2*2 )  >= 2]]></Text>
+	</Calculation>
+	<Display>_IsKeyCAPS</Display>
+</CustomFunction>

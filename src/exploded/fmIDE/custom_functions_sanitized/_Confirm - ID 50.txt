@@ -1,0 +1,25 @@
+/* _Confirm ( pYesNoQuestion ; pYesNoButtonOverride )
+
+Asks the user to confirm the yes-no question and returns a boolean.
+
+*/
+Let(
+[
+
+vMessage = pYesNoQuestion ;
+vButtons   = Case( not IsEmpty ( pYesNoButtonOverride ) ; pYesNoButtonOverride ; "Yes¶No" ) ;
+
+/* DIALOG vMessage, vButtons */
+r = MBS( "Dialog.Reset" ) & MBS( "Dialog.ClearFields" );
+r = MBS( "Dialog.SetMessage"; vMessage );
+r = While([vDialogI=1; vDialogN=ValueCount(vButtons)];not(vDialogI>vDialogN);[
+    r=MBS( "Dialog.SetButton"; vDialogI-1 ; GetValue( vButtons ; vDialogI ) );
+    vDialogI=vDialogI+1];0);
+vBtnText = MBS( "Dialog.Run" );
+vBtn     = ValueCount( Left( vButtons ; Position( "¶" & vButtons & "¶" ; "¶" & vBtnText & "¶"; 1 ; 1 ) ) )
+
+];
+
+vBtn = 1
+
+)

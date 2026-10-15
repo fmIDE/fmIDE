@@ -1,0 +1,15 @@
+
+
+Insert Text [ Select ; Target: $fmxmlsnippet ; "qwert" ]
+
+Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+				["[0].Go to Layout.layout_name" ; "Example Target1 Layout" ; JSONString];
+				["[1].PasteInCurrentLayout" ; "" ; JSONString];
+				["[2].Go to Layout.layout_name" ; "Example Target2 Layout" ; JSONString];
+				["[3].PasteInCurrentLayout" ; "" ; JSONString];
+				["[4].Go to original Layout" ; "" ; JSONString];
+				["[5].Beep.times" ; 3 ; JSONNumber]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

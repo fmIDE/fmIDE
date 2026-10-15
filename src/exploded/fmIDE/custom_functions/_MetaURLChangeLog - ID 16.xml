@@ -1,0 +1,9 @@
+<CustomFunction id="16" name="_MetaURLChangeLog" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-09-15T23:06:19">05825C53-1294-4FD3-96B6-74532BF62E8B</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="B0C9CD64BF85DF478264066F9096C5C3">_05825C53-1294-4FD3-96B6-74532BF62E8B</DDRREF>
+		<Text><![CDATA[/*_PathFM_ToURL ( Substitute( Get( FilePath ) ; ".fmp12" ; "-Changes.txt" ) )*/]]></Text>
+	</Calculation>
+	<Display>_MetaURLChangeLog</Display>
+</CustomFunction>

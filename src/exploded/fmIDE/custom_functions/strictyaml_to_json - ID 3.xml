@@ -1,0 +1,13 @@
+<CustomFunction id="3" name="strictyaml_to_json" access="All">
+	<UUID modifications="3" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-08-23T18:00:22">FF424FBE-B8A1-4A56-B9AF-B40C350EED66</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="1DC5089F138C7DE80C7A25E58BBB6F91">_FF424FBE-B8A1-4A56-B9AF-B40C350EED66</DDRREF>
+		<Text><![CDATA[While ([¢indent = "";¢result = "" ;¢line_num = 1 ;¢line_num_max = ValueCount( pYAML ) ;¢line = GetValue( pYAML ; ¢line_num ) ;¢indent_length = Length( pCurrentIndent ) ;¢next_2  = Middle( ¢line ; ¢indent_length+1 ; 2 ) ;¢pos_colon_space = Position( ¢line ; ": " ; 1 ; 1 ) ;¢pos_colon = Position( ¢line ; ":" ; 1 ; 1 )]; Left( ¢line ; ¢indent_length ) = pCurrentIndent ;[/* while indent not less */¢trim = Trim ( ¢line ) ;¢char_1 = Left( ¢trim ; 1 ) ;¢pos_char_1 = Position( ¢line ; ¢char_1 ; 1 ; 1 ) ;¢token = Case( ¢line  = "" ; "EmptyLine" ;Left( ¢line ; 3 ) = "---" ; "DocumentStart" ;Left( ¢line ; 3 ) = "..." ; "DocumentEnd" ;¢char_1 = "#" ; "Comment" ;¢next_2 = "!!" ; "Type" ;¢next_2 = "- " ; "List" ;¢pos_colon ; "KeyValue" ;"ERROR");¢value = Case("|" ; "text_multiline" ;">" ; "text_folded" ;"&" ; "anchor" ;"*" ; "reference" ;) ;/* FIXME */¢line_num = ¢line_num + 1 ];¢line_num)]]></Text>
+	</Calculation>
+	<Display>strictyaml_to_json ( pYAML ; pCurrentIndent )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pYAML"></Parameter>
+		<Parameter name="pCurrentIndent"></Parameter>
+	</ObjectList>
+</CustomFunction>

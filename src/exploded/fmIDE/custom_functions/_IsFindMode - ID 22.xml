@@ -1,0 +1,9 @@
+<CustomFunction id="22" name="_IsFindMode" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-10-08T07:02:53">5FDEE36F-DE24-466A-80F5-AA8C893483D0</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="867C9C708F22524C342CBCFD725C0330">_5FDEE36F-DE24-466A-80F5-AA8C893483D0</DDRREF>
+		<Text><![CDATA[Get( WindowMode ) = 1]]></Text>
+	</Calculation>
+	<Display>_IsFindMode</Display>
+</CustomFunction>

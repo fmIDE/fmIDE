@@ -1,0 +1,9 @@
+<CustomFunction id="36" name="_JSR" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2025-09-25T15:51:45">1EA14014-2639-4748-96B9-CE01B02925CD</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="6B3E0737FE089ECA872D18022E7717BC">_1EA14014-2639-4748-96B9-CE01B02925CD</DDRREF>
+		<Text><![CDATA[Case( not IsEmpty( Get ( ScriptResult ) ) ; Get ( ScriptResult ) ; "{}" )]]></Text>
+	</Calculation>
+	<Display>_JSR</Display>
+</CustomFunction>

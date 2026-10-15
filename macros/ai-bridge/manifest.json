@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "namespace": "AI Bridge",
+  "requires": "FileMaker 26; fmIDE v0.95 with canonical file_path support (#210)",
+  "common_input": {
+    "expected_file_path": "required exact FileMaker path or absolute POSIX suffix, except Context"
+  },
+  "result": "object with ok, macro, data, error, context; validation failures use error.kind=validation and code=0",
+  "macros": [
+    {
+      "name": "AI Bridge.Context",
+      "file": "context.fmJAML",
+      "version": 1,
+      "inputs": {},
+      "effect": "read",
+      "requires_identity": false,
+      "sha256": "72e4624abe8c3888fb9732b32017c7d54edd700f15642594a3ae05e9c474b075"
+    },
+    {
+      "name": "AI Bridge.Design Names",
+      "file": "design-names.fmJAML",
+      "version": 1,
+      "inputs": {},
+      "effect": "read",
+      "requires_identity": true,
+      "sha256": "18ab78845e3f5d1a7c0e587bc8a238076789fcf6ce6bc98dde6f85825a00e62a"
+    },
+    {
+      "name": "AI Bridge.Read Records",
+      "file": "read-records.fmJAML",
+      "version": 1,
+      "inputs": {
+        "layout_name": "required text",
+        "limit": "integer 1..1000; default 100",
+        "offset": "positive integer; default 1",
+        "query_json": "optional Data API query array"
+      },
+      "effect": "read",
+      "requires_identity": true,
+      "sha256": "53900510246a4f0bdde39bcd774d3089570f25c5c5e297978ef2efb3e56a77e8"
+    },
+    {
+      "name": "AI Bridge.Write JSON",
+      "file": "write-json.fmJAML",
+      "version": 2,
+      "inputs": {
+        "output_file_path": "required FileMaker absolute path; must not exist",
+        "result_json": "required JSON object or array"
+      },
+      "effect": "creates a new file",
+      "requires_identity": true,
+      "sha256": "209c9d39dc3b11a3a6e3d1aed0d2a5a7acc187b11dec79cd6c231f68ee69e457"
+    },
+    {
+      "name": "AI Bridge.Backup",
+      "file": "backup.fmJAML",
+      "version": 2,
+      "inputs": {
+        "backup_file_path": "required new FileMaker absolute .fmp12 path"
+      },
+      "effect": "creates a backup file",
+      "requires_identity": true,
+      "sha256": "422729411e66436fa4e442d2f21affdbdd7e99e3a7820c735450aef85ce8b176"
+    },
+    {
+      "name": "AI Bridge.Inspect Script",
+      "file": "inspect-script.fmJAML",
+      "version": 1,
+      "inputs": {
+        "script_name": "required existing script name",
+        "step_range": "optional range, e.g. 2..6"
+      },
+      "effect": "opens Script Workspace and changes selection; does not edit code",
+      "requires_identity": true,
+      "sha256": "c0a543bba842214d6a25ff0afff2046ae090d42677041b56951f464e59f8f81c"
+    },
+    {
+      "name": "AI Bridge.Comment Steps",
+      "file": "comment-steps.fmJAML",
+      "version": 1,
+      "inputs": {
+        "comment_lines_json": "required JSON array of literal comment strings"
+      },
+      "effect": "read",
+      "requires_identity": true,
+      "sha256": "37a6aa188b92590fb287a0be82e54c0566e466bbc24e84455ff5c8d59d318fcf"
+    },
+    {
+      "name": "AI Bridge.Script Edit Plan",
+      "file": "script-edit-plan.fmJAML",
+      "version": 1,
+      "inputs": {
+        "script_name": "required target name",
+        "step_range": "intended selection",
+        "replacement_xml": "required prepared snippet; not executed or validated here"
+      },
+      "effect": "returns a plan only",
+      "requires_identity": true,
+      "sha256": "dc1fc219624b487dbbd61946d3f915a32619cfe958c7f9097032f74dc0ec6d4d"
+    }
+  ]
+}

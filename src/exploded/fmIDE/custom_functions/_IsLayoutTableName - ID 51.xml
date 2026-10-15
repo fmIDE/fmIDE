@@ -1,0 +1,12 @@
+<CustomFunction id="51" name="_IsLayoutTableName" access="All">
+	<UUID modifications="0" userName="R.Watson" accountName="Admin" timestamp="2026-03-06T23:02:18">CA2C0573-E8C2-4D1D-B457-708EC67EA6B0</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="2C7D80DE391D5B9C26D9D144614E1B9E">_CA2C0573-E8C2-4D1D-B457-708EC67EA6B0</DDRREF>
+		<Text><![CDATA[/* _IsLayoutTableName ( pGetFieldName SomeFieldInTheTable )returns one if the current LayoutTableName matches the fields table name*/GetValue ( Substitute ( pGetFieldName SomeFieldInTheTable ; "::" ; ¶ ) ; 1 ) = Get( LayoutTableName )]]></Text>
+	</Calculation>
+	<Display>_IsLayoutTableName ( pGetFieldName SomeFieldInTheTable )</Display>
+	<ObjectList membercount="1">
+		<Parameter name="pGetFieldName SomeFieldInTheTable"></Parameter>
+	</ObjectList>
+</CustomFunction>

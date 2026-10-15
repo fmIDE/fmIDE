@@ -1,0 +1,27 @@
+
+
+
+Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+				["[0].action_name" ; "Open Manage Database" ; JSONString];
+				
+				["[1].action_name" ; "CallfmIDE" ; JSONString];
+				["[1].file_name" ; "FileA" ; JSONString];
+				["[1].parameter.[0].action_name" ; "Open Manage Database" ; JSONString];
+				
+				["[2].action_name" ; "CallfmIDE" ; JSONString];
+				["[2].file_name" ; "FileB" ; JSONString];
+				["[2].parameter.[0].action_name" ; "Select Window" ; JSONString];
+				
+				["[2].parameter.[1].action_name" ; "Pause" ; JSONString];
+				["[2].parameter.[1].seconds" ; 2 ; JSONNumber];
+				
+				["[2].parameter.[22].action_name" ; "Open Manage Value Lists" ; JSONString];
+				
+				["[3].action_name" ; "Select Window" ; JSONString];
+				
+				["[4].action_name" ; "Open Manage Value Lists" ; JSONString]
+				
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

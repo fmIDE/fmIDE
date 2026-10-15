@@ -1,0 +1,14 @@
+# /##
+# For extra security:
+# - the script workspace will only be opened if the user has Full Access priveleges.
+# - otherwise the script is HALTED
+# - If you wish fmScriptWorkspace to be available for other privilege sets, please adjust this script as necessary
+
+# #/
+
+# Check Security
+If [ Get ( AccountPrivilegeSetName ) ≠ "[Full Access]" ]
+	Halt Script
+End If
+
+

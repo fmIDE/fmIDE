@@ -1,0 +1,117 @@
+# /##
+# Opens the given script in the script workspace *in the current file*, and, optionally, selects one or more lines.
+
+# Note: For extra security the script workspace will only be opened if the user has Full Access priveleges.
+  If your solution allows other user groups 
+
+# Parameters: ¶-delimited
+# @param ScriptName - the (exact) name of the script to display
+# @param LineNumber - optional line number to select. A negative number is relative to the END of the script
+# @param LineNumberTo - optional line number to extend the selection to. A negative number is relative to the END of the script
+
+# Returns: nothing
+
+# Dependencies:
+# @referencedByName
+# @requires Mac
+# @requires MBS Plugin Version 7.4 to open script and select line
+# @requires MBS Plugin Version 8.6.0.04 to scroll to line
+# Note: We recommended using the most recent MBS plugin
+
+# History:
+# @history 20210606 MrW: Version 0.2 Added optional third parameter LineNumberTo, so multiple lines can be selected in the target script
+# @history 20190103 MrW: Version 0.1.1 Improved doc
+# @history 20170815 MrW: Version 0.1 Created
+
+
+# # Calling this script by fmp url
+
+# You can open scripts in the ScriptWorkspace with the following URL:
+
+# `    fmp://$/<filename>?script=fmScriptWorkspace.OpenScript&param=<script>%0D<line>%0D<lineTo>
+
+# or with the following FileMaker code
+
+// Open URL [ In external browser: OFF ; With dialog: OFF ; ⚠️ PARAMETER "URL" NOT PARSED ⚠️ ]
+
+# Replace the <placeholders> as appropriate:
+
+#     <filename> - the full filename incl. extension
+#     <script> - the name of the script
+#     <line> - an optional line number
+#     <lineTo> - an optional end line number
+
+# Note:
+#    You must URL-encode the parameters.
+#    You can use the data viewer and the GetAsURLEncoded Function to encode the script name.
+
+#    Here are the most common characters:
+
+# space = %20
+#     ¶ = %OD
+#     $ = %24
+#     / = %2F 
+#     + = %2B
+
+# @example - this url opens this script at line 48
+
+# `    fmp:/$/<filename>.fmp12?script=fmScriptWorkspace.OpenScript&param=ScriptWorkspace.OpenScript%0D48
+
+# @example - this url opens this script at the second to last line
+
+# `    fmp:/$/<filename>.fmp12?script=fmScriptWorkspace.OpenScript&param=ScriptWorkspace.OpenScript%0D-2
+
+# #/
+
+Set Error Capture [ ON ]
+
+# Parameter
+Set Variable [ $ScriptName[1] ; GetValue( Get( ScriptParameter ) ; 1 ) ]
+Set Variable [ $LineNumber[1] ; GetValue( Get( ScriptParameter ) ; 2 ) ]
+Set Variable [ $LineNumberTo[1] ; GetValue ( Get( ScriptParameter ) ; 3 ) ]
+
+# Check Security
+Perform Script [ "fmScriptWorkspace.HaltScriptIfNoAccess" ; Specified: From list ; Parameter: ]
+
+# Open the script workspace
+Open Script Workspace
+
+# Make sure it is at the front
+Set Variable [ $r[1] ; MBS("ScriptWorkspace.BringToFront") ]
+If [ Left( $r ; 5 ) = "[MBS]" ]
+	# Can't open ScriptWorkSpace
+	Show Custom Dialog [ Message: "Can't open ScriptWorkSpace.." ; Default Button: "OK" ; Button 2: "Cancel" ]
+	Exit Script []
+End If
+
+# Open the script - permanently
+Set Variable [ $r[1] ; MBS("ScriptWorkspace.OpenScript" ; $ScriptName ) ]
+If [ $r≠"OK" ]
+	# Make sure the Script list is visible
+	# …not yet possible in MBS
+	# Make sure ALL scripts are being shown
+	Set Variable [ $r[1] ; MBS( "ScriptWorkspace.ExpandScriptFolders" ) ]
+	If [ $r≠"OK" ]
+		# Maybe we need to open all script folders
+		Set Variable [ $r[1] ; MBS( "ScriptWorkspace.ExpandScriptFolders" ) ]
+	End If
+	
+	# Try again
+	Set Variable [ $r[1] ; MBS("ScriptWorkspace.OpenScript" ; $ScriptName ) ]
+	If [ $r≠"OK" ]
+		Show Custom Dialog [ Title: "ScriptWorkspace" ; Message: "Error " & $r & " - Couldn't find script \"" & $ScriptName & "\"" ; Default Button: "OK" ]
+		Exit Script []
+	End If
+End If
+
+If [ not IsEmpty ( $LineNumber ) ]
+	If [ not IsEmpty ( $LineNumberTo ) ]
+		# Select lines
+		Perform Script [ "fmScriptWorkspace.SelectLines" ; Specified: From list ; Parameter: $LineNumber & "¶" & $LineNumberTo ]
+	Else
+		# Go to line
+		Perform Script [ "fmScriptWorkspace.GoToLine" ; Specified: From list ; Parameter: $LineNumber ]
+	End If
+End If
+
+

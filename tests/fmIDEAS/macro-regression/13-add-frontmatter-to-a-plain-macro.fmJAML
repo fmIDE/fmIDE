@@ -1,0 +1,19 @@
+[+].Set Error Capture = 1
+[+].fmIDE Define Macro
+[:]..macro_name = == "fmIDE_Test.MacroRegression.NewFrontmatter"
+[:]..code = == "[+].Exit Script = == $mr_value"
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "fixture setup" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].End If
+[+].Set
+[:]..target = "$mr_calls"
+[:]..calculation = == 0
+[+].Set
+[:]..target = "$mr_inputs"
+[:]..calculation = == "$mr_value = \"supplied\""
+#@test
+[+].fmIDE Run Macro
+[:]..macro_name = == "fmIDE_Test.MacroRegression.NewFrontmatter"
+[:]..frontmatter = == Let ( $mr_calls = $mr_calls + 1 ; $mr_inputs )
+#@endtest
+[+].Exit Script = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["calls" ; $mr_calls ; JSONNumber] ; ["result" ; Get ( ScriptResult ) ; JSONString] )

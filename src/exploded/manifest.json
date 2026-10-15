@@ -1,0 +1,12 @@
+{
+  "tool": "fm-xml-export-exploder 0.7.1",
+  "options": [
+    "--lossless",
+    "--output_tree",
+    "db"
+  ],
+  "inputs": {
+    "fmIDE.xml": "6c95e9e1274bb03daec4575f3a49f34e240f28a1cc913e1efc85708536941035"
+  },
+  "generatedFiles": 1832
+}

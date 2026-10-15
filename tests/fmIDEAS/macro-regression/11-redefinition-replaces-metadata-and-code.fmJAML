@@ -1,0 +1,18 @@
+[+].Set Error Capture = 1
+[+].fmIDE Define Macro
+[:]..macro_name = == "fmIDE_Test.MacroRegression.Redefine"
+[:]..code = == "[+].Exit Script = == \"old\""
+[:]..metadata.description = "old metadata"
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "fixture setup" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].End If
+#@test
+[+].fmIDE Define Macro
+[:]..macro_name = == "fmIDE_Test.MacroRegression.Redefine"
+[:]..code = == "[+].Exit Script = == \"new\""
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "redefine" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].End If
+[+].fmIDE Get Macro
+[:]..macro_name = == "fmIDE_Test.MacroRegression.Redefine"
+#@endtest

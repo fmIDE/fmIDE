@@ -1,0 +1,41 @@
+
+
+# Old syntax
+Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+				["[0].name"  ; "Set" ; JSONString]; ["[0].target" ; "$$n"    ; JSONString]; ["[0].value" ; "$$n+1" ; JSONString];
+				["[1].name"  ; "Set" ; JSONString]; ["[1].target" ; "$$fizz" ; JSONString]; ["[1].value" ; "Mod( $$n ; 3 )=0" ; JSONString];
+				["[2].name"  ; "Set" ; JSONString]; ["[2].target" ; "$$buzz" ; JSONString]; ["[2].value" ; "Mod( $$n ; 5 )=0" ; JSONString];
+				["[3].name"  ; "If"  ; JSONString]; ["[3].value"   ; "$$fizz and $$buzz" ; JSONString];
+				["[4].name"  ; "	Show Custom Dialog" ; JSONString]; ["[4].message"  ; Quote( "fizz-buzz" ) ; JSONString];
+				["[5].name"  ; "Else If" ; JSONString]; ["[5].value" ; "$$fizz" ; JSONString];
+				["[6].name"  ; "	Show Custom Dialog" ; JSONString]; ["[6].message"  ; Quote( "fizz" ) ; JSONString];
+				["[7].name"  ; "Else If" ; JSONString]; ["[7].value" ; "$$buzz" ; JSONString];
+				["[8].name"  ; "	Show Custom Dialog" ; JSONString]; ["[8].message"  ; Quote( "buzz" ) ; JSONString];
+				["[9].name"  ; "Else" ; JSONString];
+				["[10].name" ; "	Beep" ; JSONString];
+				["[11].name" ; "	Show Custom Dialog" ; JSONString]; ["[11].message"  ; $$n ; JSONString];
+				["[12].name" ; "End If" ; JSONString]
+				
+				) ]
+# New syntax
+Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+				["[0].Set.target" ; "$$n"    ; JSONString];
+				["[0].Set.value" ; "$$n+1" ; JSONString];
+				["[1].Set.target" ; "$$fizz" ; JSONString];
+				["[1].Set.value" ; "Mod( $$n ; 3 )=0" ; JSONString];
+				["[2].Set.target" ; "$$buzz" ; JSONString];
+				["[2].Set.value" ; "Mod( $$n ; 5 )=0" ; JSONString];
+				["[3].If.value"   ; "$$fizz and $$buzz" ; JSONString];
+				["[4].	Show Custom Dialog.message"  ; $$n & " fizz-buzz" ; JSONString];
+				["[5].Else If.value" ; "$$fizz" ; JSONString];
+				["[6].	Show Custom Dialog.message"  ; $$n & " fizz" ; JSONString];
+				["[7].Else If.value" ; "$$buzz" ; JSONString];
+				["[8].	Show Custom Dialog.message"  ; $$n & " buzz" ; JSONString];
+				["[9].Else" ; "" ;JSONObject];
+				["[10].	Show Custom Dialog.message"  ; $$n ; JSONString];
+				["[11].End If" ; "" ;JSONObject]
+				
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

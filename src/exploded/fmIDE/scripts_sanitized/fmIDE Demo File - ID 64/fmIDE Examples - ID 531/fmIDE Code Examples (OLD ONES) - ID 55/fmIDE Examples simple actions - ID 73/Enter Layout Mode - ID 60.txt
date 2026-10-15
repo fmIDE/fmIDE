@@ -1,0 +1,8 @@
+
+# This script demonstrates the fmIDE action given by the script's name
+# A single action object is passed to fmIDE
+
+Set Variable [ $action_name[1] ; Get( ScriptName ) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action_name ]
+
+

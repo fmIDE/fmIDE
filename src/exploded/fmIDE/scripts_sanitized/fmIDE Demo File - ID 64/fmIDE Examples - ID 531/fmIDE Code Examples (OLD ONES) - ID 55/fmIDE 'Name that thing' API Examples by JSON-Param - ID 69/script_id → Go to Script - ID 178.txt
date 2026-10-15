@@ -1,0 +1,10 @@
+# Passing a script_id runs the script with that internal id
+
+Set Variable [ $script_id[1] ; 50 /* Script 50 in the fmIDE demo file is the fmIDE script itself */ ]
+Set Variable [ $script_step_number[1] ; 2 ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "{}" ; 
+				["script_id" ; $script_id ; JSONNumber] ;
+				["script_step_number" ; $script_step_number ; JSONNumber]
+				) ]
+
+

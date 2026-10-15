@@ -1,0 +1,7 @@
+
+
+Set Field [ fmIDE_Test::_gImage ; Base64Decode ( 
+				JSONGetElement     ( fmIDE_Test::fmIDE_ScriptResult ; "result[0].#.image.file.data" ) ;
+				JSONGetElement     ( fmIDE_Test::fmIDE_ScriptResult ; "result[0].#.image.file.name" )
+				) ]
+

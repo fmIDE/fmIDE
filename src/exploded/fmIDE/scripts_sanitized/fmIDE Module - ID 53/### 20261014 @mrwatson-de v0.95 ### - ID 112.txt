@@ -1,0 +1,1284 @@
+# File: fmIDE
+Exit Script [ Get( FileName ) & ":	" & Trim( Substitute( Get( ScriptName ) ; "#" ; "" ) ) ]
+# /##
+# # Module change history
+
+# #####################################################################################
+# ` 1. Add history lines below
+# ` 2. Change the script name to reflect the version
+# ` 3. Run the `Update_fmide_version ` script following this one to extract the version number and paste it into the fmIDE Script at line 2
+# `    - You *may* be able to click this link to run the script in this FileMaker: fmp://$/fmide?script=Update_fmide_version
+# #####################################################################################
+
+# 20261014 @mrwatson-de v0.95
+  - Fix #189 macro reserved-parameter handling
+  - Fix #202 preserve the opening frontmatter delimiter when running macros
+  - Fix #179 calculation-wrapper handling for script_step_search
+  - Fix #204 preserve the synchronous Exit Script result when writing response files; write the correct one/five output files
+  - Add 55 focused regression tests for macros, script-step search, persistent data and Exit Script output
+  - Add eight composable AI Bridge macros with named frontmatter parameters and JSON results
+  - Improve action documentation: 185 summaries, detailed examples and the Wiki list view
+  - Export local documentation for 185 actions and 102 Name that Thing parameters
+  - Add MrWatson style, fmJAML/fmIDEAS, CLI, recovery and development guides, plus codex agent skills
+  - Add repeatable XML/exploded-source refresh, documentation export and release-candidate tooling
+  - Fix #206 reset all example code by loop index and write defaults without requiring layout focus
+  - Fix #210 standardise filesystem path parameters on file_path; retain legacy aliases with canonical-key precedence and one evaluation (codex)
+    - Migrate path parameters in tests, examples, action/usage docs and AI Bridge helpers; add six native file_path contract regressions (codex)
+# ⚠️ PARAMETER "HiddenStepsCount" NOT PARSED ⚠️ ; 20261013 @mrwatson-de v0.94
+  - Implements #170 Debugging easier to control from data viewer
+  - Fix #183 Read and Reset table identity variables
+  - Fix #187 in Action `Set Web Viewer` stop swallowing the action parameter into the web viewer name 
+  - Fix #201 Handle record-number parameter explicitly
+  - Fix #193 Remove shadowed empty `fmIDE Run Macro` branch
+  - Fix #194 Macro actions to handle macro-name evaluation consistently
+# 20261011 @mrwatson-de v0.93
+  - Fix #169 Change `script_search` and `script_step_search` to calculated and drop the '…_value' properties  (Breaking Change)
+  - Normalised the generated JSON for the Name that Thing API
+# 20261009 @mrwatson-de v0.92.2
+  - Fix Action `Convert Clipboard` with parameter `to`
+  - Fix fmIDE Version number
+  - Fix #168 Error handling: Renamed old vars from `fmide_last_error` to `fmide_**get_**last_error`
+# 20261006 @mrwatson-de v0.92.1
+  - Improve Action `Show/Hide Text Ruler`
+    - to treat -1 as toggle
+    - to ignore quotes
+    - fail fast when state unknown
+# 20261006 @mrwatson-de v0.92
+  - Add #166 Action `fmIDE Call` to call fmIDE in other files.
+    - This is the most beautiful fmIDEAS I have seen to write solution-wide processes:
+    - fmIDE → FileA → FileB → back in FileA → back to fmIDE:
+  
+      [+].Show Custom Dialog = == Get ( FileName )
+      [+].fmIDE Call.FileA[]
+      [:][+].Show Custom Dialog = == Get ( FileName )
+      [:][+].fmIDE Call.FileB[]
+      [:][:][+].Show Custom Dialog = == Get ( FileName )
+      [:][+].Show Custom Dialog = == "Back in " & Get ( FileName )
+      [+].Show Custom Dialog = == "Back in " & Get ( FileName )
+  
+  - Fix #164 Short Form for Action `Press` → `.key`
+  - Fix $$fmide_get_last_error_description reset
+  - Fix Action `Select Script Folder` to retry & do error handling
+  - Standardised Version number format in history comments to *with* `v`
+# 20261006 @mrwatson-de v0.91
+  - Improve error handling
+    - extend to include description in $$fmide_get_last_error_description (using embeded fmIDE.GetFileMakerErrorMessage CF)
+    - unknown action throws error 4 Command is unknown
+    - Fix last error variable name in Action `Set Zoom Level`
+# 20261003 @mrwatson-de v0.89
+  - Add Action `Set Multi-User` (for turning agentic access in a local file on/off)
+# 20261001 @mrwatson-de v0.88
+  - Add support for writing asynchronous script results automatically to a file/folder by setting variables:
+    - `$fmide_on_exit_script_write_data_to_file_path` to write just the script result
+    - `$fmide_on_exit_script_write_data_to_folder_path` to write
+      - `script_result.txt`
+      - `last_error.txt`
+      - `last_error_detail.txt`
+      - `last_error_location.txt`
+    - written as utf-8 text files
+# 20260929 @mrwatson-de v0.87
+  - ***BREAKING CHANGE***
+    - With this change $fmide_version no longer contains a 'v'. Use `$fmide_release_tag` if you need the v.
+  - Fix #154 Standardise release/version info between fmJAML and fmIDE: `$fmjaml_release`, `$fmjaml_release_tag` and `$fmjaml_version`
+  - Update to fmJAML v0.37 to include the standardised parameters
+# 20260924 @mrwatson-de v0.86
+  - Add Action `Speak`
+  - Add Action `Scroll Window`
+  - Add Action `Show/Hide Text Ruler`
+  - Add Action `New File`
+  - Add Action `RecoverFile`
+  - Add Action `Print`
+  - Fix #149 Handle default = 1 correctly (e.g. with_dialog)
+# 20260922 @mrwatson-de v0.85
+  - Update fmJAML to v0.35
+    - Add #42: Support for referencing current fmJAML JSON output using the `$fmjaml__json` variable
+    - Add #43: 'herecalc' operator `=`, which makes it possible to have multiline calculations 
+  - Add `= evaluation line` (actually only discovered)
+    - `= «calculation»` evaluates the calculation without affecting the JSON.
+    - `= =/«multiline-calculation»/===` can be used to define multiple variables.
+  - ***BREAKING CHANGE***
+    - Fix #138 Action `View as` property 'value' changed from calculated to fixed value
+# 20260920 @mrwatson-de v0.84.1
+  - Fix Actions "Go To Script" and "Open Script" to set focus to the script (MBS 16.4 required!)
+    - which fixed the `Press CMD-A in a script` test
+# 20260920 @mrwatson-de v0.84
+  - Update fmJAML to v0.34 which supports
+    - `path[]` array constructor
+# 20260920 @mrwatson-de v0.83
+  - Add Action `Save a Copy as`
+  - Fix Action `fmIDE Get Macro` - target was broken
+# 20260916 @mrwatson-de v0.82
+  - Add #139 Go to «Thing».by:number: Interpret negative numbers 'from the end' (-1 → n)
+  - Update fmJAML to v0.33 which supports 
+    - objects / object path inheritance
+  - Add abililty to specify actions / action object with fmJAML
+# 20260911 @mrwatson-de v0.81
+  - Add #139 Go to «Thing».by:number: Interpret negative numbers 'from the end' (-1 → n)
+  - Improve Action `Go to Value List` to support by number value_list_number
+  - Improve Action `Go to Base Field` to support
+    - base_table_id
+    - table_id
+    - field_id
+    - field_number
+    - field_name = "id::id"
+    - field_number
+  - Improve Action `FmideGetMacro ` 
+    - Add target property (instead of exiting the script)
+# 20260910 @mrwatson-de v0.80
+  - Add Action `Copy All Records/Requests`
+  - Add Action `Copy Record/Request`
+  - Add Action `Duplicate Record/Request`
+  - Add Action `Delete Portal Row`
+  - Add Action `Unsort Records`
+  - Add Action `Rename File`
+  - Add Action `Edit User Dictionary`
+  - Add Action `Flush Cache to Disk`
+# 20260909 @mrwatson-de v0.79
+  - Add Action `Show Omitted Only`
+  - Add Action `Omit Record`
+  - Add Action `Omit Multiple Records`
+  - Add Action `Delete All Records`
+  - Add Action `Modify LastFind`
+  - Add Action `Set Web Viewer`
+  - Fix Action `Perform JavaScript in Web Viewer`
+  - Fix #136 Rename Variables `$$fmide_last_error` & co. with `get_` to reflect the Get ( … ) function they imitate
+  - Change error dialog button from `Cancel` to `Exit Script` and change to pause if SHIFT+OPT are being held when selected.
+  - Add Documentation
+# 20260908 @mrwatson-de v0.78
+  - Improve Action `Save a Copy as XML` with a short form that only takes the file_path
+# 20260908 @mrwatson-de v0.77
+  - Add Action `Select Script Folder`
+# 20260906 @mrwatson-de v0.76
+  - Add Action `New Window`
+  - Add Action `Close Window`
+  - Improve Action `Set`
+    - #129 Support for short form target with dots
+    - #130 Support for repetitions, incl. short form integer repetitions (JSONArrays)
+  - Improve `ConfigurePersistentData`/`SetPersistentData` to use `calculation`rather than `value`
+  - Fix 
+    - Fix #82 Custom Menus dialog Crash
+    - Fix #83 Custom Functions dialog Crash
+    - Fix occasional Hiatus Crash
+# 20260904 @mrwatson-de v0.75
+  - Add Action `Perform JavaScript in Web Viewer`
+  - Add Action `Go to File Access` and alias `Go to File Authorization`
+  - Improve Acton `Go to List of Records`
+    - Add parameter `new_window`
+    - Add parameter `window_name`
+# 20260903 @mrwatson-de v0.74
+  - Add #123 Action `Set Window Title`
+  - Add #124 Action `Hiatus`
+  - Remove `.hiatus` parameter from Action `Pause` **BREAKING CHANGE**
+  - Implement #120 the fmIDESS `fmIDE Subscript System`to be able to embed and run subscripts in the ain fmIDE script
+  - Implement window variables
+  - Fix #121 to store fmIDE Macros under "fmide_macros" (plural)
+  - Fix #119 to improve Action `Install OnTimer Script` to also be able to install OnTimer scripts
+  - Fix #116 $$fmide_last_error_location
+  - Fix variable $fmide_fmjaml_per_cf to have the `fmide_` prefix
+  - Update fmJAML to v0.32 with all variables in `lower_snake_case`
+# 20260901 @mrwatson-de v0.73
+  - ***BREAKING CHANGE***
+  - Implement #118 Standardise Parameter `.by` (+ fix #101)
+    - Action `Perform Script`
+      - `.specified="By Name"` -> `.by="name"`
+    - Action `Go to Portal Row`
+      - `.row="Calulation"` -> `.by="number"`
+    - Action `Go to Record/Request/Page`/`GoToRecord`/`GoToRequest`/`GoToPage`
+      - `.position` -> `.by`
+    - Action `Go to Account`
+    - Action `Go to BaseLayout`
+    - Action `Go to Custom Function`
+    - Action `Go to Custom Menu`
+    - Action `Go to Custom Menu Item`
+    - Action `Go to Custom Menu Set`
+    - Action `Go to Extended Privilege`
+    - Action `Go to External Data Source`
+    - Action `Go to Layout`
+    - Action `Go to Layout Field`
+    - Action `Go to Portal Row`
+    - Action `Go to Privilege Set`
+    - Action `Go to Script`
+    - Action `Go to Table`
+    - Action `Go to Table Occurrence`
+    - Action `Go to Theme`
+    - Action `Go to Value List`
+    - Action `Open Script`
+    - Action `Select Script`
+    - not yet:
+      - Action `FindScriptStep`
+      - Action `Go to BaseField`
+      - Action `Go to BaseTable`
+      - Action `Select Script Steps`
+    - always evaluated:
+      - Action `Go to List of Records`
+      - Action `Go to Object`
+# 20260831 @mrwatson-de v0.72
+  - Removed deprecated Actions
+    - `GoToOriginalLayout` -> use `GoToLayout`
+    - `GoToOriginalWindow` -> use `GoToWindow`
+    - `Assert` -> roll your own with `If`
+# 20260831 @mrwatson-de v0.71
+  - Improve
+    - Actions `Select Window` to have similar short form semantic as Go to Layout:
+      - Add Short form `Select Window` -> `Select Window (original window)`
+      - Add Short form `Select Window =` -> `Select Window (original window)`
+    - Action parameters to match fmIDE Name that Thing parameter conventions (Breaking Change)
+      - Action `Go to Portal Row` parameter `number` renamed to `row_number`
+      - Action `Go to Record/Request/Page`
+        - Parameter `by_calculation` renamed to `number`
+        - Added parameter aliases `record_number`, `request_number` and `page_number`
+        - Any ONE parametrer from `number`/`record_number`/`request_number`/`page_number` can be used
+          - i.e. the four parameters are interchangable and NOT dependent on mode
+    - Action `Show/Hide Toolbars` to support boolean in the show parameter
+    - Action `Store Keyboard Buffer ` to have short form
+  - Fix
+    - Action `Go to Theme` to evaluate `theme_name`
+    - Action `Insert Text` and `Insert Calculated Result` to evaluate `select`
+    - #85 Variable leakage between actions
+    - Various variable bugs - tx Codex
+    - Action `Cut` to use CMD+X instead of CMD+C
+    - Action `Refresh Window` to use parameter `flush_cached_join_results` instead of `flush_cached_join_script_results`
+    - Action `Move Resize Window ` evaluate `window_name`
+    - and various other AI-found bugs fixed
+    - Action `Set Error Logging` to correctly evaluate the custom logging calculation
+  - 359 automatic tests passing
+# 20260830 @mrwatson-de v0.70
+  - Test table now highlights the test code exactly using @test / @endtest
+  - 354 automatic tests passing
+# 20260828 @mrwatson-de v0.69
+  - Add
+    - Action `Run Menu Command`
+  - Improve
+    - Action `Go to Script`
+      - Add parameter `.specified = "By Name"`
+    - Action `fmIDE Run Macro`
+      - Add short form fmIDE Run Macro = «string»` -> `fmIDE Run Macro.macro_name = «string»`
+  - Fix
+    - Action `Go to Account` to evaluate the account_name
+    - Action `Exit Script` - parameter `calculation` renamed to `script_result`
+    - Actions `fmIDE * macro` help urls
+  - Remove
+    - Acton `Get Resource`
+  - Tidy Code
+    - Correct canonical action names `fmIDERunMacro` to `FmideRunMacro`, etc.
+  - 343
+# 20260827 @mrwatson-de v0.68
+  - Breaking Change!
+  - Fix `Set Clipboard Text` parameters:
+    - .text = == «calculation»
+    - .type = == «calculation»
+  - Fix `Set Clipboard Object` parameters:
+    - .text = == «calculation»
+    - .type = == «calculation» (defaults to 'auto')
+  - Add Alias `Set FileMaker Data` for `Set Clipboard Object` to reflect the MBS function name
+  - Paste changed back to by menu
+# 20260824 @mrwatson-de v0.67
+  - Fix Set Error Logging short form
+  - fmJAML v0.31.1
+# 20260801 @mrwatson-de v0.66
+  - Partly Fix #109:
+    - fmIDE.GetBaseTableName now returns the BaseTableName correctly of a TO even when the file is hosted
+# 20260728 @mrwatson-de v0.65
+  - Fix `Execute FileMaker Data API`
+    - Correct implementation of `select`
+    - Document support for static and dynamic requests
+    - Change tests to use new tidied `fmIDE_Test` base layout
+  - Add fmide_last_error_location
+  - Fix error handling to always mark errors as *thrown*
+# 20260727 @mrwatson-de v0.64
+  - Fix `Show Custom Dialog`
+    - to use standard JSON syntax
+    - to accept up to 3 inputs
+    - to allow 0 to 3 buttons to commit changes
+    - to use injected Set-actions to set the target (neat)
+# 20260720 @mrwatson-de v0.63
+  - Fix `Pause.hiatus` that broke in v0.53
+# 20260715 @mrwatson-de v0.62
+  - Implement #106 fmIDE: Debugger: Conditional breakpoints
+  - Internal layouts with navigation logo
+# 20260714 @mrwatson-de v0.61
+  - Deprecated
+    - Action `Assert`
+    - Action `Get Field Names`
+    - Action `Get Resource`
+    - Action `Get Version`
+    - Action `Go to Original Layout`
+    - Action `Go to Original Window`
+    - Action `Open Preferences`
+    - Action `Show Version`
+  - Removed
+    - Action `Set Pref`
+    - Action `Try`
+# 20260711 @mrwatson-de v0.60
+  - fmJAML v0.31
+  - old fmJAML Splash removed
+# 20260708 @mrwatson-de v0.59
+  - Fix #96 Error is no longer repeatedly reported: triggered only when $fmide__last_error_thrown is set
+# 20260706 @mrwatson-de v0.58
+  - Fix #103 Only one exit script point (prerequisite for support for returning script parameter to a ke< hook)
+    - Implemented using fmide__inject_actions
+    - All actions that return values, now return them via an injected Exit Script action
+  - Simplify:
+    - Drop Action `Get Version` - Instead use `[+].Exit Script = == $fmide_version`
+    - Drop Action `Show Version` - Instead use `[+].Show Custom Dialog = == $fmide_version`
+  - Fix #104 rename incorrect var $$fmide_allow_user_abort to $$fmide_allow_abort_state
+# 20260701 @mrwatson-de v0.57
+  - Extended fmIDE Macros to have `.name`, `.code` and `.metadata`attributes
+  - Add Action `fmIDE Get Macro`
+# 20260629 @mrwatson-de v0.56
+  - fmJAML @version: 2026-06-29 @mrwatson-de v0.28
+    - Automatically recognise `true` and `false` values as booleans
+  - Add Action `Configure Persistent Data`
+    - Add Action Alias `Set Persistent Data`
+    - Add Action Alias `Delete Persistent Data`
+  - Add Action `fmIDE Define Macro`
+  - Add Action `fmIDE Run Macro`
+# 20260626 @mrwatson-de v0.55
+  - Improve Action `Perform Script` (BREAKING CHANGE)
+    - Add option `.selection = "By name"`
+    - Rename option `.script_file_name` to `.file_name`
+    - Evaluate `.script_parameter`
+  - Improve Action `Go to Layout:
+    - Change option `.by = "name"` to evaluate `.layout_name`
+# 20260624 @mrwatson-de v0.54
+  - Add Action `Set Zoom Level`
+  - Add Action `View As`
+  - 46% of FileMaker Script Steps implemented to some extent
+  - 282 automatic tests passing
+# 20260623 @mrwatson-de v0.53
+  - Add Action `Cut`
+  - Add Action `Clear`
+  - Add Action `Undo/Redo`, inc. Alias `Undo` and `Redo`
+  - Add Action `Select All`
+  - Add Action `Set Selection`
+  - Add Action `Delete Record/Request`
+  - Add Action `Go to List of Records`
+  - Add Action `Open Record/Request`
+  - Add Action `Revert Record/Request`
+  - Add Action `Adjust Window`
+  - Add Action `Open File`
+  - Add Action `Close File`
+  - Add Action `Exit Application`
+  - Fix `Pause` to have Parity with FileMaker
+    - with `.duration` (seconds) and `.indefinitely` (boolean)
+    - dropped ms
+  - 45% of FileMaker Script Steps implemented to some extent
+  - 276 automatic tests passing
+  - Happy birthday fmIDE - 4 years old!
+# 20260622 @mrwatson-de v0.52
+  - Add Action `Re-Login`
+    - and extend action_name cleaning to also remove `-`
+  - Extend `Refresh Window` to support flushing options
+  - Extend `Go to Object` to support `.repetition`
+# 20260619 @mrwatson-de v0.51
+  - fmJAML @version: 2026-06-17 @mrwatson-de v0.27
+    - With support for value operators "==", "===", "====", "====="
+  - Drop `.text` parameter in Action `Set`
+  - Fix handling of null in Action `Perform Find`
+    - This needs a central fix
+# 20260618 @mrwatson-de v0.50
+  - Fix Action parameters to be evaluated:
+    - `Go to Object = == "object name"`
+    - `Insert from URL.url= == "url"`
+    - `..curl_options= == "url"`
+  - Fix Name that Thing `object_name` Parameter to quote the object name
+  - Extend `Commit Records` Action to support `skip_data_entry_validation` and `override_ess_locking_conflicts` 
+  - Extend `Go to Portal Row` Action to support `with_dialog`
+  - Fix `Insert from URL` with no target
+  - Fix `Beep` for Parity: no `.times`
+  - Fix variable names so that they don't clash
+  - Reinstated Action `GoToOriginalWindow` … sigh
+# 20260617 @mrwatson-de v0.49
+  - Add 10 Actions for Data File manipulation (above all to support the fmIDE testing environment)
+    - `Get File Exists`
+    - `Get File Size`
+    - `Create Data File`
+    - `Delete File`
+    - `Open Data File`
+    - `Close Data File`
+    - `Read from Data File`
+    - `Write to Data File`
+    - `Get Data File Position`
+    - `Set Data File Position`
+  - Add Action `Move/Resize Window`
+  - Add Action `Select Window`
+  - Fix diabling actions using `//`
+  - Improve error handling to not show error on skipped lines (although errors are still repeatedly shown)
+# 20260615 @mrwatson-de v0.48
+  - Add error handling
+    - Add Action `Set Error Capture`
+      - Sets $fmide_error_capture_state = equivalent to Get ( ErrorCaptureState )
+    - Add Action `Allow User Abort`
+      - Sets $fmide_allow_abort_state = equivalent to Get ( AllowAbortState )
+    - Add Try Loop to capture errors and shows dialog
+      - Catch error and show fmIDE-dialog when MBS can't find script in script workspace
+  - Remove Action `GoToOriginalWindow` - deprecated and removed
+# 20260613 @mrwatson-de v0.47
+  - Make $fmJAML_per_CF a settable option
+  - Improve Action `Go to Record/Request/Page`
+    - add short forms
+      - with «string» to be one of the allowed values or a calculation
+      - with «number» -> `.by_calculation`
+    - fail fast if `Prev` used
+    - improved keys:
+      - `.by_calculation` instead of `.number`
+      - `.position` instead of `.record`
+      - `.value` removed
+  - Improve Action `Open URL`:
+    - Add option `external`
+    - BREAKING CHANGE: All options now accept calculation: 
+  - Improve Action `Assert`: Add option `external`
+  - fmIDE and fmJAML passing 172 automatic tests
+  - Simplify installation and cutomisation of fmIDE
+    - Separated the fmIDE Module to the front of the Script List and marked it for copying
+    - Simplified the customisation of naming conventions in the Callback interface scripts:
+      - Both scripts now work by default for the FileMaker standard situation of
+        `base_layout_name` = `table_name` = `base_table_name` 
+      - Script `fmIDE.GetBaseTableName` fixed to work automagically
+        by using the new base table functionality supported since fm 19.4
+      - Documented the customisation process clearly in the scripts
+    - => Installation by copying the complete fmIDE Module folder now works out of the box with no customisation 
+      for standard FileMaker databases where `base_layout_name` = `table_name` = `base_table_name` 
+# 20260608 @mrwatson-de v0.46
+  - Fix `Insert from URL` to support short forms for «target» and =«url»
+  - Fix `Press` action to pause for 1ms to allow the mbs key press to work
+  - Start adding `Insert Text` and `Insert Calculated Text` Actions
+# 20260605 @mrwatson-de v0.45
+  - BREAKING CHANGES to fmIDE Action Script JSON:
+    - By default action scripts expect calculations where the equivalent script step expects calculations
+    - A calculation can be identified by a `.calc` sub element
+  Fix #43 Simplify syntax to allow "Set $i = $i+1"
+    - Fix #3 Method of returning parameters
+      - `Exit Script` action now works like `Exit Script` step
+      - Note: When called by fmpurl use `Insert from URL` in your action script to pass return parameters asynchronously via webhook
+    - Fix #39 Go to Script: Support for dynamic names
+# 20260531 @mrwatson-de v0.44
+  - Add Actions
+    - `Copy`
+    - `Copy Script`
+    - `Freeze Window`
+    - `Select Script`
+  - Add short forms:
+    - `Go to Account` (implicit `.account_name`)
+    - `Go to Base Layout` (implicit `.base_table_name`)
+    - `Go to Base Table` (implicit `.base_table_name`)
+    - `Go to Table` (implicit `.t_o_name`)
+    - `Go to Base Field` (implicit `.field_name` / `.field_id`)
+    - `Go to Table Occurrence` (implicit `.t_o_name`)
+    - `Go to Custom Function ` (implicit `.custom_function_name`)
+    - `Go to Custom Menu` (implicit `.custom_menu_name`)
+    - `Go to Custom Menu Item` (implicit `.custom_menu_item_name`)
+    - `Go to Custom Menu Set` (implicit `.custom_menu_set_name`)
+    - `Go to External Data Source` (implicit `.external_data_source_name`)
+    - `Go to Extended Privilege` (implicit `.extended_privilege_name`)
+    - `Go to Theme` (implicit `.theme_name`)
+    - `Go to Value List` (implicit `.value_list_name`)
+    - `Open URL` (implicit `.url`)
+    - `Select Window` (implicit `.window_name`)
+    - `Show Custom Dialog` (implicit `.message`)
+  - *BREAKING CHANGE*
+    - Short form of `Pause` changed to implicit `.s` from `.ms` since `.s` is the FM-default (=expected) unit
+# 20260530 @mrwatson-de v0.43
+  - Add partial error handling: $$fmide_last_error and $$fmide_last_error_detail set after (native) actions
+  - Improve Action `Go to Record/Request/Page`
+    - Add aliases `Go to Request` and `Go to Page`
+    - Add short forms
+      - `Go to Record/Request/Page="next/previous/first/last"` (implicit `.record`)
+      - `Go to Record/Request/Page=«number»` (implicit `.number`)
+# 20260528 @mrwatson-de v0.42
+  - Improve usability
+    - Add fmJAML `code from your keyboard` as a compact input DSL. Welcome!
+      - Vigorously extend, test and refine fmJAML
+      - Add fmJAML shebang `#!fmjaml` to identify the fmIDE parameter as fmJAML (particularly for object JSON)
+      - v0.15 with full support for optional operator `?` and mapping operator `-`
+      - v0.19 with `!~regex~` op and pOptionalInitialJSON
+      - fmJAML Custom Function can be either embedded or run from the CF
+    - Add fmIDE Tests (on the back of fmJAML) with 134 tests to date, proving fmIDE and fmJAML do what they should
+    - Add fmIDE debugger with $fmide_debugger frontmatter
+    - Add support on non-Mac or non-MBS systems to get deeper into script by showing dialog with script info to copy
+    - Add Example Scripts demonstrating possible JSON coding methods
+  - Actions
+    - Add `Allow User Abort` Action
+    - Add `Assert` Action
+    - Fix `*If` Action short forms to test properly
+    - Fix `Go to Script` Action to ignore existing MBS / fmAutoMate search
+  - New System Requirement
+    - Use JSONGetElementType and thus fmIDE requires FM 19.5.1 or greater
+# 20241014 @mrwatson-de v0.41
+  - Add support for dynamic `script_name`s, `_stub`s, `_number`s and `_id`s - using `.value`
+# 20241011 @mrwatson-de v0.40
+- Add action `Show Version`
+# 20240927 @mrwatson-de v0.39
+  - Fix #37 - Name that Thing by passing variable definitions: `$script_name="Test"`
+# 20240607 @mrwatson-de v0.38
+  - Fix #35 so Go to Field works when only base_table_name is supplied
+# 20240606 @mrwatson-de v0.37
+  - Implement #34 Add action `New Record/Request`
+# 20240516 @mrwatson-de v0.36
+  - Fix #33 Improve fmIDE installation by using PSBN for recursive script calls to avoid broken calls
+# 20240423 @mrwatson-de v0.35.1
+  - Implement #32 Perform Find, Constrain Found Set, Extend Found Set
+  - v35
+# 20240422 @mrwatson-de v0.34
+  - Fix #31 Go to Layout Part Pause
+# 20240202 @mrwatson-de v0.33
+  - Fixed #29 GoToLayoutField when window is in background
+# 20230103 @mrwatson-de v0.32
+  - Changed the `Set Field` action to accept the target as the JSON key and require .value or .text
+  - Improved fmIDE Script documentation
+  - Added a (fantastic) `fmIDE script fmpurl MBS link action`(*) to replace-update the script contents
+  (*) Need to find a better name for those things! Maybe a `fmIDE script action button`?
+# 20221221 @mrwatson-de v0.31.1
+  - Standardised Version number format in history comments
+# 20221207 @mrwatson-de v0.31
+  - Added action `Perform Script`
+# 20221111 @mrwatson-de v0.30
+  - Fixed `Go to Table Occurrence`
+# 20221110 @mrwatson-de v0.29.1
+  - Added `object_bounds_*` parameter names - but not yet processed
+# 20221109 @mrwatson-de v0.29
+  - Fixed #25 - Layout objects processed correctly
+  - Added short syntax to `Set` Action: `Set.$varname="Value"`
+  - Improved Changes Script to also save the fmIDE script and copy the scripts text contents
+# 20221028 @mrwatson-de v0.28
+  - Added `shift` and `option` parameters to the `Press` function
+# 20221025 @mrwatson-de v0.27
+  - Added support for some standard message buttons:
+    - message__OK
+    - message__OK_Cancel
+    - message__Cancel_OK
+    - message__Yes_No
+    - message__No_Yes
+# 20221017 @mrwatson-de v0.26
+  - Added compact parameter passing by `key=value` (for example: "[0].Beep.times=3")
+  - Added action `Show All Records`
+  - Added action `Set Clipboard Text`
+  - Added action `Set Clipboard Objects`
+  - Fixed Insert from URL when targeting fields
+# 20221014 @mrwatson-de v0.25.2
+  - Fix #11 Parameter syntax for specifying calc using `_value`
+  - Fix #16 Change Author handle MrW to GitHub handle @mrwatson-de
+  - Changed `Select Script Steps.lines` to `Select Script Steps.range`
+# 20221014 @mrwatson-de v0.25.1
+  - Fix #11 Parameter syntax for specifying calc using `_value`
+# 20221014 @mrwatson-de v0.25
+  - Added fmIDE Action `Insert from URL` (Thanks to idea from Marcel Moré and Holger Herbst at the virtual FileMaker Stammtisch Hannover)
+# 20221013 @mrwatson-de v0.24
+  - Fix #12 Message with buttons compact syntax with separator `__`
+  - Fix #4 Hiatus: Salvage local variables
+  - Added `Select Script Steps.lines` parameter
+# 20221008 @mrwatson-de v0.23.1
+  - Reformatted the history entries
+    - without @history prefix
+    - with comments always as bullet points
+#  20261011 @mrwatson-de v0.93
+  - Fix #169 Change `script_search` and `script_step_search` to calculated and drop the '…_value' properties  (Breaking Change)
+  - Normalised the generated JSON for the Name that Thing API
+#  20261009 @mrwatson-de v0.92.2
+  - Fix Action `Convert Clipboard` with parameter `to`
+  - Fix fmIDE Version number
+  - Fix #168 Error handling: Renamed old vars from `fmide_last_error` to `fmide_**get_**last_error`
+#  20261006 @mrwatson-de v0.92.1
+  - Improve Action `Show/Hide Text Ruler`
+    - to treat -1 as toggle
+    - to ignore quotes
+    - fail fast when state unknown
+#  20261006 @mrwatson-de v0.92
+  - Add #166 Action `fmIDE Call` to call fmIDE in other files.
+    - This is the most beautiful fmIDEAS I have seen to write solution-wide processes:
+    - fmIDE → FileA → FileB → back in FileA → back to fmIDE:
+  
+      [+].Show Custom Dialog = == Get ( FileName )
+      [+].fmIDE Call.FileA[]
+      [:][+].Show Custom Dialog = == Get ( FileName )
+      [:][+].fmIDE Call.FileB[]
+      [:][:][+].Show Custom Dialog = == Get ( FileName )
+      [:][+].Show Custom Dialog = == "Back in " & Get ( FileName )
+      [+].Show Custom Dialog = == "Back in " & Get ( FileName )
+  
+  - Fix #164 Short Form for Action `Press` → `.key`
+  - Fix $$fmide_get_last_error_description reset
+  - Fix Action `Select Script Folder` to retry & do error handling
+  - Standardised Version number format in history comments to *with* `v`
+#  20261006 @mrwatson-de v0.91
+  - Improve error handling
+    - extend to include description in $$fmide_get_last_error_description (using embeded fmIDE.GetFileMakerErrorMessage CF)
+    - unknown action throws error 4 Command is unknown
+    - Fix last error variable name in Action `Set Zoom Level`
+#  20261003 @mrwatson-de v0.89
+  - Add Action `Set Multi-User` (for turning agentic access in a local file on/off)
+#  20261001 @mrwatson-de v0.88
+  - Add support for writing asynchronous script results automatically to a file/folder by setting variables:
+    - `$fmide_on_exit_script_write_data_to_file_path` to write just the script result
+    - `$fmide_on_exit_script_write_data_to_folder_path` to write
+      - `script_result.txt`
+      - `last_error.txt`
+      - `last_error_detail.txt`
+      - `last_error_location.txt`
+    - written as utf-8 text files
+#  20260929 @mrwatson-de v0.87
+  - ***BREAKING CHANGE***
+    - With this change $fmide_version no longer contains a 'v'. Use `$fmide_release_tag` if you need the v.
+  - Fix #154 Standardise release/version info between fmJAML and fmIDE: `$fmjaml_release`, `$fmjaml_release_tag` and `$fmjaml_version`
+  - Update to fmJAML v0.37 to include the standardised parameters
+#  20260924 @mrwatson-de v0.86
+  - Add Action `Speak`
+  - Add Action `Scroll Window`
+  - Add Action `Show/Hide Text Ruler`
+  - Add Action `New File`
+  - Add Action `RecoverFile`
+  - Add Action `Print`
+  - Fix #149 Handle default = 1 correctly (e.g. with_dialog)
+#  20260922 @mrwatson-de v0.85
+  - Update fmJAML to v0.35
+    - Add #42: Support for referencing current fmJAML JSON output using the `$fmjaml__json` variable
+    - Add #43: 'herecalc' operator `=`, which makes it possible to have multiline calculations 
+  - Add `= evaluation line` (actually only discovered)
+    - `= «calculation»` evaluates the calculation without affecting the JSON.
+    - `= =/«multiline-calculation»/===` can be used to define multiple variables.
+  - ***BREAKING CHANGE***
+    - Fix #138 Action `View as` property 'value' changed from calculated to fixed value
+#  20260920 @mrwatson-de v0.84.1
+  - Fix Actions "Go To Script" and "Open Script" to set focus to the script (MBS 16.4 required!)
+    - which fixed the `Press CMD-A in a script` test
+#  20260920 @mrwatson-de v0.84
+  - Update fmJAML to v0.34 which supports
+    - `path[]` array constructor
+#  20260920 @mrwatson-de v0.83
+  - Add Action `Save a Copy as`
+  - Fix Action `fmIDE Get Macro` - target was broken
+#  20260916 @mrwatson-de v0.82
+  - Add #139 Go to «Thing».by:number: Interpret negative numbers 'from the end' (-1 → n)
+  - Update fmJAML to v0.33 which supports 
+    - objects / object path inheritance
+  - Add abililty to specify actions / action object with fmJAML
+#  20260911 @mrwatson-de v0.81
+  - Add #139 Go to «Thing».by:number: Interpret negative numbers 'from the end' (-1 → n)
+  - Improve Action `Go to Value List` to support by number value_list_number
+  - Improve Action `Go to Base Field` to support
+    - base_table_id
+    - table_id
+    - field_id
+    - field_number
+    - field_name = "id::id"
+    - field_number
+  - Improve Action `FmideGetMacro ` 
+    - Add target property (instead of exiting the script)
+#  20260910 @mrwatson-de v0.80
+  - Add Action `Copy All Records/Requests`
+  - Add Action `Copy Record/Request`
+  - Add Action `Duplicate Record/Request`
+  - Add Action `Delete Portal Row`
+  - Add Action `Unsort Records`
+  - Add Action `Rename File`
+  - Add Action `Edit User Dictionary`
+  - Add Action `Flush Cache to Disk`
+#  20260909 @mrwatson-de v0.79
+  - Add Action `Show Omitted Only`
+  - Add Action `Omit Record`
+  - Add Action `Omit Multiple Records`
+  - Add Action `Delete All Records`
+  - Add Action `Modify LastFind`
+  - Add Action `Set Web Viewer`
+  - Fix Action `Perform JavaScript in Web Viewer`
+  - Fix #136 Rename Variables `$$fmide_last_error` & co. with `get_` to reflect the Get ( … ) function they imitate
+  - Change error dialog button from `Cancel` to `Exit Script` and change to pause if SHIFT+OPT are being held when selected.
+  - Add Documentation
+#  20260908 @mrwatson-de v0.78
+  - Improve Action `Save a Copy as XML` with a short form that only takes the file_path
+#  20260908 @mrwatson-de v0.77
+  - Add Action `Select Script Folder`
+#  20260906 @mrwatson-de v0.76
+  - Add Action `New Window`
+  - Add Action `Close Window`
+  - Improve Action `Set`
+    - #129 Support for short form target with dots
+    - #130 Support for repetitions, incl. short form integer repetitions (JSONArrays)
+  - Improve `ConfigurePersistentData`/`SetPersistentData` to use `calculation`rather than `value`
+  - Fix 
+    - Fix #82 Custom Menus dialog Crash
+    - Fix #83 Custom Functions dialog Crash
+    - Fix occasional Hiatus Crash
+#  20260904 @mrwatson-de v0.75
+  - Add Action `Perform JavaScript in Web Viewer`
+  - Add Action `Go to File Access` and alias `Go to File Authorization`
+  - Improve Acton `Go to List of Records`
+    - Add parameter `new_window`
+    - Add parameter `window_name`
+#  20260903 @mrwatson-de v0.74
+  - Add #123 Action `Set Window Title`
+  - Add #124 Action `Hiatus`
+  - Remove `.hiatus` parameter from Action `Pause` **BREAKING CHANGE**
+  - Implement #120 the fmIDESS `fmIDE Subscript System`to be able to embed and run subscripts in the ain fmIDE script
+  - Implement window variables
+  - Fix #121 to store fmIDE Macros under "fmide_macros" (plural)
+  - Fix #119 to improve Action `Install OnTimer Script` to also be able to install OnTimer scripts
+  - Fix #116 $$fmide_last_error_location
+  - Fix variable $fmide_fmjaml_per_cf to have the `fmide_` prefix
+  - Update fmJAML to v0.32 with all variables in `lower_snake_case`
+#  20260901 @mrwatson-de v0.73
+  - ***BREAKING CHANGE***
+  - Implement #118 Standardise Parameter `.by` (+ fix #101)
+    - Action `Perform Script`
+      - `.specified="By Name"` -> `.by="name"`
+    - Action `Go to Portal Row`
+      - `.row="Calulation"` -> `.by="number"`
+    - Action `Go to Record/Request/Page`/`GoToRecord`/`GoToRequest`/`GoToPage`
+      - `.position` -> `.by`
+    - Action `Go to Account`
+    - Action `Go to BaseLayout`
+    - Action `Go to Custom Function`
+    - Action `Go to Custom Menu`
+    - Action `Go to Custom Menu Item`
+    - Action `Go to Custom Menu Set`
+    - Action `Go to Extended Privilege`
+    - Action `Go to External Data Source`
+    - Action `Go to Layout`
+    - Action `Go to Layout Field`
+    - Action `Go to Portal Row`
+    - Action `Go to Privilege Set`
+    - Action `Go to Script`
+    - Action `Go to Table`
+    - Action `Go to Table Occurrence`
+    - Action `Go to Theme`
+    - Action `Go to Value List`
+    - Action `Open Script`
+    - Action `Select Script`
+    - not yet:
+      - Action `FindScriptStep`
+      - Action `Go to BaseField`
+      - Action `Go to BaseTable`
+      - Action `Select Script Steps`
+    - always evaluated:
+      - Action `Go to List of Records`
+      - Action `Go to Object`
+#  20260831 @mrwatson-de v0.72
+  - Removed deprecated Actions
+    - `GoToOriginalLayout` -> use `GoToLayout`
+    - `GoToOriginalWindow` -> use `GoToWindow`
+    - `Assert` -> roll your own with `If`
+#  20260831 @mrwatson-de v0.71
+  - Improve
+    - Actions `Select Window` to have similar short form semantic as Go to Layout:
+      - Add Short form `Select Window` -> `Select Window (original window)`
+      - Add Short form `Select Window =` -> `Select Window (original window)`
+    - Action parameters to match fmIDE Name that Thing parameter conventions (Breaking Change)
+      - Action `Go to Portal Row` parameter `number` renamed to `row_number`
+      - Action `Go to Record/Request/Page`
+        - Parameter `by_calculation` renamed to `number`
+        - Added parameter aliases `record_number`, `request_number` and `page_number`
+        - Any ONE parametrer from `number`/`record_number`/`request_number`/`page_number` can be used
+          - i.e. the four parameters are interchangable and NOT dependent on mode
+    - Action `Show/Hide Toolbars` to support boolean in the show parameter
+    - Action `Store Keyboard Buffer ` to have short form
+  - Fix
+    - Action `Go to Theme` to evaluate `theme_name`
+    - Action `Insert Text` and `Insert Calculated Result` to evaluate `select`
+    - #85 Variable leakage between actions
+    - Various variable bugs - tx Codex
+    - Action `Cut` to use CMD+X instead of CMD+C
+    - Action `Refresh Window` to use parameter `flush_cached_join_results` instead of `flush_cached_join_script_results`
+    - Action `Move Resize Window ` evaluate `window_name`
+    - and various other AI-found bugs fixed
+    - Action `Set Error Logging` to correctly evaluate the custom logging calculation
+  - 359 automatic tests passing
+#  20260830 @mrwatson-de v0.70
+  - Test table now highlights the test code exactly using @test / @endtest
+  - 354 automatic tests passing
+#  20260828 @mrwatson-de v0.69
+  - Add
+    - Action `Run Menu Command`
+  - Improve
+    - Action `Go to Script`
+      - Add parameter `.specified = "By Name"`
+    - Action `fmIDE Run Macro`
+      - Add short form fmIDE Run Macro = «string»` -> `fmIDE Run Macro.macro_name = «string»`
+  - Fix
+    - Action `Go to Account` to evaluate the account_name
+    - Action `Exit Script` - parameter `calculation` renamed to `script_result`
+    - Actions `fmIDE * macro` help urls
+  - Remove
+    - Acton `Get Resource`
+  - Tidy Code
+    - Correct canonical action names `fmIDERunMacro` to `FmideRunMacro`, etc.
+  - 343
+#  20260827 @mrwatson-de v0.68
+  - Breaking Change!
+  - Fix `Set Clipboard Text` parameters:
+    - .text = == «calculation»
+    - .type = == «calculation»
+  - Fix `Set Clipboard Object` parameters:
+    - .text = == «calculation»
+    - .type = == «calculation» (defaults to 'auto')
+  - Add Alias `Set FileMaker Data` for `Set Clipboard Object` to reflect the MBS function name
+  - Paste changed back to by menu
+#  20260824 @mrwatson-de v0.67
+  - Fix Set Error Logging short form
+  - fmJAML v0.31.1
+#  20260801 @mrwatson-de v0.66
+  - Partly Fix #109:
+    - fmIDE.GetBaseTableName now returns the BaseTableName correctly of a TO even when the file is hosted
+#  20260728 @mrwatson-de v0.65
+  - Fix `Execute FileMaker Data API`
+    - Correct implementation of `select`
+    - Document support for static and dynamic requests
+    - Change tests to use new tidied `fmIDE_Test` base layout
+  - Add fmide_last_error_location
+  - Fix error handling to always mark errors as *thrown*
+#  20260727 @mrwatson-de v0.64
+  - Fix `Show Custom Dialog`
+    - to use standard JSON syntax
+    - to accept up to 3 inputs
+    - to allow 0 to 3 buttons to commit changes
+    - to use injected Set-actions to set the target (neat)
+#  20260720 @mrwatson-de v0.63
+  - Fix `Pause.hiatus` that broke in v0.53
+#  20260715 @mrwatson-de v0.62
+  - Implement #106 fmIDE: Debugger: Conditional breakpoints
+  - Internal layouts with navigation logo
+#  20260714 @mrwatson-de v0.61
+  - Deprecated
+    - Action `Assert`
+    - Action `Get Field Names`
+    - Action `Get Resource`
+    - Action `Get Version`
+    - Action `Go to Original Layout`
+    - Action `Go to Original Window`
+    - Action `Open Preferences`
+    - Action `Show Version`
+  - Removed
+    - Action `Set Pref`
+    - Action `Try`
+#  20260711 @mrwatson-de v0.60
+  - fmJAML v0.31
+  - old fmJAML Splash removed
+#  20260708 @mrwatson-de v0.59
+  - Fix #96 Error is no longer repeatedly reported: triggered only when $fmide__last_error_thrown is set
+#  20260706 @mrwatson-de v0.58
+  - Fix #103 Only one exit script point (prerequisite for support for returning script parameter to a ke< hook)
+    - Implemented using fmide__inject_actions
+    - All actions that return values, now return them via an injected Exit Script action
+  - Simplify:
+    - Drop Action `Get Version` - Instead use `[+].Exit Script = == $fmide_version`
+    - Drop Action `Show Version` - Instead use `[+].Show Custom Dialog = == $fmide_version`
+  - Fix #104 rename incorrect var $$fmide_allow_user_abort to $$fmide_allow_abort_state
+#  20260701 @mrwatson-de v0.57
+  - Extended fmIDE Macros to have `.name`, `.code` and `.metadata`attributes
+  - Add Action `fmIDE Get Macro`
+#  20260629 @mrwatson-de v0.56
+  - fmJAML @version: 2026-06-29 @mrwatson-de v0.28
+    - Automatically recognise `true` and `false` values as booleans
+  - Add Action `Configure Persistent Data`
+    - Add Action Alias `Set Persistent Data`
+    - Add Action Alias `Delete Persistent Data`
+  - Add Action `fmIDE Define Macro`
+  - Add Action `fmIDE Run Macro`
+#  20260626 @mrwatson-de v0.55
+  - Improve Action `Perform Script` (BREAKING CHANGE)
+    - Add option `.selection = "By name"`
+    - Rename option `.script_file_name` to `.file_name`
+    - Evaluate `.script_parameter`
+  - Improve Action `Go to Layout:
+    - Change option `.by = "name"` to evaluate `.layout_name`
+#  20260624 @mrwatson-de v0.54
+  - Add Action `Set Zoom Level`
+  - Add Action `View As`
+  - 46% of FileMaker Script Steps implemented to some extent
+  - 282 automatic tests passing
+#  20260623 @mrwatson-de v0.53
+  - Add Action `Cut`
+  - Add Action `Clear`
+  - Add Action `Undo/Redo`, inc. Alias `Undo` and `Redo`
+  - Add Action `Select All`
+  - Add Action `Set Selection`
+  - Add Action `Delete Record/Request`
+  - Add Action `Go to List of Records`
+  - Add Action `Open Record/Request`
+  - Add Action `Revert Record/Request`
+  - Add Action `Adjust Window`
+  - Add Action `Open File`
+  - Add Action `Close File`
+  - Add Action `Exit Application`
+  - Fix `Pause` to have Parity with FileMaker
+    - with `.duration` (seconds) and `.indefinitely` (boolean)
+    - dropped ms
+  - 45% of FileMaker Script Steps implemented to some extent
+  - 276 automatic tests passing
+  - Happy birthday fmIDE - 4 years old!
+#  20260622 @mrwatson-de v0.52
+  - Add Action `Re-Login`
+    - and extend action_name cleaning to also remove `-`
+  - Extend `Refresh Window` to support flushing options
+  - Extend `Go to Object` to support `.repetition`
+#  20260619 @mrwatson-de v0.51
+  - fmJAML @version: 2026-06-17 @mrwatson-de v0.27
+    - With support for value operators "==", "===", "====", "====="
+  - Drop `.text` parameter in Action `Set`
+  - Fix handling of null in Action `Perform Find`
+    - This needs a central fix
+#  20260618 @mrwatson-de v0.50
+  - Fix Action parameters to be evaluated:
+    - `Go to Object = == "object name"`
+    - `Insert from URL.url= == "url"`
+    - `..curl_options= == "url"`
+  - Fix Name that Thing `object_name` Parameter to quote the object name
+  - Extend `Commit Records` Action to support `skip_data_entry_validation` and `override_ess_locking_conflicts` 
+  - Extend `Go to Portal Row` Action to support `with_dialog`
+  - Fix `Insert from URL` with no target
+  - Fix `Beep` for Parity: no `.times`
+  - Fix variable names so that they don't clash
+  - Reinstated Action `GoToOriginalWindow` … sigh
+#  20260617 @mrwatson-de v0.49
+  - Add 10 Actions for Data File manipulation (above all to support the fmIDE testing environment)
+    - `Get File Exists`
+    - `Get File Size`
+    - `Create Data File`
+    - `Delete File`
+    - `Open Data File`
+    - `Close Data File`
+    - `Read from Data File`
+    - `Write to Data File`
+    - `Get Data File Position`
+    - `Set Data File Position`
+  - Add Action `Move/Resize Window`
+  - Add Action `Select Window`
+  - Fix diabling actions using `//`
+  - Improve error handling to not show error on skipped lines (although errors are still repeatedly shown)
+#  20260615 @mrwatson-de v0.48
+  - Add error handling
+    - Add Action `Set Error Capture`
+      - Sets $fmide_error_capture_state = equivalent to Get ( ErrorCaptureState )
+    - Add Action `Allow User Abort`
+      - Sets $fmide_allow_abort_state = equivalent to Get ( AllowAbortState )
+    - Add Try Loop to capture errors and shows dialog
+      - Catch error and show fmIDE-dialog when MBS can't find script in script workspace
+  - Remove Action `GoToOriginalWindow` - deprecated and removed
+#  20260613 @mrwatson-de v0.47
+  - Make $fmJAML_per_CF a settable option
+  - Improve Action `Go to Record/Request/Page`
+    - add short forms
+      - with «string» to be one of the allowed values or a calculation
+      - with «number» -> `.by_calculation`
+    - fail fast if `Prev` used
+    - improved keys:
+      - `.by_calculation` instead of `.number`
+      - `.position` instead of `.record`
+      - `.value` removed
+  - Improve Action `Open URL`:
+    - Add option `external`
+    - BREAKING CHANGE: All options now accept calculation: 
+  - Improve Action `Assert`: Add option `external`
+  - fmIDE and fmJAML passing 172 automatic tests
+  - Simplify installation and cutomisation of fmIDE
+    - Separated the fmIDE Module to the front of the Script List and marked it for copying
+    - Simplified the customisation of naming conventions in the Callback interface scripts:
+      - Both scripts now work by default for the FileMaker standard situation of
+        `base_layout_name` = `table_name` = `base_table_name` 
+      - Script `fmIDE.GetBaseTableName` fixed to work automagically
+        by using the new base table functionality supported since fm 19.4
+      - Documented the customisation process clearly in the scripts
+    - => Installation by copying the complete fmIDE Module folder now works out of the box with no customisation 
+      for standard FileMaker databases where `base_layout_name` = `table_name` = `base_table_name`
+#  20260608 @mrwatson-de v0.46
+  - Fix `Insert from URL` to support short forms for «target» and =«url»
+  - Fix `Press` action to pause for 1ms to allow the mbs key press to work
+  - Start adding `Insert Text` and `Insert Calculated Text` Actions
+#  20260605 @mrwatson-de v0.45
+  - BREAKING CHANGES to fmIDE Action Script JSON:
+    - By default action scripts expect calculations where the equivalent script step expects calculations
+    - A calculation can be identified by a `.calc` sub element
+  Fix #43 Simplify syntax to allow "Set $i = $i+1"
+    - Fix #3 Method of returning parameters
+      - `Exit Script` action now works like `Exit Script` step
+      - Note: When called by fmpurl use `Insert from URL` in your action script to pass return parameters asynchronously via webhook
+    - Fix #39 Go to Script: Support for dynamic names
+#  20260531 @mrwatson-de v0.44
+  - Add Actions
+    - `Copy`
+    - `Copy Script`
+    - `Freeze Window`
+    - `Select Script`
+  - Add short forms:
+    - `Go to Account` (implicit `.account_name`)
+    - `Go to Base Layout` (implicit `.base_table_name`)
+    - `Go to Base Table` (implicit `.base_table_name`)
+    - `Go to Table` (implicit `.t_o_name`)
+    - `Go to Base Field` (implicit `.field_name` / `.field_id`)
+    - `Go to Table Occurrence` (implicit `.t_o_name`)
+    - `Go to Custom Function ` (implicit `.custom_function_name`)
+    - `Go to Custom Menu` (implicit `.custom_menu_name`)
+    - `Go to Custom Menu Item` (implicit `.custom_menu_item_name`)
+    - `Go to Custom Menu Set` (implicit `.custom_menu_set_name`)
+    - `Go to External Data Source` (implicit `.external_data_source_name`)
+    - `Go to Extended Privilege` (implicit `.extended_privilege_name`)
+    - `Go to Theme` (implicit `.theme_name`)
+    - `Go to Value List` (implicit `.value_list_name`)
+    - `Open URL` (implicit `.url`)
+    - `Select Window` (implicit `.window_name`)
+    - `Show Custom Dialog` (implicit `.message`)
+  - *BREAKING CHANGE*
+    - Short form of `Pause` changed to implicit `.s` from `.ms` since `.s` is the FM-default (=expected) unit
+#  20260530 @mrwatson-de v0.43
+  - Add partial error handling: $$fmide_last_error and $$fmide_last_error_detail set after (native) actions
+  - Improve Action `Go to Record/Request/Page`
+    - Add aliases `Go to Request` and `Go to Page`
+    - Add short forms
+      - `Go to Record/Request/Page="next/previous/first/last"` (implicit `.record`)
+      - `Go to Record/Request/Page=«number»` (implicit `.number`)
+#  20260528 @mrwatson-de v0.42
+  - Improve usability
+    - Add fmJAML `code from your keyboard` as a compact input DSL. Welcome!
+      - Vigorously extend, test and refine fmJAML
+      - Add fmJAML shebang `#!fmjaml` to identify the fmIDE parameter as fmJAML (particularly for object JSON)
+      - v0.15 with full support for optional operator `?` and mapping operator `-`
+      - v0.19 with `!~regex~` op and pOptionalInitialJSON
+      - fmJAML Custom Function can be either embedded or run from the CF
+    - Add fmIDE Tests (on the back of fmJAML) with 134 tests to date, proving fmIDE and fmJAML do what they should
+    - Add fmIDE debugger with $fmide_debugger frontmatter
+    - Add support on non-Mac or non-MBS systems to get deeper into script by showing dialog with script info to copy
+    - Add Example Scripts demonstrating possible JSON coding methods
+  - Actions
+    - Add `Allow User Abort` Action
+    - Add `Assert` Action
+    - Fix `*If` Action short forms to test properly
+    - Fix `Go to Script` Action to ignore existing MBS / fmAutoMate search
+  - New System Requirement
+    - Use JSONGetElementType and thus fmIDE requires FM 19.5.1 or greater
+#  20241014 @mrwatson-de v0.41
+  - Add support for dynamic `script_name`s, `_stub`s, `_number`s and `_id`s - using `.value`
+#  20241011 @mrwatson-de v0.40
+- Add action `Show Version`
+#  20240927 @mrwatson-de v0.39
+  - Fix #37 - Name that Thing by passing variable definitions: `$script_name="Test"`
+#  20240607 @mrwatson-de v0.38
+  - Fix #35 so Go to Field works when only base_table_name is supplied
+#  20240606 @mrwatson-de v0.37
+  - Implement #34 Add action `New Record/Request`
+#  20240516 @mrwatson-de v0.36
+  - Fix #33 Improve fmIDE installation by using PSBN for recursive script calls to avoid broken calls
+#  20240423 @mrwatson-de v0.35.1
+  - Implement #32 Perform Find, Constrain Found Set, Extend Found Set
+  - v35
+#  20240422 @mrwatson-de v0.34
+  - Fix #31 Go to Layout Part Pause
+#  20240202 @mrwatson-de v0.33
+  - Fixed #29 GoToLayoutField when window is in background
+#  20230103 @mrwatson-de v0.32
+  - Changed the `Set Field` action to accept the target as the JSON key and require .value or .text
+  - Improved fmIDE Script documentation
+  - Added a (fantastic) `fmIDE script fmpurl MBS link action`(*) to replace-update the script contents
+  (*) Need to find a better name for those things! Maybe a `fmIDE script action button`?
+#  20221221 @mrwatson-de v0.31.1
+  - Standardised Version number format in history comments
+#  20221207 @mrwatson-de v0.31
+  - Added action `Perform Script`
+#  20221111 @mrwatson-de v0.30
+  - Fixed `Go to Table Occurrence`
+#  20221110 @mrwatson-de v0.29.1
+  - Added `object_bounds_*` parameter names - but not yet processed
+#  20221109 @mrwatson-de v0.29
+  - Fixed #25 - Layout objects processed correctly
+  - Added short syntax to `Set` Action: `Set.$varname="Value"`
+  - Improved Changes Script to also save the fmIDE script and copy the scripts text contents
+#  20221028 @mrwatson-de v0.28
+  - Added `shift` and `option` parameters to the `Press` function
+#  20221025 @mrwatson-de v0.27
+  - Added support for some standard message buttons:
+    - message__OK
+    - message__OK_Cancel
+    - message__Cancel_OK
+    - message__Yes_No
+    - message__No_Yes
+#  20221017 @mrwatson-de v0.26
+  - Added compact parameter passing by `key=value` (for example: "[0].Beep.times=3")
+  - Added action `Show All Records`
+  - Added action `Set Clipboard Text`
+  - Added action `Set Clipboard Objects`
+  - Fixed Insert from URL when targeting fields
+#  20221014 @mrwatson-de v0.25.2
+  - Fix #11 Parameter syntax for specifying calc using `_value`
+  - Fix #16 Change Author handle MrW to GitHub handle @mrwatson-de
+  - Changed `Select Script Steps.lines` to `Select Script Steps.range`
+#  20221014 @mrwatson-de v0.25.1
+  - Fix #11 Parameter syntax for specifying calc using `_value`
+#  20221014 @mrwatson-de v0.25
+  - Added fmIDE Action `Insert from URL` (Thanks to idea from Marcel Moré and Holger Herbst at the virtual FileMaker Stammtisch Hannover)
+#  20221013 @mrwatson-de v0.24
+  - Fix #12 Message with buttons compact syntax with separator `__`
+  - Fix #4 Hiatus: Salvage local variables
+  - Added `Select Script Steps.lines` parameter
+#  20221008 @mrwatson-de v0.23.1
+  - Reformatted the history entries
+    - without @history prefix
+    - with comments always as bullet points
+
+
+# # Sprint #1 (15 Weeks) Launch
+
+# 20221008 @mrwatson-de v0.23
+  - Launch of fmIDE at fmGuru Konferenz, Rome (~15 Weeks)
+  - Name that thing integration in CrossCheck (unofficial)
+# 20221007 @mrwatson-de v0.22
+  - work in progress: salvaging variables across a Hiatus
+
+# # 06.10.2022 (15 weeks):
+# 20221005 @mrwatson-de v0.21.2
+  - renamed Changes script to support @mrwatson-de's automatic history generator
+# # 29.09.2022 (14 weeks):
+
+# 20220929 @mrwatson-de v0.21.1
+  - Added ASCII logo to fmIDE README script
+  - Refactored action_name-reformatting as a let-function
+  - Fixed Comment action to not show dialog
+# 20220928 @mrwatson-de v0.21 (breaking change)
+  - Rename fmIDE Callback Interface Scripts to be clearer and more homogenous
+    - fmIDE.GetBaseLayoutName instead of fmIDE.GetLayoutNameForTable
+    - fmIDE.GetBaseTableName instead of fmIDE.GetBaseTableForTable
+  - Rename action `GoToBaseLayout` instead of `GoToLayoutForTable`
+  - Added layout_field_name
+  - Refresh window before opening database dialog, so that the current layout in the background shows correctly
+# 20220928 @mrwatson-de v0.20
+  - Split field_name with :: into table_name & field_name
+# 20220925 @mrwatson-de v0.19
+  - Added `FindScriptStep`, but still buggy
+# 20220922 @mrwatson-de v0.18.2
+  - Fixed bug causing $actions to be ignored - REALLY
+# 20220922 @mrwatson-de Vision
+  - fmIDE thingamajig URIs - the latest and greatest magic 🦄 in the fmIDE toolkit for locating those things - unbelievable! AMAZING!
+
+# # Tweaking, reducing, refactoring, fleshing out, examples (13 weeks):
+
+# 20220922 @mrwatson-de v0.18
+  - Refactored and simplified parameter handling using While loop
+  - Added `layout_part_*`parameters and `Go to Layout Part`
+# 20220920 @mrwatson-de v0.17
+  - Changed action.name to action.action_name, so that there is no clash in the JSON between the name of the action and a name attribute
+# 20220919 @mrwatson-de 0.16.1
+  - Moved fmIDEs home to https://github.com/fmIDE/fmIDE
+  - Added links to documentation
+# 20220918 @mrwatson-de v0.16
+  - Changed the parameter of Show Custom Dialog to messages instead of value (using Script print pdf as a guideline for parameter names)
+  - Added the ability to stipulate the button names in a message_«button1»_«button2»_«button3» parameter. Neat.
+
+# # Added and refined Actions (12 weeks):
+
+# 20220915 @mrwatson-de v0.15
+  - Added action `Go to Layout Field ( layout_field_name )` (Mac only with AppleScript)
+  - Considering renaming `object` to `layout_object` to harmonize layout_field and layout_object
+  - Simplified Go to Layout to one action: `Go to Layout ( by, layout_name, layout_id, layout_number )`
+  - Removed `* by id/number` actions
+# 20220914 @mrwatson-de v0.14
+  - Added action `Select Script Steps ( script_step_number, script_step_number_to )`
+  - Added automatic action for script_step_number_to
+  - Added debugging via variable `fmide_debug`
+  - Removed parameter line_number
+# 20220913 @mrwatson-de v0.13
+  - Added action `Open URL ( url )`
+  - Added action `Execute FileMaker Data API ( select, target, request )`
+  - Added hiatus parameter to `Pause ( seconds, hiatus )`
+  - Added buttons parameter to `Show Custom Dialog ( value, buttons )`
+  - Added times parameter to `Press` action
+  - Added `script_id`
+  - Added `script_number`
+  - Added `extended_privilege`
+  - Added `privilege_set`
+  - Improved `Press` action to handle multiple keys and DEL, BS and arrow keys
+  - Tested and added a workaround to the delay during a hiatus, due to 'inaccuracies' in the calculation of the delay
+  - Removed action `Call fmIDE`
+  - Removed action `Hiatus`
+# 20220912 @mrwatson-de v0.12
+  - Added support for empty / null actions
+  - Added action `Press ( key, command_key )`
+  - Added `Go to Script ( script_name_stub )` to go to script where only the stub name is known/safe
+  - Added automatic actions for account_name, custom_menu/custom_menu_set/custom_menu_item, theme, etc.
+# 20220910 @mrwatson-de Coined term "fmIDE 'Name that thing' API"
+
+# # Presentation prep (11 weeks):
+
+# 20220904 @mrwatson-de Presentation prep.!
+
+# # Tuning and Key functionality - StoreKeyboardBuffer (10 weeks):
+
+# 20220902 @mrwatson-de v0.11
+  - Added action `Hiatus ( seconds )`
+  - Fixed automatic action `Go to Script Step`
+  - Integrated fmIDE into fmCheckMate - WOW!
+# 20220831 @mrwatson-de v0.10
+  - Added action `Store Keyboard Buffer`
+  - Integrated `Store Keyboard Buffer` into "Go to"-actions
+  - Added `Go to Account ( account_name )`
+  - Created "Go to"-action Examples
+# 20220829 @mrwatson-de v0.9
+  - Added support for compact action JSON, for example: `JSONSetElement( "[]"; "[0].exit_loop_if.value" ; "$i > $n" ; JSONString )`
+
+# # More Cool functionality pouring in (9 weeks):
+
+# 20220823 @mrwatson-de v0.8
+  - Added actions `Hello` and `GetVersion`
+# 20220823 @mrwatson-de
+  - Created first page of fmIDE Wiki
+# 20220822 @mrwatson-de
+  - Created the example list layout with ability to play and edit examples and added first examples
+# 20220819 @mrwatson-de v0.7
+  - Added action `Go to Original Window`, and support for multiline simple-action pseudocode (with NO parameters)
+
+# # Cool functionality pouring in (9 weeks):
+
+# 20220818 @mrwatson-de v0.6.1
+  - Improved action `Go to Original Layout` to work with continuations
+# 20220818 @mrwatson-de 0.6
+  - Implemented (first attempt at) Continuations! This is where the magic *really* starts 🪄
+# 20220818 @mrwatson-de v0.5.1
+  - Fixed issue where actions that use GUI-manipulation (menus or keys) would be performed in the wrong window (`Open Manage Custom Functions`, `Enter Layout Mode`, … )
+# 20220818 @mrwatson-de fmIDE
+  - under test in advanter at GBS GmbH
+# 20220818 @mrwatson-de v0.5
+  - Added action `Go to Record ( record, exit_after_last, [value/number] )` and implemented Exit after Last functionality, which skips to corresponding `End Loop` / end of script
+
+# # First footings (8 weeks):
+
+# 20220817 @mrwatson-de v0.4
+  - Added `If` + `Loop` control actions with action-stack for nested use and implemented skipping-technique
+# 20220816 @mrwatson-de 0.3.1
+  - Added (experimental) fmIDE API-Scripts to encapsulate solution-specific logic (`fmIDE.GetLayoutNameForTable`,`fmIDE.GetBaseTableForTable`)
+# 20220815 @mrwatson-de v0.3
+  - Added basic commands and example scripts, coined term 'action'
+# 20220809 @mrwatson-de v0.2.1
+  - Refined step names
+# 20220808 @mrwatson-de
+  - Github Repo created
+
+# # Inspiration - KISS! (~4 weeks):
+
+# 20220719 @mrwatson-de v0.2
+  - Started
+# 20220718 @mrwatson-de
+  - Smoothed the splash screen animation and added fade in and out
+# 20220717 @mrwatson-de
+  - Weekend of ideas - first fmIDE one script to rule them all
+
+# # Going public with an aim (~2 weeks):
+
+# 20220705 @mrwatson-de
+  - CrossCheck integration 0.3 Extended with goto table function which uses solution-specific knowledge of layout names, plus fmIDE.OpenManageDatabase
+# 20220626 @mrwatson-de
+  - Demoed the CrossCheck integration and presented the fmIDE idea at the FileMaker-Konferenz 2022 in Hamburg
+# 20220625 @mrwatson-de
+  - Created Demo file, logo and splash screen
+
+# # Birth: (0)
+
+# 20220623 @mrwatson-de v0.1
+  - First attempt at an fmIDE module with seperate scripts, fmIDE.OpenManageDatabase, etc. (similar to fmScriptWorkspace)
+
+# # Prehistory (-21 weeks):
+
+# 20220426 @mrwatson-de
+  - CrossCheck integration 0.2 Extended with proprietary code to goto layout, layout object or database definition in advanter
+# 20220128 @mrwatson-de 
+  - Crosscheck integration 0.1 Goto script, script step with fmScriptWorkspace
+# ############################################################################
+
+# #/
+
+

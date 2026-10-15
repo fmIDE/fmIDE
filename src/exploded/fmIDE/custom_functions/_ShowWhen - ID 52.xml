@@ -1,0 +1,12 @@
+<CustomFunction id="52" name="_ShowWhen" access="All">
+	<UUID modifications="0" userName="R.Watson" accountName="Admin" timestamp="2026-03-09T07:41:19">948F71DB-F043-4AF1-873F-1362D9984776</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="FF906D5DBE828A805F05F503FDE98677">_948F71DB-F043-4AF1-873F-1362D9984776</DDRREF>
+		<Text><![CDATA[not pCondition]]></Text>
+	</Calculation>
+	<Display>_ShowWhen ( pCondition )</Display>
+	<ObjectList membercount="1">
+		<Parameter name="pCondition"></Parameter>
+	</ObjectList>
+</CustomFunction>

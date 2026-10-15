@@ -1,0 +1,1 @@
+Case( not IsEmpty( pText ) ; pPrefix & pText & pSuffix )

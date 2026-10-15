@@ -1,0 +1,22 @@
+
+# 20261005 @mrwatson-de Refactored
+
+# ## fmIDE Examples
+
+Go to Layout [ Layout: "fmIDE Examples" ; Animation: None ]
+View As [ View as List ]
+
+Enter Find Mode [ Pause: OFF ]
+Set Field [ fmIDE_Example::Select ; 1 ]
+Perform Find
+Perform Script [ "Examples: Sort" ; Specified: From list ; Parameter: ]
+
+Set Field [ fmIDE_Example::_gApiFmpProtocol ; "" ]
+Set Field [ fmIDE_Example::_gApiScriptName ; "" ]
+Set Field [ fmIDE_Example::_gJSON ; "" ]
+Set Field [ fmIDE_Example::_gXSLT ; "" ]
+
+# Reset all example code fields
+Perform Script [ "Example Code - reset ( example_number )" ; Specified: From list ; Parameter: 0 ]
+
+

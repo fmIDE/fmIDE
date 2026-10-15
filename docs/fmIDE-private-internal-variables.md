@@ -4,7 +4,7 @@ In your fmIDE Action Scripts do not use variables starting with `$fmide__`!
 
 fmIDE reserves fmide variables that have two or more underscores for internal use only.
 
-The [public API variables](fmIDE-variables.md) with a single underscore are documented in the [fmIDE Variables](fmIDE-variables.md) page.
+The [public API variables](fmIDE-public-api-variables.md) with a single underscore are documented in the [fmIDE Variables](fmIDE-public-api-variables.md) page.
 
 The rest of this page is thus for developers of fmIDE only.
 
@@ -469,7 +469,7 @@ The rest of this page is thus for developers of fmIDE only.
 
 ## `$fmide___file_path` (Input/Output)
 
-«description»
+The selected filesystem-path parameter, evaluated once at action execution. Shared by file creation, deletion, inspection, opening, recovery, renaming and saving. Compatibility keys are resolved before evaluation; a present `file_path` key takes precedence, including empty or null.
 
 ## `$fmide___flush` (Input/Output)
 
@@ -871,10 +871,6 @@ The rest of this page is thus for developers of fmIDE only.
 
 «description»
 
-## `$fmide___source_file` (Input/Output)
-
-«description»
-
 ## `$fmide___standalone_binarydata` (Input/Output)
 
 «description»
@@ -900,10 +896,6 @@ The rest of this page is thus for developers of fmIDE only.
 «description»
 
 ## `$fmide___target` (Input/Output)
-
-«description»
-
-## `$fmide___target_file` (Input/Output)
 
 «description»
 

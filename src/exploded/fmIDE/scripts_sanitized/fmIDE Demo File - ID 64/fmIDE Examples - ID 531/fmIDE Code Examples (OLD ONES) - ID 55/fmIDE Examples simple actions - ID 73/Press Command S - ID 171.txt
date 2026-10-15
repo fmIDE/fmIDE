@@ -1,0 +1,9 @@
+
+
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( ""
+				; ["[0].Press.command_key" ; "s" ; JSONString]
+				
+				) ]
+
+

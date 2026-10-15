@@ -1,0 +1,11 @@
+
+# 20130213 MrW Toggle
+# 20120106 MrW At last
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+Adjust Window [ Maximize ]
+Set Variable [ $$window.midimised[1] ; "" ]
+
+

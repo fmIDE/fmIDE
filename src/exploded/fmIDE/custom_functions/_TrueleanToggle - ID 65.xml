@@ -1,0 +1,12 @@
+<CustomFunction id="65" name="_TrueleanToggle" access="All">
+	<UUID modifications="2" userName="R.Watson" accountName="Admin" timestamp="2026-06-13T10:47:16">27FF8163-5B50-44D0-B98B-00B8A582EB0E</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="C343E32EC9198DFCC5AD3299437F142D">_27FF8163-5B50-44D0-B98B-00B8A582EB0E</DDRREF>
+		<Text><![CDATA[Case ( Get ( WindowMode ) = 1 and pBoolean ; "==" ;Get ( WindowMode ) = 1 and pBoolean = "==" ; "" ; not pBoolean ; 1 )]]></Text>
+	</Calculation>
+	<Display>_TrueleanToggle ( pBoolean )</Display>
+	<ObjectList membercount="1">
+		<Parameter name="pBoolean"></Parameter>
+	</ObjectList>
+</CustomFunction>

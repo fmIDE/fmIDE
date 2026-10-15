@@ -1,0 +1,37 @@
+
+# 2022-06-20 RW: Neu
+
+Set Error Capture [ ON ]
+
+Go to Layout [ Layout: "🚨🚨🚨 <BROKEN REFERENCE> 🚨🚨🚨" ; Animation: None ]
+Import Records [ Verify SSL Certificates: OFF ; With dialog: OFF ; ⚠️ PARAMETER "ImportField" NOT PARSED ⚠️ ]
+If [ Get ( LastError ) ]
+	Show Custom Dialog [ Title: Get( ScriptName ) ; Message: "Fehler " & Get( LastError ) ; Default Button: "OK" ]
+	Exit Script []
+End If
+
+Go to Layout [ Layout: "🚨🚨🚨 <BROKEN REFERENCE> 🚨🚨🚨" ; Animation: None ]
+If [ Get ( FoundCount ) = 0 ]
+	Perform Script [ "" ; Specified: From list ; Parameter: Get( ScriptName ) ]
+	Set Variable [ $Neu[1] ; 1 ]
+End If
+Set Variable [ $DevJobID[1] ; fmDevJob::__ID ]
+
+Go to Layout [ Layout: "🚨🚨🚨 <BROKEN REFERENCE> 🚨🚨🚨" ; Animation: None ]
+Replace Field Contents [ fmDevJobTask::__UUID ; Replace with calculation: $DevJobID ]
+
+If [ $Neu ]
+	Go to Layout [ Layout: "🚨🚨🚨 <BROKEN REFERENCE> 🚨🚨🚨" ; Animation: None ]
+	Go to Field [ fmDevJob::🚨🚨🚨 <BROKEN REFERENCE> 🚨🚨🚨 ]
+Else
+	Set Variable [ $FC[1] ; Get( FoundCount ) ]
+	Enter Find Mode [ Pause: OFF ]
+	Set Field [ fmDevJobTask::__UUID ; $DevJobID ]
+	Perform Find
+	If [ /*G_VL_Found_OK = "OK"*/ ]
+		Go to Record/Request/Page [ With dialog: OFF ; Get( FoundCount ) - $FC + 1 ]
+		Go to Field [ fmDevJobTask::Task ]
+	End If
+End If
+
+

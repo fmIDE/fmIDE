@@ -1,0 +1,9 @@
+<CustomFunction id="34" name="_JSP" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2025-09-25T15:51:58">F66FF2D1-F322-48EF-80EA-D22FB9906276</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="04612417F3A43A5431B3045AFC774B28">_F66FF2D1-F322-48EF-80EA-D22FB9906276</DDRREF>
+		<Text><![CDATA[Case( not IsEmpty( Get ( ScriptParameter ) ) ; Get ( ScriptParameter ) ; "{}" )]]></Text>
+	</Calculation>
+	<Display>_JSP</Display>
+</CustomFunction>

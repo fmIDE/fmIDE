@@ -1,0 +1,12 @@
+<CustomFunction id="54" name="fmJAML_LogoFun_TokenFromChar" access="All">
+	<UUID modifications="19" userName="R.Watson" accountName="Admin" timestamp="2026-04-18T01:51:38">0B61C31A-65C4-4E6D-8141-573859C984D9</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="A93DACD48D2BB5EC34C36C9773BD2E9C">_0B61C31A-65C4-4E6D-8141-573859C984D9</DDRREF>
+		<Text><![CDATA[/* fmJAML_LogoFun_TokenFromChar ( pChar )2024-04-14 @mrwatson-de 0.2 Commented2024-03-26 @mrwatson-de 0.1 Mapping constructed*/Substitute( Code( pChar ); [0;""] ; [1;" "] ; [2;"|"] ; [3;" "] ; [4;"/"] ; [5;"\\"] ; [6;"|"] ; [7;"_"] ; [8;""]; [9;"¶"] )]]></Text>
+	</Calculation>
+	<Display>fmJAML_LogoFun_TokenFromChar ( pChar )</Display>
+	<ObjectList membercount="1">
+		<Parameter name="pChar"></Parameter>
+	</ObjectList>
+</CustomFunction>

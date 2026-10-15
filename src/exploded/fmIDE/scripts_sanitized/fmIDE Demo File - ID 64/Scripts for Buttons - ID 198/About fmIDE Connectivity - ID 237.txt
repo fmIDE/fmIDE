@@ -1,0 +1,7 @@
+
+
+
+Go to Layout [ Layout: "fmIDE Connectivity" ; Animation: None ]
+# Resize to fit, in order to reset 'animation'
+Adjust Window [ Resize to Fit ]
+

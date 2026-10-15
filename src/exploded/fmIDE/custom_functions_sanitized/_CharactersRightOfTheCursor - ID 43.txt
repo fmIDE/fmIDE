@@ -1,0 +1,1 @@
+Middle ( Get ( ActiveFieldContents ) ; Get ( ActiveSelectionStart ) ; pNumChars )

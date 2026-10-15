@@ -1,0 +1,19 @@
+[+].Set Error Capture = 1
+[+].If = == IsEmpty ( $expected_file_path ) or not Exact ( Right ( Get ( FilePath ) ; Length ( $expected_file_path ) ) ; $expected_file_path )
+[+].Exit Script = == JSONSetElement ( "{}" ; [ "ok" ; 0 ; JSONBoolean ] ; [ "error" ; "expected_file_path must identify this local checkout" ; JSONString ] )
+[+].End If
+[+].Save a Copy as XML
+[:]..file_path = == Let ( p = Get ( FilePath ) ; Left ( p ; Position ( p ; "/" ; Length ( p ) ; -1 ) ) & "src/xml/fmIDE.xml" )
+[:]..window_name = == Get ( WindowName )
+[:]..include_details = 1
+[:]..standalone_binarydata = 0
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; $$fmide_get_last_error = 0 ; JSONBoolean ]
+; [ "error" ; $$fmide_get_last_error ; JSONNumber ]
+; [ "detail" ; $$fmide_get_last_error_detail ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+)
+===

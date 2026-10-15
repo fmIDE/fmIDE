@@ -1,0 +1,12 @@
+
+
+Show/Hide Toolbars [ Lock: OFF ; Include Edit Record Toolbar: ON ; Hide ]
+
+Set Variable [ $Y[1] ; fmIDE::_gQuickLinkWindowY ]
+Go to Layout [ Layout: "fmp URL Builder" ; Animation: None ]
+Adjust Window [ Resize to Fit ]
+Move/Resize Window [ Top: Case ( $Y ; Get ( WindowDesktopHeight ) - $Y ; 0 ) ; Left: 0 ]
+Go to Field [ fmIDE::_gQuickLinkFmpUrl ]
+
+
+

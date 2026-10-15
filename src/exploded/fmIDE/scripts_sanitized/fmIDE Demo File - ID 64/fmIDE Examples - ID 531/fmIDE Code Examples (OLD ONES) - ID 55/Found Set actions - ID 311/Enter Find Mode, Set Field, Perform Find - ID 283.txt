@@ -1,0 +1,16 @@
+
+Set Variable [ $Param[1] ; JSONSetElement( "[]"
+				;[ "[0].Go to Layout.layout_name" ; "fmIDE Actions" ; JSONString]
+				;[ "[1].Enter Find Mode" ; "" ; JSONNull]
+				;[ "[2].Set Field.fmIDE_Action::ActionName.text" ; "Set" ; JSONString]
+				;[ "[3].Perform Find" ; "" ; JSONNull]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $Param ]
+// Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "{}" ; "actions" ; $actions ; JSONArray ) ]
+
+
+// Go to Layout [ Layout: "fmIDE Actions" ; Animation: None ]
+// Enter Find Mode [ Pause: OFF ]
+// Set Field [ fmIDE_Action::ActionName ; "Set" ]
+// Perform Find
+

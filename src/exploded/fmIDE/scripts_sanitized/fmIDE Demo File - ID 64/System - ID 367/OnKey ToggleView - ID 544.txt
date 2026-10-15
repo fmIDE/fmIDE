@@ -1,0 +1,21 @@
+
+
+
+Set Variable [ $key[1] ; Get ( TriggerKeystroke ) ]
+Set Variable [ $code[1] ; Code ( $key ) ]
+
+
+If [ not IsEmpty ( Get ( ActiveFieldName ) ) ]
+	Exit Script []
+Else If [ Get ( LayoutName ) = "fmIDE Examples" ]
+	If [ $key = " " ]
+		Perform Script [ "Example View Change" ; Specified: From list ; Parameter: ]
+		Exit Script [ 0 ]
+	End If
+Else If [ Get ( LayoutName ) = "fmIDE Tests" ]
+	If [ $key = " " ]
+		Perform Script [ "SYS View" ; Specified: From list ; Parameter: ]
+		Exit Script [ 0 ]
+	End If
+End If
+

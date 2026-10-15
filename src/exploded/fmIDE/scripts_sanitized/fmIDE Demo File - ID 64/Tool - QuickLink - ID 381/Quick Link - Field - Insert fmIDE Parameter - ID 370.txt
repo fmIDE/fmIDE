@@ -1,0 +1,26 @@
+
+# 20260221 @mrwatson-de If the parameter already exists, selects the value instead of inserting a duplicate copy of the parameter
+# 2025-09-25 RW: new
+
+Set Error Capture [ ON ]
+
+If [ IsEmpty ( Get ( ActiveFieldName ) ) ]
+	Exit Script []
+End If
+
+Perform Script [ "fmIDE Parameter Chooser - launch" ; Specified: From list ; Parameter: ]
+Set Variable [ $parameter[1] ; Get( ScriptResult ) ]
+If [ not IsEmpty ( $parameter ) ]
+	Set Variable [ $paramDefinition[1] ; "$" & $parameter & "=" ]
+	Set Variable [ $fmpurl[1] ; Get ( ActiveFieldContents ) ]
+	Set Variable [ $posParamDefinition[1] ; Position ( $fmpurl ; $paramDefinition ; 1 ; 1 ) ]
+	If [ $posParamDefinition ]
+		Set Variable [ $posParamDefinitionValueStart[1] ; $posParamDefinition + Length ( $paramDefinition ) ]
+		Set Variable [ $posParamDefinitionValueEnd[1] ; _PositionOrEnd ( $fmpurl ; "&" ; $posParamDefinitionValueStart ; 1 ) ]
+		Set Selection [ ⚠️ PARAMETER "Select" NOT PARSED ⚠️ ]
+	Else
+		Insert Calculated Result [ Select: OFF ; $paramDefinition ]
+	End If
+End If
+
+

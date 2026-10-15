@@ -1,0 +1,9 @@
+
+
+
+
+
+
+Set Variable [ $fmxmlsnippet[1] ; MBS("Clipboard.GetFileMakerData"; "auto") ]
+Set Variable [ $script_count[1] ;  ]
+

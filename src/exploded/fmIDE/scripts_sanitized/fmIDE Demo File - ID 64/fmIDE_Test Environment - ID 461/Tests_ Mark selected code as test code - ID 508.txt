@@ -1,0 +1,4 @@
+Insert Calculated Result [ Select: OFF ; Case( Get ( ActiveSelectionStart ) > 1 and Get ( ActiveSelectionSize ) ; "#@test¶" )&
+				Middle ( Get ( ActiveFieldContents ) ; Get ( ActiveSelectionStart ) ; Get ( ActiveSelectionSize ) ) &
+				"#@endtest¶" ]
+

@@ -1,0 +1,9 @@
+
+
+Go to Layout [ Layout: "Home" ; Animation: None ]
+Show All Records
+Sort Records [ With dialog: OFF ; ⚠️ PARAMETER "Restore" NOT PARSED ⚠️ ; ⚠️ PARAMETER "SortSpecification" NOT PARSED ⚠️ ]
+Go to Record/Request/Page [ First ]
+View As [ View as Form ]
+
+

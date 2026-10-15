@@ -1,0 +1,31 @@
+
+# This script demonstrates Performing a find with fmIDE
+
+# See https://github.com/fmIDE/fmIDE/wiki/fmIDE-Actions#perform-find
+
+# The actions do the following:
+
+# ` Go to the Example layout…
+# ` Perform Find with a stored query to…
+# `   Find… 
+# `     Scripts with 'Go to' in their name (criteria is Script:Go To)
+# `   but…(next element in the criteria array)
+# `   not… (omit=true)
+# `      the script named 'layout_name → Go to Layout' (criteria is Script:==layout_name → Go to Layout)
+
+Set Variable [ $Param[1] ; JSONSetElement ( "[]"
+				
+				;["[0].GoToLayout.layout_name" ; "Example" ; JSONString ]
+				
+				;["[1].Perform Find.query.request[0].criteria[0].field_name"  ; GetFieldName ( fmIDE_Example::Script ) ; JSONString ]
+				;["[1].Perform Find.query.request[0].criteria[0].value" ; "Go to" ; JSONString ]
+				
+				;["[1].Perform Find.query.request[1].omit" ; True ; JSONBoolean ]
+				;["[1].Perform Find.query.request[1].criteria[0].field_name"  ; GetFieldName ( fmIDE_Example::Script ) ; JSONString ]
+				;["[1].Perform Find.query.request[1].criteria[0].operator" ; "==" ; JSONString ]
+				;["[1].Perform Find.query.request[1].criteria[0].value" ; "layout_name → Go to Layout" ; JSONString ]
+				
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $Param ]
+
+

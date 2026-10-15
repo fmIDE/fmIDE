@@ -1,0 +1,5 @@
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "{}" ; 
+				["script_name" ; Get( ScriptName ) ; JSONString] ;
+				["script_step_number" ; "50%" ; JSONString]
+				) ]
+

@@ -1,0 +1,15 @@
+
+
+Show/Hide Toolbars [ Lock: OFF ; Include Edit Record Toolbar: OFF ; Show ]
+
+Set Variable [ $action[1] ; JSONSetElement ( "[]"
+				;["[0].Show Custom Dialog.message" ; "Hi" ; JSONString]
+				
+				;["[1].Pause.seconds" ; 2 ; JSONNumber]
+				;["[1].Pause.hiatus" ; True ; JSONBoolean]
+				
+				;["[2].Show Custom Dialog.message" ; "Bye" ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action ]
+
+

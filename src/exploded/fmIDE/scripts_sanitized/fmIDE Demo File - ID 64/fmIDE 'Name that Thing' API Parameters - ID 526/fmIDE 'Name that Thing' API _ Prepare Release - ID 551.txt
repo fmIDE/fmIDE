@@ -1,0 +1,12 @@
+
+# 20261005 @mrwatson-de Refactored
+
+# ## NameThatThingparameter Table
+
+Set Field [ NameThatThingParameter::_gParameter ; "" ]
+
+# ! Don't reset the Wiki Infos!
+// Set Field [ NameThatThingParameter::_gWikiFooterText ; "" ]
+// Set Field [ NameThatThingParameter::_gWikiHeaderText ; "" ]
+
+

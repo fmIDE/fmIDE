@@ -1,0 +1,5 @@
+
+Set Variable [ $$fmide_get_last_error[1] ; 0 ]
+Set Variable [ $$fmide_get_last_error_detail[1] ; "" ]
+Set Variable [ $$fmide_get_last_error_location[1] ; "" ]
+

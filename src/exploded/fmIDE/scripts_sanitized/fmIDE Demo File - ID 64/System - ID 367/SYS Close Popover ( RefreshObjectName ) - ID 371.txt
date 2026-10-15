@@ -1,0 +1,11 @@
+
+
+Set Variable [ $RefreshObjectName[1] ; Get( ScriptParameter ) ]
+
+Close Popover
+Go to Object [ ; Repetition: 1 ]
+
+If [ not IsEmpty ( $RefreshObjectName ) ]
+	Perform Script [ "SYS RefreshObject ( RefreshObjectName )" ; Specified: From list ; Parameter: $RefreshObjectName ]
+End If
+

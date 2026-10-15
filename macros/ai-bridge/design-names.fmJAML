@@ -1,0 +1,65 @@
+# AI Bridge.Design Names
+# Inputs arrive through Run Macro frontmatter; see manifest.json.
+[+].Set Error Capture = 1
+[+].Set.$bridge_macro = ===
+"AI Bridge.Design Names"
+===
+[+].Set.$bridge_data = ===
+"{}"
+===
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "" ; JSONString ]
+)
+===
+[+].If = == IsEmpty ( $expected_file_path ) or not ( Exact ( Get ( FilePath ) ; $expected_file_path ) or ( Left ( $expected_file_path ; 1 ) = "/" and Exact ( Right ( Get ( FilePath ) ; Length ( $expected_file_path ) ) ; $expected_file_path ) ) )
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "expected_file_path must identify this database" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].Set.$bridge_data = ===
+JSONSetElement ( "{}"
+; [ "tables" ; While ( [ vValues = TableNames ( "" ) ; vI = 1 ; vResult = "[]" ] ; vI <= ValueCount ( vValues ) ; [ vResult = JSONSetElement ( vResult ; "[+]" ; GetValue ( vValues ; vI ) ; JSONString ) ; vI = vI + 1 ] ; vResult ) ; JSONArray ]
+; [ "layouts" ; While ( [ vValues = LayoutNames ( "" ) ; vI = 1 ; vResult = "[]" ] ; vI <= ValueCount ( vValues ) ; [ vResult = JSONSetElement ( vResult ; "[+]" ; GetValue ( vValues ; vI ) ; JSONString ) ; vI = vI + 1 ] ; vResult ) ; JSONArray ]
+; [ "scripts" ; While ( [ vValues = ScriptNames ( "" ) ; vI = 1 ; vResult = "[]" ] ; vI <= ValueCount ( vValues ) ; [ vResult = JSONSetElement ( vResult ; "[+]" ; GetValue ( vValues ; vI ) ; JSONString ) ; vI = vI + 1 ] ; vResult ) ; JSONArray ]
+; [ "value_lists" ; While ( [ vValues = ValueListNames ( "" ) ; vI = 1 ; vResult = "[]" ] ; vI <= ValueCount ( vValues ) ; [ vResult = JSONSetElement ( vResult ; "[+]" ; GetValue ( vValues ; vI ) ; JSONString ) ; vI = vI + 1 ] ; vResult ) ; JSONArray ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===

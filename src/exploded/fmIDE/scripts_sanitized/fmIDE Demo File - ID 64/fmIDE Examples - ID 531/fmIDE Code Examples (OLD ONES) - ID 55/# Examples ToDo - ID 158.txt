@@ -1,0 +1,83 @@
+
+# Beep
+  CallFmide
+  ConvertClipboard
+  Else
+  ElseIf
+  EndIf
+  EndLoop
+  EnterBrowseMode
+  EnterFindMode
+  EnterLayoutMode
+  EnterPreviewMode
+  ExitLoopIf
+  ExitScript
+  GetResource
+  GetVersion
+  GoToAccount
+  GoToCustomFunction
+  GoToCustomMenu
+  GoToCustomMenuItem
+  GoToCustomMenuSet
+  GoToExternalDataSource
+  GoToLayout
+  GoToLayoutById
+  GoToLayoutByNumber
+  GoToLayoutField
+  GoToLayoutForTable
+  GoToNextField
+  GoToObject
+  GoToOriginalLayout
+  GoToOriginalWindow
+  GoToPreviousField
+  GoToRecordRequestPage
+  GoToRecord
+  
+  GoToScript
+  OpenScript
+  GoToScriptStep
+  GoToLine
+  OpenScriptWorkspace
+  
+  GoToTable
+  GoToBaseTable
+  
+  GoToTheme
+  GoToValueList
+  HaltScript
+  Hello
+  If
+  Loop
+  OpenFileOptions
+  OpenManageContainers
+  OpenManageCustomFunctions
+  OpenManageCustomMenus
+  OpenManageDatabase
+  
+  OpenManageExternalDataSources
+  OpenManageDataSources
+  
+  OpenManageLayouts
+  OpenManageSecurity
+  OpenManageThemes
+  OpenManageValueLists
+  OpenPreferences
+  
+  OpenScriptWorkspace
+  OpenManageScripts
+  
+  OpenUploadToHost
+  Paste
+  PasteIntoCurrentLayout
+  Pause
+  PerformFind
+  Press
+  RefreshWindow
+  SaveACopyAsXml" or $action_name = "SaveAsXml
+  SelectWindow
+  Set
+  ShowCustomDialog
+  StoreKeyboardBuffer
+  Try
+  
+

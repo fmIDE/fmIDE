@@ -1,0 +1,7 @@
+
+# 2025-09-25 RW: New
+
+Set Field [ NameThatThingParameter::_gParameter ; NameThatThingParameter::ParameterName ]
+Perform Script [ "SYS Set LastMessageChoice ( value )" ; Specified: From list ; Parameter: 1 ]
+
+

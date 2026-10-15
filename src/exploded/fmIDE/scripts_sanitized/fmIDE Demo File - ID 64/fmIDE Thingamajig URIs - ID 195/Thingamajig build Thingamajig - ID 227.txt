@@ -1,0 +1,44 @@
+
+# 20221004 MrW Simplified the construction of the thingamajig parameters by constructing the &$name=value part in a repeating field
+
+Close Popover
+
+// Set Variable [ $thingamajig_uri[1] ; Case (
+				not IsEmpty ( ThingamajigURI::fmp )    ; ThingamajigURI::fmp & "/" & ThingamajigURI::Server & "/" ; 
+				not IsEmpty ( ThingamajigURI::Server ) ; ThingamajigURI::Server & "/"
+				) & 
+				ThingamajigURI::_kFileName & 
+				While ( 
+				[
+				
+				¢result = "" ;
+				¢i = 1 ;
+				¢n = 5
+				
+				]; ¢i<=¢n ;[
+				
+				¢result = ¢result & Case ( not IsEmpty ( ThingamajigURI::NameThatThingParameter[¢i] ) ; 
+				
+				 "&$" & ThingamajigURI::NameThatThingParameter[¢i] & 
+				 "=" & GetAsURLEncoded ( ThingamajigURI::NameThatThingValue[¢i] ) 
+				
+				 );
+				
+				¢i = ¢i + 1
+				];
+				
+				¢result
+				
+				) ]
+Set Variable [ $thingamajig_uri[1] ; Case (
+				not IsEmpty ( ThingamajigURI::fmp )    ; ThingamajigURI::fmp & "/" & ThingamajigURI::Server & "/" ; 
+				not IsEmpty ( ThingamajigURI::Server ) ; ThingamajigURI::Server & "/"
+				) & 
+				
+				ThingamajigURI::_kFileName & 
+				
+				Substitute ( List ( ThingamajigURI::_kNameThatThingParamAndValueForUrl ) ; ¶ ; "" ) ]
+
+Set Field [ ThingamajigURI::Thingamajig URI ; $thingamajig_uri ]
+
+

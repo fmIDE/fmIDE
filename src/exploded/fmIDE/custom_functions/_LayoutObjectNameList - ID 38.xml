@@ -1,0 +1,13 @@
+<CustomFunction id="38" name="_LayoutObjectNameList" access="All">
+	<UUID modifications="0" userName="R.Watson" accountName="Admin" timestamp="2025-09-25T17:13:49">051DB1B0-BA05-4C66-A370-289E3CA4C792</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="AAC4C3CF90088D5C3ACB1CA2CF984A53">_051DB1B0-BA05-4C66-A370-289E3CA4C792</DDRREF>
+		<Text><![CDATA[_RemoveEmptyLines ( UniqueValues ( Substitute ( LayoutObjectNames ( pFileName ; pLayoutName ) ; ["<" ; ""] ; [">" ; ""] ) ) )]]></Text>
+	</Calculation>
+	<Display>_LayoutObjectNameList ( pFileName ; pLayoutName )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pFileName"></Parameter>
+		<Parameter name="pLayoutName"></Parameter>
+	</ObjectList>
+</CustomFunction>

@@ -1,0 +1,14 @@
+
+# 20260911 @mrwatson-de Sort unsupported actions to the end
+
+# Params
+Set Variable [ $_JSP[1] ; _JSP ]
+Set Variable [ $view_by[1] ; JSONGetElement ( $_JSP ; "view_by" ) ]
+
+Set Field [ fmIDE_Action::_gViewBy ; $view_by ]
+If [ $view_by = "name" ]
+	Sort Records [ With dialog: OFF ; ⚠️ PARAMETER "Restore" NOT PARSED ⚠️ ; ⚠️ PARAMETER "SortSpecification" NOT PARSED ⚠️ ]
+Else If [ $view_by = "category" ]
+	Sort Records [ With dialog: OFF ; ⚠️ PARAMETER "Restore" NOT PARSED ⚠️ ; ⚠️ PARAMETER "SortSpecification" NOT PARSED ⚠️ ]
+End If
+

@@ -1,0 +1,71 @@
+/* _ColorImageRGB ( pRed ; pGreen ; pBlue )
+
+Dynamically creates an image (file) with the given color which can be output via a container field (as a stored or unstored calculation) to produce dynamic color.
+
+Set the following properties on the container field to get an edge to edge color:
+
+• container: enlarge/reduce
+• container: don't maintain proportions
+
+and (to remove the border)
+
+• field borders: ON
+• field border width: 0px
+• field border color: None
+
+The current version of the function creates a 16x16 pixel gif file with the name "color«rrggbb».gif".
+
+Parameters
+
+pRed - 0-255
+pBreen - 0-255
+pBlue - 0-255
+
+Examples
+
+_ColorImageRGB ( 82 ; 71 ; 66 )
+_ColorImageRGB ( 0 ; 0 ; RGB( 82 ; 71 ; 66 ) ) // If you already have an RGB value you can do this too
+
+2025-03-26 @mrwatson-de Version 1.1.1 Simplified to make it faster
+2020-05-11 RW: Version 1.1 STANDALONE version of the simplified RGB CF
+2020-05-09 RW: Version 1.0 of the simplified RGB CF
+*/
+
+Case(
+
+IsEmpty( pRed ) and IsEmpty( pGreen ) and IsEmpty( pBlue ) ; "" ;
+
+Let(
+[
+
+vRGB = pRed*256*256 + pGreen*256 + pBlue;
+
+vBL = Mod( vRGB ; 16 );
+vRGB = Div( vRGB  ; 16 );
+vBH = Mod( vRGB ; 16 );
+vRGB = Div( vRGB  ; 16 );
+vGL = Mod( vRGB ; 16 );
+vRGB = Div( vRGB  ; 16 );
+vGH = Mod( vRGB ; 16 );
+vRGB = Div( vRGB  ; 16 );
+vRL = Mod( vRGB ; 16 );
+vRGB = Div( vRGB  ; 16 );
+vRH = Mod( vRGB ; 16 );
+vRGB = Div( vRGB  ; 16 );
+
+
+vHEX = "0123456789ABCDEF" ;
+vRRGGBB = 
+Middle( vHEX ; 1+vRH ; 1 ) & 
+Middle( vHEX ; 1+vRL ; 1 ) & 
+Middle( vHEX ; 1+vGH ; 1 ) & 
+Middle( vHEX ; 1+vGL ; 1 ) & 
+Middle( vHEX ; 1+vBH ; 1 ) & 
+Middle( vHEX ; 1+vBL ; 1 )
+
+];
+
+/* Create a gif File from the hex of a 16 x 16 pixel single color GIF image (where the RGB-bytes marked as #r#g#b) */
+HexDecode ( Substitute( "47494638376110001000910000000000#r#g#bffffff00000021f904090a0003002c000000001000100000020e8c8fa9cbed0fa39cb4da8bb33e05003b" ; ["#r#g#b" ; vRRGGBB ] ) ; "color" & vRRGGBB & ".gif" )
+
+))

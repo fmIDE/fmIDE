@@ -1,0 +1,1 @@
+_MetaURLAppRepoRoot & Lower( Case( _MetaAppIsPartOfFmWorkMate ; "fmWorkMate" ; _MetaAppName ) ) & "/releases"

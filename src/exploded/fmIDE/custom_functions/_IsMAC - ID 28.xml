@@ -1,0 +1,9 @@
+<CustomFunction id="28" name="_IsMAC" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-10-08T07:02:53">EB04B289-4EB6-4F10-87AC-A3F4385179F6</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="FC04702B1DB49CC5C5EAE6DC323A34C3">_EB04B289-4EB6-4F10-87AC-A3F4385179F6</DDRREF>
+		<Text><![CDATA[Abs( Get( SystemPlatform ) ) = 1]]></Text>
+	</Calculation>
+	<Display>_IsMAC</Display>
+</CustomFunction>

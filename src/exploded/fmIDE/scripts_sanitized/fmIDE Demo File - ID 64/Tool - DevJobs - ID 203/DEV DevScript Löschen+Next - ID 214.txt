@@ -1,0 +1,10 @@
+
+
+
+Delete Record/Request [ With dialog: OFF ]
+If [ Get ( FoundCount ) ]
+	Perform Script [ "DEV Script bearbeiten ( File, Script, Line )" ; Specified: From list ; Parameter: fmDevJobTask::FileName  & "|" &
+					fmDevJobTask::ScrName  & "|" &
+					fmDevJobTask::ScriptStepNumber ]
+End If
+

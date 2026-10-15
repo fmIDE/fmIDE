@@ -1,0 +1,21 @@
+
+# # actions element
+
+# The first fmIDE parameter format we show here is the `actions` array element - since it is the mother of all structures
+
+# You can think of the actions array much like the steps of a script
+#  - and the action format has been designed to *look* as much like script steps as possible
+
+# # Format of an action
+
+# The actions within the action array are a JSON object representing the action / script step
+#  - many actions only require just one parameter, and 
+
+Set Variable [ $Param[1] ; JSONSetElement ( ""
+				; ["actions.[0].Go to Layout.layout_name" ; "Example" ; JSONString]
+				; ["actions.[1].Show all Records" ; "" ; JSONString]
+				; ["actions.[2].Go to Record.record" ; "Last" ; JSONString]
+				) ]
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $Param ]
+

@@ -1,0 +1,9 @@
+
+# # An action element
+
+Set Variable [ $url[1] ; "http://www.gihub.de/fmIDE/fmIDE" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( ""
+				; ["action.Open URL.url" ; $url ; JSONString]
+				) ]
+
+

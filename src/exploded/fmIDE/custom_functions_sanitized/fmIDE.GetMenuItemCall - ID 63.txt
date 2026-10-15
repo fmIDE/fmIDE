@@ -1,0 +1,17 @@
+/* fmIDE.GetMenuItemCall ( pMenuItemName ; pOptionalMenuName )
+
+Returns the ID number of the menu item of the given name.
+If multiple entries with the same name are found the id of the first entry is returned.
+Optionally a menu name can be passed to disambiguate.
+
+*/
+Let(
+[
+
+vMenuItem = fmIDE.GetMenuItemID ( pMenuItemName ; pOptionalMenuName ) ;
+vMenuItemReference = Case( not IsEmpty( pOptionalMenuName ) ; pOptionalMenuName & " " ) & pMenuItemName
+];
+
+Case( not IsEmpty ( vMenuItem ) ; "MBS( \"Menubar.RunMenuCommand\" ; " & vMenuItem & " /* " & vMenuItemReference & " */ ) " )
+
+)

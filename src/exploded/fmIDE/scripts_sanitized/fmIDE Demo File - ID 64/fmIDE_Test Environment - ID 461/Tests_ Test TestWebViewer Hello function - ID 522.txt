@@ -1,0 +1,5 @@
+
+
+Perform JavaScript in Web Viewer [ Name: "TestWebviewer" ; ⚠️ PARAMETER "FunctionRef" NOT PARSED ⚠️ ; ⚠️ PARAMETER "Parameter" NOT PARSED ⚠️ ]
+Show Custom Dialog [ Message: Get ( LastError ) ; Default Button: "OK" ; Button 2: "Cancel" ]
+

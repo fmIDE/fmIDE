@@ -1,0 +1,97 @@
+# SYS Omit Multiple Records
+  
+  Extended Omit Records Function:
+  
+  Basic functions
+  - n	// same as FM Omit Multiple Records, plus
+  - -n	// omit backwards (from previous record)
+  
+  Convenience 'all' functions
+  - '-'	// omit all backwards from previous record
+  - '+'	// omit all forwards from next record
+  - '--'	// omit all backwards inc. current record
+  - '++'	// omit all forwards inc. current record
+  - '+-' / '-+' / '±'	// omit all forwards & backwards leaving only the current record
+  
+  Convenience 'with/without current record' functions
+  - '--n'	// as -n, but starting from current record
+  - '++n'	// as +n, but starting from next record
+
+# 20250928 @mrwatson-de Removed i18n
+# 2023-07-28 RW: Feat#5562: Omit Multiple Records erweitert durch negative Zahlen
+
+
+# Init
+Set Variable [ $n[1] ; "" ]
+
+# Prerequisite is a saved record
+Commit Records/Requests [ With dialog: OFF ]
+If [ Get ( LastError ) or Get ( FoundCount ) = 0 ]
+	Exit Script []
+End If
+
+# Abfrage
+Show Custom Dialog [ Title: "Omit Multiple" ; Message: "Starting from the current record…" ; Default Button: "OK" ; Button 2: "Cancel" ; Input 1: $n ; Label 1: "omit records" ]
+Set Variable [ $LastMessageChoice[1] ; Get ( LastMessageChoice ) ]
+If [ $LastMessageChoice <> 1 or IsEmpty ( $n ) ]
+	Exit Script []
+End If
+
+If [ $n = "-+" or $n = "+-" or $n = "±" ]
+	# Show only current record
+	Show All Records
+	Omit Record
+	Show Omitted Only
+	
+Else
+	If [ $n = "--" ]
+		# As "-", but omit current record at end
+		Set Variable [ $n[1] ; "-" ]
+		Set Variable [ $omit_current[1] ; 1 ]
+	Else If [ $n = "+" ]
+		# As "++", but skip current record
+		Set Variable [ $n[1] ; "++" ]
+		# Skip current record, and exit script if 
+		Go to Record/Request/Page [ Next ; Exit after last: ON ]
+	Else If [ $n and Left( $n ; 2 ) = "++" ]
+		# ++n -> Erst skip current record
+		Set Variable [ $n[1] ; Int( $n ) ]
+		Set Variable [ $RecordNumber[1] ; Get ( RecordNumber ) ]
+		# Skip current record, and exit script if 
+		Go to Record/Request/Page [ Next ; Exit after last: ON ]
+	Else If [ $n and Left( $n ; 2 ) = "--" ]
+		# --n -> Wie -n plus omit current am Ende
+		Set Variable [ $n[1] ; -(Abs($n)-1) ]
+		Set Variable [ $omit_current[1] ; 1 ]
+	End If
+	
+	Set Variable [ $n[1] ; Case ( 
+					$n = "-" ; -(Get ( RecordNumber )-1) ; // all records before
+					$n = "++" ; Get ( FoundCount ) - Get ( RecordNumber )+1 ; // all records after and including
+					Int( $n )
+					) ]
+	
+	# Omit Multiple Records auch mit negativer Anzahl
+	If [ $n > 0 ]
+		# Normal
+		Set Variable [ $n[1] ; Min ( $n ; Get ( FoundCount ) - Get ( RecordNumber ) +1 ) ]
+	Else
+		# Backwards
+		Set Variable [ $n[1] ; Min ( Abs ( $n ) ; Get ( RecordNumber ) -1 ) ]
+		If [ $n = 0 ]
+			Exit Script []
+		End If
+		Go to Record/Request/Page [ With dialog: OFF ; Get ( RecordNumber ) - $n ]
+	End If
+	
+	Omit Multiple Records [ With dialog: OFF ; $n ]
+	
+	If [ $omit_current ]
+		Omit Record
+	Else If [ $RecordNumber ]
+		Go to Record/Request/Page [ With dialog: OFF ; $RecordNumber ]
+	End If
+	
+End If
+
+

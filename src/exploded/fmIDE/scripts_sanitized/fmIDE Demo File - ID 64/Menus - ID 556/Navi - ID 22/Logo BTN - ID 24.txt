@@ -1,0 +1,11 @@
+
+# 20120111 MrW Logo
+# 20120111 MrW SHIFT -> close
+# 20081113 MrW 
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+Perform Script [ "Home" ; Specified: From list ; Parameter: ]
+
+

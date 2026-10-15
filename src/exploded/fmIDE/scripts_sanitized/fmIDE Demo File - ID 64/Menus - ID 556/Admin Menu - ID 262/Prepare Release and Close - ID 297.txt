@@ -1,0 +1,12 @@
+
+# 20200409 MrW Close window after preparing
+# 20200403 MrW Release Settings
+# 20131112 MrW Reset globals
+# 20120209 MrW 0.9v2 Fensterposition korrigiert
+# 20120119 MrW
+
+
+Perform Script [ "Prepare Release" ; Specified: From list ; Parameter: ]
+
+Close Window
+

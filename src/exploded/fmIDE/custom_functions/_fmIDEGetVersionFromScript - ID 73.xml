@@ -1,0 +1,9 @@
+<CustomFunction id="73" name="_fmIDEGetVersionFromScript" access="All">
+	<UUID modifications="2" userName="R.Watson" accountName="Admin" timestamp="2026-09-09T17:41:33">CF1AE4EE-3027-4F55-8D1B-6028A14B0833</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="35FEFC5B623A460A29C4C778CDB0CB30">_CF1AE4EE-3027-4F55-8D1B-6028A14B0833</DDRREF>
+		<Text><![CDATA[/* _fmIDEGetVersionFromScriptReturns the versions number from the last word of the script starting with ###.20260909 @mrwatson-de v0.1*/Let([pAppChangesScriptNameStub = "###" ;vScriptNames = ScriptNames ( Get( FileName ) ) ;vAppChangesScriptNumber = ValueCount( Left( vScriptNames ; Position( ¶ & vScriptNames ; ¶ & pAppChangesScriptNameStub ; 1 ; 1 ) ) ) ;vAppChangesScriptName = GetValue( vScriptNames ; vAppChangesScriptNumber ) ;vAppChangesVersionString = Trim( Substitute( Middle( vAppChangesScriptName ; Length( pAppChangesScriptNameStub ) +1 ; 999 ) ; "#" ; "" ) ) ;vAppChangesVersionShort = RightWords( vAppChangesVersionString ; 1 )];vAppChangesVersionShort)]]></Text>
+	</Calculation>
+	<Display>_fmIDEGetVersionFromScript</Display>
+</CustomFunction>

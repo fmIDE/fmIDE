@@ -1,0 +1,13 @@
+<CustomFunction id="47" name="_URLParam" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2026-02-06T17:08:19">E6D01BD6-8EF3-4B79-80DB-F05166433273</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="A916CE52521705DFF106401253AE0ADF">_E6D01BD6-8EF3-4B79-80DB-F05166433273</DDRREF>
+		<Text><![CDATA[GetAsURLEncoded ( pName ) & "=" & GetAsURLEncoded ( pValue )]]></Text>
+	</Calculation>
+	<Display>_URLParam ( pName ; pValue )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pName"></Parameter>
+		<Parameter name="pValue"></Parameter>
+	</ObjectList>
+</CustomFunction>

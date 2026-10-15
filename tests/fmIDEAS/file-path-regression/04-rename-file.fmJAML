@@ -1,0 +1,102 @@
+# Canonical file_path, legacy alias, precedence and one evaluation. Issue #210.
+[+].Set Error Capture = == 1
+[+].Set.$fp_checks = == "{}"
+[+].Set.$fp_root = == Get ( TemporaryPath ) & "fmide-file-path-" & Get ( UUID ) & "/"
+
+# canonical
+[+].Set.$fp_path = == $fp_root & "canonical/fixture.txt"
+[+].Create Data File
+[:]..file_path = == $fp_path
+[:]..create_folders = == 1
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["ok" ; 0 ; JSONBoolean] ; ["stage" ; "prepare canonical" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] )
+[+].End If
+[+].Set.$fp_calls = == 0
+[+].Set.$fp_unused = == 0
+#@test
+[+].Rename File
+[:]..file_path = == Let ( $fp_calls = $fp_calls + 1 ; $fp_path )
+[:]..new_name = == "renamed.txt"
+#@endtest
+[+].Set.$fp_error = == $$fmide_get_last_error
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "canonical_error" ; $fp_error = 0 ; JSONBoolean )
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "canonical_once" ; $fp_calls = 1 and $fp_unused = 0 ; JSONBoolean )
+[+].Get File Exists
+[:]..file_path = == $fp_path
+[:]..target = "$fp_old_exists"
+[+].Set.$fp_new_path = == Substitute ( $fp_path ; "fixture.txt" ; "renamed.txt" )
+[+].Get File Exists
+[:]..file_path = == $fp_new_path
+[:]..target = "$fp_exists"
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "canonical_result" ; $fp_exists = 1 and $fp_old_exists = 0 and $$fmide_get_last_error = 0 ; JSONBoolean )
+[+].If = == $fp_exists
+[+].Delete File
+[:]..file_path = == $fp_new_path
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "canonical_cleanup" ; $$fmide_get_last_error = 0 ; JSONBoolean )
+[+].End If
+
+# legacy
+[+].Set.$fp_path = == $fp_root & "legacy/fixture.txt"
+[+].Create Data File
+[:]..file_path = == $fp_path
+[:]..create_folders = == 1
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["ok" ; 0 ; JSONBoolean] ; ["stage" ; "prepare legacy" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] )
+[+].End If
+[+].Set.$fp_calls = == 0
+[+].Set.$fp_unused = == 0
+#@test
+[+].Rename File
+[:]..source_file = == Let ( $fp_calls = $fp_calls + 1 ; $fp_path )
+[:]..new_name = == "renamed.txt"
+#@endtest
+[+].Set.$fp_error = == $$fmide_get_last_error
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "legacy_error" ; $fp_error = 0 ; JSONBoolean )
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "legacy_once" ; $fp_calls = 1 and $fp_unused = 0 ; JSONBoolean )
+[+].Get File Exists
+[:]..file_path = == $fp_path
+[:]..target = "$fp_old_exists"
+[+].Set.$fp_new_path = == Substitute ( $fp_path ; "fixture.txt" ; "renamed.txt" )
+[+].Get File Exists
+[:]..file_path = == $fp_new_path
+[:]..target = "$fp_exists"
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "legacy_result" ; $fp_exists = 1 and $fp_old_exists = 0 and $$fmide_get_last_error = 0 ; JSONBoolean )
+[+].If = == $fp_exists
+[+].Delete File
+[:]..file_path = == $fp_new_path
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "legacy_cleanup" ; $$fmide_get_last_error = 0 ; JSONBoolean )
+[+].End If
+
+# precedence
+[+].Set.$fp_path = == $fp_root & "precedence/fixture.txt"
+[+].Create Data File
+[:]..file_path = == $fp_path
+[:]..create_folders = == 1
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["ok" ; 0 ; JSONBoolean] ; ["stage" ; "prepare precedence" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] )
+[+].End If
+[+].Set.$fp_calls = == 0
+[+].Set.$fp_unused = == 0
+#@test
+[+].Rename File
+[:]..file_path = == Let ( $fp_calls = $fp_calls + 1 ; $fp_path )
+[:]..source_file = == Let ( $fp_unused = $fp_unused + 1 ; $fp_root & "unused.txt" )
+[:]..new_name = == "renamed.txt"
+#@endtest
+[+].Set.$fp_error = == $$fmide_get_last_error
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "precedence_error" ; $fp_error = 0 ; JSONBoolean )
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "precedence_once" ; $fp_calls = 1 and $fp_unused = 0 ; JSONBoolean )
+[+].Get File Exists
+[:]..file_path = == $fp_path
+[:]..target = "$fp_old_exists"
+[+].Set.$fp_new_path = == Substitute ( $fp_path ; "fixture.txt" ; "renamed.txt" )
+[+].Get File Exists
+[:]..file_path = == $fp_new_path
+[:]..target = "$fp_exists"
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "precedence_result" ; $fp_exists = 1 and $fp_old_exists = 0 and $$fmide_get_last_error = 0 ; JSONBoolean )
+[+].If = == $fp_exists
+[+].Delete File
+[:]..file_path = == $fp_new_path
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "precedence_cleanup" ; $$fmide_get_last_error = 0 ; JSONBoolean )
+[+].End If
+[+].Exit Script = == Let ( [ keys = JSONListKeys ( $fp_checks ; "" ) ; ok = While ( [ i = 1 ; ok = 1 ] ; i ≤ ValueCount ( keys ) ; [ ok = ok and JSONGetElement ( $fp_checks ; GetValue ( keys ; i ) ) ; i = i + 1 ] ; ok ) ] ; JSONSetElement ( "{}" ; ["ok" ; ok ; JSONBoolean] ; ["checks" ; $fp_checks ; JSONObject] ) )

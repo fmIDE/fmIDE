@@ -1,0 +1,8 @@
+
+# 20260403 @mrwatson-de v0.2
+# 20260402 @mrwatson-de v0.1
+
+Set Variable [ $flags[1] ; _JSP ]
+Perform Script [ "Tests: Run all tests ({flags})" ; Specified: From list ; Parameter: JSONSetElement ( $flags ; "automatic" ; True ; JSONBoolean ) ]
+
+

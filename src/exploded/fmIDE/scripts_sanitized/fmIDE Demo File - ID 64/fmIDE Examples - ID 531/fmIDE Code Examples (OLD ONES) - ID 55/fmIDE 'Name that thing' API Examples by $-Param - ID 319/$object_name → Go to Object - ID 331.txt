@@ -1,0 +1,6 @@
+# Passing just a object_name performs a Go to Object action
+
+Set Variable [ $object_name[1] ; "fmIDE Wiki" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "$object_name=" & Quote( $object_name ) ]
+
+

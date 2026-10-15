@@ -1,0 +1,9 @@
+<CustomFunction id="18" name="_MetaURLAppRepoRoot" access="All">
+	<UUID modifications="3" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-09-15T23:07:29">75CE9226-415F-41CA-B572-A38D71B6A5E1</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="00AD5237D0EB514305354CE53E84991C">_75CE9226-415F-41CA-B572-A38D71B6A5E1</DDRREF>
+		<Text><![CDATA["https://github.com/fmIDE/"]]></Text>
+	</Calculation>
+	<Display>_MetaURLAppRepoRoot</Display>
+</CustomFunction>

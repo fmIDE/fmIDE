@@ -1,0 +1,686 @@
+<Script>
+	<ScriptReference id="485" name="fmIDE.OpenFile" UUID="9827DCDE-32CB-4F8A-AF31-536CD6083D1B"></ScriptReference>
+	<ObjectList membercount="46">
+		<Step hash="A9E5980B5B0D43F22E2BD9E9F48FA529" index="0" id="89" name="# (comment)" enable="True">
+			<UUID>A5E0A694-439E-469E-A85C-F994ED8517A7</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0BF5AA9061FE12EA95961188B590F72B">_A5E0A694-439E-469E-A85C-F994ED8517A7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="Script: fmIDE.OpenFile ({file,hidden})"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="33A72841060662D2D75F5A9C12D8408E" index="1" id="89" name="# (comment)" enable="True">
+			<UUID>54870921-3179-42E8-9C84-10319495C312</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="E6D3C2121BFC0FAC959BD163F2E54003">_54870921-3179-42E8-9C84-10319495C312</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A5B3EB88F5EE365E15B8110E27C468AB" index="2" id="89" name="# (comment)" enable="True">
+			<UUID>F7F30742-3940-4954-9E46-1BC93D46A0AE</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="59C1E9C7332CE2BC83EEA2FDCCF767A8">_F7F30742-3940-4954-9E46-1BC93D46A0AE</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="This script is (can be) called from fmIDE to open a file."></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0D67475E2618F9C511AD4EB60AA50791" index="3" id="89" name="# (comment)" enable="True">
+			<UUID>36A98128-9B9C-46E1-B6F9-99A5D23EB6E6</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="DE7C6E7C8FD9A2ACB29CD8DEB24C1B4E">_36A98128-9B9C-46E1-B6F9-99A5D23EB6E6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C41A91FDAD9D53BA2ACCAD598AAA7A07" index="4" id="89" name="# (comment)" enable="True">
+			<UUID>7BE09AAF-98FF-4D8C-BD9F-FC4DBD832C54</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="967A4999B2A6AD872384D05CCE0C2EAA">_7BE09AAF-98FF-4D8C-BD9F-FC4DBD832C54</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="1. It first uses the custom script &quot;fmIDE.OpenFile&quot; to attempt this"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7A168D1238002679B4765B500AA8E823" index="5" id="89" name="# (comment)" enable="True">
+			<UUID>009E9958-46EF-4BA3-BC93-42609EE3417A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="4DE93582B2D8081DDADDBB009FDA8EE8">_009E9958-46EF-4BA3-BC93-42609EE3417A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="2. Otherwise it tries to open the file via PSBN"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CE1CB5BD4151B21B34B696425C360332" index="6" id="89" name="# (comment)" enable="True">
+			<UUID>B4C99745-83BD-47AD-82FB-C4EDE04A7884</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="30E806DB628C046A254BEECBE8C1A9DA">_B4C99745-83BD-47AD-82FB-C4EDE04A7884</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="3. Finally it tries to open the file via fmpurl&#13;   - Important: This can cause it the file to be opened in the wrong FileMaker!"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BC9620831E96D1F45CAAF5BEE2B37AB7" index="7" id="89" name="# (comment)" enable="True">
+			<UUID>1E6742A8-3659-497F-BD1B-FC3FC9F18B3D</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="ACF35FE5087E82D52371D6A68EA29F9E">_1E6742A8-3659-497F-BD1B-FC3FC9F18B3D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="81CF0E7AAD143E13E685B4FE0ECBC14C" index="8" id="89" name="# (comment)" enable="True">
+			<UUID>4A34E0F3-03BE-4ED8-88E2-E9C4FA835B38</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7ACFEC37256A0CEA5CD65A144D97421A">_4A34E0F3-03BE-4ED8-88E2-E9C4FA835B38</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="@return fmide_file_opening (boolean) - flag indicating that an attempt was made to open the file "></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7DAA72CF5BAB4C98A621F6062800AD56" index="9" id="89" name="# (comment)" enable="True">
+			<UUID>A62160D4-7579-49BB-BA09-DB91212FE2B3</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="58B5E46AF63FB35969B8AC9B47B49B5B">_A62160D4-7579-49BB-BA09-DB91212FE2B3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="952AB04F475A4575D31F301AE8F3A20C" index="10" id="89" name="# (comment)" enable="True">
+			<UUID>2E34FA26-405E-4995-9141-40FE6EDD0955</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="BCF68E6C93BEB832E05BB92F0893D533">_2E34FA26-405E-4995-9141-40FE6EDD0955</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7381AB38EBAAFCC3067BDC8AD6D9B46C" index="11" id="89" name="# (comment)" enable="True">
+			<UUID>0104B915-0E69-4A01-957D-E30F90779990</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="ED56F566F421B1A6A2C9E2338E1F919A">_0104B915-0E69-4A01-957D-E30F90779990</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20261009 @mrwatson-de Fix #168 Error handling: Renamed fmide_last_error to fmide_**get_**last_error"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7C572480D86D3A560084E217F10B26EF" index="12" id="89" name="# (comment)" enable="True">
+			<UUID>029D7C41-2E43-412D-AF39-CDD781BAC262</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="ACCF021E4AD40DC12EED4E6C3DAE47F8">_029D7C41-2E43-412D-AF39-CDD781BAC262</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260624 @mrwatson-de New"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="84923564F9193E7EBD685908F4C5AD2E" index="13" id="89" name="# (comment)" enable="True">
+			<UUID>2D1DE1BA-F4FC-4BF3-A262-3C09F15E2FFD</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="F31FCBD74505956D96207383C9D3B4F8">_2D1DE1BA-F4FC-4BF3-A262-3C09F15E2FFD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="15CD86FD3F6C449D22CCAA6AA9607091" index="14" id="89" name="# (comment)" enable="True">
+			<UUID>4B3E0A8A-0E1D-456C-ABD3-F30DE5BE00FD</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F273667CBDE96AC89B3994793BD31785">_4B3E0A8A-0E1D-456C-ABD3-F30DE5BE00FD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="Param"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F96AC2CD4BE516DE77C9FA5126E7B0A8" index="15" id="141" name="Set Variable" enable="True">
+			<UUID>317717EA-67E0-4E93-97C8-4B3CE7A6BC79</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="E69A7B810717CC7218A8E2DEDBFDA6F0">_317717EA-67E0-4E93-97C8-4B3CE7A6BC79</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="597E736778ED9E7341DD569616D9BD6A">_317717EA-67E0-4E93-97C8-4B3CE7A6BC79_1</DDRREF>
+								<Text><![CDATA[Case ( not IsEmpty ( Get ( ScriptParameter ) ) ; Get ( ScriptParameter )  ; "{}" )]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$_JSP"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_317717EA-67E0-4E93-97C8-4B3CE7A6BC79_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="8EA11F247DBA99497046200C6F0C5B3D" index="16" id="141" name="Set Variable" enable="True">
+			<UUID>5C4B0F72-1FC9-4FC9-BBFE-9F8884B699FD</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="436A1E4B7F135E62A2DE4E4458D24415">_5C4B0F72-1FC9-4FC9-BBFE-9F8884B699FD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="38852F0D66B6A35B0309D40CC36CC8A2">_5C4B0F72-1FC9-4FC9-BBFE-9F8884B699FD_1</DDRREF>
+								<Text><![CDATA[JSONGetElement( $_JSP ; "file" )]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$file"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_5C4B0F72-1FC9-4FC9-BBFE-9F8884B699FD_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C7758D880D2D0E7C06F425FEA25BA8A1" index="17" id="141" name="Set Variable" enable="True">
+			<UUID>4E3F043E-6460-4034-A8C8-382D26069764</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="6F5B2CA0C5D3B0AE8F100CCE40EBDAE3">_4E3F043E-6460-4034-A8C8-382D26069764</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="B544531C1A1602BA50CD9A5316687830">_4E3F043E-6460-4034-A8C8-382D26069764_1</DDRREF>
+								<Text><![CDATA[JSONGetElement( $_JSP ; "hidden" )]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$hidden"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_4E3F043E-6460-4034-A8C8-382D26069764_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3653766922D4EEB779124E5CF9C417B8" index="18" id="89" name="# (comment)" enable="True">
+			<UUID>E66A3EC2-580F-483D-B1FD-B7CA7BAD43B7</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="13BD1622A2EAEEC29D1E7D2B2556AA16">_E66A3EC2-580F-483D-B1FD-B7CA7BAD43B7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F0EEEEABB40306B7333619C4AF58B3DA" index="19" id="68" name="If" enable="True">
+			<UUID>1AEEA84E-4883-46F4-931B-6B9A0CAABA11</UUID>
+			<OwnerID></OwnerID>
+			<Options>16384</Options>
+			<DDRREF kind="StepText" hash="C32177F302E40DC83F042A1918A9EEEB">_1AEEA84E-4883-46F4-931B-6B9A0CAABA11</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+				<Parameter type="Calculation">
+					<Calculation datatype="7" position="0">
+						<Calculation>
+							<DDRREF kind="ChunkList" hash="76211E2F9385C0E1732E6E348E423C60">_1AEEA84E-4883-46F4-931B-6B9A0CAABA11_0</DDRREF>
+							<Text><![CDATA[IsEmpty ( $file )]]></Text>
+						</Calculation>
+					</Calculation>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="26AB762876CE463FC3DA9ABA8001C585" index="20" id="89" name="# (comment)" enable="True">
+			<UUID>D263756A-ED47-460A-80DD-2D8389EDA813</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F4681B9D6DC8E0AF6B9DF819535E3880">_D263756A-ED47-460A-80DD-2D8389EDA813</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="Error - Parameter missing"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F480C5E3A6B1153E803DC154C9EFF2A4" index="21" id="141" name="Set Variable" enable="True">
+			<UUID>A8DD795B-6F33-4ACE-8FF8-26D11B1215FD</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="CD224C4C354C669C030E1A2A8FAE57A1">_A8DD795B-6F33-4ACE-8FF8-26D11B1215FD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="C34B982F003762A276D4536E5EBFC534">_A8DD795B-6F33-4ACE-8FF8-26D11B1215FD_1</DDRREF>
+								<Text><![CDATA[958]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$$fmide_get_last_error"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_A8DD795B-6F33-4ACE-8FF8-26D11B1215FD_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A66E6569AA5491C250AD940CC7837176" index="22" id="141" name="Set Variable" enable="True">
+			<UUID>3977DCCF-B167-48BA-89A2-1AF8B602AABD</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="23F7C15FE999E728169CF01BBCEB0571">_3977DCCF-B167-48BA-89A2-1AF8B602AABD</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="B417F7283EA98F3DA781D52382216881">_3977DCCF-B167-48BA-89A2-1AF8B602AABD_1</DDRREF>
+								<Text><![CDATA["Parameter is missing: `file`"]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$$fmide_get_last_error_detail"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_3977DCCF-B167-48BA-89A2-1AF8B602AABD_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BE17E35194C00B1474BD767229265D65" index="23" id="89" name="# (comment)" enable="True">
+			<UUID>00E05EE5-8439-4AE9-AC42-D7ECCBB323A2</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="53364F3755A9AF674F2D9BDAB63DFE69">_00E05EE5-8439-4AE9-AC42-D7ECCBB323A2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BC7BFB0AF79E4EE69794F2A6FFD298BC" index="24" id="89" name="# (comment)" enable="True">
+			<UUID>CE46F7A3-705C-41DE-A277-0C9F44520F93</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="E660C4831FE9849DFC888B43EA0AA90E">_CE46F7A3-705C-41DE-A277-0C9F44520F93</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="Duplicate the secton between the chevrons (vvv/^^^) for each file as needed "></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="4E825376B3EF435A0BC2412AC23D15D8" index="25" id="89" name="# (comment)" enable="True">
+			<UUID>D95DE2D2-3288-4D36-8F60-C9F2740BC67A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6C3FFB8B4A069FB5EB1EBA4D1C2750E3">_D95DE2D2-3288-4D36-8F60-C9F2740BC67A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="27F9C5EEA2D0ECB848657680A998DC03" index="26" id="125" name="Else If" enable="True">
+			<UUID>555E32EA-6B6F-43CD-B9E9-62D45613CEEA</UUID>
+			<OwnerID></OwnerID>
+			<Options>16384</Options>
+			<DDRREF kind="StepText" hash="9B2592D08B0DA51C7D3E4942F9FC9753">_555E32EA-6B6F-43CD-B9E9-62D45613CEEA</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+				<Parameter type="Calculation">
+					<Calculation datatype="7" position="0">
+						<Calculation>
+							<DDRREF kind="ChunkList" hash="6B21EC8473243C9FB588D56A6FA0D1E7">_555E32EA-6B6F-43CD-B9E9-62D45613CEEA_0</DDRREF>
+							<Text><![CDATA[$file = "FileA"]]></Text>
+						</Calculation>
+					</Calculation>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C9E9DCC601CA03F72BC2CE9475DDC87C" index="27" id="89" name="# (comment)" enable="True">
+			<UUID>C7E3EB82-B16C-45E0-AD5B-69AEC49D9499</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6B1DD7428D56B78B353F72278D568573">_C7E3EB82-B16C-45E0-AD5B-69AEC49D9499</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="Open File SomeFile"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A20FD16764F9BD654B8B320D89A491F8" index="28" id="68" name="If" enable="True">
+			<UUID>B1DB1F01-4035-4175-A07B-A04B14A73BC5</UUID>
+			<OwnerID></OwnerID>
+			<Options>16384</Options>
+			<DDRREF kind="StepText" hash="41D386821EB66D510ED331E4F4693AD3">_B1DB1F01-4035-4175-A07B-A04B14A73BC5</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+				<Parameter type="Calculation">
+					<Calculation datatype="7" position="0">
+						<Calculation>
+							<DDRREF kind="ChunkList" hash="A5875C7E91760EB79D24BD54D0A52894">_B1DB1F01-4035-4175-A07B-A04B14A73BC5_0</DDRREF>
+							<Text><![CDATA[$hidden]]></Text>
+						</Calculation>
+					</Calculation>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CA694DC3688B08B4AADB4FB9A8CFAC6C" index="29" id="33" name="Open File" enable="True">
+			<UUID>B3FE6B80-6EBC-449C-9299-9D0CEF283892</UUID>
+			<OwnerID></OwnerID>
+			<Options>272</Options>
+			<DDRREF kind="StepText" hash="5B3B9A03A0DA219A63167E1A269D9E3E">_B3FE6B80-6EBC-449C-9299-9D0CEF283892</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Open hidden" id="256" value="True"></Boolean>
+				</Parameter>
+				<Parameter type="DataSourceReference">
+					<DataSourceReference id="2" name="FileA" UUID="E7976FEA-2B62-405F-8BB6-054B9209C734"></DataSourceReference>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="EAC5EE982150D40FC865C5B353FA9831" index="30" id="69" name="Else" enable="True">
+			<UUID>B7B5AD3D-3A58-4188-AE79-35D4B6DE30E9</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="E1F7E9CFD7616D33A538312F95EC4CB1">_B7B5AD3D-3A58-4188-AE79-35D4B6DE30E9</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="856E07F4CCDC78E55DD388E186242F78" index="31" id="33" name="Open File" enable="True">
+			<UUID>05F9B4FC-02E3-4303-BBFF-20E4B060616E</UUID>
+			<OwnerID></OwnerID>
+			<Options>16</Options>
+			<DDRREF kind="StepText" hash="3764027B0E0D473FB8C9DC5E80D63EFA">_05F9B4FC-02E3-4303-BBFF-20E4B060616E</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Open hidden" id="256" value="False"></Boolean>
+				</Parameter>
+				<Parameter type="DataSourceReference">
+					<DataSourceReference id="2" name="FileA" UUID="E7976FEA-2B62-405F-8BB6-054B9209C734"></DataSourceReference>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3C06412E767558F7797BCD03BE8D4770" index="32" id="70" name="End If" enable="True">
+			<UUID>588E5BED-8310-475B-B891-89FEBE12FA27</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="82AEBA1B080D2AD42EC9ECB9447CCB00">_588E5BED-8310-475B-B891-89FEBE12FA27</DDRREF>
+		</Step>
+		<Step hash="F59B0D8616B94DD5DC3DF483ED3D9ED5" index="33" id="141" name="Set Variable" enable="True">
+			<UUID>E4753F23-23BA-49DC-AB2F-7E9A6612D779</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="70A248A74C3F66318FE7D587B06FD471">_E4753F23-23BA-49DC-AB2F-7E9A6612D779</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="CE5BFA62BCA59E9305E4B3CF2643BE1D">_E4753F23-23BA-49DC-AB2F-7E9A6612D779_1</DDRREF>
+								<Text><![CDATA[Let( $$fmide_get_last_error_detail = Get ( LastErrorDetail ) ; Get ( LastError ) )]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$$fmide_get_last_error"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_E4753F23-23BA-49DC-AB2F-7E9A6612D779_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="4EBF2555B6A24991B319571A69AA4E97" index="34" id="141" name="Set Variable" enable="True">
+			<UUID>1D00C38F-BAC7-4014-A801-51F675284773</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="EFC6EF3FEF3DE8F9F48FDC43F85A02DE">_1D00C38F-BAC7-4014-A801-51F675284773</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_1D00C38F-BAC7-4014-A801-51F675284773_1</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$fmide_file_opening"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_1D00C38F-BAC7-4014-A801-51F675284773_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D698D068DBF707183263B7F74823AFB6" index="35" id="89" name="# (comment)" enable="True">
+			<UUID>40A2CF92-FDCB-464E-B97E-ECC215D0F0AC</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="47E753446D1DD23C623B67740847584D">_40A2CF92-FDCB-464E-B97E-ECC215D0F0AC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E3D64573FC8CFDAD98A569CB5DE7DDA0" index="36" id="89" name="# (comment)" enable="True">
+			<UUID>87CC81A6-B64C-4EDE-83FA-1C01B6A0B7C6</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="6C08184EAE4F7EFF69B9180EF6F62AC1">_87CC81A6-B64C-4EDE-83FA-1C01B6A0B7C6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7A6DDC7952E898F70057CA8E11A0696E" index="37" id="69" name="Else" enable="True">
+			<UUID>DAC320D5-E21F-46F9-8884-005236696FC9</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="50D2F833815E947B7CC86263F9CEF2D4">_DAC320D5-E21F-46F9-8884-005236696FC9</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="FC0D95C8FF82AA11FFB7AE949121A86C" index="38" id="89" name="# (comment)" enable="True">
+			<UUID>2D2FF60B-A7ED-4D55-ADA7-25CE0A4E5FC2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5CCB15610B03E7BF6F37156EAB9B3FD1">_2D2FF60B-A7ED-4D55-ADA7-25CE0A4E5FC2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="Error - File is missing"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="EDDBCE065FFBA1A89E494D1D272D9C5F" index="39" id="141" name="Set Variable" enable="True">
+			<UUID>17501A88-E0EA-4AAD-9BCB-6B4698AF3A09</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="03BB112EE003627715D3F3EC3E1CEF48">_17501A88-E0EA-4AAD-9BCB-6B4698AF3A09</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="6FACC365BF01F58D1C55A9BCCBA127D3">_17501A88-E0EA-4AAD-9BCB-6B4698AF3A09_1</DDRREF>
+								<Text><![CDATA[802]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$$fmide_get_last_error"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_17501A88-E0EA-4AAD-9BCB-6B4698AF3A09_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="78307B8EB56B312A021666708C9CB216" index="40" id="141" name="Set Variable" enable="True">
+			<UUID>7FA89BA3-EF76-40FD-AA1B-328E8763603F</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="021403AE4D877A593122B4B0B9223E6A">_7FA89BA3-EF76-40FD-AA1B-328E8763603F</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="008EC19A20B420FBE41E674608C415A4">_7FA89BA3-EF76-40FD-AA1B-328E8763603F_1</DDRREF>
+								<Text><![CDATA["Unable to open unknown file: '" & $file & "'"]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$$fmide_get_last_error_detail"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_7FA89BA3-EF76-40FD-AA1B-328E8763603F_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A2E4EE5F3863C670BFBE6697E64389AE" index="41" id="89" name="# (comment)" enable="True">
+			<UUID>C05620F5-4751-4BFB-B7EE-18D0C8AF2BC0</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="D8882382629509F1527220C8D8D7E5B6">_C05620F5-4751-4BFB-B7EE-18D0C8AF2BC0</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A55C7BA3CB0146640B38CA5105B72561" index="42" id="70" name="End If" enable="True">
+			<UUID>60B6BA99-A83A-420A-9DAF-57382E18F7D7</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="6A09167239B1DB4E21C771CB6ADEBFDA">_60B6BA99-A83A-420A-9DAF-57382E18F7D7</DDRREF>
+		</Step>
+		<Step hash="F874D446779997FA6512AFDB398A9D8A" index="43" id="89" name="# (comment)" enable="True">
+			<UUID>94C33973-1A18-45D8-A09F-B34C71EF3D94</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="28691C98B6FD9F577203967887E32DDD">_94C33973-1A18-45D8-A09F-B34C71EF3D94</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="84322FCB58BEB546F3569F9204903A72" index="44" id="103" name="Exit Script" enable="True">
+			<UUID>EA510F2D-2DC1-481E-861D-C4395CC054AF</UUID>
+			<OwnerID></OwnerID>
+			<Options>16384</Options>
+			<DDRREF kind="StepText" hash="AE45FD7267DC987545B67755F845D3D1">_EA510F2D-2DC1-481E-861D-C4395CC054AF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Calculation">
+					<Calculation datatype="1" position="0">
+						<Calculation>
+							<DDRREF kind="ChunkList" hash="B6309C17FD3C55D8C0D664947443F1B3">_EA510F2D-2DC1-481E-861D-C4395CC054AF_0</DDRREF>
+							<Text><![CDATA[JSONSetElement ( "{}";["fmide_last_error" ; $$fmide_get_last_error ; JSONNumber];["fmide_last_error_detail" ; $$fmide_get_last_error_detail ; JSONString];["file_opening" ; $fmide_file_opening ; JSONBoolean])]]></Text>
+						</Calculation>
+					</Calculation>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C15C991D9A7C6E5093180438D5D57A5B" index="45" id="89" name="# (comment)" enable="True">
+			<UUID>53A83653-361A-4DB7-91D0-A14CBA2ACD77</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="121E05A063FCBB6B820677EB17CC356A">_53A83653-361A-4DB7-91D0-A14CBA2ACD77</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+	</ObjectList>
+</Script>

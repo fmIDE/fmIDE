@@ -1,0 +1,9 @@
+
+Set Field [ fmDevJobTask::OK ; 1 ]
+Omit Record
+If [ Get ( FoundCount ) ]
+	# fmIDE in der nächsten DS aufrufen - leere Param = WIEDEHOLEN
+	Perform Script [ "DEV DevScriptList Call fmIDE FIXME - by Name?" ; Specified: From list ; Parameter: ]
+End If
+
+

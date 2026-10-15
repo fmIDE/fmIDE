@@ -1,0 +1,20 @@
+/* vAppChangesReleaseString
+
+Returns the whole release string from the script starting with ###.
+
+20260929 @mrwatson-de v0.1
+*/
+Let([
+
+pAppChangesScriptNameStub = "###" ;
+
+vScriptNames = ScriptNames ( Get( FileName ) ) ;
+vAppChangesScriptNumber = ValueCount( Left( vScriptNames ; Position( ¶ & vScriptNames ; ¶ & pAppChangesScriptNameStub ; 1 ; 1 ) ) ) ;
+vAppChangesScriptName = GetValue( vScriptNames ; vAppChangesScriptNumber ) ;
+vAppChangesReleaseString = Trim( Substitute( vAppChangesScriptName ; pAppChangesScriptNameStub ; "" ) )
+
+];
+
+vAppChangesReleaseString
+
+)

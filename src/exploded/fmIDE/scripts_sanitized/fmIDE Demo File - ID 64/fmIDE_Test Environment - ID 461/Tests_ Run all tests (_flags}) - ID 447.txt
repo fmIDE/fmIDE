@@ -1,0 +1,15 @@
+
+# 20260615 @mrwatson-de v0.2 Sort tests
+# 20260402 @mrwatson-de v0.1
+
+Set Variable [ $_JSP[1] ; _JSP ]
+Set Variable [ $flags[1] ; $_JSP ]
+
+# # 1. Find tests as per flags
+Perform Script [ "Tests: Find all tests ({flags})" ; Specified: From list ; Parameter: $flags ]
+# # 2. Sort Tests
+Perform Script [ "Tests: Sort" ; Specified: From list ; Parameter: ]
+# # 3. Run tests
+Perform Script [ "Tests: Run Found Tests automatically" ; Specified: From list ; Parameter: $_JSP ]
+
+

@@ -1,0 +1,2 @@
+Set Variable [ $$fmide_test_counter[1] ; $$fmide_test_counter + 1 ]
+

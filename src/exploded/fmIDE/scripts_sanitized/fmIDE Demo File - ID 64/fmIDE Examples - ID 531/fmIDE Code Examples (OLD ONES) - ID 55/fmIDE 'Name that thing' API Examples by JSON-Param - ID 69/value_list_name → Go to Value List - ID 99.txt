@@ -1,0 +1,6 @@
+# Passing a value_list_name performs a Go to Value List action
+
+Set Variable [ $value_list_name[1] ; "fmp-protocols" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "value_list_name" ; $value_list_name ; JSONString ) ]
+
+

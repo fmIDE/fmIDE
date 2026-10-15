@@ -1,0 +1,16 @@
+# Passing a message performs a Show Custom Function action
+
+# 20221013 MrW
+  - Fix #11 `message` = text, `message_value` = calc
+
+# Static message
+# - If you have a static message, then just use $message
+Set Variable [ $message[1] ; "Script '" & Get ( ScriptName ) & "' says:¶It's " & Get ( CurrentTime ) & " on " & DayName ( Get ( CurrentDate ) ) & ", " & Get ( CurrentDate ) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "message" ; $message ; JSONString ) ]
+
+# Dynamic message
+# - If you wish to pass a calculation to be evaluated by fmIDE, it's easiest to use Insert Text:
+Insert Text [ Select ; Target: $message_value ; ""Script '" & Get ( ScriptName ) & "' says:¶It's " & Get ( CurrentTime ) & " on " & DayName ( Get ( CurrentDate ) ) & ", " & Get ( CurrentDate )" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "message_value" ; $message_value ; JSONString ) ]
+
+

@@ -1,0 +1,6 @@
+# Passing a custom_menu_set_name performs a Go to Custom Menu Set action
+
+Set Variable [ $custom_menu_set_name[1] ; "fmIDE" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "custom_menu_set_name" ; $custom_menu_set_name ; JSONString ) ]
+
+

@@ -1,0 +1,25 @@
+
+
+Set Variable [ $actions[1] ; JSONSetElement ( "[]" 
+				;["[0].Go to Layout.layout_name" ; "Example"    ; JSONString]
+				;["[1].Go to Record.record" ; "First"    ; JSONString]
+				
+				;["[2].Go to Record.record" ; "By Calculation"    ; JSONString]
+				;["[2].Go to Record.value" ; "Get(foundCount) - 10"    ; JSONString]
+				
+				;["[3].Loop" ; "" ; JSONString]
+				
+				;["[4].Show Custom Dialog.message_value"  ; "\"Record \" & Get(RecordNumber) & \"/\" & Get(FoundCount)" ; JSONString]
+				;["[4].Show Custom Dialog.title" ; GetFieldName ( fmIDE_Example::Script )    ; JSONString]
+				
+				;["[5].	Go to Record.record" ; "Next"    ; JSONString]
+				;["[5].	Go to Record.exit_after_last" ; True    ; JSONBoolean]
+				
+				;["[6].End Loop"  ; "" ; JSONString]
+				
+				;["[7].Go to Record.record" ; "By Calculation"    ; JSONString]
+				;["[7].Go to Record.value" ; "Get(foundCount) - 10"    ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

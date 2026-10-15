@@ -1,0 +1,12 @@
+While(
+[
+
+vResult = ¶ & pValues & ¶
+
+]; Position( vResult ; "¶¶" ; 1 ; 1 ) ;[
+vResult = Substitute( vResult ; "¶¶" ; ¶ )
+];
+
+Middle ( vResult ; 2 ; Length ( vResult ) - 2 )
+
+)

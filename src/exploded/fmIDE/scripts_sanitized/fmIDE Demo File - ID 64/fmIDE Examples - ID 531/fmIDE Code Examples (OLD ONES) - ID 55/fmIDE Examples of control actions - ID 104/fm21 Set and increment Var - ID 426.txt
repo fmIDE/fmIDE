@@ -1,0 +1,9 @@
+
+
+Insert Text [ Select ; Target: $actions ; "[+].Set.$$i.text=1
+				[+].Set.$$i.value="$$i+1"
+				[+].Show Custom Dialog.message_value= "$$i"
+				" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

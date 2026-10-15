@@ -1,0 +1,7 @@
+
+
+
+Set Variable [ $action_name[1] ; Get( ScriptName ) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "action_name" ; $action_name ; JSONString ) ]
+
+

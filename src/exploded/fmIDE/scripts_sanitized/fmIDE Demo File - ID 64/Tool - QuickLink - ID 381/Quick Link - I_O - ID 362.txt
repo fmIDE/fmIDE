@@ -1,0 +1,14 @@
+
+
+Show/Hide Toolbars [ Lock: OFF ; Include Edit Record Toolbar: ON ; Hide ]
+
+If [ _IsLayoutQuickLinkLayout ]
+	Go to Layout [ Layout: "Home" ; Animation: None ]
+	Adjust Window [ Resize to Fit ]
+	Move/Resize Window [ Top: 0 ; Left: 0 ]
+Else
+	Perform Script [ "Quick Link - Layout" ; Specified: From list ; Parameter: ]
+End If
+
+
+

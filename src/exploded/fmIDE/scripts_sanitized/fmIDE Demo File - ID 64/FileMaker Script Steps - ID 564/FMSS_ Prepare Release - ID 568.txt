@@ -1,0 +1,10 @@
+
+# 20261005 @mrwatson-de Refactored
+
+# ## fmIDE_Actions
+
+Go to Layout [ Layout: "FileMaker Script Steps" ; Animation: None ]
+Show All Records
+Sort Records [ With dialog: OFF ; ⚠️ PARAMETER "Restore" NOT PARSED ⚠️ ]
+
+

@@ -1,0 +1,9 @@
+<CustomFunction id="29" name="_IsWIN" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-10-08T07:02:53">24316692-BD01-42C5-A062-204B25EAEB02</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="569C27EC536D60568453C8A2BBF2157E">_24316692-BD01-42C5-A062-204B25EAEB02</DDRREF>
+		<Text><![CDATA[Abs( Get( SystemPlatform ) ) = 2]]></Text>
+	</Calculation>
+	<Display>_IsWIN</Display>
+</CustomFunction>

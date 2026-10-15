@@ -1,0 +1,6 @@
+
+# 20260713 @mrwatson-de Fixed for Slider navigation
+
+Perform Script [ "Intro Navigate" ; Specified: From list ; Parameter: JSONSetElement ( "{}" ; "to" ; "Installation and Setup" ; JSONString ) ]
+
+

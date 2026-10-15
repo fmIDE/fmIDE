@@ -1,0 +1,10 @@
+# Passing a script_number runs the script that far down the script list.
+
+Set Variable [ $script_number[1] ; 1 /* The first script in the script list (in one of MrWatson's files) is usually the Version script of the file. */ ]
+Set Variable [ $script_step_number[1] ; 5 ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "{}" ; 
+				["script_number" ; $script_number ; JSONNumber] ;
+				["script_step_number" ; $script_step_number ; JSONNumber]
+				) ]
+
+

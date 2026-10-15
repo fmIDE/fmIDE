@@ -1,0 +1,36 @@
+
+# 20260402 @mrwatson-de Add Close modal window
+# 20220920 MrW Return to fmWorkMate, if present
+# 20171111 MrW 
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+# Script settings
+Set Variable [ $homeLayoutName[1] ; "Home" ]
+
+If [ 0 ]
+	# # SWITCH
+Else If [ Get ( WindowStyle ) ≥ 2 ]
+	Close Window
+Else If [ _IsLayoutQuickLinkLayout ]
+	Perform Script [ "Quick Link - I/O" ; Specified: From list ; Parameter: ]
+Else If [ Get( LayoutName ) <> $homeLayoutName ]
+	Go to Layout [ Layoutname: $homeLayoutName ; Animation: None ]
+	Freeze Window
+	Show/Hide Toolbars [ Lock: OFF ; Include Edit Record Toolbar: OFF ; Hide ]
+	
+	Enter Browse Mode [ Pause: OFF ]
+	Show All Records
+	Go to Record/Request/Page [ First ]
+	
+	View As [ View as Form ]
+	Adjust Window [ Resize to Fit ]
+Else If [ not IsEmpty ( FilterValues( WindowNames ; "fmWorkMate" ) ) ]
+	Select Window [ Name: "fmWorkMate" ]
+Else
+	Perform Script [ "Logo open URL" ; Specified: From list ; Parameter: ]
+	# # END SWITCH
+End If
+
+

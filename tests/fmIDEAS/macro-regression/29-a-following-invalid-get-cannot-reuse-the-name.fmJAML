@@ -1,0 +1,21 @@
+[+].Set Error Capture = 1
+[+].fmIDE Define Macro
+[:]..macro_name = == "fmIDE_Test.MacroRegression.NoLeak"
+[:]..code = == "[+].Exit Script = == \"first\""
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "fixture setup" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].End If
+[+].fmIDE Get Macro
+[:]..macro_name = == "fmIDE_Test.MacroRegression.NoLeak"
+[:]..target = "$mr_first"
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "first get" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].End If
+[+].Set
+[:]..target = "$mr_second"
+[:]..calculation = == "unchanged"
+#@test
+[+].fmIDE Get Macro
+[:]..target = "$mr_second"
+#@endtest
+[+].Exit Script = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["first_name" ; JSONGetElement ( $mr_first ; "name" ) ; JSONString] ; ["second" ; $mr_second ; JSONString] )

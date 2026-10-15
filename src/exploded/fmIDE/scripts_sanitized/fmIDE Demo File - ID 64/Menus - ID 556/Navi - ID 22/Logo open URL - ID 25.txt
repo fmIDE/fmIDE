@@ -1,0 +1,13 @@
+
+# 20260608 @mrwatson-de Changed to app landing page
+# 20081113 MrW 
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+# Script settings
+Set Variable [ $URL[1] ; _MetaURLAppLandingPage ]
+
+Open URL [ In external browser: OFF ; With dialog: OFF ; ⚠️ PARAMETER "URL" NOT PARSED ⚠️ ]
+
+

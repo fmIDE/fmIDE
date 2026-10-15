@@ -1,0 +1,9 @@
+<CustomFunction id="12" name="_MetaURLAppLandingPage" access="All">
+	<UUID modifications="2" userName="Russell Watson" accountName="Admin" timestamp="2026-06-08T18:36:58">8479CEDA-ED6F-4B7E-A151-673FEF6FFE4B</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="CCD2E2F0954D832C99F78EE67C3F465F">_8479CEDA-ED6F-4B7E-A151-673FEF6FFE4B</DDRREF>
+		<Text><![CDATA[_MetaURL_Root]]></Text>
+	</Calculation>
+	<Display>_MetaURLAppLandingPage</Display>
+</CustomFunction>

@@ -1,0 +1,14 @@
+
+Close Popover
+Commit Records/Requests [ With dialog: OFF ]
+
+New Window [ Style: Document ; Layout: "fmIDE Tests" ]
+
+Show All Records
+Sort Records [ With dialog: OFF ; ⚠️ PARAMETER "Restore" NOT PARSED ⚠️ ; ⚠️ PARAMETER "SortSpecification" NOT PARSED ⚠️ ]
+// Sort Records [ With dialog: OFF ; ⚠️ PARAMETER "Restore" NOT PARSED ⚠️ ; ⚠️ PARAMETER "SortSpecification" NOT PARSED ⚠️ ]
+Replace Field Contents [ fmIDE_Test::Sort ; Replace with serial numbers ; Initial: 1010 ; Interval: 10 ]
+
+Close Window
+
+

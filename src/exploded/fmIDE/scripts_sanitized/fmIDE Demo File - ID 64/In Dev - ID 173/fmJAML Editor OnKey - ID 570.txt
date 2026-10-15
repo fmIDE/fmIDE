@@ -1,0 +1,103 @@
+
+# 20261014 @mrwatson-de Fix to ignore empty and comment lines
+
+Set Variable [ $Key[1] ; Get ( TriggerKeystroke ) ]
+Set Variable [ $Code[1] ; Code ( $Key ) ]
+
+Set Variable [ $ActiveFieldName[1] ; Get ( ActiveFieldName ) ]
+Set Variable [ $ActiveFieldContents[1] ; Get ( ActiveFieldContents ) ]
+Set Variable [ $ActiveSelectionStart[1] ; Get ( ActiveSelectionStart ) ]
+Set Variable [ $ActiveSelectionSize[1] ; Get ( ActiveSelectionSize ) ]
+
+Set Variable [ $TextLeftOfTheCursor[1] ; Left ( $ActiveFieldContents ; $ActiveSelectionStart-1 ) ]
+Set Variable [ $ActiveLineNumber[1] ; ValueCount ( $TextLeftOfTheCursor & "." ) // + (Right( $TextLeftOfTheCursor ; 1 ) = ¶) ]
+
+Set Variable [ $TextAboveTheCursor[1] ; LeftValues ( $ActiveFieldContents ; $ActiveLineNumber-1 ) ]
+Set Variable [ $TextAboveTheCursorLength[1] ; Length ( $TextAboveTheCursor ) ]
+
+Set Variable [ $ActiveLine[1] ; GetValue ( $ActiveFieldContents ; $ActiveLineNumber ) ]
+Set Variable [ $PreviousNonEmptyLine[1] ; While(
+				[
+				
+				/* Returns the previous - non-empty - line */
+				
+				vLine = "" ;
+				
+				vFinished = False ;
+				vI = 1 ;
+				vN = $ActiveLineNumber
+				
+				]; vI < vN ; [
+				
+				vLine = GetValue ( $ActiveFieldContents ; $ActiveLineNumber-vI ) ;
+				
+				/* Finished when a non empty, non-comment line found */
+				vFinished = not IsEmpty ( vLine ) and not Left( Substitute( vLine ; [" "; ""] ; [Char(9); ""] ) ; 1 ) = "#" ;
+				
+				vI = vI + 1
+				
+				];
+				
+				vLine
+				
+				) ]
+
+Set Variable [ $ActiveSelectionColumn[1] ; $ActiveSelectionStart - $TextAboveTheCursorLength ]
+Set Variable [ $ActiveLineLeftOfTheCursor[1] ; Left ( $ActiveLine ; $ActiveSelectionColumn ) ]
+
+// If [ $ActiveSelectionSize = 0 ]
+# typing…
+// Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+If [ $ActiveSelectionColumn = 1 ]
+	# start of the line…
+	If [ ( $Key = "." or $Key = ":" or $Key = "+" ) ]
+		# …trigger key
+		# …but only if we are on a line…
+		If [ (
+						  /* - directly after a one-line step */
+						  _BeginsWith ( $PreviousNonEmptyLine ; "[" ) and
+						  (
+						    not Position  ( $PreviousNonEmptyLine ; "=====" ; 1 ; 1 )
+						    and
+						    not (Position  ( $PreviousNonEmptyLine ; "===" ; 1 ; 1 ) and not Position  ( $PreviousNonEmptyLine ; "====" ; 1 ; 1 ))
+						    and
+						    not (Position  ( $PreviousNonEmptyLine ; "= =" ; 1 ; 1 ) and not Position  ( $PreviousNonEmptyLine ; "==" ; 1 ; 1 ))
+						  )
+						or
+						/* - after the closing `===`… */
+						  _BeginsWith ( $PreviousNonEmptyLine ; "===" ) and
+						
+						
+						/* …of a multiline… */
+						Let(
+						[
+						vText = LeftValues( $TextAboveTheCursor ; ValueCount ( $TextAboveTheCursor ) - 1 ) ; 
+						vSuche = $PreviousNonEmptyLine & ¶ ;
+						
+						vPreviousStartLinePos = Position ( vText ; vSuche ; Length( vText ) ; -1 ) ;
+						vPreviousStartLineNumber = ValueCount ( Left ( vText ; vPreviousStartLinePos ) ) ;
+						vPreviousStartLine = GetValue ( vText ; vPreviousStartLineNumber )
+						
+						];
+						
+						/* …step */
+						Left( vPreviousStartLine ; 1 ) = "["
+						
+						)
+						
+						) ]
+			# - directly after a one-line step, or
+			  - after the closing `===`of a multiline step
+			If [ $Key = "+" ]
+				# New step
+				Insert Text [ "[+]." ]
+			Else
+				# Same step
+				Insert Text [ "[:]." ]
+			End If
+			Exit Script [ 0 ]
+		End If
+	End If
+End If
+// End If
+

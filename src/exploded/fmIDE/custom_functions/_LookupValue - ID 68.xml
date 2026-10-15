@@ -1,0 +1,14 @@
+<CustomFunction id="68" name="_LookupValue" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2026-06-26T11:28:21">0A9EA464-A504-41F7-997B-28C764E8FEE4</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="A80CF26D078AAB9FB2111806DC8A2FEB">_0A9EA464-A504-41F7-997B-28C764E8FEE4</DDRREF>
+		<Text><![CDATA[Let([vPosValue = Position( ¶ & pInList & ¶ ; ¶ & pValue & ¶ ; 1 ; 1 ) ;vRow = ValueCount ( Left( pInList ; vPosValue ) )];Case( vPosValue ; GetValue ( pReturnList ; vRow ) ))]]></Text>
+	</Calculation>
+	<Display>_LookupValue ( pValue ; pInList ; pReturnList )</Display>
+	<ObjectList membercount="3">
+		<Parameter name="pValue"></Parameter>
+		<Parameter name="pInList"></Parameter>
+		<Parameter name="pReturnList"></Parameter>
+	</ObjectList>
+</CustomFunction>

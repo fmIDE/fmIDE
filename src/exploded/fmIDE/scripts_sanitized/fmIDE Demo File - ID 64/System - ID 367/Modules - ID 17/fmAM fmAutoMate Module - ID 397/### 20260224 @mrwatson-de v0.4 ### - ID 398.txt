@@ -1,0 +1,10 @@
+# Module: fmAM
+Exit Script [ Get( FileName ) & ":	" & Trim( Substitute( Get( ScriptName ) ; "#" ; "" ) ) ]
+
+# 20260224 @mrwatson-de v0.4 Add functions to Find/Constrain/Extend or Toggle the Omit option in find mode
+# 20251118 @mrwatson-de v0.3 Add Param MatchWholeField to match entire field
+# 20250403 @mrwatson-de v0.2 Add fmAM.OnChangeSortOrder to catch changes in sort order
+# 20250403 @mrwatson-de v0.1.1 Bug: No field no play
+# 20250205 @mrwatson-de v0.1 This is really getting fun
+
+

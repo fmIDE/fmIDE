@@ -1,0 +1,17 @@
+
+# 2025-09-25 RW: New
+
+Set Error Capture [ ON ]
+
+Set Variable [ $active[1] ; 1 ]
+Set Variable [ $find[1] ; NameThatThingParameter::_gParameter ]
+
+Enter Find Mode [ Pause: OFF ]
+Set Field [ NameThatThingParameter::ParameterName ; $find ]
+Set Field [ NameThatThingParameter::Active ; $active ]
+Perform Find
+
+Sort Records [ With dialog: OFF ; ⚠️ PARAMETER "Restore" NOT PARSED ⚠️ ; ⚠️ PARAMETER "SortSpecification" NOT PARSED ⚠️ ]
+Go to Record/Request/Page [ First ]
+
+

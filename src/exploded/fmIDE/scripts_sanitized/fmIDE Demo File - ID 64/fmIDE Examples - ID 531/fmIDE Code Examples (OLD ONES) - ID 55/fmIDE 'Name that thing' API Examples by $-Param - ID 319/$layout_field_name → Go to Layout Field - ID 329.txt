@@ -1,0 +1,8 @@
+# Passing just a layout_field_name performs a Go to Layout Field action
+# Note: The Go to Layout Field action uses AppleScript to target the field, and so currently only works on Mac
+
+Go to Layout [ Layout: "fmIDE Examples" ; Animation: None ]
+Set Variable [ $layout_field_name[1] ; Case( Get( ActiveModifierKeys ) ; GetFieldName ( fmIDE_Example::Script ) ; GetFieldName ( fmIDE_Example::Description ) ) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "$layout_field_name=" & Quote( $layout_field_name ) ]
+
+

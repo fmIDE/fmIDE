@@ -1,0 +1,9 @@
+
+# 20120106 MrW
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+Show/Hide Toolbars [ Lock: OFF ; Include Edit Record Toolbar: OFF ; Toggle ]
+
+

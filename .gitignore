@@ -2,3 +2,30 @@
 **/.DS_Store
 fmdiff/
 Icon?
+
+# Local exploder dependency and temporary generation folders
+.tools/
+src/.explode-*/
+src/.export-response-*/
+**/__pycache__/
+
+# Keep full current SaXML locally; track provenance and focused exploded source.
+/src/xml/*
+!/src/xml/manifest.json
+/src/exploded/**
+!/src/exploded/**/
+!/src/exploded/.fmide-generated
+!/src/exploded/manifest.json
+!/src/exploded/fmIDE/scripts/fmIDE Module - ID 53/**
+!/src/exploded/fmIDE/scripts_sanitized/**
+!/src/exploded/fmIDE/custom_functions/**
+!/src/exploded/fmIDE/custom_functions_sanitized/**
+
+# Local Wiki export staging, response files and previous generated snapshots
+/docs/.wiki-export/
+/docs/.wiki-response-*/
+
+# Local job responses and parameter-documentation checkpoints
+/.fmide-work/
+/docs/.parameter-export-*/
+/docs/.parameter-previous-*/

@@ -1,0 +1,13 @@
+
+
+
+
+Go to Record/Request/Page [ First ]
+Loop [ Flush: Always ]
+	If [ not fmIDE_Action_Usage::_k1 ]
+		Set Field [ fmIDE_Action_Usage::Usage ; fmIDE_Action::_kActionNameForWiki ]
+		Commit Records/Requests [ With dialog: OFF ]
+	End If
+	Go to Record/Request/Page [ Next ; Exit after last: ON ]
+End Loop
+

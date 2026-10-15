@@ -1,0 +1,48 @@
+# This script is used during the development of fmIDE to automatically refresh the `$fmIDE_version` number in line 2 of the fmIDE script.
+# It works like this: reads the vesion out of the history script
+
+# 1. An fmxmlsnippet template is generated to replace line 2 with
+# 2. The current version number is parsed out of the history script name
+# 3. The fmxmlsnippet is constructed and placed on the clipboard
+# 4. An fmIDE Action Script is run which… 
+#    - Selects step 2 of the `fmIDE` script
+#    - Presses the Backspace key to delete the line AND (important!) move the focus back to line 1
+#    - Presses Command+V to paste the new step into line 2
+#    - Presses Command+S to save the script
+
+
+# 20260929 @mrwatson-de Fix #154 Changed to set the $release string
+# 20260611 @mrwatson-de Documented (because it is not working:D)
+
+# Input variable
+Set Variable [ $replace[1] ; _fmIDEGetReleaseFromScript ]
+
+# Extract version from name and construct 
+Insert Text [ Select ; Target: $fmxmlsnippet_template ; "<fmxmlsnippet type="FMObjectList">
+				  <Step enable="True" id="61" name="Insert Text">
+				    <SelectAll state="True"/>
+				    <DisableStepCollapsed state="False"/>
+				    <Text>__replace__</Text>
+				    <Field>$fmide_release</Field>
+				  </Step>
+				</fmxmlsnippet>
+				" ]
+Set Variable [ $fmxmlsnippet[1] ; Substitute ( $fmxmlsnippet_template ; "__replace__" ; $replace ) ]
+Set Variable [ $r[1] ; MBS( "Clipboard.SetFileMakerData" ; "auto" ; $fmxmlsnippet ) ]
+
+// Insert Text [ Select ; Target: $frontmatter ; "---
+				$fmIDE_debugger=1
+				---" ]
+Insert Text [ Select ; Target: $fmJAML ; "[+].Go To Script
+				[:]..script_name = "fmIDE"
+				[:]..script_step_number = 2
+				[+].Press.key = Char(8)
+				[+].Press.command_key = "V"
+				[+].Press.command_key = "S"
+				[+].Set Clipboard Text = == MBS( "ScriptWorkspace.ScriptText" ; 0 )" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: List(
+				$frontmatter ;
+				$fmJAML
+				) ]
+
+

@@ -1,0 +1,9 @@
+
+
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "[]" 
+				; ["[0].Set.$name.value" ; Quote("World") ; JSONString ]
+				; ["[1].Show Custom Dialog.message" ; Quote("Hello ") & " & $name" ; JSONString ]
+				) ]
+
+

@@ -1,0 +1,2 @@
+Exit Script [ Get ( ScriptParameter ) ]
+

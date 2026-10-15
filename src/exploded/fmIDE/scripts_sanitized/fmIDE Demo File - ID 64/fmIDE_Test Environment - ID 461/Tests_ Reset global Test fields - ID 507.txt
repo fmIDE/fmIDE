@@ -1,0 +1,24 @@
+
+# 20260728 @mrwatson-de Add fmide_last_error_location
+# 20260608 @mrwatson-de Add last error fields
+# 20260608 @mrwatson-de Refresh layout at end
+# 20260525 @mrwatson-de Use fmIDE with calaculated frontmatter
+# 20260323 @mrwatson-de Also clean result fields
+# 20260306 @mrwatson-de Performs a single Test
+
+# Reset Test fields
+Set Field [ fmIDE_Test::_gTest ; "" ]
+Set Field [ fmIDE_Test::_gTest ; "" ]
+Set Field [ fmIDE_Test::_gTest ; "" ]
+Set Field [ fmIDE_Test::_gTest2 ; 1 ]
+Set Field [ fmIDE_Test::_gTest2 ; 2 ]
+Set Field [ fmIDE_Test::_gTest2 ; 3 ]
+
+Set Variable [ $$fmIDE_Test[1] ; "" ]
+Set Variable [ $$fmIDE_Test[2] ; "" ]
+Set Variable [ $$fmIDE_Test[3] ; "" ]
+
+# Reset Result fields
+Set Field [ fmIDE_Test::_gResult ; "" ]
+
+

@@ -1,0 +1,9 @@
+# Use this script in Install Timer Script calls, in order to avoid hard-coding a call to fmIDE 
+
+
+Install OnTimer Script
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: Get ( ScriptParameter ) ]
+Exit Script [ Get ( ScriptResult ) ]
+
+

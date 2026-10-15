@@ -1,0 +1,9 @@
+
+
+# Reset Options
+Set Field [ fmIDE_Test::_gShowColumnInList ; "" ]
+Set Field [ fmIDE_Test::_gFrontmatter ; "" ]
+
+Close File [ "FileA" ]
+
+

@@ -1,0 +1,18 @@
+
+
+
+Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+				["[0].action_name" ; "Open Manage Custom Functions" ; JSONString];
+				["[1].action_name" ; "Beep" ; JSONString];
+				["[2].action_name" ; "Open Manage Security" ; JSONString];
+				["[3].action_name" ; "Beep" ; JSONString];
+				["[4].action_name" ; "Open Manage Custom Menus" ; JSONString];
+				["[5].action_name" ; "Beep" ; JSONString];
+				["[6].action_name" ; "Go to Layout" ; JSONString];["[6].layout_name" ; "Example Target1 Layout" ; JSONString];
+				["[7].action_name" ; "PasteIntoCurrentLayout" ; JSONString];
+				["[8].action_name" ; "Open Manage Value Lists" ; JSONString];
+				["[9].action_name" ; "Beep" ; JSONString]; ["[9].times" ; 3 ; JSONNumber]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

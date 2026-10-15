@@ -1,0 +1,20 @@
+# Performs a DAPI request and shows the formatted results in a custom dialog
+
+# 20221013 MrW
+  - Fix #11 `message` = text, `message_value` = calc
+  - Fix wrong parameter
+
+Set Variable [ $ExecuteFilemakerDataApiParams[1] ; JSONSetElement ( "{}"
+				;["dapi_request.layouts" ; "Example" ; JSONString]
+				;["dapi_request.query.[0].Script" ; "custom" ; JSONString]
+				;["target" ; "$$data" ; JSONString]
+				;["select" ; True ; JSONBoolean]
+				) ]
+
+Set Variable [ $actions[1] ; JSONSetElement ( "[]"
+				;["[0].Execute FileMaker Data API" ; $ExecuteFilemakerDataApiParams ; JSONObject]
+				;["[1].Show Custom Dialog.message_value" ; "$$data" ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

@@ -1,0 +1,14 @@
+
+
+Set Variable [ $fmIDE_Param[1] ; JSONSetElement ( "[]" ;
+				["[+].Go to Layout.layout_name" ; "fmIDE Actions"      ; JSONString];
+				["[+].Enter Find Mode"          ; ""                   ; JSONObject];
+				["[+].Set Field.fmIDE_Action::ActionName.text" ; "Set" ; JSONString];
+				["[+].Perform Find"             ; ""                   ; JSONObject];
+				["[+].Set.$last_error.value"    ; "Get ( LastError )"  ; JSONString];
+				["[+].Show Custom Dialog.title" ; "fmIDE"              ; JSONString];
+				["[:].Show Custom Dialog.message_value" ; "Case(¶$last_error ; \"Error \" & $last_error ; ¶\"Found \" & Get( FoundCount ) & \" \" &  Get ( LayoutTableName ) & \" records\"¶)"   ; JSONString];
+				["[:].Show Custom Dialog.buttons" ; "OK"               ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $fmIDE_Param ]
+

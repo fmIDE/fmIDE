@@ -1,0 +1,7 @@
+/* _IsLayoutTableName ( pGetFieldName SomeFieldInTheTable )
+
+returns one if the current LayoutTableName matches the fields table name
+
+*/
+
+GetValue ( Substitute ( pGetFieldName SomeFieldInTheTable ; "::" ; ¶ ) ; 1 ) = Get( LayoutTableName )

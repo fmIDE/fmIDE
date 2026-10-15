@@ -1,0 +1,23 @@
+# This script demonstrates the use of a message_«button1»_«button2»_«button3» parameter to pass the message and button names using a single parameter
+
+# 20221013 MrW
+  - Fix #12 Message with buttons compact syntax with separator `__`
+  - Fix #11 `message` = text and `message_value` = calc
+  - Pimped the example script to react to inputs
+
+Insert Text [ Select ; Target: $message2_value ; "Case( Get( LastMessageChoice ) = 2 ; "Hey, don't worry!¶") &
+				"Oops, can't continue!"" ]
+
+Set Variable [ $actions[1] ; JSONSetElement ( "[]"
+				; ["[0].Show Custom Dialog.message__Yes_No_Cancel" ; "Sure?" ; JSONString ]
+				; ["[1].If.value" ; "Get( LastMessageChoice ) ≠ 3" ; JSONString ]
+				; ["[2].  Show Custom Dialog.message_value__HALT_Ignore" ; $message2_value ; JSONString ]
+				; ["[3].    If.value" ; "Get( LastMessageChoice ) = 1" ; JSONString ]
+				; ["[4].      Halt Script" ; "" ; JSONString ]
+				; ["[5].    End If" ; "" ; JSONString ]
+				; ["[6].  Show Custom Dialog.message" ; "Still here?¶Go away!¶There is nothing more here to see!" ; JSONString ]
+				; ["[7].End If" ; "" ; JSONString ]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

@@ -1,0 +1,265 @@
+
+# 20250925 @mrwatson-de Wow, cool 😎
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+Set Variable [ $key[1] ; Get ( TriggerKeystroke ) ]
+Set Variable [ $code[1] ; Code( $key ) ]
+Set Variable [ $modifier_keys[1] ; Get ( TriggerModifierKeys ) ]
+# Settings
+Set Variable [ $moduleName[1] ; "fmIDE QuickLink" ]
+# Vars
+Set Variable [ $key_shift[1] ; Mod ( Div ( $modifier_keys ; 2^0 ) ; 2 ) ]
+Set Variable [ $key_caps_lock[1] ; Mod ( Div ( $modifier_keys ; 2^1 ) ; 2 ) ]
+Set Variable [ $key_control[1] ; Mod ( Div ( $modifier_keys ; 2^2 ) ; 2 ) ]
+Set Variable [ $key_option[1] ; Mod ( Div ( $modifier_keys ; 2^3 ) ; 2 ) ]
+Set Variable [ $key_command[1] ; Mod ( Div ( $modifier_keys ; 2^4 ) ; 2 ) ]
+
+Set Variable [ $fileName[1] ; GetValue( Substitute( Get ( ActiveFieldContents ) ; ["/" ; ¶] ; ["?" ; ¶] ) ; 4 ) ]
+Set Variable [ $base_table_name[1] ; GetValue( Substitute( 
+				GetValue( Substitute(
+				Get ( ActiveFieldContents )
+				; ["$base_table_name="; ¶] ) ; 2 )
+				; ["&" ; ¶] ) ; 1 ) ]
+Set Variable [ $table_name[1] ; GetValue( Substitute( 
+				GetValue( Substitute(
+				Get ( ActiveFieldContents )
+				; ["$table_name="; ¶] ) ; 2 )
+				; ["&" ; ¶] ) ; 1 ) ]
+Set Variable [ $layout_name[1] ; GetValue( Substitute( 
+				GetValue( Substitute(
+				Get ( ActiveFieldContents )
+				; ["$layout_name="; ¶] ) ; 2 )
+				; ["&" ; ¶] ) ; 1 ) ]
+Set Variable [ $script_name[1] ; GetValue( Substitute( 
+				GetValue( Substitute(
+				Get ( ActiveFieldContents )
+				; ["$script_name="; ¶] ) ; 2 )
+				; ["&" ; ¶] ) ; 1 ) ]
+// Show Custom Dialog [ Message: List(
+				$fileName ;
+				Get ( FileName ) ;
+				$fileName = Get ( FileName ) ;
+				$base_table_name ;
+				$table_name ;
+				$layout_name ;
+				$script_name ;
+				) ; Default Button: "OK" ; Button 2: "Cancel" ]
+
+Set Variable [ $character_to_the_left_of_the_cursor[1] ; _CharactersLeftOfTheCursor ( 1 ) ]
+
+If [ IsEmpty ( Get ( ActiveFieldName ) ) ]
+	# No field no cry
+	
+Else If [ $code = 29 /* ↑ */ and $key_option ]
+	# select/move to left
+	Set Variable [ $selection_end[1] ; Get ( ActiveSelectionStart ) + Get ( ActiveSelectionSize )-1 ]
+	Set Variable [ $search_start[1] ; Get ( ActiveSelectionStart )-1-1 ]
+	Set Variable [ $selection_start[1] ; 1+Max (
+					Position ( Get ( ActiveFieldContents ) ; "=" ; $search_start ; -1 ) ;
+					Position ( Get ( ActiveFieldContents ) ; "&" ; $search_start ; -1 ) ;
+					Position ( Get ( ActiveFieldContents ) ; "?" ; $search_start ; -1 ) ;
+					Position ( Get ( ActiveFieldContents ) ; "/" ; $search_start ; -1 ) ;
+					) ]
+	Set Variable [ $selection_start[1] ; $selection_start - (Middle ( Get ( ActiveFieldContents ) ; $selection_start ; 1 ) = "/") ]
+	Set Variable [ $selection_end[1] ; Case ( $key_shift ; $selection_end ; $selection_start-1 ) ]
+	Set Selection [ ⚠️ PARAMETER "Select" NOT PARSED ⚠️ ]
+	Exit Script [ 0 ]
+	
+Else If [ $code = 31 /* ↑ */ and $key_option ]
+	# select/move to right
+	Set Variable [ $len[1] ; Length ( Get ( ActiveFieldContents ) ) ]
+	Set Variable [ $selection_start[1] ; Get ( ActiveSelectionStart ) ]
+	Set Variable [ $selection_end[1] ; Get ( ActiveSelectionStart ) + Get ( ActiveSelectionSize )-1 ]
+	Set Variable [ $search_start[1] ; Max ( $selection_start ;  $selection_end )+1 ]
+	Set Variable [ $selection_end[1] ; Min (
+					_DefaultIf0 ( Position ( Get ( ActiveFieldContents ) ; "=" ; $search_start ; 1 ) ; $len ) ;
+					_DefaultIf0 ( Position ( Get ( ActiveFieldContents ) ; "&" ; $search_start ; 1 ) ; $len ) ;
+					_DefaultIf0 ( Position ( Get ( ActiveFieldContents ) ; "?" ; $search_start ; 1 ) ; $len ) ;
+					_DefaultIf0 ( Position ( Get ( ActiveFieldContents ) ; "/" ; $search_start ; 1 ) ; $len ) ;
+					) ]
+	Set Variable [ $selection_end[1] ; $selection_end + (Middle ( Get ( ActiveFieldContents ) ; $selection_end+1 ; 1 ) = "/") ]
+	Set Variable [ $selection_start[1] ; Case ( $key_shift ; $selection_start ; $selection_end+1 ) ]
+	Set Selection [ ⚠️ PARAMETER "Select" NOT PARSED ⚠️ ]
+	Exit Script [ 0 ]
+	
+Else If [ $code = 27 /* ESC */ ]
+	# ESC
+	If [ 0 ]
+	Else If [ IsEmpty ( Get ( ActiveFieldContents ) ) ]
+		# ## Add Protocol
+		Insert Text [ "fmp://" ]
+		
+	Else If [ _CharactersLeftOfTheCursor ( 2 ) = "//" ]
+		# ## Add Server
+		Insert Text [ "$/" ]
+		
+	Else If [ _CharactersLeftOfTheCursor ( 4 ) = "://$" ]
+		# ## Choose Server
+		# Select the `$` so it will be replaced
+		Set Selection [ ⚠️ PARAMETER "Select" NOT PARSED ⚠️ ]
+		
+		Perform Script [ "MagicValueList - Input DropDown" ; Specified: From list ; Parameter: JSONSetElement ( "{}"
+						;["title";$moduleName;JSONString]
+						;["prompt";"Input or choose the server";JSONString]
+						;["value";"$";JSONString]
+						;["magic_values";$$fmide_servers;JSONString]
+						) ]
+		Set Variable [ $server[1] ; Get( ScriptResult ) ]
+		
+		Insert Calculated Result [ Select: OFF ; $server ]
+		
+		# Remember server for next time
+		Set Variable [ $$fmide_servers[1] ; SortValues ( UniqueValues ( List( $$fmide_servers ; $server ) ) ) ]
+		
+		If [ _CharactersRightOfTheCursor ( 1 ) ≠ "/" ]
+			Insert Text [ "/" ]
+		End If
+		
+	Else If [ $character_to_the_left_of_the_cursor = "/" ]
+		# ## Choose Filename
+		Set Variable [ $placeholder[1] ; "«filename»" ]
+		Set Variable [ $placeholderLen[1] ; Length( $placeholder ) ]
+		Insert Calculated Result [ Select: OFF ; $placeholder ]
+		Set Selection [ ⚠️ PARAMETER "Select" NOT PARSED ⚠️ ]
+		
+		Perform Script [ "MagicValueList - Input DropDown" ; Specified: From list ; Parameter: JSONSetElement ( "{}"
+						;["title";$moduleName;JSONString]
+						;["prompt";"Choose the target file";JSONString]
+						;["value";$placeholder;JSONString]
+						;["magic_values";DatabaseNames;JSONString]
+						) ]
+		Set Variable [ $file[1] ; Get( ScriptResult ) ]
+		
+		Insert Calculated Result [ Select: OFF ; $file ]
+		
+		If [ _CharactersRightOfTheCursor ( 1 ) ≠ "?" ]
+			Insert Text [ "?" ]
+		End If
+		
+	Else If [ $character_to_the_left_of_the_cursor = "?" ]
+		# ## ?| → Insert the fmIDE script call
+		Insert Text [ "script=fmIDE&" ]
+		
+	Else If [ Get ( ActiveSelectionSize ) ]
+		# ## selection + ESC -> URL encode
+		Insert Calculated Result [ Select: OFF ; GetAsURLEncoded ( Middle ( Get ( ActiveFieldContents ) ; Get ( ActiveSelectionStart ) ; Get ( ActiveSelectionSize ) ) ) ]
+		
+		
+		# ## no selection …
+		
+	Else If [ $character_to_the_left_of_the_cursor = "=" ]
+		# ## =| → Insert parameter *value*
+		
+		# ### Read the parameter name
+		Set Variable [ $PosEnd[1] ; Get ( ActiveSelectionStart ) ]
+		Set Variable [ $PosStart[1] ; Position ( Get ( ActiveFieldContents ) ; "$" ; $PosEnd ; -1 ) ]
+		Set Variable [ $parameter[1] ; Case( $PosStart ; Middle ( Get ( ActiveFieldContents ) ; $PosStart ; $PosEnd - $PosStart - 1 ) ) ]
+		If [ 0 ]
+			# SWITCH
+			
+		Else If [ $parameter = "$script_step_range" ]
+			# ### Static Text / script_step_range
+			Insert Text [ "1...-1" ]
+			
+		Else If [ $parameter = "$fmide_debug" ]
+			# ### Static Text / script_step_range
+			If [ 0 ]
+				# SWITCH
+			Else If [ _CharactersRightOfTheCursor ( 1 ) = "1" ]
+				# Select and toggle 1 -> 0
+				Set Selection [ ⚠️ PARAMETER "Select" NOT PARSED ⚠️ ]
+				Insert Text [ "0" ]
+			Else If [ _CharactersRightOfTheCursor ( 1 ) = "0" ]
+				# Select and toggle 0 -> 1
+				Set Selection [ ⚠️ PARAMETER "Select" NOT PARSED ⚠️ ]
+				Insert Text [ "1" ]
+			Else
+				# Turn debugging on
+				Insert Text [ "1" ]
+			End If
+			
+		Else If [ $parameter = "$???" ]
+			# ### Static Text / $???
+			Insert Text [ "…" ]
+			
+		Else
+			
+			# ### Dynamic Parameter -> Get values for this parameter 🦄
+			Set Variable [ $magic_values[1] ; Case(
+							$parameter = "$external_data_source" ; DatabaseNames ;
+							
+							IsEmpty( $fileName ) ; "" ;
+							
+							$parameter = "$base_table_name" ; BaseTableNames ( $fileName ) ;
+							$parameter = "$base_table_id" ; BaseTableIDs ( $fileName ) ;
+							
+							$parameter = "$table_name" ; TableNames ( $fileName ) ;
+							$parameter = "$table_id" ; TableIDs ( $fileName ) ;
+							
+							$parameter = "$layout_name" ; LayoutNames ( $fileName ) ;
+							$parameter = "$layout_id" ; LayoutIDs ( $fileName ) ;
+							
+							$parameter = "$script_name" ; ScriptNames ( $fileName ) ;
+							$parameter = "$script_name_stub" ; _Stubify ( ScriptNames ( $fileName ) ; "(" ; "" ) ;
+							$parameter = "$script_id" ; ScriptIDs ( $fileName ) ;
+							
+							$parameter = "$value_list_name" ; ValueListNames ( $fileName ) ;
+							$parameter = "$value_list_id" ; ValueListIDs ( $fileName ) ;
+							
+							$parameter = "$window_name" ; WindowNames ( $fileName ) ;
+							
+							not IsEmpty ( $layout_name ) and $parameter = "$layout_field_name" ; FieldNames ( $fileName ; $layout_name) ;
+							not IsEmpty ( $layout_name ) and $parameter = "$layout_field_id" ; FieldIDs ( $fileName ; $layout_name) ;
+							
+							not IsEmpty ( $layout_name ) and $parameter = "$object_name" ; _LayoutObjectNameList ( $fileName ; $layout_name) ;
+							not IsEmpty ( $layout_name ) and $parameter = "$layout_object_name" ; _LayoutObjectNameList ( $fileName ; $layout_name) ;
+							
+							/* Not good
+							$fileName = Get ( FileName ) and $parameter = "$extended_privilege_name" ; Get ( CurrentExtendedPrivileges ) ;
+							$fileName = Get ( FileName ) and $parameter = "$script_step_search" ; MBS("SyntaxColoring.ScriptSearchBox.GetText") ;
+							$fileName = Get ( FileName ) and $parameter = "$script_list_search" ; MBS("ScriptWorkspace.GetScriptListSearch") ;
+							*/
+							
+							) ]
+			
+			If [ not IsEmpty ( $magic_values ) ]
+				# ### Choose value using magic value list
+				
+				Set Variable [ $type_of_thing[1] ; Proper ( Substitute ( $parameter ; ["$";""] ; ["_";" "] ) ) ]
+				Set Variable [ $prompt[1] ; "Choose " & $type_of_thing & " from file " & $fileName ]
+				Perform Script [ "MagicValueList - Input DropDown" ; Specified: From list ; Parameter: JSONSetElement ( "{}"
+								;["title";$moduleName;JSONString]
+								;["prompt";$prompt;JSONString]
+								;["magic_values";$magic_values;JSONString]
+								;["value";"";JSONString]
+								) ]
+				Set Variable [ $value[1] ; Get( ScriptResult ) ]
+				
+				Set Variable [ $value_length[1] ; Length( $value ) ]
+				
+				If [ $value_length ]
+					Insert Calculated Result [ Select: OFF ; GetAsURLEncoded ( $value ) ]
+				End If
+				
+				
+				
+			End If
+			
+		End If
+	Else
+		# ## otherwise → Insert (&)$parameter=
+		If [ $character_to_the_left_of_the_cursor ≠ "&" ]
+			Insert Text [ "&" ]
+		End If
+		Perform Script [ "Quick Link - Field - Insert fmIDE Parameter" ; Specified: From list ; Parameter: ]
+		
+	End If
+	
+	# # Don't pass on the ESC!
+	Exit Script [ 0 ]
+	
+End If
+
+

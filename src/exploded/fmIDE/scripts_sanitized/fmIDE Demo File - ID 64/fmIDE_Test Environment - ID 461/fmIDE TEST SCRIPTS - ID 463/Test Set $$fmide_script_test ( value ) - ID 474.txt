@@ -1,0 +1,5 @@
+
+Set Variable [ $$fmide_script_test[1] ; Get ( ScriptParameter ) ]
+Exit Script [ $$fmide_script_test ]
+
+

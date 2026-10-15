@@ -1,0 +1,3 @@
+Set Variable [ $OverlayRef[1] ; Get(ScriptParameter) ]
+Set Variable [ $r[1] ; MBS("Overlay.SetAlpha"; $overlayRef; ,8) ]
+

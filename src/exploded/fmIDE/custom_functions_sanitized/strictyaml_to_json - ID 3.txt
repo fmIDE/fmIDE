@@ -1,0 +1,58 @@
+While (
+[
+¢indent = "";
+
+¢result = "" ;
+
+¢line_num = 1 ;
+¢line_num_max = ValueCount( pYAML ) ;
+¢line = GetValue( pYAML ; ¢line_num ) ;
+¢indent_length = Length( pCurrentIndent ) ;
+¢next_2  = Middle( ¢line ; ¢indent_length+1 ; 2 ) ;
+¢pos_colon_space = Position( ¢line ; ": " ; 1 ; 1 ) ;
+¢pos_colon = Position( ¢line ; ":" ; 1 ; 1 )
+
+]; Left( ¢line ; ¢indent_length ) = pCurrentIndent ;[
+
+/* while indent not less */
+
+¢trim = Trim ( ¢line ) ;
+¢char_1 = Left( ¢trim ; 1 ) ;
+¢pos_char_1 = Position( ¢line ; ¢char_1 ; 1 ; 1 ) ;
+
+¢token = Case( 
+
+¢line  = "" ; "EmptyLine" ;
+
+Left( ¢line ; 3 ) = "---" ; "DocumentStart" ;
+Left( ¢line ; 3 ) = "..." ; "DocumentEnd" ;
+
+¢char_1 = "#" ; "Comment" ;
+¢next_2 = "!!" ; "Type" ;
+¢next_2 = "- " ; "List" ;
+¢pos_colon ; "KeyValue" ;
+"ERROR"
+);
+
+
+¢value = Case(
+
+"|" ; "text_multiline" ;
+">" ; "text_folded" ;
+"&" ; "anchor" ;
+"*" ; "reference" ;
+) ;
+
+/* FIXME */
+
+¢line_num = ¢line_num + 1 
+];
+
+
+
+
+
+
+¢line_num
+
+)

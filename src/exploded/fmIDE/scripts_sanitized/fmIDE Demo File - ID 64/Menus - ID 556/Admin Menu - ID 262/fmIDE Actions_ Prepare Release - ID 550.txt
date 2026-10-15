@@ -1,0 +1,12 @@
+
+# 20261005 @mrwatson-de Refactored
+
+# ## fmIDE_Actions
+
+Go to Layout [ Layout: "fmIDE Actions" ; Animation: None ]
+Show All Records
+Perform Script [ "fmIDE Actions Sort ViewBy" ; Specified: From list ; Parameter: JSONSetElement ( "{}"
+				;["view_by" ; "name" ; JSONString]
+				) ]
+
+

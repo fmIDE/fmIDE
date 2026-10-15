@@ -1,0 +1,1 @@
+Left( pText ; Length( pBeginsWith ) ) = pBeginsWith

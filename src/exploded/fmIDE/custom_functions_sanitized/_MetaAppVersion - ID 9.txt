@@ -1,0 +1,10 @@
+Let([
+vScriptNames = ScriptNames ( Get( FileName ) ) ;
+vAppChangesScriptNameStub = "###" ;
+vAppChangesScriptNumber = ValueCount( Left( vScriptNames ; Position( ¶ & vScriptNames ; ¶ & vAppChangesScriptNameStub ; 1 ; 1 ) ) ) ;
+vAppChangesScriptName = GetValue( vScriptNames ; vAppChangesScriptNumber ) ;
+vAppChangesVersionString = Trim( Substitute( Middle( vAppChangesScriptName ; Length( vAppChangesScriptNameStub ) +1 ; 999 ) ; "#" ; "" ) ) ;
+vAppChangesVersionShort = RightWords( vAppChangesVersionString ; 1 )
+];
+vAppChangesVersionShort
+)

@@ -1,0 +1,6 @@
+
+
+Perform Script [ Specified: By name ; fmDevJobTask::FileName_BaseName & "::" & fmDevJobTask::ElementName ; Parameter: ]
+Set Field [ fmDevJobTask::Task ; Get ( ScriptResult ) ]
+
+

@@ -1,0 +1,42 @@
+# AI Bridge.Context
+# Inputs arrive through Run Macro frontmatter; see manifest.json.
+[+].Set Error Capture = 1
+[+].Set.$bridge_macro = ===
+"AI Bridge.Context"
+===
+[+].Set.$bridge_data = ===
+"{}"
+===
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "" ; JSONString ]
+)
+===
+[+].Set.$bridge_data = ===
+JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===

@@ -1,0 +1,9 @@
+<CustomFunction id="32" name="_IsLayoutQuickLinkLayout" access="All">
+	<UUID modifications="5" userName="R.Watson" accountName="Admin" timestamp="2025-09-26T14:52:27">3AC5F666-BA86-4008-B1AF-9BD0F3D9AB0B</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="09471E2CD7C697732DC591AE760394C6">_3AC5F666-BA86-4008-B1AF-9BD0F3D9AB0B</DDRREF>
+		<Text><![CDATA[_GetLayoutID = 40]]></Text>
+	</Calculation>
+	<Display>_IsLayoutQuickLinkLayout</Display>
+</CustomFunction>

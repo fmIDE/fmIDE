@@ -1,0 +1,12 @@
+
+# 20261005 @mrwatson-de Refactored
+
+# ## Reset fmJAML
+
+Set Field [ fmIDE::_gfmJAMLPlayground_InputText ; "" ]
+Set Field [ fmIDE::_gfmJAMLPlayground_OutputJSON ; "" ]
+
+Perform Script [ "fmJAML LogoFun reset for Release" ; Specified: From list ; Parameter: ]
+Perform Script [ "fmJAML Playground reset for Release ( AddExample )" ; Specified: From list ; Parameter: ]
+
+

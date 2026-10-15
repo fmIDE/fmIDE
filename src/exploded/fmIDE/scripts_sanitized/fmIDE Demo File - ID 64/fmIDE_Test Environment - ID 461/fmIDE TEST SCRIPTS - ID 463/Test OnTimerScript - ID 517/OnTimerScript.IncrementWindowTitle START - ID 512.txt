@@ -1,0 +1,4 @@
+# This script starts the test
+Install OnTimer Script [ "Test.OnTimerScript.IncrementWindowTitle #T#" ; 1 ]
+
+

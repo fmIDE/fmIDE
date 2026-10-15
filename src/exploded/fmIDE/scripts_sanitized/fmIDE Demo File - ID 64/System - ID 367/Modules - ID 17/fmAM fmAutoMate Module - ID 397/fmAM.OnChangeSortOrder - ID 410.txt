@@ -1,0 +1,8 @@
+
+# 20250403 @mrwatson-de v0.2 Add fmAM.OnChangeSortOrder to catch changes in sort order
+
+Set Error Capture [ ON ]
+
+# You can add functionality here to trigger your sort logic if needed
+
+

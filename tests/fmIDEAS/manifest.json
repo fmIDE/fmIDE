@@ -1,0 +1,532 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-10-14T14:35:42.748418+00:00",
+  "source": "fmIDE.fmp12",
+  "fmIDERelease": "20261014 @mrwatson-de v0.95",
+  "fileMakerVersion": "Pro 26.0.3",
+  "groups": [
+    {
+      "name": "macro-regression",
+      "count": 39,
+      "recordedPasses": 39,
+      "tests": [
+        {
+          "id": "ABE1DEAC-ADA5-5484-87BB-E886531E6F39",
+          "title": "fmIDE Macro regression 01 - Nested short-form name",
+          "sort": 3320,
+          "file": "01-nested-short-form-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:11"
+        },
+        {
+          "id": "0B0CE0B2-BCB7-5853-A8FF-F445DAE6918D",
+          "title": "fmIDE Macro regression 02 - Explicit name with spaces and Unicode",
+          "sort": 3330,
+          "file": "02-explicit-name-with-spaces-and-unicode.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:11"
+        },
+        {
+          "id": "E8CE9689-582B-5E54-951C-89EB536E075E",
+          "title": "fmIDE Macro regression 03 - Name calculated once per action",
+          "sort": 3340,
+          "file": "03-name-calculated-once-per-action.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:12"
+        },
+        {
+          "id": "3EF644B8-0902-5DD0-9CC9-AFBC989712AB",
+          "title": "fmIDE Macro regression 04 - Code calculated once at Define",
+          "sort": 3350,
+          "file": "04-code-calculated-once-at-define.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:12"
+        },
+        {
+          "id": "40341957-FEAF-5F3D-97A7-6A476EEF736A",
+          "title": "fmIDE Macro regression 05 - Get scalar name shorthand",
+          "sort": 3360,
+          "file": "05-get-scalar-name-shorthand.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:12"
+        },
+        {
+          "id": "D7DA99E3-E3C4-59D7-9271-D48ACA7B2749",
+          "title": "fmIDE Macro regression 06 - Run scalar name shorthand",
+          "sort": 3370,
+          "file": "06-run-scalar-name-shorthand.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:12"
+        },
+        {
+          "id": "730F8E04-65CE-5839-A020-16A84FC07973",
+          "title": "fmIDE Macro regression 07 - Get into local target and continue",
+          "sort": 3380,
+          "file": "07-get-into-local-target-and-continue.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:13"
+        },
+        {
+          "id": "F66CED20-D3B7-51A2-83D1-97E98FCFFAE8",
+          "title": "fmIDE Macro regression 08 - Get into global target and continue",
+          "sort": 3390,
+          "file": "08-get-into-global-target-and-continue.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:13"
+        },
+        {
+          "id": "122F69B5-DB77-5DD4-8223-E8120A51101A",
+          "title": "fmIDE Macro regression 09 - Get into field target and continue",
+          "sort": 3400,
+          "file": "09-get-into-field-target-and-continue.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:13"
+        },
+        {
+          "id": "054485DF-E143-58A9-8B87-E99F3EAD6830",
+          "title": "fmIDE Macro regression 10 - Metadata preserved with code and name",
+          "sort": 3410,
+          "file": "10-metadata-preserved-with-code-and-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:14"
+        },
+        {
+          "id": "77F148CD-B5DB-5C80-B53A-529AE1C7DB50",
+          "title": "fmIDE Macro regression 11 - Redefinition replaces metadata and code",
+          "sort": 3420,
+          "file": "11-redefinition-replaces-metadata-and-code.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:14"
+        },
+        {
+          "id": "8CAF45E5-9180-547C-8545-1D507C445B92",
+          "title": "fmIDE Macro regression 12 - Run existing frontmatter without inputs",
+          "sort": 3430,
+          "file": "12-run-existing-frontmatter-without-inputs.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:14"
+        },
+        {
+          "id": "4DF63968-4574-5E61-B9FB-038F9EBDE8BC",
+          "title": "fmIDE Macro regression 13 - Add frontmatter to a plain macro",
+          "sort": 3440,
+          "file": "13-add-frontmatter-to-a-plain-macro.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:14"
+        },
+        {
+          "id": "AE2C1793-01AC-5E12-B5D1-3A08E45844F1",
+          "title": "fmIDE Macro regression 14 - Merge frontmatter with trailing semicolon",
+          "sort": 3450,
+          "file": "14-merge-frontmatter-with-trailing-semicolon.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:15"
+        },
+        {
+          "id": "3F1C602D-0344-5973-BA79-47A2AC0CDB2D",
+          "title": "fmIDE Macro regression 15 - Merge frontmatter without trailing semicolon",
+          "sort": 3460,
+          "file": "15-merge-frontmatter-without-trailing-semicolon.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:15"
+        },
+        {
+          "id": "AC381C35-A375-5827-B043-69DF2F52963F",
+          "title": "fmIDE Macro regression 16 - Get without target exits the action script",
+          "sort": 3470,
+          "file": "16-get-without-target-exits-the-action-script.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:16"
+        },
+        {
+          "id": "0A97E7CC-211C-5CE7-AF57-00DD5770F77A",
+          "title": "fmIDE Macro regression 17 - Get missing macro returns question mark",
+          "sort": 3480,
+          "file": "17-get-missing-macro-returns-question-mark.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:16"
+        },
+        {
+          "id": "A20CB25D-798A-52DC-B5BE-8099E3956ECA",
+          "title": "fmIDE Macro regression 18 - Get missing macro into target continues",
+          "sort": 3490,
+          "file": "18-get-missing-macro-into-target-continues.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:16"
+        },
+        {
+          "id": "AAC2C991-B49F-50A8-B32C-E6C6D611E2CD",
+          "title": "fmIDE Macro regression 19 - Run missing macro captures error 1700",
+          "sort": 3500,
+          "file": "19-run-missing-macro-captures-error-1700.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:16"
+        },
+        {
+          "id": "09DE9BD7-43BE-5401-ADED-3E1F2771C3A8",
+          "title": "fmIDE Macro regression 20 - Define rejects an absent name",
+          "sort": 3510,
+          "file": "20-define-rejects-an-absent-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:17"
+        },
+        {
+          "id": "5B7AA366-CF28-5203-8852-13B156A21860",
+          "title": "fmIDE Macro regression 21 - Get rejects an absent name",
+          "sort": 3520,
+          "file": "21-get-rejects-an-absent-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:17"
+        },
+        {
+          "id": "3FF5D6F0-403C-5D5C-9889-38917E8BE98C",
+          "title": "fmIDE Macro regression 22 - Run rejects an absent name",
+          "sort": 3530,
+          "file": "22-run-rejects-an-absent-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:17"
+        },
+        {
+          "id": "BA36CDA1-70F1-5D6A-AAE2-20C106C92DEF",
+          "title": "fmIDE Macro regression 23 - Get rejects empty macro_name",
+          "sort": 3540,
+          "file": "23-get-rejects-empty-macro-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:17"
+        },
+        {
+          "id": "F3A9EA14-56EA-5FD3-B634-B8EE0B034F10",
+          "title": "fmIDE Macro regression 24 - Get rejects null macro_name",
+          "sort": 3550,
+          "file": "24-get-rejects-null-macro-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:18"
+        },
+        {
+          "id": "7FB3D1FA-567E-5EB4-92D0-1C15CD6ACFE9",
+          "title": "fmIDE Macro regression 25 - Define rejects a name evaluating to empty",
+          "sort": 3560,
+          "file": "25-define-rejects-a-name-evaluating-to-empty.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:18"
+        },
+        {
+          "id": "343E5A38-5714-5CF2-807B-CBFDC8420B41",
+          "title": "fmIDE Macro regression 26 - Get rejects a name evaluating to empty",
+          "sort": 3570,
+          "file": "26-get-rejects-a-name-evaluating-to-empty.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:19"
+        },
+        {
+          "id": "0F53E783-289D-5CCA-B321-069A4A4826AC",
+          "title": "fmIDE Macro regression 27 - Run rejects a name evaluating to empty",
+          "sort": 3580,
+          "file": "27-run-rejects-a-name-evaluating-to-empty.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:19"
+        },
+        {
+          "id": "E8AAE517-C747-5A69-A359-66F5E01256DB",
+          "title": "fmIDE Macro regression 28 - Reject ambiguous sibling names",
+          "sort": 3590,
+          "file": "28-reject-ambiguous-sibling-names.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:19"
+        },
+        {
+          "id": "5BBFD4CA-CFAE-58DB-AC48-3BD7A5E35292",
+          "title": "fmIDE Macro regression 29 - A following invalid Get cannot reuse the name",
+          "sort": 3600,
+          "file": "29-a-following-invalid-get-cannot-reuse-the-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:19"
+        },
+        {
+          "id": "187EE0CA-6694-5918-80F5-5A7AD8CE548A",
+          "title": "fmIDE Macro regression 30 - JSON action code stays text beneath name",
+          "sort": 3610,
+          "file": "30-json-action-code-stays-text-beneath-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:20"
+        },
+        {
+          "id": "CF47CCCB-FBF1-59DA-AEED-493405FF2CAD",
+          "title": "fmIDE Macro regression 31 - Explicit name can contain a reserved segment",
+          "sort": 3620,
+          "file": "31-explicit-name-can-contain-a-reserved-segment.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:20"
+        },
+        {
+          "id": "2CBCD1AC-FA4F-5352-960C-F1BB4BDE9FB1",
+          "title": "fmIDE Macro regression 32 - Define rejects empty name before code evaluation",
+          "sort": 3630,
+          "file": "32-define-rejects-empty-name-before-code-evaluation.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:20"
+        },
+        {
+          "id": "99A4373D-5CB6-58E9-B91D-0D07E2B733FE",
+          "title": "fmIDE Macro regression 33 - Define rejects null name before code evaluation",
+          "sort": 3640,
+          "file": "33-define-rejects-null-name-before-code-evaluation.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:21"
+        },
+        {
+          "id": "AE15FEED-FC91-5DD0-B2FC-EE21BFC50694",
+          "title": "fmIDE Macro regression 34 - Run rejects empty macro_name",
+          "sort": 3650,
+          "file": "34-run-rejects-empty-macro-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:24"
+        },
+        {
+          "id": "D9C3D7B6-420D-5BC0-B960-A092DCF9FDA2",
+          "title": "fmIDE Macro regression 35 - Run rejects null macro_name",
+          "sort": 3660,
+          "file": "35-run-rejects-null-macro-name.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:24"
+        },
+        {
+          "id": "6B8029A2-E118-5F6F-BD4A-F3A898863185",
+          "title": "fmIDE Macro regression 36 - Merge trailing whitespace with semicolon",
+          "sort": 3670,
+          "file": "36-merge-trailing-whitespace-with-semicolon.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:25"
+        },
+        {
+          "id": "CC120346-D705-5E4F-83DD-9CF47BEF5914",
+          "title": "fmIDE Macro regression 37 - Merge trailing whitespace without semicolon",
+          "sort": 3680,
+          "file": "37-merge-trailing-whitespace-without-semicolon.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:25"
+        },
+        {
+          "id": "A7037169-5B58-55FF-85F4-FF2AC400721A",
+          "title": "fmIDE Macro regression 38 - Merged frontmatter evaluates each definition once",
+          "sort": 3690,
+          "file": "38-merged-frontmatter-evaluates-each-definition-once.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:25"
+        },
+        {
+          "id": "C5D6C169-DF81-55D9-BC5D-E0E3B3E177A3",
+          "title": "fmIDE Macro regression 39 - Explicit name may contain macro_name as a segment",
+          "sort": 3700,
+          "file": "39-explicit-name-may-contain-macro-name-as-a-segment.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:25"
+        }
+      ]
+    },
+    {
+      "name": "script-search-regression",
+      "count": 4,
+      "recordedPasses": 4,
+      "tests": [
+        {
+          "id": "30A1FD27-C020-5417-A7D9-27D318ACA242",
+          "title": "fmIDE Script search regression 01 - Literal step search",
+          "sort": 6320,
+          "file": "01-literal-step-search.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:18:12"
+        },
+        {
+          "id": "FE0D1787-6A80-517B-97E5-15F9FCA4109E",
+          "title": "fmIDE Script search regression 02 - Step-search calculation without list search",
+          "sort": 6330,
+          "file": "02-step-search-calculation-without-list-search.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:18:13"
+        },
+        {
+          "id": "A628E5CB-39A5-5BCF-9F0A-6A182A5BDF17",
+          "title": "fmIDE Script search regression 03 - Step-search calculation evaluates once at runtime",
+          "sort": 6340,
+          "file": "03-step-search-calculation-evaluates-once-at-runtime.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:18:14"
+        },
+        {
+          "id": "DAD0B482-EA02-5E56-A512-6CD8340D9516",
+          "title": "fmIDE Script search regression 04 - Independent list and step calculations",
+          "sort": 6350,
+          "file": "04-independent-list-and-step-calculations.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:18:15"
+        }
+      ]
+    },
+    {
+      "name": "persistent-data-regression",
+      "count": 7,
+      "recordedPasses": 7,
+      "tests": [
+        {
+          "id": "1BD00BDB-CC89-5244-ADC4-80C7D494D1D2",
+          "title": "fmIDE Persistent regression 01 - All parameters evaluate once at runtime",
+          "sort": 3200,
+          "file": "01-all-parameters-evaluate-once-at-runtime.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:06"
+        },
+        {
+          "id": "494F352D-B2A9-5B3B-9FFB-AB02049614FA",
+          "title": "fmIDE Persistent regression 02 - Preserve Unicode multiline and JSON-looking text",
+          "sort": 3210,
+          "file": "02-preserve-unicode-multiline-and-json-looking-text.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:07"
+        },
+        {
+          "id": "7391A906-21F6-5E5C-9FD9-41B950244388",
+          "title": "fmIDE Persistent regression 03 - Store numeric zero as a present instance",
+          "sort": 3220,
+          "file": "03-store-numeric-zero-as-a-present-instance.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:07"
+        },
+        {
+          "id": "EEDEEABC-B8A1-5652-8F0E-6E9F7D88D0B6",
+          "title": "fmIDE Persistent regression 04 - Store empty text as a present instance",
+          "sort": 3230,
+          "file": "04-store-empty-text-as-a-present-instance.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:08"
+        },
+        {
+          "id": "22926C88-0552-5CA6-A995-7F3063A2780B",
+          "title": "fmIDE Persistent regression 05 - Replace the value of an existing instance",
+          "sort": 3240,
+          "file": "05-replace-the-value-of-an-existing-instance.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:08"
+        },
+        {
+          "id": "7975DA50-8AB7-5319-89FE-E48C1F0A2ABF",
+          "title": "fmIDE Persistent regression 06 - Delete an existing instance with the long form",
+          "sort": 3250,
+          "file": "06-delete-an-existing-instance-with-the-long-form.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:09"
+        },
+        {
+          "id": "2F065D8D-55B8-5A38-97E6-19681FBD2B59",
+          "title": "fmIDE Persistent regression 07 - Scalar Configure shorthand deletes its instance",
+          "sort": 3260,
+          "file": "07-scalar-configure-shorthand-deletes-its-instance.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:16:09"
+        }
+      ]
+    },
+    {
+      "name": "exit-output-regression",
+      "count": 5,
+      "recordedPasses": 5,
+      "tests": [
+        {
+          "id": "DED5CA1A-8285-5724-832C-7ED1871AFB91",
+          "title": "fmIDE Exit output regression 01 - Plain return evaluates once",
+          "sort": 2640,
+          "file": "01-plain-return-evaluates-once.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 06:15:48"
+        },
+        {
+          "id": "7C7EAA2C-DEB1-5BDE-AE0A-11B5B85624A8",
+          "title": "fmIDE Exit output regression 02 - Single file preserves native JSON return",
+          "sort": 2650,
+          "file": "02-single-file-preserves-native-json-return.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 16:30:32"
+        },
+        {
+          "id": "1995F110-763B-59CA-A3CC-BA95B124322C",
+          "title": "fmIDE Exit output regression 03 - Five files preserve native Unicode return",
+          "sort": 2660,
+          "file": "03-five-files-preserve-native-unicode-return.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 16:30:33"
+        },
+        {
+          "id": "9F2AF615-D78A-5E9C-BFF3-47ABA2485EE7",
+          "title": "fmIDE Exit output regression 04 - Single file preserves empty return",
+          "sort": 2670,
+          "file": "04-single-file-preserves-empty-return.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 16:30:33"
+        },
+        {
+          "id": "D7731C80-CBCF-5727-8A92-021045BFE803",
+          "title": "fmIDE Exit output regression 05 - Five files preserve numeric zero",
+          "sort": 2680,
+          "file": "05-five-files-preserve-numeric-zero.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 16:30:35"
+        }
+      ]
+    },
+    {
+      "name": "file-path-regression",
+      "count": 6,
+      "recordedPasses": 6,
+      "tests": [
+        {
+          "id": "A65757EA-02E1-5D0A-AFA5-34F12E689102",
+          "title": "Get File Exists — file_path contract (#210)",
+          "sort": 5400,
+          "file": "01-get-file-exists.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 16:29:01"
+        },
+        {
+          "id": "6BFAB703-220D-50D2-9143-3A5AAED894DE",
+          "title": "Get File Size — file_path contract (#210)",
+          "sort": 5420,
+          "file": "02-get-file-size.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 16:29:01"
+        },
+        {
+          "id": "646C4A3E-DEE2-5E0B-8F04-56F32293E72B",
+          "title": "Open Data File — file_path contract (#210)",
+          "sort": 5520,
+          "file": "03-open-data-file.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 16:29:02"
+        },
+        {
+          "id": "632C1D68-6ABA-5A92-B9D5-7F17624604E0",
+          "title": "Rename File — file_path contract (#210)",
+          "sort": 5470,
+          "file": "04-rename-file.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 16:29:01"
+        },
+        {
+          "id": "9CF3DD11-44C0-5B36-8A86-15669D7CA0C1",
+          "title": "Delete File — file_path contract (#210)",
+          "sort": 5500,
+          "file": "05-delete-file.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 16:29:02"
+        },
+        {
+          "id": "04B8EFFE-BF0A-5A13-976C-CB3FE65A6299",
+          "title": "Recover File — file_path contract (#210)",
+          "sort": 5630,
+          "file": "06-recover-file.fmJAML",
+          "recordedPass": true,
+          "recordedAt": "2026-10-14 16:29:17"
+        }
+      ]
+    }
+  ]
+}

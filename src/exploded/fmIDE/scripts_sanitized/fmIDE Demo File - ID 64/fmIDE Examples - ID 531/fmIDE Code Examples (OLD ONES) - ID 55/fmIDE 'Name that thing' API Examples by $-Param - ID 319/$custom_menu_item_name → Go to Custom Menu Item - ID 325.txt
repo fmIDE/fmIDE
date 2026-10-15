@@ -1,0 +1,6 @@
+# Passing a custom_menu_item_name performs a Go to Custom Menu Item action
+
+Set Variable [ $custom_menu_item_name[1] ; "Export Records…" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "$custom_menu_item_name=" & Quote( $custom_menu_item_name ) ]
+
+

@@ -1,0 +1,25 @@
+
+# 20260624 @mrwatson-de Opens fmIDE script from fmIDE_Test, fmIDE_Action and FileMaker ScriptSteps
+# 20250925 @mrwatson-de Only opens fmp URLs
+
+Set Error Capture [ ON ]
+
+
+If [ Get ( LayoutName ) = "Home" ]
+	Go to Field [ Select/perform ; fmIDE::_gQuickLinkFmpUrl ]
+	Set Variable [ $URL[1] ; fmIDE::_gQuickLinkFmpUrl ]
+	
+	If [ Left ( $URL ; 3 ) = "fmp" ]
+		Open URL [ In external browser: OFF ; With dialog: OFF ; ⚠️ PARAMETER "URL" NOT PARSED ⚠️ ]
+	End If
+Else If [ Get ( LayoutTableName ) = "fmIDE_Action" or Get ( LayoutTableName ) = "FileMakerScriptSteps" ]
+	Perform Script [ "Search in fmIDE Script ( script_step_search )" ; Specified: From list ; Parameter: JSONSetElement ( "{}"
+					; ["script_step_search" ; "$fmide__action_name = " & Quote ( fmIDE_Action::_kActionNameForScriptStepSearch ) ; JSONString]
+					) ]
+Else If [ Get ( LayoutTableName ) = "fmIDE_Test" ]
+	Perform Script [ "Search in fmIDE Script ( script_step_search )" ; Specified: From list ; Parameter: JSONSetElement ( "{}"
+					; ["script_step_search" ; "$fmide__action_name = " & Quote ( fmIDE_Test::_kTargetActionNameForScriptStepSearch ) ; JSONString]
+					) ]
+End If
+
+

@@ -1,0 +1,15 @@
+
+# 20260520 @mrwatson-de Hardcode
+# 20220915 MrW Use CF
+# 20220129 MrW generalised to use filename
+# 20210609 MrW 
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+# Script settings
+Set Variable [ $URL[1] ; "https://github.com/fmIDE/fmJAML" ]
+
+Open URL [ In external browser: OFF ; With dialog: OFF ; ⚠️ PARAMETER "URL" NOT PARSED ⚠️ ]
+
+

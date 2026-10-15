@@ -1,0 +1,13 @@
+
+# You can trigger an implicit 'Go to …' action by just naming the thing you want to go to.
+
+# The name of the element must have the form «thing»_«identifier_type»:
+# For example: layout_name, script_name, script_step_number
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "{}"
+				;[ "script_name" ; "fmIDE" ; JSONString]
+				;[ "script_step_number" ; 2 ; JSONNumber]
+				) ]
+
+# See the fmIDE 'Name that thing' API Examples folder for more
+

@@ -1,0 +1,7 @@
+
+
+Open File [ Open hidden: OFF ; "FileA" ]
+Open File [ Open hidden: OFF ; "FileB" ]
+Arrange All Windows [ Cascade Window ]
+Select Window
+

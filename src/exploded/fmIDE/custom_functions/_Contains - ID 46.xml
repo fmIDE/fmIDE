@@ -1,0 +1,13 @@
+<CustomFunction id="46" name="_Contains" access="All">
+	<UUID modifications="0" userName="R.Watson" accountName="Admin" timestamp="2025-09-26T17:09:15">899AC255-D20E-401D-A549-25ADB593898B</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="DC9EB6D4E7D832A78F065C2B1C8103B1">_899AC255-D20E-401D-A549-25ADB593898B</DDRREF>
+		<Text><![CDATA[Position( pText ; pFind ; 1 ; 1 ) > 0]]></Text>
+	</Calculation>
+	<Display>_Contains ( pText ; pFind )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pText"></Parameter>
+		<Parameter name="pFind"></Parameter>
+	</ObjectList>
+</CustomFunction>

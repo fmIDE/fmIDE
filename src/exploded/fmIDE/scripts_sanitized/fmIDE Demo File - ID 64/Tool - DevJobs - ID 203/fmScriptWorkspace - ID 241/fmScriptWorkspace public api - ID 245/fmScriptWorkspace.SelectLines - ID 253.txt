@@ -1,0 +1,29 @@
+# /##
+# Select lines in the currently open script in the script workspace.
+# Negative numbers are relative to the end of the script
+
+# Parameters: ¶-delimited
+# @param LineNumberFrom - the number of the start line
+# @param LineNumberTo - the number of the end line
+
+# Dependencies:
+# @referencedByName
+# @requires MBS Plugin Version 8.6.0.04
+
+# History:
+# @history 20181220 MrW Created
+
+# #/
+
+# Parameter
+Set Variable [ $LineNumberFrom[1] ; GetValue ( Get( ScriptParameter ) ; 1 ) ]
+Set Variable [ $LineNumberTo[1] ; GetValue ( Get( ScriptParameter ) ; 2 ) ]
+
+# Var
+If [ $LineNumberFrom and $LineNumberTo ]
+	# Select lines
+	Set Variable [ $r[1] ; MBS("ScriptWorkspace.SelectLines" ; $LineNumberFrom ; $LineNumberTo ) ]
+	Set Variable [ $r[1] ; MBS("ScriptWorkspace.ScrollToSelection"  ) ]
+End If
+
+

@@ -1,0 +1,50 @@
+
+# 20250926 @mrwatson-de New
+
+Set Error Capture [ ON ]
+
+# Param
+Set Variable [ $example_number[1] ; Get ( ScriptParameter ) ]
+
+Set Variable [ $request[1] ; 0 ]
+
+If [ 0 ]
+	# SWITCH
+	
+Else If [ $example_number = 1 ]
+	Set Variable [ $rep[1] ; 1 ]
+	
+	Set Variable [ $request[1] ; $request + 1 ]
+	Insert Text [ Select ; Target: $find ; ""Set"" ]
+	Insert Text [ Select ; Target: $replace ; ""script"" ]
+	
+Else If [ $example_number = 2 ]
+	Set Variable [ $rep[1] ; 2 ]
+	
+	Set Variable [ $request[1] ; $request + 1 ]
+	Insert Text [ Select ; Target: $find ; "ParameterName" ]
+	Insert Text [ Select ; Target: $replace ; "DevState" ]
+	
+	Set Variable [ $request[1] ; $request + 1 ]
+	Insert Text [ Select ; Target: $find ; ""name"" ]
+	Insert Text [ Select ; Target: $replace ; ""ok"" ]
+	
+	Set Variable [ $request[1] ; $request + 1 ]
+	Insert Text [ Select ; Target: $find ; "Category" ]
+	Insert Text [ Select ; Target: $replace ; "DevState" ]
+	
+End If
+
+# Perform replacements on the field
+Set Variable [ $request[1] ; 1 ]
+Loop [ Flush: Always ]
+	Exit Loop If [ IsEmpty ( $find[$request] ) ]
+	Set Selection [ fmIDE_Example::_gExample_fmIDE_ScriptParameter ; ⚠️ PARAMETER "Select" NOT PARSED ⚠️ ]
+	If [ _Contains ( fmIDE_Example::_gExample_fmIDE_ScriptParameter[$rep] ; $find[$request] ) ]
+		Perform Find/Replace [ With dialog: OFF ; ⚠️ PARAMETER "perform" NOT PARSED ⚠️ ; ⚠️ PARAMETER "find" NOT PARSED ⚠️ ; ⚠️ PARAMETER "replace" NOT PARSED ⚠️ ; ⚠️ PARAMETER "direction" NOT PARSED ⚠️ ; ⚠️ PARAMETER "case" NOT PARSED ⚠️ ; ⚠️ PARAMETER "whole" NOT PARSED ⚠️ ; ⚠️ PARAMETER "across" NOT PARSED ⚠️ ; ⚠️ PARAMETER "within" NOT PARSED ⚠️ ]
+		Perform Find/Replace [ With dialog: OFF ; ⚠️ PARAMETER "perform" NOT PARSED ⚠️ ; ⚠️ PARAMETER "find" NOT PARSED ⚠️ ; ⚠️ PARAMETER "replace" NOT PARSED ⚠️ ; ⚠️ PARAMETER "direction" NOT PARSED ⚠️ ; ⚠️ PARAMETER "case" NOT PARSED ⚠️ ; ⚠️ PARAMETER "whole" NOT PARSED ⚠️ ; ⚠️ PARAMETER "across" NOT PARSED ⚠️ ; ⚠️ PARAMETER "within" NOT PARSED ⚠️ ]
+	End If
+	
+	Set Variable [ $request[1] ; $request + 1 ]
+End Loop
+

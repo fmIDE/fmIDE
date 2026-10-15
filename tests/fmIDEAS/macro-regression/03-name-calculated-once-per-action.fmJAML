@@ -1,0 +1,24 @@
+[+].Set Error Capture = 1
+[+].Set
+[:]..target = "$mr_name"
+[:]..calculation = == "fmIDE_Test.MacroRegression.Calculated"
+[+].Set
+[:]..target = "$mr_calls"
+[:]..calculation = == 0
+#@test
+[+].fmIDE Define Macro
+[:]..macro_name = == Let ( $mr_calls = $mr_calls + 1 ; $mr_name )
+[:]..code = == "[+].Exit Script = == 42"
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "define" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].End If
+[+].fmIDE Get Macro
+[:]..macro_name = == Let ( $mr_calls = $mr_calls + 1 ; $mr_name )
+[:]..target = "$mr_macro"
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "get" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].End If
+[+].fmIDE Run Macro
+[:]..macro_name = == Let ( $mr_calls = $mr_calls + 1 ; $mr_name )
+#@endtest
+[+].Exit Script = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["calls" ; $mr_calls ; JSONNumber] ; ["name" ; JSONGetElement ( $mr_macro ; "name" ) ; JSONString] ; ["result" ; Get ( ScriptResult ) ; JSONString] )

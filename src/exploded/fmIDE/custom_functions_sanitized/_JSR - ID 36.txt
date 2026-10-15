@@ -1,0 +1,1 @@
+Case( not IsEmpty( Get ( ScriptResult ) ) ; Get ( ScriptResult ) ; "{}" )

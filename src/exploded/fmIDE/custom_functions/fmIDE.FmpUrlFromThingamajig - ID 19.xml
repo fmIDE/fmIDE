@@ -1,0 +1,14 @@
+<CustomFunction id="19" name="fmIDE.FmpUrlFromThingamajig" access="All">
+	<UUID modifications="7" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-10-17T08:04:13">15DD50C0-0310-4E7F-BFE0-C401EEF0E8D5</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="49446F0A144F5B69B3BD96AF6AD9089F">_15DD50C0-0310-4E7F-BFE0-C401EEF0E8D5</DDRREF>
+		<Text><![CDATA[/* fmIDE.FmpUrlFromThingamajig ( fmide_thingamajig_uri )Magically converts the fmIDE_thingamjig_uri to an fmp url for fmIDE.@param fmIDE_thingamjig_uri - the fmIDE_thingamajig_uri uri defining a resource in a FileMaker database. See 2022-10-17 MrW v0.3 Improved recognition of Claris Pro and formatted semicolons to better demarcate end of expression2022-10-14 MrW v0.2 Added claris: protocol when open in Claris Pro // the future is coming!2022-09-27 MrW v0.1*/Let ( [¢thingamajig = fmIDE_thingamajig_uri;¢pos = Position( ¢thingamajig & "&" ; "&" ; 1 ; 1 );¢fmide_parameters = Right( ¢thingamajig ; Length( ¢thingamajig )+1 - ¢pos );¢fmide_file_uri_path = Left( ¢thingamajig ; ¢pos-1);¢fmide_file_uri_path_bits = Substitute ( ¢fmide_file_uri_path ; "/" ; "¶" );¢fmide_file_uri_path_bit_count = ValueCount ( ¢fmide_file_uri_path_bits );¢fmide_file_name = Case( ¢fmide_file_uri_path_bit_count ≥ 1 ; GetValue ( ¢fmide_file_uri_path_bits ; ¢fmide_file_uri_path_bit_count ) );¢fmide_server = Case( ¢fmide_file_uri_path_bit_count ≥ 2 ; GetValue ( ¢fmide_file_uri_path_bits ; ¢fmide_file_uri_path_bit_count-1 ) );¢fmide_server = Case( not IsEmpty( ¢fmide_server ) ; ¢fmide_server ; not IsEmpty( server_default ) ; server_default ; "$" );¢fmide_fmp = Case( ¢fmide_file_uri_path_bit_count ≥ 3 ; GetValue ( ¢fmide_file_uri_path_bits ; ¢fmide_file_uri_path_bit_count-2 ) );¢ProVersionMajor = +GetValue( Substitute( Get(ApplicationVersion) ; "." ; ¶ ) ; 1 );¢CLARIS_PRO_VERSION_MIN = 40;¢fmide_fmp = Case(  not IsEmpty( ¢fmide_fmp ) ; ¢fmide_fmp;  not IsEmpty( fmp_default ) ; fmp_default;  ¢ProVersionMajor ≥ ¢CLARIS_PRO_VERSION_MIN; "claris";  "fmp"  );¢fmide_file_name = Case( not IsEmpty( ¢fmide_file_name ) ; ¢fmide_file_name ; Get( FileName ) )];Case ( not IsEmpty ( ¢fmide_file_name ) ; ¢fmide_fmp & "://" & ¢fmide_server & "/" & ¢fmide_file_name & "?script=fmIDE" & ¢fmide_parameters ))]]></Text>
+	</Calculation>
+	<Display>fmIDE.FmpUrlFromThingamajig ( fmp_default ; server_default ; fmide_thingamajig_uri )</Display>
+	<ObjectList membercount="3">
+		<Parameter name="fmp_default"></Parameter>
+		<Parameter name="server_default"></Parameter>
+		<Parameter name="fmide_thingamajig_uri"></Parameter>
+	</ObjectList>
+</CustomFunction>

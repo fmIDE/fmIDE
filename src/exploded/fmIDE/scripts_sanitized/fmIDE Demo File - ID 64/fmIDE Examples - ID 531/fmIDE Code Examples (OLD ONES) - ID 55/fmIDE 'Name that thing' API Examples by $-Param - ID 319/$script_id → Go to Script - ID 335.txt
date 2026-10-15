@@ -1,0 +1,8 @@
+# Passing a script_id runs the script with that internal id
+
+Set Variable [ $script_id[1] ; 50 /* Script 50 in the fmIDE demo file is the fmIDE script itself */ ]
+Set Variable [ $script_step_number[1] ; 2 ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "$script_id=" & +$script_id & ";" &
+				"$script_step_number=" & Quote( $script_step_number ) & ";" ]
+
+

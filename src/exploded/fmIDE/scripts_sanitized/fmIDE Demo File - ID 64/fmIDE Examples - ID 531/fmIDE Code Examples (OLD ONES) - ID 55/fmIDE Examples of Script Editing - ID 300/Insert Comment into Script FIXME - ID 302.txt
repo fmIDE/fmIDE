@@ -1,0 +1,30 @@
+
+
+
+# FIXME
+Insert Text [ Select ; Target: $fmIDE_SCRIPT ; "JSONSetElementz( "{}"
+				;["[0].Set Variable.$COMMENT_TEMPLATE" ; "<fmxmlsnippet type=\"FMObjectList\"><Step enable=\"True\" id=\"89\" name=\"# (comment)\"><Text>Comment {$i}</Text></Step></fmxmlsnippet>” ; JSONString]
+				;["[1].Set Variable.$i" ; 1 ; JSONNumber]
+				;["[2].Set Variable.$n" ; 10 ; JSONNumber]
+				;["[3].Loop" ; "" ; JSONString]
+				;["[4]. Exit Loop If" ; "$i > $n" ; JSONString]
+				;["[5]. Set Variable.$Comment_fmxmlsnippet" ; "Substitute ( $COMMENT_TEMPLATE ; \"{$i}\" ; $i )" ; JSONString]
+				;["[6]. Go to Script Step" ; "10-$i*2" ; JSONString]
+				;["[7]. Paste" ; "$Comment_fmxmlsnippet" ; JSONString]
+				;["[8]. Set Variable.$i" ; "$i + 1" ; JSONString]
+				;["[9].End Loop" ; JSONString]
+				)" ]
+
+Insert Text [ Select ; Target: $COMMENT_TEMPLATE ; "<fmxmlsnippet type="FMObjectList"><Step enable="True" id="89" name="# (comment)"><Text>Comment {$i}</Text></Step></fmxmlsnippet>" ]
+# Comment {$i}
+
+
+Set Variable [ $i[1] ; 1 ]
+Set Variable [ $n[1] ; 10 ]
+Loop [ Flush: Always ]
+	Exit Loop If [ $i > $n ]
+	Set Variable [ $Comment_fmxmlsnippet[1] ; Substitute ( $COMMENT_TEMPLATE ; "{$i}" ; $i ) ]
+	
+	Set Variable [ $i[1] ; $i + 1 ]
+End Loop
+

@@ -1,0 +1,99 @@
+/*/* _ColorImage ( pRGB_String )
+
+Dynamically creates an image (file) with the given color which can be output via a container field (as a stored or unstored calculation) to produce dynamic color.
+
+Set the following properties on the container field to get an edge to edge color:
+
+• container: enlarge/reduce
+• container: don't maintain proportions
+
+and (to remove the border)
+
+• field borders: ON
+• field border width: 0px
+• field border color: None
+
+The current version of the function creates a 16x16 pixel gif file with the name "color«rrggbb».gif".
+
+
+Parameters
+
+pRGB_String - a string representation of a color using red green and blue values between 0 and 255 in any of the following formats:
+
+  - red green blue or red ; green ; blue // as three separate numbers - with any separator
+  - #RRGGBB or RRGGBB // as a 6 digit hexadecimal string - with or without a preceeding #
+  - #RGB RGB // as a 3 digit hexadecimal string - with or without a preceeding #
+  - JSON object with keys "red", "green" or "blue"
+
+  - an empty parameter produces an empty result
+  - any other value will be interpreted as a hex string, thus "1234567890" will be equivalent to "#567890"
+
+Examples
+
+_ColorImage ( "#524742" ) // Hexcolor with preceding "#"
+_ColorImage ( "524742" ) // Hexcolor with no preceding "#"
+
+_ColorImage ( "#c93" ) // Short (JavaScript) hexcolor - equivalent to #cc9933
+_ColorImage ( "c93" ) // Short (JavaScript) hexcolor with no preceding "#" - equivalent to #cc9933
+
+_ColorImage ( "82 ; 71 ; 66" ) // RGB decimal values separated by semicolon
+_ColorImage ( "82¶71¶66" ) // RGB decimal values separated by white space
+
+_ColorImage ( "{\"red\":82,\"green\":71,\"blue\":66}" ) // RGB decimal values as JSON
+_ColorImage ( TextColor ( "#" ; RGB ( 82 ; 71 ; 66 ) ) ) // RGB passed via the color of a single (non-hex) charcater
+
+Note: the following is NOT supported:
+_ColorImage ( RGB ( 82 ; 71 ; 66 ) ) // Error - the decimal value will be interpreted as a hex value!
+
+Tips for the inquisitive:
+
+- GIF byte-structure explained here:
+        http://www.matthewflickinger.com/lab/whatsinagif/bits_and_bytes.asp
+
+- Note: Formatting an image with color #524742 (i.e. RGB( 82 ; 71 ; 66 ) 
+   makes it really easy to analyse the file with a hex editor…
+   …because characters 0x52 0x47 0x42 = "RGB"  :-)
+
+2018-11-08 RW: Version 1.1 Added the ability to set the color by passing *any* colored single (non hex-digit) character, and set default color to black rather than gray.
+2018-11-07 RW: Version 1.0.1 Fixed the code, where full block character had been lost in the copy + paste.
+2018-05-17 RW: Version 1.0
+*/
+
+Case(
+
+IsEmpty( pRGB_String ) ; "" ;
+
+Let(
+[
+
+/* A 16 x 16 pixel single color GIF image, with the RGB-bytes marked as #R #G and #B */
+vGIF_TEMPLATE = 
+"47 49 46 38 37 61 10 00 10 00 91 00 00 00 00 00
+#R #G #B FF FF FF 00 00 00 21 F9 04 09 0A 00 03
+00 2C 00 00 00 00 10 00 10 00 00 02 0E 8C 8F A9
+CB ED 0F A3 9C B4 DA 8B B3 3E 05 00 3B " ;
+
+vRRGGBB =  _ColorInputToRRGGBB ( pRGB_String );
+
+vRR = Middle( vRRGGBB ; 1 ; 2 ) ;
+vGG = Middle( vRRGGBB ; 3 ; 2 ) ;
+vBB = Middle( vRRGGBB ; 5 ; 2 ) ;
+
+/* output debugging infos
+$$RGB = pRGB_String ;
+$$RRGGBB = vRRGGBB ;
+$$vRGB = vRGB ;
+$$RR = vRR ;
+$$GG = vGG ;
+$$BB = vBB ;
+*/
+
+/* Plug them into the template */
+vGIFHex = Filter( Lower( Substitute( vGIF_TEMPLATE ; ["#R" ; vRR ] ; ["#G" ; vGG ] ; ["#B" ; vBB ] ) ) ; "01234567890abcdef" ) 
+
+];
+
+/* And turn into a gif File */
+HexDecode ( vGIFHex ; "color" & vRRGGBB & ".gif" )
+
+))*/

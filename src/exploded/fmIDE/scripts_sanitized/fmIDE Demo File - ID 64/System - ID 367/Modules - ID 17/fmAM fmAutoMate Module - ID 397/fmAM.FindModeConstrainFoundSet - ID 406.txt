@@ -1,0 +1,12 @@
+
+# 20260224 @mrwatson-de Don't catch errors
+# 20260224 @mrwatson-de Find, Constrain, Extend and Toggle Omit on the right click menu
+
+Set Variable [ $action[1] ; "constrain" ]
+
+Set Error Capture [ ON ]
+
+Constrain Found Set [ ⚠️ RESTORE ⚠️ ]
+Perform Script [ "fmAM.OnChangeFoundSet" ; Specified: From list ; Parameter: $action ]
+
+

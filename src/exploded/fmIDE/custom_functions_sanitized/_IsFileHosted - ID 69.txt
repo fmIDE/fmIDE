@@ -1,0 +1,15 @@
+/* _IsFileHosted
+
+-> 1 Wenn this file is being hosted, 0 if in client mode
+
+Benutzung:
+
+Wenn[G_IS_FileHosted]
+  #Ablauf im gehosteten Modus
+Sonst
+  #Ablauf im lokalen Modus
+End (wenn)
+
+2012-08-29 RW: Version 1
+*/
+Left( Get( FilePath ) ; 6 ) = "fmnet:"

@@ -1,0 +1,13 @@
+
+
+
+
+# Params
+Set Variable [ $_JSP[1] ; Case ( not IsEmpty ( Get ( ScriptParameter ) ) ; Get ( ScriptParameter ) ; "{}" ) ]
+Set Variable [ $page[1] ; JSONGetElement ( $_JSP ; "page" ) ]
+
+Set Variable [ $wiki_url[1] ; _MetaURLAppRepo & "/wiki/" ]
+Set Variable [ $wiki_page_url[1] ; $wiki_url & $page ]
+Open URL [ In external browser: OFF ; With dialog: OFF ; ⚠️ PARAMETER "URL" NOT PARSED ⚠️ ]
+
+

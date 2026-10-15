@@ -1,0 +1,9 @@
+<CustomFunction id="25" name="_IsKeyCMDWIN" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-10-08T07:02:53">0077EEDC-A31D-420B-9C25-292AB7B68566</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="2279180EDD22F142B535E566145E87C4">_0077EEDC-A31D-420B-9C25-292AB7B68566</DDRREF>
+		<Text><![CDATA[Mod( Get( ActiveModifierKeys) ; 16*2 )  >= 16]]></Text>
+	</Calculation>
+	<Display>_IsKeyCMDWIN</Display>
+</CustomFunction>

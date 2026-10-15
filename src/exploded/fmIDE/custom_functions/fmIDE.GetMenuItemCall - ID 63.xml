@@ -1,0 +1,13 @@
+<CustomFunction id="63" name="fmIDE.GetMenuItemCall" access="All">
+	<UUID modifications="4" userName="R.Watson" accountName="Admin" timestamp="2026-05-26T19:38:50">AC5D1DAE-8067-48D0-855A-AA1FCDBE7B38</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="367AFEBCFF31EF6C2E624E2835221C5E">_AC5D1DAE-8067-48D0-855A-AA1FCDBE7B38</DDRREF>
+		<Text><![CDATA[/* fmIDE.GetMenuItemCall ( pMenuItemName ; pOptionalMenuName )Returns the ID number of the menu item of the given name.If multiple entries with the same name are found the id of the first entry is returned.Optionally a menu name can be passed to disambiguate.*/Let([vMenuItem = fmIDE.GetMenuItemID ( pMenuItemName ; pOptionalMenuName ) ;vMenuItemReference = Case( not IsEmpty( pOptionalMenuName ) ; pOptionalMenuName & " " ) & pMenuItemName];Case( not IsEmpty ( vMenuItem ) ; "MBS( \"Menubar.RunMenuCommand\" ; " & vMenuItem & " /* " & vMenuItemReference & " */ ) " ))]]></Text>
+	</Calculation>
+	<Display>fmIDE.GetMenuItemCall ( pMenuItemName ; pOptionalMenuName )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pMenuItemName"></Parameter>
+		<Parameter name="pOptionalMenuName"></Parameter>
+	</ObjectList>
+</CustomFunction>

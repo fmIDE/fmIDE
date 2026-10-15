@@ -1,0 +1,12 @@
+<CustomFunction id="67" name="_fmIDE_ActionNameCamelCase" access="All">
+	<UUID modifications="2" userName="R.Watson" accountName="Admin" timestamp="2026-06-22T12:26:29">0F43350E-1C0F-47F1-97F2-FBBDBDFAC1AE</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="5C4E4BCE793FBFA0D91580AAAD66886B">_0F43350E-1C0F-47F1-97F2-FBBDBDFAC1AE</DDRREF>
+		<Text><![CDATA[/* _fmIDE_ActionNameCamelCase ( pActionName )Converts the action name to the internal CamelCase format20260622 @mrwatson-de: v0.2 Added "-" */Substitute ( Proper( pActionName ) ; ["-" ; ""] ; ["_" ; ""] ; ["/" ; ""] ; [" " ; ""] )]]></Text>
+	</Calculation>
+	<Display>_fmIDE_ActionNameCamelCase ( pActionName )</Display>
+	<ObjectList membercount="1">
+		<Parameter name="pActionName"></Parameter>
+	</ObjectList>
+</CustomFunction>

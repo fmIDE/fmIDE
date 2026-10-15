@@ -1,0 +1,282 @@
+# AI Bridge.Backup
+# Inputs arrive through Run Macro frontmatter; see manifest.json.
+[+].Set Error Capture = 1
+[+].Set.$bridge_macro = ===
+"AI Bridge.Backup"
+===
+[+].Set.$bridge_data = ===
+"{}"
+===
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "" ; JSONString ]
+)
+===
+[+].If = == IsEmpty ( $expected_file_path ) or not ( Exact ( Get ( FilePath ) ; $expected_file_path ) or ( Left ( $expected_file_path ; 1 ) = "/" and Exact ( Right ( Get ( FilePath ) ; Length ( $expected_file_path ) ) ; $expected_file_path ) ) )
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "expected_file_path must identify this database" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].If = == IsEmpty ( $backup_file_path )
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "backup_file_path is required; supply a FileMaker absolute file path" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].If = == not ( Left ( $backup_file_path ; 1 ) = "/" or Left ( $backup_file_path ; 6 ) = "file:/" or Left ( $backup_file_path ; 9 ) = "filemac:/" or Left ( $backup_file_path ; 9 ) = "filewin:/" )
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "Use an absolute FileMaker path" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].Get File Exists
+[:]..file_path = == $backup_file_path
+[:]..target = "$bridge_exists"
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; Case ( $$fmide_get_last_error ; "fmide" ; "" ) ; JSONString ]
+; [ "code" ; $$fmide_get_last_error ; JSONNumber ]
+; [ "message" ; "Check output path" ; JSONString ]
+; [ "detail" ; $$fmide_get_last_error_detail ; JSONString ]
+; [ "location" ; $$fmide_get_last_error_location ; JSONString ]
+; [ "description" ; $$fmide_get_last_error_description ; JSONString ]
+)
+===
+[+].If = == JSONGetElement ( $bridge_error ; "code" ) ≠ 0
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].If = == $bridge_exists
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "Output file already exists; choose a new path" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].If = == Right ( Lower ( $backup_file_path ) ; 6 ) ≠ ".fmp12"
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "backup_file_path must end with .fmp12" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].Save a Copy as
+[:]..file_path = == $backup_file_path
+[:]..by = "copy"
+[:]..create_folders = == 1
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; Case ( $$fmide_get_last_error ; "fmide" ; "" ) ; JSONString ]
+; [ "code" ; $$fmide_get_last_error ; JSONNumber ]
+; [ "message" ; "Save a Copy as" ; JSONString ]
+; [ "detail" ; $$fmide_get_last_error_detail ; JSONString ]
+; [ "location" ; $$fmide_get_last_error_location ; JSONString ]
+; [ "description" ; $$fmide_get_last_error_description ; JSONString ]
+)
+===
+[+].If = == JSONGetElement ( $bridge_error ; "code" ) ≠ 0
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].Get File Size
+[:]..file_path = == $backup_file_path
+[:]..target = "$bridge_size"
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; Case ( $$fmide_get_last_error ; "fmide" ; "" ) ; JSONString ]
+; [ "code" ; $$fmide_get_last_error ; JSONNumber ]
+; [ "message" ; "Read backup size" ; JSONString ]
+; [ "detail" ; $$fmide_get_last_error_detail ; JSONString ]
+; [ "location" ; $$fmide_get_last_error_location ; JSONString ]
+; [ "description" ; $$fmide_get_last_error_description ; JSONString ]
+)
+===
+[+].If = == JSONGetElement ( $bridge_error ; "code" ) ≠ 0
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].If = == $bridge_size <= 0
+[+].Set.$bridge_error = ===
+JSONSetElement ( "{}"
+; [ "kind" ; "validation" ; JSONString ]
+; [ "code" ; 0 ; JSONNumber ]
+; [ "message" ; "Backup is empty" ; JSONString ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===
+[+].End If
+[+].Set.$bridge_data = ===
+JSONSetElement ( "{}"
+; [ "file_path" ; $backup_file_path ; JSONString ]
+; [ "bytes" ; $bridge_size ; JSONNumber ]
+)
+===
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; IsEmpty ( JSONGetElement ( $bridge_error ; "kind" ) ) ; JSONBoolean ]
+; [ "macro" ; $bridge_macro ; JSONString ]
+; [ "data" ; $bridge_data ; JSONObject ]
+; [ "error" ; $bridge_error ; JSONObject ]
+; [ "context" ; JSONSetElement ( "{}"
+; [ "file_name" ; Get ( FileName ) ; JSONString ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "layout_name" ; Get ( LayoutName ) ; JSONString ]
+; [ "table_name" ; Get ( LayoutTableName ) ; JSONString ]
+; [ "application_version" ; Get ( ApplicationVersion ) ; JSONString ]
+; [ "fmide_release" ; $fmide_release ; JSONString ]
+) ; JSONObject ]
+)
+===

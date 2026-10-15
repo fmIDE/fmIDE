@@ -1,0 +1,18 @@
+# @param type - 'find', 'omit', 'constrain' or 'extend'
+
+# 20251118 @mrwatson-de v0.2.1 Return delimited parameter
+# 20250403 @mrwatson-de v0.2 Add fmAM.OnChangeSortOrder to catch changes in sort order
+# 20250214 @mrwatson-de
+
+Set Error Capture [ ON ]
+
+# Param
+Set Variable [ $type[1] ; GetValue( Get( ScriptParameter ) ; 1 ) ]
+
+If [ $type ≠ "constrain" ]
+	# only constrain preserves the sort order
+	Perform Script [ "fmAM.OnChangeSortOrder" ; Specified: From list ; Parameter: ]
+End If
+
+# You can add functionality here if needed
+

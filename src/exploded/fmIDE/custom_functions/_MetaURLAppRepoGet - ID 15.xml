@@ -1,0 +1,9 @@
+<CustomFunction id="15" name="_MetaURLAppRepoGet" access="All">
+	<UUID modifications="3" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-09-19T13:20:33">BCEDC95B-1C38-4DFE-8204-73680E4CD478</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="3AB204D947D8EE4D84CB5C2D8E20D021">_BCEDC95B-1C38-4DFE-8204-73680E4CD478</DDRREF>
+		<Text><![CDATA[_MetaURLAppRepoRoot & Lower( Case( _MetaAppIsPartOfFmWorkMate ; "fmWorkMate" ; _MetaAppName ) ) & "/releases"]]></Text>
+	</Calculation>
+	<Display>_MetaURLAppRepoGet</Display>
+</CustomFunction>

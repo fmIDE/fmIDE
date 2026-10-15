@@ -1,0 +1,58 @@
+# Canonical file_path, legacy alias, precedence and one evaluation. Issue #210.
+[+].Set Error Capture = == 1
+[+].Set.$fp_checks = == "{}"
+[+].Set.$fp_root = == Get ( TemporaryPath ) & "fmide-file-path-" & Get ( UUID ) & "/"
+
+# canonical
+[+].Set.$fp_path = == Get ( FilePath )
+[+].Set.$fp_calls = == 0
+[+].Set.$fp_unused = == 0
+#@test
+[+].Get File Exists
+[:]..file_path = == Let ( $fp_calls = $fp_calls + 1 ; $fp_path )
+[:]..target = "$fp_value"
+#@endtest
+[+].Set.$fp_error = == $$fmide_get_last_error
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "canonical_error" ; $fp_error = 0 ; JSONBoolean )
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "canonical_once" ; $fp_calls = 1 and $fp_unused = 0 ; JSONBoolean )
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "canonical_result" ; $fp_value = 1 ; JSONBoolean )
+
+# legacy
+[+].Set.$fp_path = == Get ( FilePath )
+[+].Set.$fp_calls = == 0
+[+].Set.$fp_unused = == 0
+#@test
+[+].Get File Exists
+[:]..source_file = == Let ( $fp_calls = $fp_calls + 1 ; $fp_path )
+[:]..target = "$fp_value"
+#@endtest
+[+].Set.$fp_error = == $$fmide_get_last_error
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "legacy_error" ; $fp_error = 0 ; JSONBoolean )
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "legacy_once" ; $fp_calls = 1 and $fp_unused = 0 ; JSONBoolean )
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "legacy_result" ; $fp_value = 1 ; JSONBoolean )
+
+# precedence
+[+].Set.$fp_path = == Get ( FilePath )
+[+].Set.$fp_calls = == 0
+[+].Set.$fp_unused = == 0
+#@test
+[+].Get File Exists
+[:]..file_path = == Let ( $fp_calls = $fp_calls + 1 ; $fp_path )
+[:]..source_file = == Let ( $fp_unused = $fp_unused + 1 ; $fp_root & "unused.txt" )
+[:]..target = "$fp_value"
+#@endtest
+[+].Set.$fp_error = == $$fmide_get_last_error
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "precedence_error" ; $fp_error = 0 ; JSONBoolean )
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "precedence_once" ; $fp_calls = 1 and $fp_unused = 0 ; JSONBoolean )
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "precedence_result" ; $fp_value = 1 ; JSONBoolean )
+
+# An explicitly empty canonical value must not fall back to the alias.
+[+].Set.$fp_unused = == 0
+#@test
+[+].Get File Exists
+[:]..file_path = == ""
+[:]..source_file = == Let ( $fp_unused = $fp_unused + 1 ; Get ( FilePath ) )
+[:]..target = "$fp_value"
+#@endtest
+[+].Set.$fp_checks = == JSONSetElement ( $fp_checks ; "empty_canonical" ; $fp_value = 0 and $fp_unused = 0 and $$fmide_get_last_error = 0 ; JSONBoolean )
+[+].Exit Script = == Let ( [ keys = JSONListKeys ( $fp_checks ; "" ) ; ok = While ( [ i = 1 ; ok = 1 ] ; i ≤ ValueCount ( keys ) ; [ ok = ok and JSONGetElement ( $fp_checks ; GetValue ( keys ; i ) ) ; i = i + 1 ] ; ok ) ] ; JSONSetElement ( "{}" ; ["ok" ; ok ; JSONBoolean] ; ["checks" ; $fp_checks ; JSONObject] ) )

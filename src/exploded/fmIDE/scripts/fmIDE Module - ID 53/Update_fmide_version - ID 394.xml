@@ -1,0 +1,423 @@
+<Script>
+	<ScriptReference id="394" name="Update_fmide_version" UUID="A257E18A-BCC5-4B7F-8CF1-565565266163"></ScriptReference>
+	<ObjectList membercount="28">
+		<Step hash="1EB9700A6B35BD24C99430D427D35273" index="0" id="89" name="# (comment)" enable="True">
+			<UUID>F1C30261-2C21-44A5-ABCE-F3BE079AFECB</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F799FEBF505BCDB2F6F9A2D674E198FD">_F1C30261-2C21-44A5-ABCE-F3BE079AFECB</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="This script is used during the development of fmIDE to automatically refresh the `$fmIDE_version` number in line 2 of the fmIDE script."></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="57158647F972E26122F423B39A2EE1CB" index="1" id="89" name="# (comment)" enable="True">
+			<UUID>BA3A1502-6049-44A1-8CD2-5148DD678F7E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="EF3C0FF916446A7540E51B9A5C3A8221">_BA3A1502-6049-44A1-8CD2-5148DD678F7E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="It works like this: reads the vesion out of the history script"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="00FEBBCE3295037C90B139A30D83ABA9" index="2" id="89" name="# (comment)" enable="True">
+			<UUID>1310DCB5-0D40-490F-9206-F2FC4F4EF653</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="DEDCE8EF88153AE7D2749170315AC098">_1310DCB5-0D40-490F-9206-F2FC4F4EF653</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="46A474211ADA8643689BD71100F3FF51" index="3" id="89" name="# (comment)" enable="True">
+			<UUID>435D4329-CEE3-44A6-A222-582CAE30BD21</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="FA4170936FFC7E213D412AA38A572487">_435D4329-CEE3-44A6-A222-582CAE30BD21</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="1. An fmxmlsnippet template is generated to replace line 2 with"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E1F65D32D938985EACE64B83C3B17D68" index="4" id="89" name="# (comment)" enable="True">
+			<UUID>C5BA34C2-7E35-468B-A86B-E7AC2CABA15E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F032979E50FA1C8CF16C0CB0694A5A3C">_C5BA34C2-7E35-468B-A86B-E7AC2CABA15E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="2. The current version number is parsed out of the history script name"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2B61C4DBD2BF903394AB1CEF39AAD7CB" index="5" id="89" name="# (comment)" enable="True">
+			<UUID>B568FC51-694F-470A-98AB-5B53ECC745BB</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="2363D5C41209A600BCF75C6F0226CCE7">_B568FC51-694F-470A-98AB-5B53ECC745BB</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="3. The fmxmlsnippet is constructed and placed on the clipboard"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="4F7D7726AA5ED517AD11244F9543093D" index="6" id="89" name="# (comment)" enable="True">
+			<UUID>1A9076C3-8FA2-45B6-991B-D8D177D272BB</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="54AD67DD3A011B1C8A9E82F7B7448A71">_1A9076C3-8FA2-45B6-991B-D8D177D272BB</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="4. An fmIDE Action Script is run which… "></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="6BC4C75009345C40655ABB92D0D15A93" index="7" id="89" name="# (comment)" enable="True">
+			<UUID>E2DFA53C-DF1A-4565-9341-3C633D50BB6A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DBB3E9062C25E498DA33F6DD3DD3BB79">_E2DFA53C-DF1A-4565-9341-3C633D50BB6A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="   - Selects step 2 of the `fmIDE` script"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="455DC2A85D2194609D3D41A49D18865D" index="8" id="89" name="# (comment)" enable="True">
+			<UUID>F58A4D00-08DB-46ED-B62D-C976F2A5AA69</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="B25EFBEFF1B963A01EBBB3536B72E94F">_F58A4D00-08DB-46ED-B62D-C976F2A5AA69</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="   - Presses the Backspace key to delete the line AND (important!) move the focus back to line 1"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="505E328B3945596A46F4F085FF3BD6B7" index="9" id="89" name="# (comment)" enable="True">
+			<UUID>BAD3764E-2A60-4077-8645-5867A7308703</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="3AE86A67F3956771807CC746E231E8C4">_BAD3764E-2A60-4077-8645-5867A7308703</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="   - Presses Command+V to paste the new step into line 2"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="F7D12DFE3731F4DB97E5ACB7FA2260C3" index="10" id="89" name="# (comment)" enable="True">
+			<UUID>2BFD44DF-A502-4ECD-8D3B-D7306371515F</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="FCC47E3FDCB604A3900FB044739130D5">_2BFD44DF-A502-4ECD-8D3B-D7306371515F</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="   - Presses Command+S to save the script"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="D2597CC73D02A07FD1FC6706CF86E507" index="11" id="89" name="# (comment)" enable="True">
+			<UUID>1B017AD9-B810-45F8-8259-8E5E4786D658</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="872697CD04FE4D22CA77FCC2AFC669F7">_1B017AD9-B810-45F8-8259-8E5E4786D658</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AE3388828F443360B36C84BD3456CFDE" index="12" id="89" name="# (comment)" enable="True">
+			<UUID>FEBFC016-D20A-4B0E-BCD0-8966A752A509</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="5A04315E96C34FD4B819425655F9118F">_FEBFC016-D20A-4B0E-BCD0-8966A752A509</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AF3D01921B06F396590B152CAC7AC6D5" index="13" id="89" name="# (comment)" enable="True">
+			<UUID>EF2EAECB-4D0B-489F-B585-62F14C7A299D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="ED806C36ECAE85B4DA8508B6569CE851">_EF2EAECB-4D0B-489F-B585-62F14C7A299D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260929 @mrwatson-de Fix #154 Changed to set the $release string"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CCC59DA32C194CBD04C3FDE56FC8ABCE" index="14" id="89" name="# (comment)" enable="True">
+			<UUID>9A15571B-9C4F-484D-B190-8F7EF0A14FF1</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="58D7BA5069213D2BE473F5151AF11A65">_9A15571B-9C4F-484D-B190-8F7EF0A14FF1</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260611 @mrwatson-de Documented (because it is not working:D)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A0F6C9D44ABB973EEFBFE52B87EF8571" index="15" id="89" name="# (comment)" enable="True">
+			<UUID>E0C4ABB4-73C0-4D0D-AB21-20192D6F78EA</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="350AB1210010ED9410880E9667B3217B">_E0C4ABB4-73C0-4D0D-AB21-20192D6F78EA</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9759537DD246766FC5FF1ED89CD7E8C1" index="16" id="89" name="# (comment)" enable="True">
+			<UUID>F65EC5C6-19C2-45A7-A1A6-385E0BE867D7</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0C114B8BFE203024ACE8485DF7302B93">_F65EC5C6-19C2-45A7-A1A6-385E0BE867D7</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="Input variable"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="ED4BFDB88258AACD86E8F38E3217611C" index="17" id="141" name="Set Variable" enable="True">
+			<UUID>39ED6434-FB14-4B4B-A160-2D405AE64D92</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="E7A5D1C49782C9793DB5F608009B6709">_39ED6434-FB14-4B4B-A160-2D405AE64D92</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="F81FBA099E3ED2B20873DAC8048E9EF2">_39ED6434-FB14-4B4B-A160-2D405AE64D92_1</DDRREF>
+								<Text><![CDATA[_fmIDEGetReleaseFromScript]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$replace"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_39ED6434-FB14-4B4B-A160-2D405AE64D92_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CF134ED0AE163950BB5CD322D2F619C2" index="18" id="89" name="# (comment)" enable="True">
+			<UUID>4599B3DF-2B6D-4B68-A05A-3F8FBC2251CE</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="13BD1622A2EAEEC29D1E7D2B2556AA16">_4599B3DF-2B6D-4B68-A05A-3F8FBC2251CE</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="8E11F7F641EBDF7791BEFA4C19F3EEBD" index="19" id="89" name="# (comment)" enable="True">
+			<UUID>05E25759-E2CA-4193-AB92-4B1C7B7CA270</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="71B6591834B3E9B36AE3A49750215C55">_05E25759-E2CA-4193-AB92-4B1C7B7CA270</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="Extract version from name and construct "></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="B94FE99B6F3BE824335EEB3A423B5665" index="20" id="61" name="Insert Text" enable="True">
+			<UUID>C2E8F8D4-BF76-4B30-A035-E688DB8FC22F</UUID>
+			<OwnerID></OwnerID>
+			<Options>4101</Options>
+			<DDRREF kind="StepText" hash="D37AADBB2148171A8D794778831DB37F">_C2E8F8D4-BF76-4B30-A035-E688DB8FC22F</DDRREF>
+			<ParameterValues membercount="3">
+				<Parameter type="Boolean">
+					<Boolean type="Select" id="4096" value="True"></Boolean>
+				</Parameter>
+				<Parameter type="Target">
+					<Variable value="$fmxmlsnippet_template">
+						<repetition>
+							<Calculation datatype="1" position="32">
+								<Calculation>
+									<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_C2E8F8D4-BF76-4B30-A035-E688DB8FC22F_32</DDRREF>
+									<Text><![CDATA[1]]></Text>
+								</Calculation>
+							</Calculation>
+						</repetition>
+					</Variable>
+				</Parameter>
+				<Parameter type="Text">
+					<Text value="&lt;fmxmlsnippet type=&quot;FMObjectList&quot;&gt;&#13;  &lt;Step enable=&quot;True&quot; id=&quot;61&quot; name=&quot;Insert Text&quot;&gt;&#13;    &lt;SelectAll state=&quot;True&quot;/&gt;&#13;    &lt;DisableStepCollapsed state=&quot;False&quot;/&gt;&#13;    &lt;Text&gt;__replace__&lt;/Text&gt;&#13;    &lt;Field&gt;$fmide_release&lt;/Field&gt;&#13;  &lt;/Step&gt;&#13;&lt;/fmxmlsnippet&gt;&#13;"></Text>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BC2CF33C2F5FC6D3F6187E378792EC35" index="21" id="141" name="Set Variable" enable="True">
+			<UUID>D200CFEB-8256-47BD-B9B3-988827C8CD3A</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="056DCF7A7AD93948411399D9810C1EB5">_D200CFEB-8256-47BD-B9B3-988827C8CD3A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="EDDD2B776BB72BB435CFADFDF8D9A904">_D200CFEB-8256-47BD-B9B3-988827C8CD3A_1</DDRREF>
+								<Text><![CDATA[Substitute ( $fmxmlsnippet_template ; "__replace__" ; $replace )]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$fmxmlsnippet"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_D200CFEB-8256-47BD-B9B3-988827C8CD3A_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A604FBBEC5F43D82C52993F82BDCAB11" index="22" id="141" name="Set Variable" enable="True">
+			<UUID>DC5AFE4F-939B-4810-96BB-60B3D518CDCF</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="5BCEECE2B1312F085662B67DEDC9CF4A">_DC5AFE4F-939B-4810-96BB-60B3D518CDCF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="60AB16F50EAF1589460379EFDB21EE24">_DC5AFE4F-939B-4810-96BB-60B3D518CDCF_1</DDRREF>
+								<Text><![CDATA[MBS( "Clipboard.SetFileMakerData" ; "auto" ; $fmxmlsnippet )]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$r"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_DC5AFE4F-939B-4810-96BB-60B3D518CDCF_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="B68673A0217BA31932FA546FC86BF908" index="23" id="89" name="# (comment)" enable="True">
+			<UUID>C917FEBD-F2A1-49CE-ADA4-DE76070D2272</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="53364F3755A9AF674F2D9BDAB63DFE69">_C917FEBD-F2A1-49CE-ADA4-DE76070D2272</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="034CF58646FA4423AC8A151C9158BE51" index="24" id="61" name="Insert Text" enable="False">
+			<UUID>0740C534-07BC-4CD0-BA46-CCEE9C4A5B24</UUID>
+			<OwnerID></OwnerID>
+			<Options>4103</Options>
+			<DDRREF kind="StepText" hash="4963AC35350A988E5EC110029BB41746">_0740C534-07BC-4CD0-BA46-CCEE9C4A5B24</DDRREF>
+			<ParameterValues membercount="3">
+				<Parameter type="Boolean">
+					<Boolean type="Select" id="4096" value="True"></Boolean>
+				</Parameter>
+				<Parameter type="Target">
+					<Variable value="$frontmatter">
+						<repetition>
+							<Calculation datatype="1" position="32">
+								<Calculation>
+									<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_0740C534-07BC-4CD0-BA46-CCEE9C4A5B24_32</DDRREF>
+									<Text><![CDATA[1]]></Text>
+								</Calculation>
+							</Calculation>
+						</repetition>
+					</Variable>
+				</Parameter>
+				<Parameter type="Text">
+					<Text value="---&#13;$fmIDE_debugger=1&#13;---"></Text>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="8ECCCAFC68765DB7CDE4888947CD9AC6" index="25" id="61" name="Insert Text" enable="True">
+			<UUID>98A8692A-33C0-4C21-A5D2-1B058D2E30B0</UUID>
+			<OwnerID></OwnerID>
+			<Options>4103</Options>
+			<DDRREF kind="StepText" hash="52836604F7FC4E554001709DC34DAB8F">_98A8692A-33C0-4C21-A5D2-1B058D2E30B0</DDRREF>
+			<ParameterValues membercount="3">
+				<Parameter type="Boolean">
+					<Boolean type="Select" id="4096" value="True"></Boolean>
+				</Parameter>
+				<Parameter type="Target">
+					<Variable value="$fmJAML">
+						<repetition>
+							<Calculation datatype="1" position="32">
+								<Calculation>
+									<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_98A8692A-33C0-4C21-A5D2-1B058D2E30B0_32</DDRREF>
+									<Text><![CDATA[1]]></Text>
+								</Calculation>
+							</Calculation>
+						</repetition>
+					</Variable>
+				</Parameter>
+				<Parameter type="Text">
+					<Text value="[+].Go To Script&#13;[:]..script_name = &quot;fmIDE&quot;&#13;[:]..script_step_number = 2&#13;[+].Press.key = Char(8)&#13;[+].Press.command_key = &quot;V&quot;&#13;[+].Press.command_key = &quot;S&quot;&#13;[+].Set Clipboard Text = == MBS( &quot;ScriptWorkspace.ScriptText&quot; ; 0 )"></Text>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="98CF931C0699300726D70349CB47E056" index="26" id="1" name="Perform Script" breakpoint="True" enable="True">
+			<UUID>F08C9BB8-DD99-4D96-9526-2309EF457F3A</UUID>
+			<OwnerID></OwnerID>
+			<Options>34621440</Options>
+			<DDRREF kind="StepText" hash="154AA0160440BD38BA7E01402B83A94B">_F08C9BB8-DD99-4D96-9526-2309EF457F3A</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="List">
+					<List name="By name" value="2">
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="3E05012027CC562ECACFE57F636837C2">_F08C9BB8-DD99-4D96-9526-2309EF457F3A_2</DDRREF>
+								<Text><![CDATA["fmIDE"]]></Text>
+							</Calculation>
+						</Calculation>
+					</List>
+				</Parameter>
+				<Parameter type="Parameter">
+					<Parameter>
+						<Calculation datatype="1" position="0">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="EB859259EC989E5898139C7497D1294A">_F08C9BB8-DD99-4D96-9526-2309EF457F3A_0</DDRREF>
+								<Text><![CDATA[List($frontmatter ;$fmJAML)]]></Text>
+							</Calculation>
+						</Calculation>
+					</Parameter>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3CFAB3E8295D27DB2BEAA091EE376711" index="27" id="89" name="# (comment)" enable="True">
+			<UUID>A6AACA4A-249E-4B93-B869-0C18DAB97924</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="ECFB88F986CFA3AF818859B0D6F1308C">_A6AACA4A-249E-4B93-B869-0C18DAB97924</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+	</ObjectList>
+</Script>

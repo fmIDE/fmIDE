@@ -1,0 +1,40 @@
+/* _Stubify ( pValues ; pDelim ; pJOpts )
+
+Returns line contents before the delimiter (trimmed).
+
+For example
+
+_Stubify ( ScriptNames ( "" ) ; "(" ) returns script names without parameters.
+
+20250925 @mrwatson-de v0.1
+
+*/
+
+Case( IsEmpty( pDelim ) or pDelim = ¶ ; pValues ;
+
+While(
+[
+
+vValues = pValues & ¶ ;
+vResult = "" ;
+vPosStart = 1 ;
+
+/* find the first delimiter */
+vPosDelim = Position ( pValues ; pDelim ; vPosStart ; 1 )
+
+]; vPosDelim ;[
+
+/* add everything up to the character before the next occurence - trimmed + an EOL */
+vResult = vResult & Trim( Middle ( pValues ; vPosStart ; vPosDelim - vPosStart ) ) & ¶ ;
+
+/* skip past next ¶ */
+vPosStart = Position ( vValues ; ¶ ; vPosDelim ; 1 ) + 1 ;
+
+/* find the next delimiter */
+vPosDelim = Position ( pValues ; pDelim ; vPosStart ; 1 )
+];
+
+/* and add the last bit too */
+vResult & Middle ( pValues ; vPosStart ; Length ( pValues )+1 - vPosStart )
+
+))

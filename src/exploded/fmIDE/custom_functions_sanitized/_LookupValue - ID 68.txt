@@ -1,0 +1,11 @@
+Let(
+[
+
+vPosValue = Position( ¶ & pInList & ¶ ; ¶ & pValue & ¶ ; 1 ; 1 ) ;
+vRow = ValueCount ( Left( pInList ; vPosValue ) )
+
+];
+
+Case( vPosValue ; GetValue ( pReturnList ; vRow ) )
+
+)

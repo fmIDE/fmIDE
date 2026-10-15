@@ -1,0 +1,4 @@
+
+
+Set Variable [ $$LastMessageChoice[1] ; Get( ScriptParameter ) ]
+

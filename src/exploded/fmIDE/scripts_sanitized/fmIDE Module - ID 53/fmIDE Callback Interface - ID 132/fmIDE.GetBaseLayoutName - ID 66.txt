@@ -1,0 +1,87 @@
+
+# This script is called from fmIDE to calculate the base_layout_name…
+# - typically from the `table_name` (that is from the LayouTableName which is the most common basis of the layout name)
+# - or from the `base_table_name` (which is a less common practice, since base_table_names are far less accessible in FileMaker)
+
+# When a new base table is created in FileMaker, the base table, the PTO and the layout are all given the same name.
+# To this end this script presumes by default that `table_name` = `base_table_name`= `base_layout_name`
+# and just returns the `base_layout_name` as the unchanged `table_name` or `base_table_name`
+
+# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+# If your database has a different (or no) logic, please customise this script to suit your database's naming conventions
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+# 20260611 @mrwatson-de fmIDE 0.47
+  - Changed the fmIDE Demo file to not use a prefix in base layout names, so that by default base_table_name = table_name = base_layout_name
+  - Add documentation to help customise the script
+# 20220928 MrW fmIDE 0.21 (breaking change)
+  - Script renamed `fmIDE.GetBaseLayoutName` instead of `fmIDE.GetLayoutNameForTable`
+  - Return parameter renamed `base_layout_name` instead of `layout_name`
+# 20220914 MrW Simplified
+# 20220912 MrW Fixed to remove the leading underscore of PTOs
+
+# Params
+Set Variable [ $_JSP[1] ; Case ( not IsEmpty ( Get ( ScriptParameter ) ) ; Get ( ScriptParameter )  ; "{}" ) ]
+Set Variable [ $base_table_name[1] ; JSONGetElement( $_JSP ; "base_table_name" ) ]
+Set Variable [ $table_name[1] ; JSONGetElement( $_JSP ; "table_name" ) ]
+
+
+
+If [ IsEmpty ( $table_name ) and not IsEmpty ( $base_table_name ) ]
+	# # First convert base_table_name to table_name, if necessary
+	# ! customise this line to map a base_table_name to its PTO table_name, if necessary
+	# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+	Set Variable [ $table_name[1] ; $base_table_name ]
+	# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+End If
+
+If [ not IsEmpty ( $table_name ) ]
+	# # Convert table_name to base_layout_name
+	# ! customise this line/these lines to map a table_name to the base_layout_name, if necessary
+	# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+	Set Variable [ $base_layout_name_prefix[1] ; ""
+					/*
+					The default setting of "" here means that your base layout names are identical to their LayoutTableName.
+					
+					If, however, your BaseLayout names have the form "«prefix»«table_name»" - i.e. they are displayed as "«prefix»«LayoutTableName» («LayoutTableName»)".
+					
+					For example, if your (Base)Layout name is displayed as "I Service SomeTable (SomeTable)" then
+					
+					- Get( LayoutTableName ) of this layout is "SomeTable"
+					  - fmIDE calls this the `table_name`
+					- Get( LayoutName ) of this layout is "I Service SomeTable" 
+					  - fmIDE calls this here the `base_layout_name`
+					- so the prefix to prepend is "I Service " (don't forget the space)
+					
+					
+					Enter "I Service " here (and don't forget the space!) in order to
+					
+					- map `table_name` "SomeTable"
+					- to `base_layout_name` "I Service SomeTable"
+					
+					*/ ]
+	Set Variable [ $base_layout_name[1] ; $base_layout_name_prefix & $table_name ]
+	# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+End If
+
+# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+# If your Base Layout names are based on the base_table_name rather than on the table_name, you can use this code instead
+// If [ IsEmpty ( $base_table_name ) and not IsEmpty ( $table_name ) ]
+// # # Convert table_name to base_table_name
+// Perform Script [ "fmIDE.GetBaseTableName" ; Specified: From list ; Parameter: Get( ScriptParameter ) ]
+// Set Variable [ $base_table_name[1] ; JSONGetElement ( Get ( ScriptResult ) ; "base_table_name" ) ]
+// End If
+// 
+// If [ not IsEmpty ( $base_table_name ) ]
+// # # Convert base_table_name to base_layout_name
+// # ! customise this line/these lines to map a base_table_name to the base_layout_name, if necessary
+// # vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+// Set Variable [ $base_layout_name_prefix[1] ; "" ]
+// Set Variable [ $base_layout_name[1] ; $base_layout_name_prefix & $base_table_name ]
+// # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+// End If
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Exit Script [ JSONSetElement ( "" ; "base_layout_name" ; $base_layout_name ; JSONString ) ]
+
+

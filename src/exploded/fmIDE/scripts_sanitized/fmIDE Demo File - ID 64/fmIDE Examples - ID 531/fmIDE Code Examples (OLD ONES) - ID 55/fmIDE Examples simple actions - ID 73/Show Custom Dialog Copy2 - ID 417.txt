@@ -1,0 +1,10 @@
+
+# 20221013 MrW
+  - Fix #11 `message` = text
+
+Set Variable [ $action[1] ; JSONSetElement ( "{}" ;
+				["Show Custom Dialog.message";"Hello" ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action ]
+
+

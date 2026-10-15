@@ -1,0 +1,7 @@
+
+# 20260402 @mrwatson-de v0.1
+
+Perform Script [ "Tests: Find all tests ({flags})" ; Specified: From list ; Parameter: JSONSetElement ( "{}" ; "automatic" ; 1 ; JSONBoolean ) ]
+
+
+

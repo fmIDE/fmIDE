@@ -1,0 +1,44 @@
+
+
+Insert Text [ Select ; Target: $fmIDE_Param ; "[
+					{
+						"Go to Layout" : 
+						{
+							"layout_name" : "fmIDE Actions"
+						}
+					},
+					{
+						"Enter Find Mode" : {}
+					},
+					{
+						"Set Field" : 
+						{
+							"fmIDE_Action::ActionName" : 
+							{
+								"text" : "Set"
+							}
+						}
+					},
+					{
+						"Perform Find" : {}
+					},
+					{
+						"Set" : 
+						{
+							"$last_error" : 
+							{
+								"value" : "Get ( LastError )"
+							}
+						}
+					},
+					{
+						"Show Custom Dialog" : 
+						{
+							"buttons" : "OK",
+							"message_value" : "Case(\r$last_error ; \"Error \" & $last_error ; \r\"Found \" & Get( FoundCount ) & \" \" &  Get ( LayoutTableName ) & \" records\"\r)",
+							"title" : "fmIDE"
+						}
+					}
+				]" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $fmIDE_Param ]
+

@@ -1,0 +1,53 @@
+
+
+
+Set Variable [ $actions[1] ; Let( _ = JSONString ; JSONSetElement ( "[]" ;
+				["[00].Set.target" ; "$i";_];
+				["[00].Set.value" ; "1";_];
+				
+				["[01].Set.target" ; "$n";_];
+				["[01].Set.value" ; "8";_];
+				
+				["[02].Loop";"";_];
+				["[03].	If.value"   ; "$i<=2";_];
+				["[04].		If.value"   ; "$i=1";_];
+				["[05].			Show Custom Dialog.message"  ; 1;_];
+				["[06].		Else";"";_]; 
+				["[07].			Show Custom Dialog.message"  ; 2;_];
+				["[08].		End If";"";_];
+				["[09].	Else";"";_];
+				["[10].		If.value" ; "$i=3";_];
+				["[11].			Show Custom Dialog.message"  ; 3;_];
+				["[12].		Else";"";_]; 
+				["[13].			Show Custom Dialog.message"  ; 4;_];
+				
+				["[14].			Loop";"";_];
+				["[16].				If.value"   ; "$i<=2+4";_];
+				["[17].					If.value"   ; "$i=1+4";_];
+				["[18].						Show Custom Dialog.message"  ; 1+4;_];
+				["[19].					Else";"";_]; 
+				["[20].						Show Custom Dialog.message"  ; 2+4;_];
+				["[21].					End If";"";_];
+				["[22].				Else";"";_];
+				["[23].					If.value" ; "$i=3+4";_];
+				["[24].						Show Custom Dialog.message"  ; 3+4;_];
+				["[25].					Else";"";_]; 
+				["[26].						Show Custom Dialog.message"  ; 4+4;_];
+				["[27].					End If";"";_];
+				["[28].				End If";"";_];
+				["[29].				Set.target" ; "$i";_];
+				["[29].				Set.value" ; "$i+1";_];
+				["[30].				Exit Loop If.value" ; "$i>$n";_];
+				["[31].			End Loop";"";_]; 
+				
+				["[32].		End If";"";_];
+				["[33].	End If";"";_];
+				["[34].	Set.target" ; "$i";_];
+				["[34].	Set.value" ; "$i+1";_];
+				["[35].	Exit Loop If.value" ; "$i>$n";_];
+				["[36].End Loop";"";_]
+				
+				)) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

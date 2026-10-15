@@ -1,0 +1,7 @@
+
+# 20260402 @mrwatson-de New
+
+# # Show results
+New Window [ Style: Card ; Name: "fmIDE Test Results" ; Layout: "AC fmIDE Test Results" ; Close: OFF ; Minimize: OFF ; Maximize: OFF ; Resize: OFF ; Menu: OFF ; Toolbar: OFF ]
+
+

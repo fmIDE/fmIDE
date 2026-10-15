@@ -1,0 +1,12 @@
+# Passing a script_name performs a Go to Script action
+
+Set Variable [ $script_name[1] ; Get( ScriptName ) ]
+Set Variable [ $script_step_number[1] ; 7 ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "{}" ; 
+				["script_name" ; $script_name ; JSONString] ;
+				["script_step_number" ; $script_step_number ; JSONNumber]
+				) ]
+
+# This line should be selected
+
+

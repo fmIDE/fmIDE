@@ -1,0 +1,21 @@
+# Find `Set *` Actions
+
+
+
+Insert Text [ Select ; Target: $calculation ; "Case(
+				$last_error ; "Error " & $last_error ; 
+				"Found " & Get( FoundCount ) & " " &  Get ( LayoutTableName ) & " records"
+				)" ]
+
+Set Variable [ $fmIDE_Param[1] ; JSONSetElement ( "[]"
+				;
+				["[+].Go to Layout"               ; "fmIDE Actions"      ; JSONString];
+				["[+].Enter Find Mode"            ; ""                   ; JSONObject];
+				["[+].Set Field.fmIDE_Action::ActionName" ; "\"Set\""    ; JSONString];
+				["[+].Perform Find"               ; ""                   ; JSONObject];
+				["[+].Set.$last_error"            ; "\"Get ( LastError )\"" ; JSONString];
+				["[+].Show Custom Dialog.title"   ; "\"fmIDE\""          ; JSONString];
+				["[:].Show Custom Dialog.message" ; $calculation         ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $fmIDE_Param ]
+

@@ -1,0 +1,22 @@
+[+].Set Error Capture = 1
+[+].fmIDE Define Macro
+[:]..macro_name = == "fmIDE_Test.MacroRegression.MergedExactlyOnce"
+[:]..code = == "---" & Char ( 13 ) & "$mr_stored = Let ( $$fmIDE_Test = $$fmIDE_Test + 1 ; \"stored\" )" & Char ( 13 ) & "---" & Char ( 13 ) & "[+].Exit Script = == $mr_input & \"/\" & $mr_stored"
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "fixture setup" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].End If
+[+].Set
+[:]..target = "$$fmIDE_Test"
+[:]..calculation = == 0
+[+].Set
+[:]..target = "$mr_calls"
+[:]..calculation = == 0
+[+].Set
+[:]..target = "$mr_inputs"
+[:]..calculation = == "$mr_input = Let ( $$fmIDE_Test = $$fmIDE_Test + 1 ; \"supplied\" )"
+#@test
+[+].fmIDE Run Macro
+[:]..macro_name = == "fmIDE_Test.MacroRegression.MergedExactlyOnce"
+[:]..frontmatter = == Let ( $mr_calls = $mr_calls + 1 ; $mr_inputs )
+#@endtest
+[+].Exit Script = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["input_calls" ; $mr_calls ; JSONNumber] ; ["definition_calls" ; $$fmIDE_Test ; JSONNumber] ; ["result" ; Get ( ScriptResult ) ; JSONString] )

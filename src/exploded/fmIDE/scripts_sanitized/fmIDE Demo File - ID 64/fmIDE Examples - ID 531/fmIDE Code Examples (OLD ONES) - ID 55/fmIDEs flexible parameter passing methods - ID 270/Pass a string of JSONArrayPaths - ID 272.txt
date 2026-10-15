@@ -1,0 +1,29 @@
+
+# # action array JSON path string
+
+# This is a very neat, compact - shall we say quick and dirty(?) - way of passing the actions array - as a string
+
+# The format of each line is
+
+# `  «JSON path»=«expression»
+
+# or
+
+# `  «JSON path»
+
+# For example
+
+# ``` 
+  [0].Go to Layout.layout_name="Example"
+  [1].Show all Records
+  [2].Go to Record.record="Last"
+  ```
+
+# So long as your parameter starts with [0]… it will be interpreted as an action array string
+
+Insert Text [ Select ; Target: $Param ; "[0].Go to Layout.layout_name="Example"
+				[1].Show all Records
+				[2].Go to Record.record="Last"" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $Param ]
+
+

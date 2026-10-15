@@ -1,0 +1,9 @@
+<CustomFunction id="45" name="_fmIDEQuickLink" access="All">
+	<UUID modifications="0" userName="R.Watson" accountName="Admin" timestamp="2025-09-26T15:04:58">B961DC95-549B-42EB-89ED-C62965E24B88</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="BDD668F6C75684AD28E8164A60A95CA1">_B961DC95-549B-42EB-89ED-C62965E24B88</DDRREF>
+		<Text><![CDATA["fmIDE QuickLink"]]></Text>
+	</Calculation>
+	<Display>_fmIDEQuickLink</Display>
+</CustomFunction>

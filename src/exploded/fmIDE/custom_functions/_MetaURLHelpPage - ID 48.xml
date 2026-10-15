@@ -1,0 +1,9 @@
+<CustomFunction id="48" name="_MetaURLHelpPage" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2026-02-06T17:20:38">5335C4B7-F565-484F-9264-94E92D48A954</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="805FCBE1555400044E7F16B476C103B1">_5335C4B7-F565-484F-9264-94E92D48A954</DDRREF>
+		<Text><![CDATA[/*20250522 @mrwatson-de Fix GH-112 Link to help*/_MetaURL_Root & "/help"]]></Text>
+	</Calculation>
+	<Display>_MetaURLHelpPage</Display>
+</CustomFunction>

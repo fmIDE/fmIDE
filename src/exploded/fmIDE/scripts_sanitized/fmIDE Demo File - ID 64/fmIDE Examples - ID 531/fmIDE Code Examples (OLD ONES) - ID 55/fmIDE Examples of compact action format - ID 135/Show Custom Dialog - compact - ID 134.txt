@@ -1,0 +1,19 @@
+
+
+Set Variable [ $action[1] ; JSONSetElement ( "{}" 
+				;["Show Custom Dialog.message" ; "Hello you" ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action ]
+
+
+Set Variable [ $action[1] ; JSONSetElement ( "{}" 
+				;["Show Custom Dialog" ; "Even shorter format!" ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action ]
+
+
+Set Variable [ $action[1] ; JSONSetElement ( "{}" 
+				;["Show Custom Dialog.message__Yes_No_not sure" ; "Are you good?" ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action ]
+

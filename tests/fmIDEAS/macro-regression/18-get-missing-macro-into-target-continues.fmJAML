@@ -1,0 +1,10 @@
+[+].Set Error Capture = 1
+[+].If = == GetPersistentData ( "fmide_macros" ; "fmIDE_Test.MacroRegression.Missing.d5ba01f1-2b3a-59b2-8637-9fc2ecda5676" ) ≠ "?"
+[+].Exit Script = == "Fixture collision: missing macro unexpectedly exists"
+[+].End If
+#@test
+[+].fmIDE Get Macro
+[:]..macro_name = == "fmIDE_Test.MacroRegression.Missing.d5ba01f1-2b3a-59b2-8637-9fc2ecda5676"
+[:]..target = "$mr_macro"
+#@endtest
+[+].Exit Script = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["value" ; $mr_macro ; JSONString] ; ["continued" ; True ; JSONBoolean] )

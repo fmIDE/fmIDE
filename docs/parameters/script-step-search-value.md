@@ -1,0 +1,23 @@
+<!-- Generated from NameThatThingParameter. Edit the database, then export again. -->
+# Parameter `script_step_search_value`
+
+[All parameters](README.md) · [Name that Thing](../name-that-thing.md)
+
+Calculated value to search for
+
+| Property | Value |
+| --- | --- |
+| Type | String.Calc |
+| Active | Yes |
+| Development state | beta |
+| Category | 7 |
+| Default action | [Find Script Step](../actions/find-script-step.md) |
+| Default value | Not recorded |
+
+## Stored action mapping
+
+This is the mapping recorded by the demo file. It may use construction-time variables; it is not a standalone script.
+
+```fmjaml
+[+].FindScriptStep.script_step_search_value=$script_step_search_value
+```

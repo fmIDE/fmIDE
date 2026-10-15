@@ -1,0 +1,1 @@
+Case( not IsEmpty( pValue ) ; pValue ; pDefault )

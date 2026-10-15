@@ -1,0 +1,1 @@
+GetAsURLEncoded ( pName ) & "=" & GetAsURLEncoded ( pValue )

@@ -1,0 +1,52 @@
+/* fmJAML.IsNumber ( pText )
+
+Parses the text to see if it is a number.
+
+20240410 @mrwatson v0.2 Now with scientific numbers
+2022-08-07 MrW fmJAML is currently just a dream
+*/
+
+Let (
+[
+vText = "" & Trim ( GetValue ( Substitute ( Lower( pText ) ; ["#";"¶"] ; [";";"¶"] ) ; 1 ) ) ;
+vText2 = Substitute( pText ; "e" ; ¶ )
+];
+
+Case(
+vText = "" ; 0 ;
+ValueCount( vText2 ) = 2 and Right( vText2 ; 1 ) ≠ ¶ ; fmJAML.IsNumber ( GetValue( vText2 ; 1 ) ) and fmJAML.IsNumber ( GetValue( vText2 ; 2 ) ) ;
+
+Let([
+vDelim = Left (1/2;1);
+vText=Substitute ( vText ; [".";vDelim] ; [",";vDelim] ) ;
+
+/* Remove leading stuff */
+vText = Case ( Left ( vText ; 1 ) = "+" ; Replace ( vText ; 1 ; 1 ; "" ) ; vText );
+vText = Case ( Left ( vText ; 1 ) = "-" ; Replace ( vText ; 1 ; 1 ; "" ) ; vText );
+vText = Case ( Left ( vText ; 2 ) = "0" & vDelim ; Replace ( vText ; 1 ; 1 ; "" ) ; vText );
+
+/* Remove trailing *insignificant* zeros */
+vTrailingZeroCount = Case( 
+Position( vText ; vDelim ; 1 ; 1 )=0; 0 ; 
+While(  vResult=0; Middle( vText ; Length( vText ) - vResult; 1) = "0" ; vResult = vResult +1 ; vResult ) 
+) ;
+vText = Case( vTrailingZeroCount ; Left( vText ; Length( vText ) - vTrailingZeroCount ) ; vText )
+
+
+];
+
+not IsEmpty ( vText ) and Exact ( GetAsNumber ( vText ) ; vText )
+
+)))
+
+/*
+
+Let (
+[
+vText = pText ;
+vJSON = "[" & vText & "]"
+];
+Exact ( JSONGetElementType ( vJSON ; "[0]" ) ; JSONNumber )
+)
+
+*/

@@ -1,0 +1,38 @@
+# /##
+# Calls the fmScriptWorkspace.OpenScript api script in the given file, which...
+# opens the given script in the script workspace, and, optionally, selects one or more lines.
+
+# Important: The fmScriptWorkspace module must be installed in every file of your solution!
+
+# Parameters: ¶-delimited
+# @param FileName - the name of the file(*) where the script is located
+# @param ScriptName - the (exact) name of the script to display
+# @param LineNumber - optional line number to select. A negative number is relative to the END of the script
+# @param LineNumberTo - optional line number to extend the selection to. A negative number is relative to the END of the script
+
+# (*) Important note: The FileName must match the name of the External Data Source which references the file
+
+# Returns: nothing
+
+# Dependencies: 
+# @see Script fmScriptWorkspace.OpenScript
+
+# History:
+# @history 20210608 MrW: Version 0.1 Created
+
+# #/
+
+# Parameter
+Set Variable [ $FileName[1] ; GetValue( Get( ScriptParameter ) ; 1 ) ]
+Set Variable [ $ScriptName[1] ; GetValue( Get( ScriptParameter ) ; 2 ) ]
+Set Variable [ $LineNumber[1] ; GetValue( Get( ScriptParameter ) ; 3 ) ]
+Set Variable [ $LineNumberTo[1] ; GetValue ( Get( ScriptParameter ) ; 4 ) ]
+
+Set Error Capture [ ON ]
+
+# Security
+Perform Script [ "fmScriptWorkspace.HaltScriptIfNoAccess" ; Specified: From list ; Parameter: ]
+
+Perform Script [ Specified: By name ; Case ( $FileName <> Get ( FileName ) ; $FileName ) & "::" & "fmScriptWorkspace.OpenScript" ; Parameter: $ScriptName & "¶" & $LineNumber & "¶" & $LineNumberTo ]
+
+

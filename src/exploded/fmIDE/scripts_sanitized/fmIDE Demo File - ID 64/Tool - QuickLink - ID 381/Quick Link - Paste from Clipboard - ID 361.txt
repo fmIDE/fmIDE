@@ -1,0 +1,11 @@
+
+# 20250925 @mrwatson-de New
+
+If [ not _IsLayoutQuickLinkLayout ]
+	Go to Layout [ Layout: "Home" ; Animation: None ]
+End If
+Set Field [ fmIDE::_gQuickLinkFmpUrl ; "" ]
+Paste [ Select: ON ; No style: ON ; fmIDE::_gQuickLinkFmpUrl ]
+Go to Field []
+
+

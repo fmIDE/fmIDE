@@ -1,0 +1,4 @@
+
+Perform Script [ "Quick Link - Paste from Clipboard" ; Specified: From list ; Parameter: ]
+Perform Script [ "Quick Link - Go to Thing Button" ; Specified: From list ; Parameter: ]
+

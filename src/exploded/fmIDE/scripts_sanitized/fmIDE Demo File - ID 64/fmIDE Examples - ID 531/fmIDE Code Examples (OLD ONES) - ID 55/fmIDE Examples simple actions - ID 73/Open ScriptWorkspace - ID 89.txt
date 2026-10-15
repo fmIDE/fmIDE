@@ -1,0 +1,6 @@
+
+
+Set Variable [ $action_name[1] ; Get( ScriptName ) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action_name ]
+
+

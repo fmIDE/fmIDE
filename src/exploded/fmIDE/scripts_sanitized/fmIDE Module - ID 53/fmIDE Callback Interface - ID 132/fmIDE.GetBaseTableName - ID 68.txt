@@ -1,0 +1,70 @@
+
+# This script is (can be) called from fmIDE to calculate the `base_table_name` from a given `table_name` (TO)
+
+# In FileMaker version ≥ 19.4.1 (Nov. 2021) this can be done automatically using the `FileMaker_BaseTables` meta sql-table
+
+# …otherwise the script assumes `base_table_name` = `table_name` (which, of course, can only be true for the PTO)
+
+# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+# If your FileMaker is too old and
+# your database has a different base_table_name ≠ (PTO) table_name logic, or
+# your fmIDE actions need to look up the base_table_names of non-PTO table_names…
+# then please customise this script to suit your database's naming conventions
+# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+# 20260801 @mrwatson-de v0.66
+  - Partly Fix #109:
+    - fmIDE.GetBaseTableName now returns the BaseTableName correctly of a TO even when the file is hosted
+# 20260611 @mrwatson-de fmIDE 0.47
+  - Fixed
+    - Changed the fmIDE Demo file to not use a prefix in base layout names, so that by default base_table_name = table_name = base_layout_name
+    - Automate using `FileMaker_BaseTables` meta sql-table
+    - Add documentation to help customise the script
+    - Use JSP to handle missing parameter (""->"")
+# 20220928 MrW fmIDE 0.21 (breaking change) - Script renamed `fmIDE.GetBaseTableName` instead of `fmIDE.GetBaseTableForTable`
+# 20220912 MrW New
+
+# Param
+Set Variable [ $_JSP[1] ; Case ( not IsEmpty ( Get ( ScriptParameter ) ) ; Get ( ScriptParameter )  ; "{}" ) ]
+Set Variable [ $table_name[1] ; JSONGetElement( $_JSP ; "table_name" ) ]
+
+If [ not IsEmpty ( $table_name ) ]
+	
+	# Try to discover the BaseTable name automatically (Note: in large files this can take up to 1/10 second!)
+	Set Variable [ $base_table_name[1] ; ExecuteSQL ( List (
+					"SELECT BaseTableName" ;
+					"  FROM FileMaker_Tables" ;
+					" WHERE TableName=?" ;
+					"   AND BaseFileName=?" ;
+					) ; "" ; ¶ ; $table_name ; Get ( FileName ) & Case( Left( Get( FilePath ) ; 5 ) = "fmnet" ; " (" & Get ( HostName ) & ")")
+					) ]
+	If [ $base_table_name = "" ]
+		# If the base table is not found, try looking for a base table in a hosted
+		Set Variable [ $base_table_name[1] ; ExecuteSQL ( List (
+						"SELECT BaseTableName" ;
+						"  FROM FileMaker_Tables" ;
+						" WHERE TableName=?" ;
+						"   AND BaseFileName LIKE ?" ;
+						) ; "" ; ¶ ; $table_name ; Get ( FileName ) & " (%)") ]
+	End If
+	If [ $base_table_name = "?" ]
+		# Automatic calculation is not possible in older version of  FileMaker…
+		# ! customise this line/these lines to map the table_name to the base_table_name, if necessary
+		# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+		Set Variable [ $base_table_name[1] ; $table_name ]
+		// # For example, this removes a leading `_` should you use a `_` prefix in your base_table names…
+		// Set Variable [ $base_table_name[1] ; Case (
+						
+						/* Remove leading underscore, if present */
+						Left( $table_name ; 1 ) = "_" ; Right ( $table_name ; Length ( $table_name ) - 1 ) ;
+						
+						/* otherwise base table name = table name */
+						$table_name
+						
+						) ]
+		# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+	End If
+End If
+
+Exit Script [ JSONSetElement ( "{}" ; "base_table_name" ; $base_table_name ; JSONString ) ]
+

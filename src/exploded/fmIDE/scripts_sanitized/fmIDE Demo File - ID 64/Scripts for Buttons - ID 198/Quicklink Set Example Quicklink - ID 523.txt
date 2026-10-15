@@ -1,0 +1,22 @@
+
+Insert Text [ Select ; Target: $target_file_name ; "YourFileName" ]
+Insert Text [ Select ; Target: $thing ; "layout" ]
+Insert Text [ Select ; Target: $key ; "number" ]
+Set Variable [ $FilePlaceHolder[1] ; "«YourFileName»" ]
+Set Variable [ $fmpURL[1] ; "fmp://$/«YourFileName»?script=fmIDE&$layout_number=1" ]
+Set Field [ fmIDE::_gQuickLinkFmpUrl ; Let(
+				[
+				vURL = "fmp://$/«YourFileName»?script=fmIDE&$layout_number=1" ;
+				vFilePlatzhalter = "«YourFileName»" ;
+				vWindow2 = GetValue( WindowNames ; 2 )
+				
+				];
+				
+				Case ( not IsEmpty ( vWindow2 ) ; 
+				Substitute ( vURL ; vFilePlatzhalter ; vWindow2 ) ;
+				vURL
+				)
+				
+				) ]
+
+

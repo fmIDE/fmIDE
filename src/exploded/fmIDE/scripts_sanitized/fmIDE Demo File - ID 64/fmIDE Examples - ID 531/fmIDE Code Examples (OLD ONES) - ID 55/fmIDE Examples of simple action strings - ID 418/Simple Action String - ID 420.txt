@@ -1,0 +1,28 @@
+
+
+Insert Text [ Select ; Target: $action ; "# Make sure the toolbar is showing, so that the user can SEE the paused script later
+				Show/Hide Toolbars
+				Open Edit Saved Finds
+				Beep
+				Open File Options
+				Beep
+				Open Find/Replace
+				Beep
+				Open Hosts
+				Beep
+				Open Settings
+				Beep
+				Open Preferences
+				Beep
+				Open Sharing
+				# The remaining commands do NOT pause the script
+				Beep
+				Open Favorites
+				# Shows a blank dialog - not great, but quick and dirty for debugging
+				Show Custom Dialog
+				Pause
+				Open Help
+				Beep" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action ]
+
+

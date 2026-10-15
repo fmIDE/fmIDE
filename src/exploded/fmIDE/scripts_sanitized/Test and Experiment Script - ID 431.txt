@@ -1,0 +1,36 @@
+Go to Layout [ Layoutnr.: "" ; Animation: None ]
+Exit Script []
+
+New Window [ Style: Document ; Layout: <original layout> ]
+Show Custom Dialog [ Message: Get ( WindowName ) ; Default Button: "OK" ; Button 2: "Cancel" ]
+Exit Script []
+
+Set Variable [ $Request[1] ; JSONSetElement ( "{}"
+				;["layouts";"fmIDE Tests";JSONString]
+				) ]
+Execute FileMaker Data API [ Select: ON ; Target: $dapi_result ; $Request ]
+Show Custom Dialog [ Message: $dapi_result ; Default Button: "OK" ; Button 2: "Cancel" ]
+Exit Script []
+
+
+Set Field [ fmIDE_Test::_gTest ; "hello" ]
+Set Variable [ $source_file[1] ; Substitute( Get( FilePath ) ; "fmIDE.fmp12" ; "Import.log" ) ]
+Open Data File [ ⚠️ PARAMETER "UniversalPathList" NOT PARSED ⚠️ ; Target: $FileID ]
+Read from Data File [ ⚠️ PARAMETER "id" NOT PARSED ⚠️ ; ⚠️ PARAMETER "size" NOT PARSED ⚠️ ; Target: $bytes ]
+Close Data File [ ⚠️ PARAMETER "id" NOT PARSED ⚠️ ]
+Set Variable [ $text[1] ; TextDecode ( $bytes ; "utf-8" ) ]
+Exit Script []
+
+
+Set Error Capture [ ON ]
+Set Field By Name [ Specify target field: OFF ; 123 ]
+#  Test if Commit Records works
+Set Variable [ $$ValueBefore[1] ; fmIDE_Test::Description ]
+Set Field [ fmIDE_Test::Description ; SerialIncrement ( fmIDE_Test::Description ; 1 ) ]
+Set Variable [ $$RecordOpenStateWhenOpen[1] ; Get ( RecordOpenState ) ]
+Commit Records/Requests [ With dialog: ON ]
+Set Variable [ $$ValueAfter[1] ; fmIDE_Test::Description ]
+Exit Script [ $fmIDE_log ]
+
+Go to Layout [ Layout: <original layout> ; Animation: None ]
+

@@ -1,0 +1,13 @@
+<CustomFunction id="77" name="_fmIDEASColorize" access="All">
+	<UUID modifications="32" userName="R. Watson" accountName="Admin" timestamp="2026-10-14T14:11:37">0D1DA33E-BA50-42A2-AD86-8733A6000FF9</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="4D44D0D5F83F106014BB8DD96EA03121">_0D1DA33E-BA50-42A2-AD86-8733A6000FF9</DDRREF>
+		<Text><![CDATA[/* _fmIDEASColorize ( pfmIDEAS ; pFormat ) - formats the fmIDEASIMPORTANT: MUST be sorted ascending otherwise substring formatting problems cause formatting to appear between the Ifs of Exit Loop If!*/While ([¢result = TextFormatRemove ( pfmIDEAS ) ;¢format = Case( not IsEmpty ( pFormat ) ; pFormat ; "Action" ) ;¢action_names = ExecuteSQL ( "SELECT ActionName" &"  FROM fmIDE_Action" &//" WHERE \"fmIDE_Action.active IS EMPTY\"" &" ORDER BY \"_kActionNameLength\" ASC" &"";Char ( 9 ) ;  ¶ ) ;¢i = 1 ;¢n = ValueCount ( ¢action_names )]; ¢i ≤ ¢n ;[¢action_name = GetValue ( ¢action_names ; ¢i ) ;¢result = Case( IsEmpty ( ¢action_name ) ; ¢result ; Substitute ( ¢result ; ¢action_name ; Substitute( ¢format ; ¢format ; ¢action_name ) ) ) ;¢i = ¢i + 1];Let( $$PROBLEM_ACTION = Quote(  ¢action_name ) ;¢result ))]]></Text>
+	</Calculation>
+	<Display>_fmIDEASColorize ( pfmIDEAS ; pFormat )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pfmIDEAS"></Parameter>
+		<Parameter name="pFormat"></Parameter>
+	</ObjectList>
+</CustomFunction>

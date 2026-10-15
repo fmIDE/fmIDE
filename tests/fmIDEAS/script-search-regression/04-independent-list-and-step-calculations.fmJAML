@@ -1,0 +1,15 @@
+[+].Set Error Capture = 1
+[+].Set
+[:]..target = "$sr_calls"
+[:]..calculation = == 0
+[+].Set
+[:]..target = "$sr_needle"
+[:]..calculation = == "Reset Result fields"
+#@test
+[+].Go to Script
+[:]..script_name = "Tests: Reset global Test fields"
+[:]..script_step_number = == 1
+[:]..script_search.calculation = == Let ( $sr_calls = $sr_calls + 1 ; "" )
+[:]..script_step_search.calculation = == Let ( $sr_calls = $sr_calls + 1 ; $sr_needle )
+#@endtest
+[+].Exit Script = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["line" ; MBS ( "ScriptWorkspace.SelectedLine" ) ; JSONNumber] ; ["script" ; MBS ( "ScriptWorkspace.CurrentTab" ) ; JSONString] ; ["search" ; $$fmAutoMate.Search ; JSONString] ; ["calls" ; $sr_calls ; JSONNumber] )

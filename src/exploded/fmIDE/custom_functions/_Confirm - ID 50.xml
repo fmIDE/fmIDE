@@ -1,0 +1,13 @@
+<CustomFunction id="50" name="_Confirm" access="All">
+	<UUID modifications="4" userName="R.Watson" accountName="Admin" timestamp="2026-03-06T10:21:21">D9B26F37-8CE8-4E8A-BA7E-6FAE9E48448C</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="01F03E0C7648CEDBA4AD83C1C50FDA0F">_D9B26F37-8CE8-4E8A-BA7E-6FAE9E48448C</DDRREF>
+		<Text><![CDATA[/* _Confirm ( pYesNoQuestion ; pYesNoButtonOverride )Asks the user to confirm the yes-no question and returns a boolean.*/Let([vMessage = pYesNoQuestion ;vButtons   = Case( not IsEmpty ( pYesNoButtonOverride ) ; pYesNoButtonOverride ; "Yes¶No" ) ;/* DIALOG vMessage, vButtons */r = MBS( "Dialog.Reset" ) & MBS( "Dialog.ClearFields" );r = MBS( "Dialog.SetMessage"; vMessage );r = While([vDialogI=1; vDialogN=ValueCount(vButtons)];not(vDialogI>vDialogN);[    r=MBS( "Dialog.SetButton"; vDialogI-1 ; GetValue( vButtons ; vDialogI ) );    vDialogI=vDialogI+1];0);vBtnText = MBS( "Dialog.Run" );vBtn     = ValueCount( Left( vButtons ; Position( "¶" & vButtons & "¶" ; "¶" & vBtnText & "¶"; 1 ; 1 ) ) )];vBtn = 1)]]></Text>
+	</Calculation>
+	<Display>_Confirm ( pYesNoQuestion ; pYesNoButtonOverride )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pYesNoQuestion"></Parameter>
+		<Parameter name="pYesNoButtonOverride"></Parameter>
+	</ObjectList>
+</CustomFunction>

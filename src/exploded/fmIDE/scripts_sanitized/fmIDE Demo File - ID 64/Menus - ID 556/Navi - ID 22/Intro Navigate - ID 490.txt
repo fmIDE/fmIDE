@@ -1,0 +1,58 @@
+
+# 20260927 @mrwatson-de Callable from other areas -> Go to Layout
+# 20260716 @mrwatson-de Add to Home Navigation
+# 20260402 @mrwatson-de Add Close modal window
+# 20220920 MrW Return to fmWorkMate, if present
+# 20171111 MrW 
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+# Params
+Set Variable [ $_JSP[1] ; _JSP ]
+Set Variable [ $direction[1] ; JSONGetElement ( $_JSP ; "direction" ) ]
+Set Variable [ $switch[1] ; JSONGetElement ( $_JSP ; "switch" ) ]
+Set Variable [ $to[1] ; JSONGetElement ( $_JSP ; "to" ) ]
+Set Variable [ $skip[1] ; JSONGetElement ( $_JSP ; "skip" ) ]
+Set Variable [ $nav[1] ; JSONGetElement ( $_JSP ; "nav" ) ]
+Set Variable [ $halt[1] ; JSONGetElement ( $_JSP ; "halt" ) ]
+
+
+Go to Layout [ Layout: "Home" ; Animation: None ]
+If [ $nav ]
+	Go to Record/Request/Page [ With dialog: ON ; Get ( RecordNumber ) ]
+	Exit Script []
+End If
+
+If [ $switch ]
+	Set Variable [ $to[1] ; GetValue ( Get ( TriggerTargetPanel ) ; 2 ) ]
+End If
+
+If [ not IsEmpty ( $to ) ]
+	Set Field [ fmIDE::_gHomePage ; $to ]
+	Go to Related Record [ Table: fmIDE.Nav_Chosen ; Layout: <original layout> ]
+	View As [ View as Form ]
+Else
+	If [ $direction > 0 ]
+		Loop [ Flush: Always ]
+			Go to Record/Request/Page [ Next ; Exit after last: ON ]
+			If [ not $skip or not IsEmpty ( fmIDE::NavObjectName[2] ) ]
+				Exit Script []
+			End If
+		End Loop
+		Go to Record/Request/Page [ First ]
+	Else If [ $direction < 0 ]
+		Loop [ Flush: Always ]
+			Go to Record/Request/Page [ Previous ; Exit after last: ON ]
+			If [ not $skip or not IsEmpty ( fmIDE::NavObjectName[2] ) ]
+				Exit Script []
+			End If
+		End Loop
+		Go to Record/Request/Page [ Last ]
+	End If
+End If
+If [ $halt ]
+	Halt Script
+End If
+
+

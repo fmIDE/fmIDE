@@ -1,0 +1,6 @@
+# Passing just a privilege_set_name performs a Go to Privilege Set action
+
+Set Variable [ $privilege_set_name[1] ; "Admin" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "privilege_set_name" ; $privilege_set_name ; JSONString ) ]
+
+

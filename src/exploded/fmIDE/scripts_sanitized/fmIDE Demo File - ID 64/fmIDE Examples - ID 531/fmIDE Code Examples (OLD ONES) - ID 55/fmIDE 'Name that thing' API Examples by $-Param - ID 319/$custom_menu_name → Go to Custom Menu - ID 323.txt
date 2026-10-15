@@ -1,0 +1,6 @@
+# Passing a custom_menu_name performs a Go to Custom Menu action
+
+Set Variable [ $custom_menu_name[1] ; "File Menu" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "$custom_menu_name=" & Quote( $custom_menu_name ) ]
+
+

@@ -1,0 +1,22 @@
+
+# 20260619 @mrwatson-de Encryption, not just compression
+# 20260326 @mrwatson-de New
+
+Set Variable [ $i[1] ; 1 ]
+Set Variable [ $n[1] ; 5 ]
+Loop [ Flush: Always ]
+	Exit Loop If [ $i > $n ]
+	Set Field [ fmIDE::_gText ; "" ]
+	Set Field [ fmIDE::_gTextLabel ; GetValue ( List ( 
+					"Logo" ;
+					"Key-Phrase" ;
+					"Encrypted" ;
+					"Decrypted" ;
+					"Result" ;
+					) ; $i ) ]
+	Set Variable [ $i[1] ; $i + 1 ]
+End Loop
+
+Commit Records/Requests [ With dialog: OFF ]
+
+

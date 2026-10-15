@@ -1,0 +1,14 @@
+
+# This script demonstrates Performing a find with fmIDE - using the brutally crazy JsonArrayPaths parameter passing method
+
+Insert Text [ Select ; Target: $Param ; "[0].GoToLayout.layout_name="Example"
+				[1].action_name="Perform Find"
+				[1].query.request[0].criteria[0].field_name=GetFieldName ( Example::Script )
+				[1].query.request[0].criteria[0].value="Go to"
+				[1].query.request[1].criteria[0].field_name=GetFieldName ( Example::Script )
+				[1].query.request[1].criteria[0].operator="=="
+				[1].query.request[1].criteria[0].value="layout_name → Go to Layout"
+				[1].query.request[1].omit=True" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $Param ]
+
+

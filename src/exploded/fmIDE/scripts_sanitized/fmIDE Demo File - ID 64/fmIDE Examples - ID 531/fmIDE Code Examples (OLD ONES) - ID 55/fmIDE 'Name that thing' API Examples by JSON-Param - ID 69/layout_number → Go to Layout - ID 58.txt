@@ -1,0 +1,6 @@
+# Passing a layout_number performs a Go to Layout ( by=Number ) action
+
+Set Variable [ $layout_number[1] ; 1 + Mod( Get ( LayoutNumber ) ; ValueCount ( LayoutNames ( "" ) ) ) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "layout_number" ; $layout_number ; JSONNumber ) ]
+
+

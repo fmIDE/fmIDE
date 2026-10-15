@@ -1,0 +1,4 @@
+
+Insert Text [ Select ; Target: $action ; "Install OnTimer Script" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action ]
+

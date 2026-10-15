@@ -1,0 +1,9 @@
+<CustomFunction id="21" name="_IsBrowseMode" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-10-08T07:02:53">D41BD79C-E396-4958-8897-A872FF834EAD</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="5D96F6AE4DFCFB69B4B5422AD44E1516">_D41BD79C-E396-4958-8897-A872FF834EAD</DDRREF>
+		<Text><![CDATA[Get( WindowMode ) = 0]]></Text>
+	</Calculation>
+	<Display>_IsBrowseMode</Display>
+</CustomFunction>

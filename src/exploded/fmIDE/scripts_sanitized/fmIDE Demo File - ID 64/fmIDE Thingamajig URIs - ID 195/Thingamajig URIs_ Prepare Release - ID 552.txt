@@ -1,0 +1,9 @@
+
+# 20261005 @mrwatson-de Refactored
+
+# ## Thingamajig Table
+Set Field [ ThingamajigURI::_gDefaultFmpProtocol ; "" ]
+Set Field [ ThingamajigURI::_gDefaultServer ; "" ]
+Set Field [ ThingamajigURI::_gGlobalThingamjigParameters ; "" ]
+
+

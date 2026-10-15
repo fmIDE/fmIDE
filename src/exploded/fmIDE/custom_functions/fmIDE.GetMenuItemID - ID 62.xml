@@ -1,0 +1,13 @@
+<CustomFunction id="62" name="fmIDE.GetMenuItemID" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2026-05-26T18:01:42">FEFBCDF4-F07E-40F3-91D5-C55352946575</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="6244484338CE605D9017EE2EDA9713D6">_FEFBCDF4-F07E-40F3-91D5-C55352946575</DDRREF>
+		<Text><![CDATA[/* fmIDE.GetMenuItemID ( pMenuItemName ; pOptionalMenuName )Returns the ID number of the menu item of the given name.If multiple entries with the same name are found the id of the first entry is returned.Optionally a menu name can be passed to disambiguate.*/Let([vMenuItemSearchString = Case( not IsEmpty ( pOptionalMenuName ) ; pOptionalMenuName & Char ( 9 ) ) & pMenuItemName];+LeftWords ( MBS( "List.MatchesSubString"; MBS("Menubar.ListMenuCommands"); vMenuItemSearchString ) ; 1 ))]]></Text>
+	</Calculation>
+	<Display>fmIDE.GetMenuItemID ( pMenuItemName ; pOptionalMenuName )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pMenuItemName"></Parameter>
+		<Parameter name="pOptionalMenuName"></Parameter>
+	</ObjectList>
+</CustomFunction>

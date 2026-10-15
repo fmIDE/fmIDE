@@ -1,0 +1,14 @@
+<CustomFunction id="40" name="_Stubify" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2025-09-25T18:26:39">FB7BBEAD-93CD-42A4-AF47-1BCB6567AFE5</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="C1695EFABAD1B125DF61B62E10BD64DE">_FB7BBEAD-93CD-42A4-AF47-1BCB6567AFE5</DDRREF>
+		<Text><![CDATA[/* _Stubify ( pValues ; pDelim ; pJOpts )Returns line contents before the delimiter (trimmed).For example_Stubify ( ScriptNames ( "" ) ; "(" ) returns script names without parameters.20250925 @mrwatson-de v0.1*/Case( IsEmpty( pDelim ) or pDelim = ¶ ; pValues ;While([vValues = pValues & ¶ ;vResult = "" ;vPosStart = 1 ;/* find the first delimiter */vPosDelim = Position ( pValues ; pDelim ; vPosStart ; 1 )]; vPosDelim ;[/* add everything up to the character before the next occurence - trimmed + an EOL */vResult = vResult & Trim( Middle ( pValues ; vPosStart ; vPosDelim - vPosStart ) ) & ¶ ;/* skip past next ¶ */vPosStart = Position ( vValues ; ¶ ; vPosDelim ; 1 ) + 1 ;/* find the next delimiter */vPosDelim = Position ( pValues ; pDelim ; vPosStart ; 1 )];/* and add the last bit too */vResult & Middle ( pValues ; vPosStart ; Length ( pValues )+1 - vPosStart )))]]></Text>
+	</Calculation>
+	<Display>_Stubify ( pValues ; pDelim ; pJOpts )</Display>
+	<ObjectList membercount="3">
+		<Parameter name="pValues"></Parameter>
+		<Parameter name="pDelim"></Parameter>
+		<Parameter name="pJOpts"></Parameter>
+	</ObjectList>
+</CustomFunction>

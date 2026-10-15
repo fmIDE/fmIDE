@@ -1,0 +1,190 @@
+# file: fmIDE Demo file
+Exit Script [ _MetaAppName & ":	" & Trim( Substitute( Get( ScriptName ) ; "#" ; "" ) ) ]
+
+# This script documents changes in the fmIDE demo file.
+# Changes to the fmIDE module itself are documented in the @script "fmIDE Changes…" script
+
+# Note: This script only has TWO #-characters in the name. MrWatson's Release-Tools pick up on the script with THREE #-characters in the name.
+
+# 20261014 @mrwatson-de v0.42
+  - Improve fmIDEAS editors
+    - improve action formatting
+      - centralise ActionFormat field in new G (Global) table
+      - change action formatting to MrW-green + bold
+      - stop also changing font
+      - fix error causing the actions to disappear completely!
+    - improve automatic array help to ignore blank and comment lines
+  - Fix Test error detail display
+# 20261011 @mrwatson-de v0.41
+  - Extend fmIDE Examples
+    - Add fields and overhaul layout, making it possible to 
+      - target other files
+      - reference a stored fmxmlsnippet
+      - have both fmJAML and Markdown together
+    - Add intelligent help in the fmJAML Editor to add array [+] and [:] automagically when you press `.`, `+` or `:` at the start of a line
+# 20261009 @mrwatson-de v0.40
+  - Add test `Convert Clipboard to obj ( xml ) → obj`
+  - Test layout overhaul
+  - Fix #168 Error handling: Renamed old vars from `fmide_last_error` to `fmide_**get_**last_error`
+# 20261009 @mrwatson-de v0.39
+  - Revamp of the Quick Menu with Buttons for targeted file of for **ALL Files** - with **very** elegent use of fmJAML's fmIDE Call step
+# 20261007 @mrwatson-de v0.38
+  - Fix tests for `Show/Hide Text Ruler`
+  - Fix tests & docu for new `fmIDE Call` Action
+  - Fix release to empty the new target file global field
+# 20261005 @mrwatson-de v0.37
+  - Fix tests to not leave ruler on
+  - Improve ScriptStep Grouping and Sorting ; remove unused fields
+  - Improve Prepare Release to initialise found sets
+  - Tidy scripts and script list
+# 20260930 @mrwatson-de v0.36
+  - Finished the Examples table functionality for presenting
+  - And added some examples
+# 20260922 @mrwatson-de v0.35
+  - Add tests to test fmJAML v0.35, self-reference, `evaluation lines` and `evaluation blocks`
+# 20260920 @mrwatson-de v0.34
+  - Add buttons to the fmJAML Intro page to fmJAML Playground and Logo fun
+  - Add fmJAML array constructor test records
+# 20260916 @mrwatson-de v0.33.1
+  - Fix frontmatter VL to use `fmide_`in `$fmjaml_per_cf` variable
+# 20260907 @mrwatson-de v0.33
+  - Fix Show fmIDE Version button to pass a calculation to the Show Custom Dialog action
+# 20260907 @mrwatson-de v0.32
+  - Added Test MBS to the Hamburger button / Functions menu
+# 20260904 @mrwatson-de v0.31
+  - Vastly improve the fmIDE Actions layout (Detail view)
+    - Add fmIDE_Actions_SeeAlso table
+    - Add panels
+      - Description+See-Also
+      - Usages+Tests
+      - Wiki Description
+  - Add Description for all fmIDE Actions (and some See Also links)
+  - Add Claris Help links to Script Steps table
+# 20260830 @mrwatson-de v0.30
+  - `Code under Test` now lists ALL instances of test-code from the fmIDE parameter
+  - The somewhat cryptish fmIDE Parameter Syntax field now shows the syntax name on the tooltip
+  - Add tests for
+    - Action `Go to Portal Row`
+    - Action `Select Window` (short form)
+    - Action `Show/Hide Toolbars` (short forms)
+  - Fix various tests
+# 20260828 @mrwatson-de v0.29
+  - Fix the fmIDE Test Pre-Test Calculation error flag to not actually evaluate the calculation!
+  - Add Clipboard Action tests
+  - Add more Name that Thing API Tests
+  - 343 automatic tests passing
+# 20260824 @mrwatson-de v0.28
+  - Improve fmIDE Test environment
+    - Improve test highlighting to better indicate state:
+      - faulty setup (faint red background)
+      - failed preconditions (faint blue-gray background)
+      - halts script (faint orange background)
+      - important tests (bold) & less important tests (no bold)
+    - Add tooltip to indicate state of test records
+    - Fix automatic tests
+      - Go to Record
+      - Set Error Logging
+    - Improve manual tests
+      - Deactivate manual tests that impair batch manual testing
+      - Add fields TestHalts and _kIsTestSetup
+      - Mark manual tests that halt
+  - 327 automatic tests passing
+  - 39 manual test passing (36 in batch, 3 in individual test)
+  - fmIDE v0.67
+  - fmJAML v0.31.1
+# 20260728 @mrwatson-de v0.27
+  - Fix Pre-Calculation expression evaluation and add warning icon when syntax is invalid
+  - Add Line Numbers when displaying fmJAML (Note: current implementation is not compatibel with `[+]` in heredocs)
+# 20260724 @mrwatson-de v0.26
+  - Add Quickstart to Home Page Presentation
+  - Throw error if Let parameter is invalid
+# 20260720 @mrwatson-de v0.25
+  - Fix Home Page Presentation with Navigation
+# 20260714 @mrwatson-de v0.24
+  - Improve fmIDE_Actions table
+    - Add IsfmIDEAction marker to indicate fmIDE actions that have no Script step equivalent
+    - Correct data, incl. Action Support and Status data
+    - Improve UX & Test info
+      - Show passed / active (total)
+      - Add Manual / AuToMatic marker
+      - Add more info to Test Portal
+# 20260713 @mrwatson-de v0.23
+  - Start page changed to record+slider based navigation
+# 20260624 @mrwatson-de v0.22
+  - Test PreCondition
+# 20260622 @mrwatson-de v0.21
+  - 260 Tests passing
+# 20260619 @mrwatson-de v0.20
+  - Renamed the fmJAML Logo fun area & CF to reflect encryption rather than compression nature of the function.
+# 20260616 @mrwatson-de v0.19
+- Add Splash screen with the cool new fmJAML Code from your Keyboard Logo Study
+# 20260611 @mrwatson-de v0.18
+  - fmIDE v0.47
+  - fmJAML v0.24
+  - Fix fmIDE Test Suite sorting to order all Error tests after all normal tests
+  - Changed the fmIDE Demo file to not use a prefix in base layout names, so that by default `base_table_name` = `table_name` = `base_layout_name`
+# 20260609 @mrwatson-de 0.17
+  - fmJAML v0.23
+  - Improve fmIDE Test layout to handle more than just booleans in the expected & actual value fields
+  - Add easier navigation between FileMaker Script Steps, fmIDE Actions and fmIDE Tests
+  - Improve the FileMaker Script Steps Layout and add converage statistics (~1/3 of FM script steps are covered by fmIDE Actions!)
+# 20260530 @mrwatson-de 0.16
+  - Improve Release: Reset fmJAML Playground and Logo fun fields for release
+# 20260528 @mrwatson-de v0.15
+  - Vienna Calling Release with fmIDE Examples of Action Script Syntaxes (v0.42+)
+# 20260513 @mrwatson-de v0.14
+  - fmJAML with optional JSON
+  - 109 successful tests
+# 20260414 @mrwatson-de v0.13
+  - Extend fmJAML DTS (data type string)
+    - Data Types
+    - `*`-`*****` white space trimming and json formatting 
+    - `?` optionality
+    - Clarification of semantics of [+]/[:] path inheritance together with optionality/path dropping
+  - Improved Text table
+# 20260403 @mrwatson-de v0.12
+  - fmJAML
+  - Fix fmJAML `?`
+  - fmJAML Debugging
+  - fmJAML Tests
+# 20260328 @mrwatson-de v0.11.1
+  - Fix so that history script returns the AppName rather than FileName
+# 20260324 @mrwatson-de 0.11
+  - Add fmJAML `code from your keyboard` as a compact input DSL. Welcome!
+  - Add fmIDE Test Suite for testing and proving that fmIDE does what it should. Professionalism starts here!
+  - Add random splash screens to help introduce stuff
+# 20260305 @mrwatson-de 0.10
+  - Fix Omit BTN so that SHIFT = Show Omitted Only and extend so that ALT = SYS Omit Multiple Records
+# 20260222 @mrwatson-de 0.9
+  - Tweak the fmIDE Quick Link URL builder to not double up parameters
+  - Add Settings to start in Quick Link and skip the splash screen
+  - Improve intro text
+# 20260112 @mrwatson-de 0.8
+  - fmIDE itself is not alpha - removed
+# 20250925 @mrwatson-de v0.7
+  - Add #45 fmp URL Builder
+# 20250919 @mrwatson-de v0.6
+  - Added fmp url helper fields to better target the FileMaker you need
+# 20241126 @mrwatson-de v0.5.1
+  - Tweak Get Me on GitHub icon
+# 20241011 @mrwatson-de v0.5
+  - Pimped the home page to guide users into fmIDE and provide clear installation instructions (unfinished)
+# 20240927 @mrwatson-de v0.4
+- Add fmIDE 'Name that thing' API Examples by $-Param
+# 20240501 @mrwatson-de v0.3
+  - Improved Examples a bit
+  - Added the various find actions to the Found Sets grojp in the Actions table
+# 20221014 @mrwatson-de
+  - Fix #16 Change Author handle MrW to GitHub handle @mrwatson-de
+# 20221004 @mrwatson-de
+  - Added fmDevJobs and linked stuff up
+# 20220913 @mrwatson-de
+  - v0.2 Added Export / Import Ablauf between File A and File B to Demo Linking 
+# 20220718 @mrwatson-de
+  - v0.1.2 Smoothed the splash screen animation and fade
+# 20220717 @mrwatson-de
+  - v0.1.1 Weekend of ideas - first fmIDE one script to rule them all
+# 20220625 @mrwatson-de
+  - v0.1 Created the logo and splash screen
+
+

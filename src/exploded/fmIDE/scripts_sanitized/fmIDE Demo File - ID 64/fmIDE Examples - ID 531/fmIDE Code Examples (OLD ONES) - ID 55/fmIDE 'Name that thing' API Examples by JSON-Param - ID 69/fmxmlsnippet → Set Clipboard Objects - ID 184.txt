@@ -1,0 +1,8 @@
+# Copies a Hello World comment step to the clipboard
+# Hello World
+
+Insert Text [ Select ; Target: $fmxmlsnippet ; "<fmxmlsnippet type="FMObjectList"><Step enable="True" id="89" name="# (comment)"><Text>Hello World</Text></Step></fmxmlsnippet>" ]
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "fmxmlsnippet" ; $fmxmlsnippet ; JSONString ) ]
+
+

@@ -1,0 +1,10 @@
+
+
+Set Variable [ $RefreshObjectName[1] ; Get( ScriptParameter ) ]
+
+Commit Records/Requests [ With dialog: ON ]
+
+If [ not IsEmpty ( $RefreshObjectName ) ]
+	Perform Script [ "SYS RefreshObject ( RefreshObjectName )" ; Specified: From list ; Parameter: $RefreshObjectName ]
+End If
+

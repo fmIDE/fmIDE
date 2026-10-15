@@ -1,0 +1,23 @@
+
+
+
+// Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+				["[0].action_name" ; "If" ; JSONString]; ["[0].value" ; "Let( $$a=$$a+1 ; Mod( $$a ; 2 ) )" ; JSONString];
+				["[1].action_name" ; "	Open Manage Database" ; JSONString];
+				["[2].action_name" ; "Else" ; JSONString];
+				["[3].action_name" ; "	Open Manage Value Lists" ; JSONString];
+				["[4].action_name" ; "End If" ; JSONString]
+				
+				) ]
+Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+				
+				["[0].If.value" ; "Let( $$a=$$a+1 ; Mod( $$a ; 2 ) )" ; JSONString];
+				["[1].	Open Manage Database" ; ""; JSONNull];
+				["[2].Else" ; "" ; JSONString];
+				["[3].	Open Manage Value Lists" ; "" ; JSONString];
+				["[4].End If" ; "" ; JSONString]
+				
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

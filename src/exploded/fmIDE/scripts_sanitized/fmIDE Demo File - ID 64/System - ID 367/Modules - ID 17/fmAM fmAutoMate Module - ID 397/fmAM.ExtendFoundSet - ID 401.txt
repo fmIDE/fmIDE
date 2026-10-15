@@ -1,0 +1,27 @@
+
+# 20251118 @mrwatson-de v0.2 Add Param MatchWholeField to match entire field
+# 20250403 @mrwatson-de v0.1.1 Fix bug: No field no play
+# 20250205 @mrwatson-de v0.1 This is really getting fun
+
+Set Error Capture [ ON ]
+
+# Param
+Set Variable [ $MatchWholeField[1] ; GetValue( Get( ScriptParameter ) ; 1 ) ]
+
+# Script Setting
+Set Variable [ $action[1] ; "extend" ]
+
+If [ IsEmpty ( Get ( ActiveFieldName ) ) ]
+	# No can do if not in a field
+	Exit Script []
+End If
+
+If [ $MatchWholeField ]
+	Perform Script [ "fmAM.OmitMatchingRecords" ; Specified: From list ; Parameter: 1 & ¶ &
+					$action ]
+Else
+	Find Matching Records [ Extend ]
+	Perform Script [ "fmAM.OnChangeFoundSet" ; Specified: From list ; Parameter: $action ]
+End If
+
+

@@ -1,0 +1,9 @@
+
+# 20120106 MrW At last
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+Adjust Window [ Hide ]
+
+

@@ -1,0 +1,9 @@
+
+# 20260304 @mrwatson-de Short form
+
+Set Variable [ $action[1] ; JSONSetElement ( "{}" ;
+				["Show Custom Dialog";"Hello" ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $action ]
+
+

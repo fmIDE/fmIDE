@@ -1,0 +1,9 @@
+
+
+
+Set Variable [ $url[1] ; "http://www.gihub.de/fmIDE/fmIDE" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( ""
+				; ["Open URL.url" ; $url ; JSONString]
+				) ]
+
+

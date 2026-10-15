@@ -1,0 +1,3 @@
+Go to Related Record [ Table: ThingamajigURI.fmDevJob ; Layout: "fmDevJob List" ]
+Go to Object [ "Thingamajigs" ; Repetition: 1 ]
+

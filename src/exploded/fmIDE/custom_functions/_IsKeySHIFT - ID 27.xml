@@ -1,0 +1,9 @@
+<CustomFunction id="27" name="_IsKeySHIFT" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-10-08T07:02:53">89618338-BCF9-4E8A-9CE3-1133F81591BF</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="92508559911313E86BDEF765E3EB12A9">_89618338-BCF9-4E8A-9CE3-1133F81591BF</DDRREF>
+		<Text><![CDATA[Mod( Get( ActiveModifierKeys) ; 1*2 ) >= 1]]></Text>
+	</Calculation>
+	<Display>_IsKeySHIFT</Display>
+</CustomFunction>

@@ -1,0 +1,12 @@
+
+
+Set Error Capture [ ON ]
+
+If [ Get ( LayoutViewState ) ≠ 1 ]
+	Go to Object [ fmIDE_Example::DisplayType ; Repetition: 1 ]
+	If [ Get ( LastError ) and fmIDE_Example::DisplayType ≠ "fmIDEAS" ]
+		Go to Object [ "fmIDEAS" ; Repetition: 1 ]
+	End If
+End If
+
+

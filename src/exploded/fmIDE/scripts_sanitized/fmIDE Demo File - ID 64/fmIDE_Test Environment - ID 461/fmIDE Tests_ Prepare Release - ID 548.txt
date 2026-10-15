@@ -1,0 +1,17 @@
+
+# 20261005 @mrwatson-de Refactored
+
+# ## fmIDE Tests
+
+Go to Layout [ Layout: "fmIDE Tests" ; Animation: None ]
+View As [ View as List ]
+Perform Script [ "Tests: Find all active tests" ; Specified: From list ; Parameter: ]
+Perform Script [ "Tests: Sort and go to first" ; Specified: From list ; Parameter: ]
+
+Set Field [ fmIDE_Test::_gFrontmatter ; "" ]
+Set Field [ fmIDE_Test::_gFrontmatterPauseOnConditionCalculation ; "" ]
+Set Field [ fmIDE_Test::_gShowColumnInList ; "" ]
+
+Perform Script [ "Tests: Reset global Test fields" ; Specified: From list ; Parameter: ]
+
+

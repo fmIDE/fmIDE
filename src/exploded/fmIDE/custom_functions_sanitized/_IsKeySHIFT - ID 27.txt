@@ -1,0 +1,1 @@
+Mod( Get( ActiveModifierKeys) ; 1*2 ) >= 1

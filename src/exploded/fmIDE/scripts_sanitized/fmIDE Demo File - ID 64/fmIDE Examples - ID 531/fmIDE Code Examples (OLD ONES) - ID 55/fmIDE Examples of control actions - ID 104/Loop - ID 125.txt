@@ -1,0 +1,46 @@
+
+
+
+// Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+				["[0].action_name"  ; "Set" ; JSONString]; ["[0].target" ; "$i" ; JSONString]; ["[0].value" ; "1" ; JSONString];
+				["[1].action_name"  ; "Set" ; JSONString]; ["[1].target" ; "$n" ; JSONString]; ["[1].value" ; "4" ; JSONString];
+				["[2].action_name"  ; "Loop" ; JSONString];
+				["[3].action_name"  ; "	Show Custom Dialog" ; JSONString]; ["[3].value"  ; "$i" ; JSONString];
+				["[4].action_name" ; "	Set" ; JSONString]; ["[4].target" ; "$i" ; JSONString]; ["[4].value" ; "$i+1" ; JSONString];
+				["[5].action_name" ; "	Exit Loop If" ; JSONString]; ["[5].value" ; "$i>$n" ; JSONString];
+				["[6].action_name" ; "End Loop" ; JSONString]
+				
+				) ]
+If [ _FMVerMaj ≥ 21 ]
+	Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+					["[+].Set.target" ; "$i" ; JSONString];
+					["[:].Set.value" ; "1" ; JSONString];
+					["[+].Set.target" ; "$n" ; JSONString];
+					["[:].Set.value" ; "4" ; JSONString];
+					["[+].Loop" ; "" ; JSONString];
+					["[+].	Show Custom Dialog.message_value"  ; "$i" ; JSONString];
+					["[+].	Show Custom Dialog.message_value"  ; "GetValue( ScriptNames( \"\") ; $i )" ; JSONString];
+					["[+].	Go to Script.script_name.value" ; "GetValue( ScriptNames( \"\") ; $i )" ; JSONString];
+					["[+].	Pause.seconds" ; 2 ; JSONNumber];
+					["[+].	Set.target" ; "$i" ; JSONString];
+					["[:].	Set.value" ; "$i+1" ; JSONString];
+					["[+].	Exit Loop If.value" ; "$i>$n" ; JSONString];
+					["[+].End Loop" ; "" ; JSONString]
+					) ]
+Else
+	Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+					["[0].Set.target" ; "$i" ; JSONString];
+					["[0].Set.value" ; "1" ; JSONString];
+					["[1].Set.target" ; "$n" ; JSONString];
+					["[1].Set.value" ; "4" ; JSONString];
+					["[2].Loop" ; "" ; JSONString];
+					["[3].	Show Custom Dialog.message_value"  ; "$i" ; JSONString];
+					["[4].	Set.target" ; "$i" ; JSONString];
+					["[4].	Set.value" ; "$i+1" ; JSONString];
+					["[5].	Exit Loop If.value" ; "$i>$n" ; JSONString];
+					["[6].End Loop" ; "" ; JSONString]
+					) ]
+End If
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

@@ -1,0 +1,37 @@
+/* _fmIDEASColorize ( pfmIDEAS ; pFormat ) - formats the fmIDEAS
+
+
+
+IMPORTANT: MUST be sorted ascending otherwise substring formatting problems cause formatting to appear between the Ifs of Exit Loop If!
+
+*/
+
+While ([
+¢result = TextFormatRemove ( pfmIDEAS ) ;
+¢format = Case( not IsEmpty ( pFormat ) ; pFormat ; "Action" ) ;
+
+¢action_names = ExecuteSQL ( 
+
+"SELECT ActionName" &
+"  FROM fmIDE_Action" &
+//" WHERE \"fmIDE_Action.active IS EMPTY\"" &
+" ORDER BY \"_kActionNameLength\" ASC" &
+"";
+
+Char ( 9 ) ;  ¶ ) ;
+
+¢i = 1 ;
+¢n = ValueCount ( ¢action_names )
+
+]; ¢i ≤ ¢n ;[
+
+¢action_name = GetValue ( ¢action_names ; ¢i ) ;
+¢result = Case( IsEmpty ( ¢action_name ) ; ¢result ; Substitute ( ¢result ; ¢action_name ; Substitute( ¢format ; ¢format ; ¢action_name ) ) ) ;
+
+¢i = ¢i + 1
+
+];
+Let( $$PROBLEM_ACTION = Quote(  ¢action_name ) ;
+¢result )
+
+)

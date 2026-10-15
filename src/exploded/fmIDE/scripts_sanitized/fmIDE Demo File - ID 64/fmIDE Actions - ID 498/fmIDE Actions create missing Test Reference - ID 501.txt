@@ -1,0 +1,13 @@
+
+
+
+
+Go to Record/Request/Page [ First ]
+Loop [ Flush: Always ]
+	If [ not fmIDE_Test::TargetActionUsage_UUID ]
+		Set Field [ fmIDE_Test::TargetActionUsage_UUID ; fmIDE_Action::__UUID ]
+		Commit Records/Requests [ With dialog: OFF ]
+	End If
+	Go to Record/Request/Page [ Next ; Exit after last: ON ]
+End Loop
+

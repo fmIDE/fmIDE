@@ -1,0 +1,41 @@
+
+# 20260112 @mrwatson-de v0.2 - date_iso fixed
+# 20260112 @mrwatson-de v0.1
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+
+Perform Script [ "fmWM.SetScriptResult(Value)" ; Specified: From list ; Parameter: ]
+Perform Script [ "### 20261014 @mrwatson-de v0.95 ###" ; Specified: From list ; Parameter: ]
+Set Variable [ $line[1] ; Get( ScriptResult ) ]
+
+# No tabs
+Set Variable [ $line[1] ; Trim( Substitute( $line ; Char(9) ; " " ) ) ]
+
+# Remove 'FileName: '
+Set Variable [ $word1[1] ; LeftWords ( $line ; 1 ) ]
+If [ Middle ( $line ; Length ( $word1 ) + 1 ; 1 ) = ":" ]
+	Set Variable [ $filename[1] ; $word1 ]
+	Set Variable [ $line[1] ; Trim( Right( $line ; Length( $line ) - Length( $word1 ) - 1 ) ) ]
+End If
+
+Set Variable [ $date_string[1] ; LeftWords ( $line ; 1 ) ]
+Set Variable [ $yyyymmdd[1] ; Case ( Position ( $date_string ; "-" ; 1 ; 1 ) ; Substitute ( $date_string ; "-" ; "" ) ; $date_string ) ]
+Set Variable [ $yyyy_mm_dd[1] ; Replace (
+				Replace ( $yyyymmdd ; 7 ; 0 ; "-" ) ;
+				5 ; 0 ; "-" ) ]
+Set Variable [ $version[1] ; RightWords ( $line ; 1 ) ]
+Set Variable [ $changed_by[1] ; Trim ( Middle ( $line ; Length ( $date_string ) + 1 ; Length ( $line ) - Length ( $date_string ) - Length ( $version ) ) ) ]
+
+Set Variable [ $script_result_json[1] ; JSONSetElement ( "{}"
+				;[ "filename"      ; $filename ; JSONString]
+				;[ "version_line"  ; $line ; JSONString]
+				;[ "date_string"   ; $date_string ; JSONString]
+				;[ "date_yyyymmdd" ; $yyyymmdd ; JSONString]
+				;[ "date_iso"      ; $yyyy_mm_dd ; JSONString]
+				;[ "changed_by"    ; $changed_by ; JSONString]
+				;[ "version"       ; $version ; JSONString]
+				) ]
+Exit Script [ $script_result_json ]
+
+

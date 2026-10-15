@@ -1,0 +1,9 @@
+
+
+Set Variable [ $adjust_window[1] ; Get ( ScriptParameter ) ]
+View As [ Cycle ]
+If [ not IsEmpty ( $adjust_window ) ]
+	Adjust Window [ Resize to Fit ]
+End If
+
+

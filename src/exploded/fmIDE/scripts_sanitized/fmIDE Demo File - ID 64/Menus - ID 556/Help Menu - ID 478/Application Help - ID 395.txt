@@ -1,0 +1,13 @@
+
+# 20121126 MrW Open Help URL or main website
+# 20120118 MrW
+
+Allow User Abort [ OFF ]
+Set Error Capture [ ON ]
+
+# Einstellungen
+Set Variable [ $URL[1] ; _MetaURLAppHelpPage ]
+
+Open URL [ In external browser: OFF ; With dialog: OFF ; ⚠️ PARAMETER "URL" NOT PARSED ⚠️ ]
+
+

@@ -1,0 +1,80 @@
+
+
+
+Go to Layout [ Layout: "Home" ; Animation: None ]
+Adjust Window [ Hide ]
+
+
+Install Menu Set [ ⚠️ PARAMETER "CustomMenuSet" NOT PARSED ⚠️ ]
+
+If [ fmIDE::_gQuickLinkOpenOnStart and fmIDE::_gQuickLinkOpenImmediately ]
+	# #Skip Splash
+Else
+	New Window [ Style: Document ; Name: "fmIDE - FileMaker Integrated Development Environment" ; Layout: <original layout> ]
+	Perform Script [ "Splash" ; Specified: From list ; Parameter: ]
+	Set Zoom Level [ Lock: OFF ; 100% ]
+	
+	# Random Splash Screen
+	Set Variable [ $SplashMax[1] ; Evaluate ( 
+					"Max(0" & Substitute ( MBS("List.MatchesPrefix"; LayoutNames ( "" ) ; "Splash" ) ; ["Splash" ; ";"] ; ["¶" ; ""] ; [";;" ; ";"] ) & ")" 
+					) ]
+	Set Variable [ $rand[1] ; _Random ( 2 ; $SplashMax ) ]
+	Set Variable [ $LayoutName[1] ; "Splash" & $rand ]
+	Go to Layout [ Layoutname: $LayoutName ; Animation: None ]
+	Adjust Window [ Resize to Fit ]
+	Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+	Close Window
+End If
+
+// Go to Layout [ Layout: "Splash2" ; Animation: None ]
+// Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+// 
+// Go to Layout [ Layout: "Home" ; Animation: None ]
+// 
+
+Freeze Window
+Show/Hide Toolbars [ Lock: OFF ; Include Edit Record Toolbar: OFF ; Hide ]
+
+Enter Browse Mode [ Pause: OFF ]
+Show All Records
+Go to Record/Request/Page [ First ]
+
+View As [ View as Form ]
+Adjust Window [ Resize to Fit ]
+# Adjust height to make space for summary parts
+Move/Resize Window [ Height: Get ( WindowHeight ) + 100 ]
+// View As [ View as List ]
+// Adjust Window [ Resize to Fit ]
+// Move/Resize Window [ Height: 800 ]
+
+Set Field [ fmIDE::_gAppVer ; _MetaAppVersion ]
+
+// # 20241014 @mrwatson-de Workaround for tab control that ios not rendering correctly
+// Refresh Object [ Name: "Introduction" ]
+// Refresh Object [ Name: "Workaround" ]
+
+# # Initialise fmIDE
+
+# ## Reset fmJAML Test
+Set Field [ fmIDE::_gfmJAMLPlayground_OutputJSON ; "" ]
+Set Field [ fmIDE::_gfmJAMLPlayground_OutputJSONAutomatic ; "" ]
+Set Field [ fmIDE::_gfmJAMLPlayground_OutputJSONFormatted ; "" ]
+
+# ## Reset QuickLink
+Set Field [ fmIDE::_gQuickLinkFmpUrl ; "" ]
+Set Field [ fmIDE::_gQuickLinkWindowY ; "" ]
+
+# ## Reset Globals
+Set Field [ fmIDE::_gText ; "" ]
+Set Field [ fmIDE::_gTextLabel ; "" ]
+Set Field [ fmIDE::_gHomePage ; "" ]
+
+If [ fmIDE::_gQuickLinkOpenOnStart ]
+	# Start with Quick Link
+	Perform Script [ "Quick Link - Layout" ; Specified: From list ; Parameter: ]
+Else
+	# Start with Intro
+	Perform Script [ "Intro - Reset" ; Specified: From list ; Parameter: ]
+End If
+
+

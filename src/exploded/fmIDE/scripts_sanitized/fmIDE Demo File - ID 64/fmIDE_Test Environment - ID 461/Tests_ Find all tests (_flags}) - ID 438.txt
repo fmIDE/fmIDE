@@ -1,0 +1,31 @@
+
+# 20260402 @mrwatson-de New
+
+Set Error Capture [ ON ]
+
+# Params
+Set Variable [ $_JSP[1] ; _JSP ]
+Set Variable [ $automatic[1] ;  JSONGetElement ( $_JSP ; "automatic" ) ]
+Set Variable [ $manual[1] ;  JSONGetElement ( $_JSP ; "manual" ) ]
+Set Variable [ $inactive[1] ;  JSONGetElement ( $_JSP ; "inactive" ) ]
+Set Variable [ $passed[1] ;  JSONGetElement ( $_JSP ; "passed" ) ]
+Set Variable [ $failed[1] ;  JSONGetElement ( $_JSP ; "failed" ) ]
+Set Variable [ $online[1] ;  JSONGetElement ( $_JSP ; "online" ) ]
+
+Go to Layout [ Layout: "fmIDE Tests" ; Animation: None ]
+View As [ View as List ]
+
+Enter Find Mode [ Pause: OFF ]
+Set Field [ fmIDE_Test::IsActive ; 1 ]
+Set Field [ fmIDE_Test::_kIsTestAutomatic ; Substitute ( $automatic ; 0 ; "==" ) ]
+Set Field [ fmIDE_Test::IsTestManual ; Substitute ( $manual ; 0 ; "==" ) ]
+Set Field [ fmIDE_Test::_kIsInactive ; Substitute ( $inactive ; 0 ; "==" ) ]
+Set Field [ fmIDE_Test::_kIsTestPass ; Substitute ( $passed ; 0 ; "==" ) ]
+Set Field [ fmIDE_Test::_kIsTestFail ; Substitute ( $failed ; 0 ; "==" ) ]
+Set Field [ fmIDE_Test::TestUsesInternet ; Substitute ( $online ; 0 ; "==" ) ]
+Perform Find
+If [ Get ( LastError ) = 0 ]
+	Perform Script [ "Tests: Sort and go to first" ; Specified: From list ; Parameter: ]
+End If
+
+

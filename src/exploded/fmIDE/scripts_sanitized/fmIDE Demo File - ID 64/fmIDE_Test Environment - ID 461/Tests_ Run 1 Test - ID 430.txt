@@ -1,0 +1,133 @@
+
+# 20261009 @mrwatson-de Fix #168 Error handling: Renamed fmide_last_error to fmide_**get_**last_error
+# 20260728 @mrwatson-de Add fmide_last_error_location
+# 20260608 @mrwatson-de Add last error fields
+# 20260608 @mrwatson-de Refresh layout at end
+# 20260525 @mrwatson-de Use fmIDE with calaculated frontmatter
+# 20260323 @mrwatson-de Also clean result fields
+# 20260306 @mrwatson-de Performs a single Test
+
+# Starts in Test Layout
+
+Commit Records/Requests [ With dialog: ON ]
+If [ Get ( LastError ) ]
+	Show Custom Dialog [ Message: "Please Commit/Revert the record first." ; Default Button: "OK" ]
+	Exit Script []
+End If
+
+# # Remember original state
+
+Set Variable [ $OriginalRecord[1] ; fmIDE_Test::__UUID ]
+Set Variable [ $OriginalLayoutViewState[1] ; Get ( LayoutViewState ) ]
+Set Variable [ $PostTestCalculation[1] ; fmIDE_Test::TestPostCalculation ]
+
+# # Prepare test context
+
+Perform Script [ "Tests: Reset global Test fields" ; Specified: From list ; Parameter: ]
+
+# Reset Result fields
+Set Field [ fmIDE_Test::fmIDE_ScriptResult ; "" ]
+Set Field [ fmIDE_Test::TestActualResult ; "" ]
+Set Field [ fmIDE_Test::Test_fmide_get_last_error ; "" ]
+Set Field [ fmIDE_Test::Test_fmide_get_last_error_detail ; "" ]
+Set Field [ fmIDE_Test::Test_fmide_get_last_error_location ; "" ]
+
+If [ fmIDE_Test::_kIsTestPreconditionFail ]
+	# Can't start
+	
+	Set Field [ fmIDE_Test::IsTested ; "" ]
+	
+Else
+	# Start Test
+	Commit Records/Requests [ With dialog: OFF ]
+	
+	New Window [ Style: Floating Document ; Name: "Test in progress: " & fmIDE_Test::Title ; Layout: <original layout> ; Minimize: OFF ; Maximize: OFF ; Resize: OFF ; Menu: OFF ; Toolbar: OFF ]
+	
+	# Evaluate Pre-Test Calulation
+	Set Variable [ $r[1] ; Let(
+					[
+					
+					vInputCalc = fmIDE_Test::TestPreCalculation ;
+					
+					vCalcNoWS = Right( Substitute( vInputCalc ;[" ";""];[Char(9);""];[Char(10);""];[¶;""]) ; 1 ) ;
+					
+					vCalc = List(
+					
+					"Let([" ;
+					vInputCalc ;
+					Case ( Right( vCalcNoWS ; 1 ) ≠ ";" ; ";" ) ;
+					"vR = 0];1)"
+					);
+					
+					$$vCalc = vCalc
+					
+					];
+					
+					Case ( IsEmpty ( vCalcNoWS ) ; 1 ; Evaluate ( vCalc ) )
+					
+					) ]
+	
+	# # Perform test
+	Perform Script [ Specified: By name ; "fmIDE" ; Parameter: fmIDE_Test::_gkfmIDE_ParameterWithAddedFrontmatter ]
+	
+	# # Check results in final test context
+	
+	If [ not IsEmpty ( $PostTestCalculation ) ]
+		Set Variable [ $TestResult[1] ; Evaluate( $PostTestCalculation ) ]
+	End If
+	
+	# # Return to original test start context
+	Close Window
+	
+	# ## Return to original layout and store results
+	Go to Layout [ Layout: <original layout> ; Animation: None ]
+	
+	# ## Return to original mode & view state
+	Enter Browse Mode [ Pause: OFF ]
+	If [ Get ( LayoutViewState ) ≠ $OriginalLayoutViewState ]
+		If [ $OriginalLayoutViewState = 0 ]
+			View As [ View as Form ]
+		Else If [ $OriginalLayoutViewState = 1 ]
+			View As [ View as List ]
+		Else If [ $OriginalLayoutViewState = 2 ]
+			View As [ View as Table ]
+		End If
+	End If
+	
+	# ## Return to original record
+	If [ fmIDE_Test::__UUID ≠ $OriginalRecord ]
+		Enter Find Mode [ Pause: OFF ]
+		Set Field [ fmIDE_Test::__UUID ; $OriginalRecord ]
+		Perform Find
+		If [ Get ( LastError ) ]
+			Show Custom Dialog [ Title: Get ( FileName ) & " / fmIDE" ; Message: "Oops, did that test just delete itself?" ; Default Button: "OK" ]
+			Exit Script []
+		End If
+	End If
+	
+	# # Save and evaluate test results
+	
+	Set Field [ fmIDE_Test::fmIDE_ScriptResult ; Get( ScriptResult ) ]
+	Set Field [ fmIDE_Test::Test_fmide_get_last_error ; $$fmide_get_last_error ]
+	Set Field [ fmIDE_Test::Test_fmide_get_last_error_detail ; $$fmide_get_last_error_detail ]
+	Set Field [ fmIDE_Test::Test_fmide_get_last_error_location ; $$fmide_get_last_error_location ]
+	Commit Records/Requests [ With dialog: OFF ]
+	
+	If [ not IsEmpty ( $PostTestCalculation ) ]
+		# Test conditions exist
+		Set Field [ fmIDE_Test::TestCount ; fmIDE_Test::TestCount + 1 ]
+		Set Field [ fmIDE_Test::TestActualResult ; $TestResult ]
+		Set Field [ fmIDE_Test::IsTested ; 1 ]
+	Else
+		# No test conditions
+		If [ not IsEmpty ( fmIDE_Test::TestCount ) ]
+			Set Field [ fmIDE_Test::TestCount ; "" ]
+		End If
+	End If
+End If
+
+Commit Records/Requests [ With dialog: OFF ]
+Select Window
+Refresh Window
+
+

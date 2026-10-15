@@ -1,0 +1,6 @@
+
+
+Set Variable [ $r[1] ; MBS("RemoteControl.InsertText"; "Hello") ]
+// Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+// Show Custom Dialog [ Message: $r ; Default Button: "OK" ; Button 2: "Cancel" ]
+

@@ -1,0 +1,69 @@
+# Prepare only the uniquely named release-working copy created by release_fmide.py.
+[+].Set Error Capture = 1
+[+].If = == IsEmpty ( $expected_file_path ) or not Exact ( Right ( Get ( FilePath ) ; Length ( $expected_file_path ) ) ; $expected_file_path ) or Left ( Get ( FileName ) ; 19 ) ≠ "fmIDE-release-work-" or Get ( FilePath ) = $release_source_path
+[+].Exit Script = == JSONSetElement ( "{}" ; [ "ok" ; 0 ; JSONBoolean ] ; [ "message" ; "Wrong release-working copy" ; JSONString ] ; [ "file_path" ; Get ( FilePath ) ; JSONString ] )
+[+].End If
+[+].If = == IsEmpty ( $release_expected_release ) or not Exact ( $fmide_release ; $release_expected_release )
+[+].Exit Script = == JSONSetElement ( "{}" ; [ "ok" ; 0 ; JSONBoolean ] ; [ "message" ; "Native release string does not match the requested release" ; JSONString ] ; [ "actual_release" ; $fmide_release ; JSONString ] )
+[+].End If
+[+].If = == Get ( RecordOpenState ) ≠ 0
+[+].Exit Script = == JSONSetElement ( "{}" ; [ "ok" ; 0 ; JSONBoolean ] ; [ "message" ; "The release-working copy has an open record" ; JSONString ] )
+[+].End If
+[+].Get File Exists
+[:]..file_path = == $release_output_path
+[:]..target = "$release_exists"
+[+].If = == $$fmide_get_last_error or $release_exists or IsEmpty ( $release_output_path )
+[+].Exit Script = == JSONSetElement ( "{}" ; [ "ok" ; 0 ; JSONBoolean ] ; [ "message" ; "Release output must be a new file" ; JSONString ] )
+[+].End If
+[+].Set.$release_counts_before = ===
+List (
+ExecuteSQL ( "SELECT COUNT(*) FROM fmIDE_Test" ; "" ; "" ) ;
+ExecuteSQL ( "SELECT COUNT(*) FROM fmIDE_Action" ; "" ; "" ) ;
+ExecuteSQL ( "SELECT COUNT(*) FROM NameThatThingParameter" ; "" ; "" )
+)
+===
+[+].If = == PatternCount ( $release_counts_before ; "?" )
+[+].Exit Script = == JSONSetElement ( "{}" ; [ "ok" ; 0 ; JSONBoolean ] ; [ "message" ; "Could not capture source record counts" ; JSONString ] )
+[+].End If
+[+].Perform Script
+[:]..script_name = "Prepare Release"
+[+].Set.$release_error = == $$fmide_get_last_error
+[+].If = == $release_error
+[+].Exit Script = == JSONSetElement ( "{}" ; [ "ok" ; 0 ; JSONBoolean ] ; [ "message" ; "Prepare Release reported an error" ; JSONString ] ; [ "error" ; $release_error ; JSONNumber ] )
+[+].End If
+[+].Set.$release_counts_after = ===
+List (
+ExecuteSQL ( "SELECT COUNT(*) FROM fmIDE_Test" ; "" ; "" ) ;
+ExecuteSQL ( "SELECT COUNT(*) FROM fmIDE_Action" ; "" ; "" ) ;
+ExecuteSQL ( "SELECT COUNT(*) FROM NameThatThingParameter" ; "" ; "" )
+)
+===
+[+].If = == not Exact ( $release_counts_before ; $release_counts_after ) or not IsEmpty ( fmIDE_Test::_gFrontmatter ) or not IsEmpty ( fmIDE::_gfmJAMLPlayground_InputText ) or not IsEmpty ( fmIDE::_gfmJAMLPlayground_OutputJSON )
+[+].Exit Script = == JSONSetElement ( "{}" ; [ "ok" ; 0 ; JSONBoolean ] ; [ "message" ; "Release preparation postconditions failed" ; JSONString ] )
+[+].End If
+[+].Commit Records.with_dialog = 0
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; [ "ok" ; 0 ; JSONBoolean ] ; [ "message" ; "Commit failed" ; JSONString ] ; [ "error" ; $$fmide_get_last_error ; JSONNumber ] )
+[+].End If
+[+].Save a Copy as
+[:]..by = "compacted"
+[:]..file_path = == $release_output_path
+[:]..create_folders = 1
+[+].Set.$release_error = == $$fmide_get_last_error
+[+].If = == $release_error
+[+].Exit Script = == JSONSetElement ( "{}" ; [ "ok" ; 0 ; JSONBoolean ] ; [ "message" ; "Save release copy failed" ; JSONString ] ; [ "error" ; $release_error ; JSONNumber ] )
+[+].End If
+[+].Get File Size
+[:]..file_path = == $release_output_path
+[:]..target = "$release_bytes"
+[+].Exit Script = ===
+JSONSetElement ( "{}"
+; [ "ok" ; $$fmide_get_last_error = 0 and $release_bytes > 0 ; JSONBoolean ]
+; [ "error" ; $$fmide_get_last_error ; JSONNumber ]
+; [ "file_path" ; Get ( FilePath ) ; JSONString ]
+; [ "release" ; $fmide_release ; JSONString ]
+; [ "output_path" ; $release_output_path ; JSONString ]
+; [ "bytes" ; $release_bytes ; JSONNumber ]
+; [ "record_counts" ; $release_counts_after ; JSONString ]
+)
+===

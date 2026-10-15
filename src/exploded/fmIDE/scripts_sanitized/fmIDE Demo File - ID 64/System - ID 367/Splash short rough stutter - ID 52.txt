@@ -1,0 +1,67 @@
+# /##
+
+# Script to fade logo in, 'explode' into the background, and fade out
+
+
+# #/
+
+
+Set Variable [ $Pause[1] ; 1/8 ]
+Set Variable [ $PauseFade[1] ; $Pause * 80/100 ]
+
+Set Variable [ $DesktopWidth[1] ; Get ( WindowDesktopWidth ) ]
+Set Variable [ $DesktopHeight[1] ; Get ( WindowDesktopHeight ) ]
+
+Set Variable [ $$fadeMax[1] ; 10 ]
+Go to Layout [ Layout: "Splash1" ; Animation: None ]
+
+Show/Hide Toolbars [ Lock: OFF ; Include Edit Record Toolbar: OFF ; Hide ]
+Set Zoom Level [ Lock: OFF ; 100% ]
+Adjust Window [ Resize to Fit ]
+Set Variable [ $WindowWidthOrig[1] ; Get ( WindowWidth ) ]
+Set Variable [ $WindowHeightOrig[1] ; Get ( WindowHeight ) ]
+
+Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+
+Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+Set Zoom Level [ Lock: OFF ; 75% ]
+Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+Set Zoom Level [ Lock: OFF ; 50% ]
+Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+Set Zoom Level [ Lock: OFF ; 25% ]
+Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+// Go to Layout [ Layout: "Splash2" ; Animation: None ]
+// Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+// Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+// Set Zoom Level [ Lock: OFF ; 100% ]
+// Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+// Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+
+
+Set Variable [ $$fade[1] ; 1 ]
+Set Variable [ $$fadeMax[1] ; 10 ]
+Loop [ Flush: Always ]
+	Exit Loop If [ $$fade > $$fadeMax ]
+	Refresh Window
+	Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+	Set Variable [ $$fade[1] ; $$fade + 1 ]
+End Loop
+
+// Set Variable [ $Pause[1] ; 1/8 ]
+// 
+// Set Variable [ $WindowWidth[1] ; Get ( WindowWidth ) ]
+// Set Variable [ $WindowHeight[1] ; Get ( WindowHeight ) ]
+// Set Variable [ $percent[1] ; 70 ]
+// Loop [ Flush: Always ]
+// Exit Loop If [ Get ( WindowContentWidth ) < 270 ]
+// Set Variable [ $WindowWidth[1] ; $WindowWidth * $percent/100 ]
+// Set Variable [ $WindowHeight[1] ; $WindowHeight * $percent/100 ]
+// 
+// Move/Resize Window [ Height: $WindowHeight ; Width: $WindowWidth ]
+// Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+// End Loop
+Go to Layout [ Layout: <original layout> ; Animation: None ]
+Set Variable [ $$fade[1] ; "" ]
+Set Zoom Level [ Lock: OFF ; 100% ]
+
+

@@ -1,0 +1,9 @@
+
+
+Perform Script [ "fmIDE-InstallOnTimerScriptOnce" ; Specified: From list ; Parameter: JSONSetElement ( "{}"
+				; ["script_name" ; "Hello World" ; JSONString]
+				; ["parameter" ; "You" ; JSONString]
+				; ["after_seconds" ; 1 ; JSONString]
+				) ]
+
+

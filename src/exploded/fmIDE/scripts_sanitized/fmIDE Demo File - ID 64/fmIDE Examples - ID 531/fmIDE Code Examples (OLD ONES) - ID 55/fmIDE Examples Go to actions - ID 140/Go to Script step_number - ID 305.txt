@@ -1,0 +1,15 @@
+
+# A single action object is passed to fmIDE
+
+# This call uses the script_step_number property to jump to a specific line
+Set Variable [ $action_name[1] ; "Go to Script" ]
+Set Variable [ $script_name[1] ; "Home" ]
+Set Variable [ $script_step_number[1] ; 4 ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ;
+				["action.action_name" ; $action_name ; JSONString] ;
+				["action.script_name" ; $script_name ; JSONString] ;
+				["action.script_step_number" ; $script_step_number ; JSONNumber]
+				
+				) ]
+
+

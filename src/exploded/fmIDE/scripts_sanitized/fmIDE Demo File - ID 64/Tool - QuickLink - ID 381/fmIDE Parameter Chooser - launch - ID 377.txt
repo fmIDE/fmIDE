@@ -1,0 +1,24 @@
+
+# 2025-09-25 RW: new
+
+Set Error Capture [ ON ]
+
+Set Variable [ $WindowName[1] ; "Choose Parameter" ]
+Set Variable [ $WindowWidth[1] ; 770 ]
+Set Variable [ $WindowHeight[1] ; 600 ]
+Set Variable [ $WindowLeft[1] ; Div( Get ( WindowDesktopWidth ) - $WindowWidth ; 2 ) ]
+Set Variable [ $WindowTop[1] ; Div( Get ( WindowDesktopHeight ) - $WindowHeight ; 2 ) ]
+
+New Window [ Style: Dialog ; Name: $WindowName ; Layout: "AC Insert fmIDE &apos;Name that Thing&apos; API Parameter" ; Height: $WindowHeight ; Width: $WindowWidth ; Top: $WindowTop ; Left: $WindowLeft ; Close: OFF ; Minimize: OFF ; Maximize: OFF ; Resize: OFF ; Menu: OFF ; Toolbar: OFF ]
+
+Go to Field [ NameThatThingParameter::_gParameter ]
+
+Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+If [ $$LastMessageChoice = 1 ]
+	Set Variable [ $parameter[1] ; NameThatThingParameter::_gParameter ]
+End If
+
+Close Window
+Exit Script [ $parameter ]
+
+

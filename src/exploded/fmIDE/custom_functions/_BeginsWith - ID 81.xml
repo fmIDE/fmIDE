@@ -1,0 +1,13 @@
+<CustomFunction id="81" name="_BeginsWith" access="All">
+	<UUID modifications="1" userName="R. Watson" accountName="Admin" timestamp="2026-10-11T08:52:46">54FA4986-0675-4004-B890-6E897C1AD281</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="CBEE2FACA81F97B32134B3A22616EBED">_54FA4986-0675-4004-B890-6E897C1AD281</DDRREF>
+		<Text><![CDATA[Left( pText ; Length( pBeginsWith ) ) = pBeginsWith]]></Text>
+	</Calculation>
+	<Display>_BeginsWith ( pText ; pBeginsWith )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pText"></Parameter>
+		<Parameter name="pBeginsWith"></Parameter>
+	</ObjectList>
+</CustomFunction>

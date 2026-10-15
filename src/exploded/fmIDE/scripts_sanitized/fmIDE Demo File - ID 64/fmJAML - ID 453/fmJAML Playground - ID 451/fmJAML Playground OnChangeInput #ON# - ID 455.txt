@@ -1,0 +1,6 @@
+
+
+If [ fmIDE::_gfmJAMLPlayground_OutputJSONAutomatic ]
+	Perform Script [ "fmJAML Playground Convert fmJAML to JSON" ; Specified: From list ; Parameter: ]
+End If
+

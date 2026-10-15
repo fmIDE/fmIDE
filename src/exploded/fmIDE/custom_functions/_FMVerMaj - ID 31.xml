@@ -1,0 +1,9 @@
+<CustomFunction id="31" name="_FMVerMaj" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="admin" timestamp="2026-06-24T15:23:02">56FCB0A1-C1A9-4B12-A7B3-C0A655B79488</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="D69928C92AF7E8E6885E307DF6587C15">_56FCB0A1-C1A9-4B12-A7B3-C0A655B79488</DDRREF>
+		<Text><![CDATA[+GetValue( Substitute( Get( ApplicationVersion ) ; "." ; ¶ ) ; 1 )]]></Text>
+	</Calculation>
+	<Display>_FMVerMaj</Display>
+</CustomFunction>

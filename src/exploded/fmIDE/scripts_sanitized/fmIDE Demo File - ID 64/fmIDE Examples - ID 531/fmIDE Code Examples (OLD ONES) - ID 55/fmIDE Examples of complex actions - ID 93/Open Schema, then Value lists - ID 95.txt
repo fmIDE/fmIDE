@@ -1,0 +1,10 @@
+
+
+
+Set Variable [ $actions[1] ; JSONSetElement ( "" ; 
+				["[0].action_name" ; "Open Manage Database" ; JSONString] ;
+				["[1].action_name" ; "Open Manage Value Lists" ; JSONString]
+				 ) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

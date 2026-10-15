@@ -1,0 +1,26 @@
+# /##
+
+# ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+# # fmScriptWorkspace Module change history
+
+# @history 20210607 MrW Version 0.3
+  - Added optional third parameter LineNumberTo to fmScriptWorkspace.OpenScript, so multiple lines can be selected in the target script
+  - Added fmScriptWorkspace.OpenScriptInFile to open scripts in other Files
+  - Improved the Demo File to include opening scripts in FileA
+  - Added an awesome demo of calling the API from an external HTML documentation file
+  - Added security to only allow [Full Access] acounts access to the API
+# @history 20190103 MrW Version 0.2.5 Improved documentation; added Markdown formatting
+# @history 20181220 MrW Version 0.2.4 Added a separate module Version script to document the module version + changes more clearly
+# @history 20181220 MrW Version 0.2.3 Started to implement the new functions
+# @history 20181220 MrW Version 0.2.2 (16:37) Received mail from Christian: he's added all the requested functions already (+more)!
+  - ScriptWorkspace.ScriptText
+  - ScriptWorkspace.ScrollToLine
+  - ScriptWorkspace.ScrollToSelection
+  - ScriptWorkspace.SelectLines
+# @history 20181220 MrW Version 0.2.1 (07:14) Poked Christian Schmitz to add more functionality to the MBS ScriptWorkspace component
+# @history 20181219 MrW Version 0.2.0 Built fmScriptWorkspace into a live environment .. here we go! => Improved documentation
+# @history 20171111 MrW Version 0.1.0 Another great day of great ideas - working at last!
+# ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___
+
+# #/
+

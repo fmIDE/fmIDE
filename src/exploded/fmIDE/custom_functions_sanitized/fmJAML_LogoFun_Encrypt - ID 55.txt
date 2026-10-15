@@ -1,0 +1,80 @@
+/* fmJAML_LogoFun_Encrypt ( pText ; pEncryptionKey ; pEncrypt1Decrypt0 )
+
++-------------------------------------------------------------------------+
+|   Important Note: this function has nothing to do with fmJAML itself!   |
++-------------------------------------------------------------------------+
+
+Encrypts or decrypts the fmJAML-Logo using the pEncryptionKey.
+
+This just-for-fun function uses a crazy compression technique which is only suitable for texts with a very low number of unique characters and high repetition:
+
+Using each character of the encryption key characters are replaced in pText…
+
+- when decrypting / expanding the character is replaced with the character's tokens, and 
+- when encrypting / compressing the character's tokens are replaced with the character
+
+A character's tokens are constructed from the non-zero digits of a character's unicode code point.
+
+The encryption key has been carefully constructed, together with the mapping of the digits, defined in the subfunction,
+to prove that fmJAML is the answer to your FileMaker JSON problems.
+
+This table shows how the phrase characters are mapped to tokens, and what compression occurs.
+
+ Char | Code | Digits | Token | Length | Tokens | ∂Length | ∂Tokens |   ∂% | Compression% 
+:----:|-----:|-------:|:-----:|-------:|-------:|--------:|--------:|-----:|-------------:
+      |      |        |       |    281 |    281 |         |         |      |           
+ "f"  |  102 |    12  | ` |`  |    244 |    202 |      37 |      79 |  13% |          13% 
+ "m"  |  109 |    19  | ` ¶`  |    239 |    197 |       5 |       5 |   2% |          15% 
+ "J"  |   74 |    74  | `_/`  |    237 |    193 |       2 |       4 |   1% |          16% 
+ "A"  |   65 |    65  | `|\`  |    236 |    191 |       1 |       1 |  <1% |          16% 
+ "M"  |   77 |    77  | `__`  |    222 |    163 |      14 |      28 |   3% |          21% 
+ "L"  |   76 |    76  | `_|`  |    215 |    149 |       7 |      14 |   2% |          23% 
+ "*"  |   42 |    42  | `/|`  |    214 |    147 |       1 |       2 |  <1% |          23% 
+ "4"  |   52 |    52  | `\|`  |    213 |    145 |       1 |       2 |  <1% |          24%  
+ "2"  |   50 |     5  | `\`   |    213 |    135 |       0 |       8 |  <1% |          24% 
+ "="  |   61 |    61  | `| `  |    211 |    131 |       2 |       4 |  <1% |          25% 
+ "F"  |   70 |     7  | `_`   |    211 |    120 |       0 |      11 |  <1% |          25% 
+ "("  |   40 |     4  | `/`   |    211 |    112 |       0 |       8 |  <1% |          25% 
+ "q"  |  113 |   113  | `   ` |    171 |     52 |      40 |      60 |  14% |          39% 
+ "e"  |  101 |    11  | `  `  |    158 |     26 |      13 |      26 |   5% |          44% 
+ "d"  |  100 |     1  | ` `   |    158 |      2 |       0 |      20 |  <1% |          44% 
+ ")"  |   41 |    41  | `/ `  |    158 |      2 |       0 |       0 |   0% |          44% 
+
+2026-06-19 @mrwatson-de v0.4 Renamed to reflect encryption rather than compression nature of the function.
+2026-04-14 @mrwatson-de v0.3 Tweaked readabilty + comment
+2026-03-26 @mrwatson-de v0.2 Expand and compress in one function
+2026-03-25 @mrwatson-de v0.1 What fun!
+
+*/
+
+While (
+[
+
+vResult    = pText ;
+vEncryptionKey = pEncryptionKey ;
+
+/* For each letter of the encryption key */
+
+vI = 1 ;
+vN = Length( vEncryptionKey )
+
+]; vI<=vN ;[
+
+vChar = Middle( vEncryptionKey ; vI ; 1 ) ;
+
+/* …compress or expand the result based on the char and its token (defined in CF fmJAML_LogoFun_TokenFromChar) */
+ 
+vResult =  Case( pEncrypt1Decrypt0 ;
+    Substitute( vResult ; [fmJAML_LogoFun_TokenFromChar ( vChar ) ; vChar ] )  ; /* Compress Token -> Char */
+    Substitute( vResult ; [vChar ; fmJAML_LogoFun_TokenFromChar ( vChar ) ] )     /* Expand Char -> Token */
+  );
+
+/* next letter */
+
+vI = vI + 1
+
+];
+
+vResult
+
+)

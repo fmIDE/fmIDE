@@ -1,0 +1,14 @@
+
+
+Set Variable [ $Param[1] ; JSONSetElement ( ""
+				; ["[0].action_name" ; "Go to Layout" ; JSONString]
+				; ["[0].layout_name" ; "Example" ; JSONString]
+				
+				; ["[1].Show all Records" ; "" ; JSONString]
+				
+				; ["[2].action_name" ; "Go to Record" ; JSONString]
+				; ["[2].record" ; "Last" ; JSONString]
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $Param ]
+
+

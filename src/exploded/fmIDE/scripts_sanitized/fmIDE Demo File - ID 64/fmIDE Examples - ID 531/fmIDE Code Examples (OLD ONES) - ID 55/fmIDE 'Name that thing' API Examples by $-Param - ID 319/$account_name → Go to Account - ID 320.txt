@@ -1,0 +1,6 @@
+# Passing an account_name performs a Go to Account action
+
+Set Variable [ $account_name[1] ; "Admin" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "$account_name=" & Quote( $account_name ) ]
+
+

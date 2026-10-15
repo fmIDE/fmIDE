@@ -1,0 +1,4 @@
+
+
+Set Field [ fmIDE_Example::_gJSON ; Get ( ScriptParameter ) ]
+

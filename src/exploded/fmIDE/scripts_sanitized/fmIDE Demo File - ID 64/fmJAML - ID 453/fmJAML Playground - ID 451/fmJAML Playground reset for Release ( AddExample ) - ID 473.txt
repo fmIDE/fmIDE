@@ -1,0 +1,13 @@
+
+# 20260530 @mrwatson-de Reset fmJAML Playground
+
+# ## Reset fmJAML Playground and Logo fun fields for release
+
+If [ Get ( ScriptParameter ) ]
+	Insert Text [ Select ; Target: $fmJAML_example ]
+End If
+
+Set Field [ fmIDE::_gfmJAMLPlayground_InputText ; $fmJAML_example ]
+Set Field [ fmIDE::_gfmJAMLPlayground_OutputJSON ; "" ]
+
+

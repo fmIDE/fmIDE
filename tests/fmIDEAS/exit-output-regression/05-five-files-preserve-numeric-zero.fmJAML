@@ -1,0 +1,339 @@
+[+].Set Error Capture = 1
+[+].Set
+[:]..target = "$out_saved_counter"
+[:]..calculation = == $$codex_exit_output_5
+[+].Set
+[:]..target = "$$codex_exit_output_5"
+[:]..calculation = == 0
+[+].Set
+[:]..target = "$out_folder"
+[:]..calculation = == Get ( TemporaryPath ) & "fmIDE.ExitRegression." & Get ( UUID ) & "/"
+[+].Set
+[:]..target = "$out_child"
+[:]..calculation = == Substitute ( "---" & Char ( 13 ) & "$fmide_on_exit_script_write_data_to_folder_path = __OUTPUT__" & Char ( 13 ) & "---" & Char ( 13 ) & "[+].Exit Script = == Let ( [ $$codex_exit_output_5 = $$codex_exit_output_5 + 1 ] ; 0 )" & Char ( 13 ) & "" ; "__OUTPUT__" ; Quote ( $out_folder ) )
+#@test
+[+].Perform Script
+[:]..script_name = "fmIDE"
+[:]..script_parameter = == $out_child
+#@endtest
+[+].Set
+[:]..target = "$out_result"
+[:]..calculation = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["result" ; Get ( ScriptResult ) ; JSONString] ; ["calls" ; $$codex_exit_output_5 ; JSONNumber] )
+[+].Set
+[:]..target = "$$codex_exit_output_5"
+[:]..calculation = == $out_saved_counter
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == 1
+[+].Set
+[:]..target = "$out_cleaned"
+[:]..calculation = == 1
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == ""
+[+].Set
+[:]..target = "$out_path"
+[:]..calculation = == $out_folder & "script_result.txt"
+[+].Get File Exists
+[:]..file_path = == $out_path
+[:]..target = "$out_exists"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "exists: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == $out_files_ok and $out_exists
+[+].If = == $out_exists
+[+].Get File Size
+[:]..file_path = == $out_path
+[:]..target = "$out_size"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "size: " & $$fmide_get_last_error ) )
+[+].Open Data File
+[:]..file_path = == $out_path
+[:]..target = "$out_file_id"
+[+].Set
+[:]..target = "$out_open_error"
+[:]..calculation = == $$fmide_get_last_error
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $out_open_error ; "open: " & $out_open_error ) )
+[+].If = == not $out_open_error
+[+].Read from Data File
+[:]..file_id = == $out_file_id
+[:]..target = "$out_text"
+[:]..amount = == $out_size
+[:]..read_as = "UTF-8"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "read: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == $out_files_ok and Exact ( $out_text ; "0" & Char ( 10 ) )
+[+].Close Data File
+[:]..file_id = == $out_file_id
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "close: " & $$fmide_get_last_error ) )
+[+].End If
+[+].Delete File
+[:]..file_path = == $out_path
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "delete: " & $$fmide_get_last_error ) )
+[+].Get File Exists
+[:]..file_path = == $out_path
+[:]..target = "$out_exists"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "cleanup check: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_cleaned"
+[:]..calculation = == $out_cleaned and not $out_exists
+[+].End If
+[+].Set
+[:]..target = "$out_path"
+[:]..calculation = == $out_folder & "last_error.txt"
+[+].Get File Exists
+[:]..file_path = == $out_path
+[:]..target = "$out_exists"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "exists: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == $out_files_ok and $out_exists
+[+].If = == $out_exists
+[+].Get File Size
+[:]..file_path = == $out_path
+[:]..target = "$out_size"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "size: " & $$fmide_get_last_error ) )
+[+].Open Data File
+[:]..file_path = == $out_path
+[:]..target = "$out_file_id"
+[+].Set
+[:]..target = "$out_open_error"
+[:]..calculation = == $$fmide_get_last_error
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $out_open_error ; "open: " & $out_open_error ) )
+[+].If = == not $out_open_error
+[+].Read from Data File
+[:]..file_id = == $out_file_id
+[:]..target = "$out_text"
+[:]..amount = == $out_size
+[:]..read_as = "UTF-8"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "read: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == $out_files_ok and Exact ( $out_text ; "0" & Char ( 10 ) )
+[+].Close Data File
+[:]..file_id = == $out_file_id
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "close: " & $$fmide_get_last_error ) )
+[+].End If
+[+].Delete File
+[:]..file_path = == $out_path
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "delete: " & $$fmide_get_last_error ) )
+[+].Get File Exists
+[:]..file_path = == $out_path
+[:]..target = "$out_exists"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "cleanup check: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_cleaned"
+[:]..calculation = == $out_cleaned and not $out_exists
+[+].End If
+[+].Set
+[:]..target = "$out_path"
+[:]..calculation = == $out_folder & "last_error_detail.txt"
+[+].Get File Exists
+[:]..file_path = == $out_path
+[:]..target = "$out_exists"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "exists: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == $out_files_ok and $out_exists
+[+].If = == $out_exists
+[+].Get File Size
+[:]..file_path = == $out_path
+[:]..target = "$out_size"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "size: " & $$fmide_get_last_error ) )
+[+].Open Data File
+[:]..file_path = == $out_path
+[:]..target = "$out_file_id"
+[+].Set
+[:]..target = "$out_open_error"
+[:]..calculation = == $$fmide_get_last_error
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $out_open_error ; "open: " & $out_open_error ) )
+[+].If = == not $out_open_error
+[+].Read from Data File
+[:]..file_id = == $out_file_id
+[:]..target = "$out_text"
+[:]..amount = == $out_size
+[:]..read_as = "UTF-8"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "read: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == $out_files_ok and Exact ( $out_text ; "" & Char ( 10 ) )
+[+].Close Data File
+[:]..file_id = == $out_file_id
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "close: " & $$fmide_get_last_error ) )
+[+].End If
+[+].Delete File
+[:]..file_path = == $out_path
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "delete: " & $$fmide_get_last_error ) )
+[+].Get File Exists
+[:]..file_path = == $out_path
+[:]..target = "$out_exists"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "cleanup check: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_cleaned"
+[:]..calculation = == $out_cleaned and not $out_exists
+[+].End If
+[+].Set
+[:]..target = "$out_path"
+[:]..calculation = == $out_folder & "last_error_location.txt"
+[+].Get File Exists
+[:]..file_path = == $out_path
+[:]..target = "$out_exists"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "exists: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == $out_files_ok and $out_exists
+[+].If = == $out_exists
+[+].Get File Size
+[:]..file_path = == $out_path
+[:]..target = "$out_size"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "size: " & $$fmide_get_last_error ) )
+[+].Open Data File
+[:]..file_path = == $out_path
+[:]..target = "$out_file_id"
+[+].Set
+[:]..target = "$out_open_error"
+[:]..calculation = == $$fmide_get_last_error
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $out_open_error ; "open: " & $out_open_error ) )
+[+].If = == not $out_open_error
+[+].Read from Data File
+[:]..file_id = == $out_file_id
+[:]..target = "$out_text"
+[:]..amount = == $out_size
+[:]..read_as = "UTF-8"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "read: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == $out_files_ok and Exact ( $out_text ; "" & Char ( 10 ) )
+[+].Close Data File
+[:]..file_id = == $out_file_id
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "close: " & $$fmide_get_last_error ) )
+[+].End If
+[+].Delete File
+[:]..file_path = == $out_path
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "delete: " & $$fmide_get_last_error ) )
+[+].Get File Exists
+[:]..file_path = == $out_path
+[:]..target = "$out_exists"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "cleanup check: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_cleaned"
+[:]..calculation = == $out_cleaned and not $out_exists
+[+].End If
+[+].Set
+[:]..target = "$out_path"
+[:]..calculation = == $out_folder & "last_error_description.txt"
+[+].Get File Exists
+[:]..file_path = == $out_path
+[:]..target = "$out_exists"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "exists: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == $out_files_ok and $out_exists
+[+].If = == $out_exists
+[+].Get File Size
+[:]..file_path = == $out_path
+[:]..target = "$out_size"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "size: " & $$fmide_get_last_error ) )
+[+].Open Data File
+[:]..file_path = == $out_path
+[:]..target = "$out_file_id"
+[+].Set
+[:]..target = "$out_open_error"
+[:]..calculation = == $$fmide_get_last_error
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $out_open_error ; "open: " & $out_open_error ) )
+[+].If = == not $out_open_error
+[+].Read from Data File
+[:]..file_id = == $out_file_id
+[:]..target = "$out_text"
+[:]..amount = == $out_size
+[:]..read_as = "UTF-8"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "read: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_files_ok"
+[:]..calculation = == $out_files_ok and Exact ( $out_text ; "" & Char ( 10 ) )
+[+].Close Data File
+[:]..file_id = == $out_file_id
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "close: " & $$fmide_get_last_error ) )
+[+].End If
+[+].Delete File
+[:]..file_path = == $out_path
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "delete: " & $$fmide_get_last_error ) )
+[+].Get File Exists
+[:]..file_path = == $out_path
+[:]..target = "$out_exists"
+[+].Set
+[:]..target = "$out_io_errors"
+[:]..calculation = == List ( $out_io_errors ; Case ( $$fmide_get_last_error ; "cleanup check: " & $$fmide_get_last_error ) )
+[+].Set
+[:]..target = "$out_cleaned"
+[:]..calculation = == $out_cleaned and not $out_exists
+[+].End If
+[+].Exit Script = == JSONSetElement ( $out_result ; ["filesOK" ; $out_files_ok ; JSONBoolean] ; ["cleaned" ; $out_cleaned ; JSONBoolean] ; ["ioErrors" ; $out_io_errors ; JSONString] )

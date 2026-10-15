@@ -1,0 +1,15 @@
+
+# This script demonstrates the fmIDE action given by the script's name
+# A single action object is passed to fmIDE
+
+Set Variable [ $times[1] ; 2 ]
+Show Custom Dialog [ Title: Get( ScriptName ) ; Message: "Beep how many times?" ; Default Button: "OK" ; Button 2: "Cancel" ; Input 1: $times ; Label 1: "Times" ]
+If [ Get ( LastMessageChoice ) ≠ 1 or not $times ]
+	Exit Script []
+End If
+
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( ""
+				; ["Beep.times" ; $times ; JSONNumber]
+				) ]
+
+

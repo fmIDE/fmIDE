@@ -1,0 +1,5 @@
+[+].Set Error Capture = 1
+#@test
+[+].fmIDE Run Macro.macro_name = ""
+#@endtest
+[+].Exit Script = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] )

@@ -1,0 +1,860 @@
+<Script>
+	<ScriptReference id="66" name="fmIDE.GetBaseLayoutName" UUID="46DB83E8-8DE6-4914-96C0-E39676F1352C"></ScriptReference>
+	<ObjectList membercount="62">
+		<Step hash="1AEBAC6EA641A80BF5D34E0C456A15B8" index="0" id="89" name="# (comment)" enable="True">
+			<UUID>B507F224-6222-4D42-9CA1-D94F87B0945C</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="F2528CB0863A60B45C3C91693604B187">_B507F224-6222-4D42-9CA1-D94F87B0945C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C3EF7A2BBD8F9D2EF9B65631EB2A65D5" index="1" id="89" name="# (comment)" enable="True">
+			<UUID>4513809B-A094-430E-9C56-D79E3485D95F</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="A7D85CFC33F1EB20D1C4A0105DB3EF71">_4513809B-A094-430E-9C56-D79E3485D95F</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="This script is called from fmIDE to calculate the base_layout_name…"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="58E0A6B40F3F86DA9A649A8F80BAFC44" index="2" id="89" name="# (comment)" enable="True">
+			<UUID>3BE9C85E-B090-47A3-96B2-CDB733C58A13</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="056FA53060753B04B24AB00EC7B1F07F">_3BE9C85E-B090-47A3-96B2-CDB733C58A13</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="- typically from the `table_name` (that is from the LayouTableName which is the most common basis of the layout name)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="44E2A878769B330B5D70D1B36CC5960A" index="3" id="89" name="# (comment)" enable="True">
+			<UUID>A9628673-671B-4028-B3A6-344EB6643042</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7F42EB477BB7233698382AFBFB9528DC">_A9628673-671B-4028-B3A6-344EB6643042</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="- or from the `base_table_name` (which is a less common practice, since base_table_names are far less accessible in FileMaker)"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="4E04525252EA72DA5C166D4741D66721" index="4" id="89" name="# (comment)" enable="True">
+			<UUID>2CF32909-7F32-4AFD-8AA6-2B96702A447A</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="2B2AAFC920A4A98E1474D6C39BD8C1DA">_2CF32909-7F32-4AFD-8AA6-2B96702A447A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1633AF0089A70148DDA113B1891BFB2E" index="5" id="89" name="# (comment)" enable="True">
+			<UUID>8A3DBA6E-316C-4E08-9690-BC9536ED9218</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="96BE9B9A1ADF69645B81FF6F234FECC7">_8A3DBA6E-316C-4E08-9690-BC9536ED9218</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="When a new base table is created in FileMaker, the base table, the PTO and the layout are all given the same name."></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A00442C0704A893BBFF6BC85D0BC8D1F" index="6" id="89" name="# (comment)" enable="True">
+			<UUID>3BC66DE8-A3D6-4BF6-BDA9-BE5F4AA47C89</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7664A7BDB2EC5BB0791472390237EBD5">_3BC66DE8-A3D6-4BF6-BDA9-BE5F4AA47C89</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="To this end this script presumes by default that `table_name` = `base_table_name`= `base_layout_name`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="82AFB7BDC720F9841B20D6B7255062E6" index="7" id="89" name="# (comment)" enable="True">
+			<UUID>5A8CE730-2716-44CF-8625-63923F6822FC</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5B63A0F6ECE4054931F81DE88F95D838">_5A8CE730-2716-44CF-8625-63923F6822FC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="and just returns the `base_layout_name` as the unchanged `table_name` or `base_table_name`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1FFC64DB93F90217FC4247D2D27C5671" index="8" id="89" name="# (comment)" enable="True">
+			<UUID>0D298E4A-35CB-4609-8D40-9273CDEA1130</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="57CE7AE5D438B6B9CC7EEA9FAC368A38">_0D298E4A-35CB-4609-8D40-9273CDEA1130</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="21FD07BE017C81B1A43FAA33A9A82825" index="9" id="89" name="# (comment)" enable="True">
+			<UUID>ADE137C9-F0EE-44C2-9A10-E58D5CA566D6</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="2DDDBB858568E06530B22CD1272DC9A0">_ADE137C9-F0EE-44C2-9A10-E58D5CA566D6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C4CF1964BD9A28E9F2768292E08ABF2C" index="10" id="89" name="# (comment)" enable="True">
+			<UUID>31AF2058-918F-47D8-879A-B33A216AA20A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="E686CBA1D49F11C4CE5D246EDD05A30C">_31AF2058-918F-47D8-879A-B33A216AA20A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="If your database has a different (or no) logic, please customise this script to suit your database&apos;s naming conventions"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1A449809AC1CCF0933CC1BDBA77D8368" index="11" id="89" name="# (comment)" enable="True">
+			<UUID>A4A82E3D-E17A-402B-B047-32E7CCF09B47</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="27D3565549C476CAC5E2DF77C986BCEC">_A4A82E3D-E17A-402B-B047-32E7CCF09B47</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CA9E7E3EEEF76FC84AB9DD5ABD3BEA3D" index="12" id="89" name="# (comment)" enable="True">
+			<UUID>7B219193-BF7A-42F1-BFCD-8F9634B1DABC</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="5A04315E96C34FD4B819425655F9118F">_7B219193-BF7A-42F1-BFCD-8F9634B1DABC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="5C6183765790FE1D9EBB6CD1F9C3F189" index="13" id="89" name="# (comment)" enable="True">
+			<UUID>48E38DC4-6424-4688-A187-DFA4ABB1DDDF</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="F73E1185DAF0EA884CF8B9082F5E688A">_48E38DC4-6424-4688-A187-DFA4ABB1DDDF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20260611 @mrwatson-de fmIDE 0.47&#13;- Changed the fmIDE Demo file to not use a prefix in base layout names, so that by default base_table_name = table_name = base_layout_name&#13;- Add documentation to help customise the script"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="7356FC16BEACB5EDA0F6EF4C56A61C94" index="14" id="89" name="# (comment)" enable="True">
+			<UUID>6DF42B52-0B43-48CA-931F-7950891E862A</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="1077AF53CA0CB2CA7718DDDC5090120C">_6DF42B52-0B43-48CA-931F-7950891E862A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220928 MrW fmIDE 0.21 (breaking change)&#13;- Script renamed `fmIDE.GetBaseLayoutName` instead of `fmIDE.GetLayoutNameForTable`&#13;- Return parameter renamed `base_layout_name` instead of `layout_name`"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="DC03D4E1B69A08D1EED0745CBDB27EDE" index="15" id="89" name="# (comment)" enable="True">
+			<UUID>6E70997B-5288-4980-9BFA-D4ACA7DADF82</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="28F20C6783EB77F11B7A1C86F9903BE6">_6E70997B-5288-4980-9BFA-D4ACA7DADF82</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220914 MrW Simplified"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E209EEEB957D52B2E73A498236260008" index="16" id="89" name="# (comment)" enable="True">
+			<UUID>C2823AB6-F0F7-476D-ADEE-EBCBF1632EFE</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DE3978E9618828F42959A5F813A86E3C">_C2823AB6-F0F7-476D-ADEE-EBCBF1632EFE</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="20220912 MrW Fixed to remove the leading underscore of PTOs"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="07D95A96C3317FA493FE8EEB707FB7B8" index="17" id="89" name="# (comment)" enable="True">
+			<UUID>E931701E-6F2E-4D83-82E7-0BB2D2FA2960</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="1EBE39E9DAD465A28EC1FAC5325C1E5A">_E931701E-6F2E-4D83-82E7-0BB2D2FA2960</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="56DA742052331A1A24AAEC5AFA41EF55" index="18" id="89" name="# (comment)" enable="True">
+			<UUID>271E088E-2AC4-4616-82DF-6FDA0CCB008E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="3565AB9DBD7E78EAAD65142D09585CD1">_271E088E-2AC4-4616-82DF-6FDA0CCB008E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="Params"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="5C4D5346874830BE8A1FF14BE8707CBA" index="19" id="141" name="Set Variable" enable="True">
+			<UUID>6C17F8BE-5FEB-4BBF-A9E4-7C2EBBBF0204</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="005A2546048CE6F249464B750F4AAF71">_6C17F8BE-5FEB-4BBF-A9E4-7C2EBBBF0204</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="597E736778ED9E7341DD569616D9BD6A">_6C17F8BE-5FEB-4BBF-A9E4-7C2EBBBF0204_1</DDRREF>
+								<Text><![CDATA[Case ( not IsEmpty ( Get ( ScriptParameter ) ) ; Get ( ScriptParameter )  ; "{}" )]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$_JSP"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_6C17F8BE-5FEB-4BBF-A9E4-7C2EBBBF0204_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A9EA2C1FA445B38126DB2E714ADAF393" index="20" id="141" name="Set Variable" enable="True">
+			<UUID>8D4FF3F2-45CE-4E34-94A1-523B37E3B688</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="6DBDB74AD5A56709A6C66A71C9B52C7E">_8D4FF3F2-45CE-4E34-94A1-523B37E3B688</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="7A1B4D0DC52D684D1AE79FABDFB6A57B">_8D4FF3F2-45CE-4E34-94A1-523B37E3B688_1</DDRREF>
+								<Text><![CDATA[JSONGetElement( $_JSP ; "base_table_name" )]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$base_table_name"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_8D4FF3F2-45CE-4E34-94A1-523B37E3B688_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="DC90ADB3F25114D480291228E48D597E" index="21" id="141" name="Set Variable" enable="True">
+			<UUID>01525074-5362-4D1A-BEB6-D7509A868C15</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="979EB518394E803C21BFAB74046F62BC">_01525074-5362-4D1A-BEB6-D7509A868C15</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="EAFD90AA4C9F5BD2FC6C594D662CC084">_01525074-5362-4D1A-BEB6-D7509A868C15_1</DDRREF>
+								<Text><![CDATA[JSONGetElement( $_JSP ; "table_name" )]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$table_name"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_01525074-5362-4D1A-BEB6-D7509A868C15_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="70ED9003DE80A5C051176D3780F5D136" index="22" id="89" name="# (comment)" enable="True">
+			<UUID>7B43691A-08A6-4822-AB41-7332434C0848</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="1692665E0C7DEE365FE76D7F4C14F6DB">_7B43691A-08A6-4822-AB41-7332434C0848</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E7A5920ECA2A9410544DB6DBE5C3C88C" index="23" id="89" name="# (comment)" enable="True">
+			<UUID>D9539353-E236-4D34-9B79-63513788D7A3</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="53364F3755A9AF674F2D9BDAB63DFE69">_D9539353-E236-4D34-9B79-63513788D7A3</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C5CA367A36EB915B716E6F572DEBF414" index="24" id="89" name="# (comment)" enable="True">
+			<UUID>081F43C9-50E2-4680-A638-EFFAC50D1E0A</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="8EC26484823818423E13613E400EB57D">_081F43C9-50E2-4680-A638-EFFAC50D1E0A</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="1FB53EF8633100A9B50F78B1B729F2EA" index="25" id="68" name="If" enable="True">
+			<UUID>F232521B-002C-4417-B1AB-BD12A688E0A7</UUID>
+			<OwnerID></OwnerID>
+			<Options>16384</Options>
+			<DDRREF kind="StepText" hash="2B01A350D24E50F7BEEFE9D9E7E4A43E">_F232521B-002C-4417-B1AB-BD12A688E0A7</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+				<Parameter type="Calculation">
+					<Calculation datatype="7" position="0">
+						<Calculation>
+							<DDRREF kind="ChunkList" hash="6AB4864FE98F7A77B5F3AB6327A1222E">_F232521B-002C-4417-B1AB-BD12A688E0A7_0</DDRREF>
+							<Text><![CDATA[IsEmpty ( $table_name ) and not IsEmpty ( $base_table_name )]]></Text>
+						</Calculation>
+					</Calculation>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0975CC6CF7CEFAA0EB0CBD0B8387A3E6" index="26" id="89" name="# (comment)" enable="True">
+			<UUID>3C5F92F4-CCB4-46EC-A555-E3C058CCAA1F</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="DA96F434B0E769057FF5F8A2DE88B2C7">_3C5F92F4-CCB4-46EC-A555-E3C058CCAA1F</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# First convert base_table_name to table_name, if necessary"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="0F46FD9AD25185C4E65372D8C62C0AF4" index="27" id="89" name="# (comment)" enable="True">
+			<UUID>E80B93FD-B278-4E78-A54F-8BF401E69D6E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="0E166BA275D806A5D6B7B257E3E8C3A2">_E80B93FD-B278-4E78-A54F-8BF401E69D6E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="! customise this line to map a base_table_name to its PTO table_name, if necessary"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="3BC43FD766D93CD8D156020D3D58A7CE" index="28" id="89" name="# (comment)" enable="True">
+			<UUID>06F243A8-3852-4267-9E40-C10C561EBD45</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="90BB50F570F65ADCA80AE8C3600F947E">_06F243A8-3852-4267-9E40-C10C561EBD45</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="915B88FCF45F0FDCD4D0C55475588F18" index="29" id="141" name="Set Variable" enable="True">
+			<UUID>46104803-386E-4A03-8C7C-468FF94C0A4E</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="F8D58490DCF904EE414C46D24FF5C688">_46104803-386E-4A03-8C7C-468FF94C0A4E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="FDC38466B09E0EAB389625926BE071AB">_46104803-386E-4A03-8C7C-468FF94C0A4E_1</DDRREF>
+								<Text><![CDATA[$base_table_name]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$table_name"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_46104803-386E-4A03-8C7C-468FF94C0A4E_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A0103F2217C1317D4F7590485FEEC767" index="30" id="89" name="# (comment)" enable="True">
+			<UUID>98F81ABD-8D5A-49AB-9015-F517A4F6EDB2</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="5BC56CF61B3D1B2CADE5F492619CB0ED">_98F81ABD-8D5A-49AB-9015-F517A4F6EDB2</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="9F69BF8F1EE1E21A6A21BA3D8AD19537" index="31" id="70" name="End If" enable="True">
+			<UUID>1B3B16EF-39E7-4EE5-8535-FC2F3A52AF01</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="6E36AD4270F2F187C7BB743585FBE5FE">_1B3B16EF-39E7-4EE5-8535-FC2F3A52AF01</DDRREF>
+		</Step>
+		<Step hash="CB115E57BF9F08BDD90F7A6D283EAB01" index="32" id="89" name="# (comment)" enable="True">
+			<UUID>A70A1815-DB63-4CAF-848D-AAF18487325C</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="49DB7075F957A5ED80561A3A5D953870">_A70A1815-DB63-4CAF-848D-AAF18487325C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="114E853A5DA8B8869361EEDE6612D78E" index="33" id="68" name="If" enable="True">
+			<UUID>17E8DBAA-A08D-4767-A2A8-C74B702930AB</UUID>
+			<OwnerID></OwnerID>
+			<Options>16384</Options>
+			<DDRREF kind="StepText" hash="2B947524F741BEEC22D349905A5914D5">_17E8DBAA-A08D-4767-A2A8-C74B702930AB</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+				<Parameter type="Calculation">
+					<Calculation datatype="7" position="0">
+						<Calculation>
+							<DDRREF kind="ChunkList" hash="011DD1D83565FAE53602DB4EB505E7A0">_17E8DBAA-A08D-4767-A2A8-C74B702930AB_0</DDRREF>
+							<Text><![CDATA[not IsEmpty ( $table_name )]]></Text>
+						</Calculation>
+					</Calculation>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="031979930A5A620F6ECD46870C80D6DE" index="34" id="89" name="# (comment)" enable="True">
+			<UUID>936948BD-CE39-4A5C-8BA3-AEDAA8EA2EDC</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="CA76404AA585A685821070A53DC3D20B">_936948BD-CE39-4A5C-8BA3-AEDAA8EA2EDC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Convert table_name to base_layout_name"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A59973C05FE8D51655F1D77FD85B7406" index="35" id="89" name="# (comment)" enable="True">
+			<UUID>0B24DC9C-E518-477F-A4AF-63B15DA56EBA</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="3A6D37CE8D472E889FB5C001F73A1B39">_0B24DC9C-E518-477F-A4AF-63B15DA56EBA</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="! customise this line/these lines to map a table_name to the base_layout_name, if necessary"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="976A8804F4E4A3589BD2EE9739F78CD3" index="36" id="89" name="# (comment)" enable="True">
+			<UUID>3E3A7100-9A10-422C-98C6-F08719456A6D</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="4C99F77A580444CE5C2B2BC16091CC23">_3E3A7100-9A10-422C-98C6-F08719456A6D</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="B32CF79A2213111B95DDE1A8B73EE198" index="37" id="141" name="Set Variable" enable="True">
+			<UUID>BD005FFC-9EAD-448D-AE43-1572A3FA80CF</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="EB3A685F160F4B59BE3BA9150C0F4EEE">_BD005FFC-9EAD-448D-AE43-1572A3FA80CF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="1BEB361F02FAF8FAD13F0E4A90DE520D">_BD005FFC-9EAD-448D-AE43-1572A3FA80CF_1</DDRREF>
+								<Text><![CDATA[""/*The default setting of "" here means that your base layout names are identical to their LayoutTableName.If, however, your BaseLayout names have the form "«prefix»«table_name»" - i.e. they are displayed as "«prefix»«LayoutTableName» («LayoutTableName»)".For example, if your (Base)Layout name is displayed as "I Service SomeTable (SomeTable)" then- Get( LayoutTableName ) of this layout is "SomeTable"  - fmIDE calls this the `table_name`- Get( LayoutName ) of this layout is "I Service SomeTable"   - fmIDE calls this here the `base_layout_name`- so the prefix to prepend is "I Service " (don't forget the space)Enter "I Service " here (and don't forget the space!) in order to- map `table_name` "SomeTable"- to `base_layout_name` "I Service SomeTable"*/]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$base_layout_name_prefix"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_BD005FFC-9EAD-448D-AE43-1572A3FA80CF_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="CCF878D7572DC1B18E4C0198D6AA3F60" index="38" id="141" name="Set Variable" enable="True">
+			<UUID>79AC47EC-33B3-42CA-A841-E6787D70A107</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="BCDF35626E1BBD6670C80B89D75041EE">_79AC47EC-33B3-42CA-A841-E6787D70A107</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="302A4EED1C5E3BEE48673E3690296C9F">_79AC47EC-33B3-42CA-A841-E6787D70A107_1</DDRREF>
+								<Text><![CDATA[$base_layout_name_prefix & $table_name]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$base_layout_name"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_79AC47EC-33B3-42CA-A841-E6787D70A107_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="2DCD69BD2D71F23B94ADA3EB44E4272B" index="39" id="89" name="# (comment)" enable="True">
+			<UUID>3C5C498A-CC9A-48ED-9D41-FFE5E706BE6C</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7FB0E7C2C8A30A930E3A85F113EF500A">_3C5C498A-CC9A-48ED-9D41-FFE5E706BE6C</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="DF56AF906C571DC75D48E31CC9D13E6C" index="40" id="70" name="End If" enable="True">
+			<UUID>36F38825-CCB3-48FB-9FFE-F907D83FB76F</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="9137A0DC65BCBE356D97EFFD5BD3844A">_36F38825-CCB3-48FB-9FFE-F907D83FB76F</DDRREF>
+		</Step>
+		<Step hash="5A21FC58D7D65463DB8503E68D44EB29" index="41" id="89" name="# (comment)" enable="True">
+			<UUID>4467FDC6-0EB4-42A4-A78A-B6771AD6D5BE</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="D8882382629509F1527220C8D8D7E5B6">_4467FDC6-0EB4-42A4-A78A-B6771AD6D5BE</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="172AD4C58595D87E910180085313E8FB" index="42" id="89" name="# (comment)" enable="True">
+			<UUID>88228F3A-8227-40C0-A5FE-CEABB6651C2E</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="57CA340424B40260DFCFB3BA097260D6">_88228F3A-8227-40C0-A5FE-CEABB6651C2E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="BF037868433DBDB26BC34A933320726E" index="43" id="89" name="# (comment)" enable="True">
+			<UUID>09505913-1A39-401B-BC8C-7D0EEEBEB205</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="29C9D5D30B47D4387BB43300E03C7D82">_09505913-1A39-401B-BC8C-7D0EEEBEB205</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="If your Base Layout names are based on the base_table_name rather than on the table_name, you can use this code instead"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="82EFFC34E9AACEB4B49D08FA2BDE9084" index="44" id="68" name="If" enable="False">
+			<UUID>17B1E170-7DAC-449C-BBA5-66AC62C89339</UUID>
+			<OwnerID></OwnerID>
+			<Options>16384</Options>
+			<DDRREF kind="StepText" hash="ED76037F216484648C98011F99EF3D0C">_17B1E170-7DAC-449C-BBA5-66AC62C89339</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+				<Parameter type="Calculation">
+					<Calculation datatype="7" position="0">
+						<Calculation>
+							<DDRREF kind="ChunkList" hash="07EBADB56DD9002AB7BC1761032BEBC0">_17B1E170-7DAC-449C-BBA5-66AC62C89339_0</DDRREF>
+							<Text><![CDATA[IsEmpty ( $base_table_name ) and not IsEmpty ( $table_name )]]></Text>
+						</Calculation>
+					</Calculation>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="04BD873A42B748317182CA19D8E35681" index="45" id="89" name="# (comment)" enable="False">
+			<UUID>5C2D29B8-CCA6-4218-AED8-29F1DE9FCEB6</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="BFDA8280EFD617608F4814DAC856BFF7">_5C2D29B8-CCA6-4218-AED8-29F1DE9FCEB6</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Convert table_name to base_table_name"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="DD1489EA4858AD0DB2BEF5A49B980FF0" index="46" id="1" name="Perform Script" enable="False">
+			<UUID>302E3DB9-8A19-41A8-8528-344035C3E416</UUID>
+			<OwnerID></OwnerID>
+			<Options>16448</Options>
+			<DDRREF kind="StepText" hash="9ECAD11EA1385AF146567AB4951AF83E">_302E3DB9-8A19-41A8-8528-344035C3E416</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="List">
+					<List name="From list" value="1">
+						<ScriptReference id="68" name="fmIDE.GetBaseTableName" UUID="6DCFB334-7E7C-4642-836D-B630127419F6"></ScriptReference>
+					</List>
+				</Parameter>
+				<Parameter type="Parameter">
+					<Parameter>
+						<Calculation datatype="1" position="0">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="503793A286E8F58CDFD462EDC42EE1BD">_302E3DB9-8A19-41A8-8528-344035C3E416_0</DDRREF>
+								<Text><![CDATA[Get( ScriptParameter )]]></Text>
+							</Calculation>
+						</Calculation>
+					</Parameter>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="A31E8686F2F94A2C309EFEA463226FBE" index="47" id="141" name="Set Variable" enable="False">
+			<UUID>136F55F1-ABE5-4BB1-9836-C94283C34E97</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="B8865D0A38BF89937C46F35820426B3B">_136F55F1-ABE5-4BB1-9836-C94283C34E97</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="C1674F25E7012B8F9EBAB95156F07F9C">_136F55F1-ABE5-4BB1-9836-C94283C34E97_1</DDRREF>
+								<Text><![CDATA[JSONGetElement ( Get ( ScriptResult ) ; "base_table_name" )]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$base_table_name"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_136F55F1-ABE5-4BB1-9836-C94283C34E97_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="145A26A7B5CBA9D32EF3409D656E9B8D" index="48" id="70" name="End If" enable="False">
+			<UUID>694F50F8-3D25-4F6E-89AC-608BDE959351</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="BEA58B11895FB2CDD6BB894D4AC8D20F">_694F50F8-3D25-4F6E-89AC-608BDE959351</DDRREF>
+		</Step>
+		<Step hash="CD7DC1243ADB77ECB0FAF744AE1A3573" index="49" id="89" name="# (comment)" enable="False">
+			<UUID>DDE01247-C21A-4693-B516-B664B3675888</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="FE9AEE791EF9DEC867F975E3A3D31C40">_DDE01247-C21A-4693-B516-B664B3675888</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="5268750CC0B7A990AD93C5D728861B89" index="50" id="68" name="If" enable="False">
+			<UUID>A0A648AB-689A-4D0B-B5F6-3A74C31191BF</UUID>
+			<OwnerID></OwnerID>
+			<Options>16384</Options>
+			<DDRREF kind="StepText" hash="85501C41B53AD502CDF2F1685DB60FB0">_A0A648AB-689A-4D0B-B5F6-3A74C31191BF</DDRREF>
+			<ParameterValues membercount="2">
+				<Parameter type="Boolean">
+					<Boolean type="Collapsed" id="33554432" value="False"></Boolean>
+				</Parameter>
+				<Parameter type="Calculation">
+					<Calculation datatype="7" position="0">
+						<Calculation>
+							<DDRREF kind="ChunkList" hash="3283B18288B44D44AB136C579E2B2779">_A0A648AB-689A-4D0B-B5F6-3A74C31191BF_0</DDRREF>
+							<Text><![CDATA[not IsEmpty ( $base_table_name )]]></Text>
+						</Calculation>
+					</Calculation>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="AFA28A8845188DF9A806DCB94DA89E97" index="51" id="89" name="# (comment)" enable="False">
+			<UUID>25A0947F-78FE-40FD-8256-85E67D356378</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="AD7453EA76A47666F4DDB5112B365905">_25A0947F-78FE-40FD-8256-85E67D356378</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="# Convert base_table_name to base_layout_name"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="FFA738B2492CA5A9C518FE56B7951543" index="52" id="89" name="# (comment)" enable="False">
+			<UUID>EDFA5B7C-6BD2-48E4-81BF-361C207AB1FC</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="7FC3C6CA9D1E140D0BAAAAC5FD205CFA">_EDFA5B7C-6BD2-48E4-81BF-361C207AB1FC</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="! customise this line/these lines to map a base_table_name to the base_layout_name, if necessary"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="DAA606478A1E8405008838E0336F8A0C" index="53" id="89" name="# (comment)" enable="False">
+			<UUID>3C43F854-4D2E-4832-8F2F-AACE77957E8B</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="88D78C3EE8BEEE11E695740BB25DD6A6">_3C43F854-4D2E-4832-8F2F-AACE77957E8B</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C6069E0462DD05720D68D2BBC0B73066" index="54" id="141" name="Set Variable" enable="False">
+			<UUID>17091FCB-DB42-4C16-B776-68DE70C75B2E</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="4F4739EF3A5818AE0E6FC407F987B1AE">_17091FCB-DB42-4C16-B776-68DE70C75B2E</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="26631CDF3EEB0CE74C7FC665903CAC32">_17091FCB-DB42-4C16-B776-68DE70C75B2E_1</DDRREF>
+								<Text><![CDATA[""]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$base_layout_name_prefix"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_17091FCB-DB42-4C16-B776-68DE70C75B2E_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="42B047FB6DC820466FECD85E67C72C79" index="55" id="141" name="Set Variable" enable="False">
+			<UUID>BB7AD78A-D14F-400B-9335-F63DF588546F</UUID>
+			<OwnerID></OwnerID>
+			<Options>16388</Options>
+			<DDRREF kind="StepText" hash="414E05A5BB57D0A6129EC7C00A6246F7">_BB7AD78A-D14F-400B-9335-F63DF588546F</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Variable">
+					<value>
+						<Calculation datatype="1" position="1">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="6A96D03EA6AD729B642AF34071B8802E">_BB7AD78A-D14F-400B-9335-F63DF588546F_1</DDRREF>
+								<Text><![CDATA[$base_layout_name_prefix & $base_table_name]]></Text>
+							</Calculation>
+						</Calculation>
+					</value>
+					<Name value="$base_layout_name"></Name>
+					<repetition>
+						<Calculation datatype="1" position="2">
+							<Calculation>
+								<DDRREF kind="ChunkList" hash="A93F17BC54CA1958073B692697D5ED21">_BB7AD78A-D14F-400B-9335-F63DF588546F_2</DDRREF>
+								<Text><![CDATA[1]]></Text>
+							</Calculation>
+						</Calculation>
+					</repetition>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="36F6C427D08890343DF1B2174790DB6A" index="56" id="89" name="# (comment)" enable="False">
+			<UUID>EA595EF4-024F-4068-8034-F80F472950F0</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="AD8B94B6B890992401D65ACF959756E8">_EA595EF4-024F-4068-8034-F80F472950F0</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="667C1071612F36EFE65C3E5215048A5A" index="57" id="70" name="End If" enable="False">
+			<UUID>D3A31082-95B1-4A42-8599-B92BE168FCF7</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="AAC6BEB6EB3096DF7346A267E2C2F857">_D3A31082-95B1-4A42-8599-B92BE168FCF7</DDRREF>
+		</Step>
+		<Step hash="B7D02C40D6209CC6B30744D7E92FBCC1" index="58" id="89" name="# (comment)" enable="True">
+			<UUID>2E3D4C5A-0F71-4754-9D1B-8728EF5B94B8</UUID>
+			<OwnerID></OwnerID>
+			<Options>4</Options>
+			<DDRREF kind="StepText" hash="CCBE60A7161AE83F19B2A35731C5DE43">_2E3D4C5A-0F71-4754-9D1B-8728EF5B94B8</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment value="^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="C13F1C45C7E0014D4D60C54C55959EEF" index="59" id="89" name="# (comment)" enable="True">
+			<UUID>AAA8B561-BF19-4343-8B1F-ABDE669A9385</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="206E6FCD73332508C8FE9B7CD4AD87C5">_AAA8B561-BF19-4343-8B1F-ABDE669A9385</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="E8FAA1682C5EB03EAC61A5AA3ACEABF3" index="60" id="103" name="Exit Script" enable="True">
+			<UUID>5C4FB25D-ECB7-4C30-92A5-5B1E260B93BF</UUID>
+			<OwnerID></OwnerID>
+			<Options>16384</Options>
+			<DDRREF kind="StepText" hash="59DDEA4D4D9EDB88190AC4B4C7C3B2E2">_5C4FB25D-ECB7-4C30-92A5-5B1E260B93BF</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Calculation">
+					<Calculation datatype="1" position="0">
+						<Calculation>
+							<DDRREF kind="ChunkList" hash="3F3124804E2023BB2B011CB01BC6D809">_5C4FB25D-ECB7-4C30-92A5-5B1E260B93BF_0</DDRREF>
+							<Text><![CDATA[JSONSetElement ( "" ; "base_layout_name" ; $base_layout_name ; JSONString )]]></Text>
+						</Calculation>
+					</Calculation>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+		<Step hash="83BEFDBE67038FCC7E68480EC8C7BADB" index="61" id="89" name="# (comment)" enable="True">
+			<UUID>30142389-CC4A-473A-B524-DC0E977BC906</UUID>
+			<OwnerID></OwnerID>
+			<Options>0</Options>
+			<DDRREF kind="StepText" hash="54F9C3C7C52A358333CC6D14EE573D1F">_30142389-CC4A-473A-B524-DC0E977BC906</DDRREF>
+			<ParameterValues membercount="1">
+				<Parameter type="Comment">
+					<Comment></Comment>
+				</Parameter>
+			</ParameterValues>
+		</Step>
+	</ObjectList>
+</Script>

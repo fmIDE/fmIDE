@@ -1,0 +1,65 @@
+
+# 2022-09-14 RW: Für fmIDE umgebaut
+# 2022-09-14 RW: converted variable names to lower_snake_case for fmIDE
+# 2022-08-30 RW: Added LineNrTo
+# 2022-06-20 RW: aktuelle Dateiname entfernen
+# 2019-12-02 RW: Feat#4466: ADM Script bearbeiten Scripts und DevScripts Tabelle
+
+Set Error Capture [ ON ]
+
+# Param
+Set Variable [ $file_name[1] ; /*G_TX_ScriptParam( 1 )*/ ]
+Set Variable [ $script_name[1] ; /*G_TX_ScriptParam( 2 )*/ ]
+Set Variable [ $script_step_number[1] ; /*G_TX_ScriptParam( 3 )*/ ]
+Set Variable [ $script_step_number_to[1] ; /*G_TX_ScriptParam( 4 )*/ ]
+
+If [ Get ( AccountPrivilegeSetName ) ≠ "[Full Access]" ]
+	Exit Script []
+End If
+
+If [ IsEmpty ( $script_name ) ]
+	If [ Position ( $file_name ; "#" ; 1 ; 1 ) = 0 ]
+		Exit Script []
+	End If
+	
+	# Alles in Param 1 übergebn durch "#" gettrennt
+	Set Variable [ $Bits[1] ; Substitute( Replace( $file_name ; Position( $file_name ; "#" ; 1 ; 1 ) ; 1 ; "¶" ) ; "::" ; "¶" ) ]
+	Set Variable [ $file_name[1] ; GetValue ( $Bits ; 1 ) ]
+	Set Variable [ $script_name[1] ; GetValue ( $Bits ; 2 ) ]
+	Set Variable [ $script_step_number[1] ; GetValue ( $Bits ; 3 ) ]
+	Set Variable [ $script_step_number_to[1] ; GetValue ( $Bits ; 4 ) ]
+	
+	If [ IsEmpty ( $script_name ) ]
+		Exit Script []
+	End If
+	
+End If
+
+# Erweiterung enfernen, falls vorhanden
+Set Variable [ $file_name[1] ; Substitute ( $file_name ; "." & RightWords ( Substitute( Get ( FilePath ) ; "." ; " " ) ; 1 ) ; "" ) ]
+// Set Variable [ $file_name[1] ; Case ( $file_name = Get ( FileName ) ; "" ; $file_name ) ]
+
+Set Variable [ $fmp[1] ; "fmp" ]
+Set Variable [ $server_address[1] ; /*Case ( G_IS_FileHosted ; GetValue ( Get ( HostIPAddress ) ; 1 ) ; "$" )*/ ]
+
+Set Variable [ $fmide_debug[1] ; /*G_IS_AltKey and G_IS_ShiftKey*/ ]
+Set Variable [ $url_template[1] ; "{{$fmp}}://{{$server_address}}/{{%$file_name%}}" & 
+				"?script=fmIDE" & 
+				"&$script_name={{%$script_name%}}" &
+				"&$script_step_number={{%$script_step_number%}}" &
+				"&$script_step_number_to={{%$script_step_number_to%}}" &
+				"&$fmide_debug={{%$fmide_debug%}}" &
+				"" ]
+Set Variable [ $fmp_url[1] ; /*G_TX_Format_Text ( $url_template )*/ ]
+// Show Custom Dialog [ Message: $fmp_url ; Default Button: "OK" ]
+Open URL [ In external browser: OFF ; With dialog: OFF ; ⚠️ PARAMETER "URL" NOT PARSED ⚠️ ]
+// Exit Script []
+// If [ /*G_TX_StartsWith ( $file_name ; "APP_Server_" )*/ ]
+// # Über AAS
+// Perform Script [ "" ; Specified: From list ; File: "<unknown>" ; Parameter: $file_name & "|" & $script_name & "|" & $script_step_number & "|" & $script_step_number_to ]
+// Else
+// # Über advanter
+// Perform Script [ Specified: By name ; $file_name & "::fmScriptWorkspace.OpenScript" ; Parameter: List ( $script_name ; $script_step_number ; $script_step_number_to ) ]
+// End If
+
+

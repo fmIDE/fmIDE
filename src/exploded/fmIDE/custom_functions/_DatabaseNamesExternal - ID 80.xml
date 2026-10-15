@@ -1,0 +1,9 @@
+<CustomFunction id="80" name="_DatabaseNamesExternal" access="All">
+	<UUID modifications="1" userName="R.Watson" accountName="Admin" timestamp="2026-10-09T12:52:04">47C8F0FF-F49C-48EC-9A8D-0361CA844673</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="429F1FE501C3CC688A1C709D9292A3CE">_47C8F0FF-F49C-48EC-9A8D-0361CA844673</DDRREF>
+		<Text><![CDATA[Let( vList = Substitute ( ¶ & DatabaseNames & ¶ ; "¶" & Get ( FileName ) & "¶" ; "¶" ) ; Middle ( vList ; 2 ; Length ( vList ) -2 ))]]></Text>
+	</Calculation>
+	<Display>_DatabaseNamesExternal</Display>
+</CustomFunction>

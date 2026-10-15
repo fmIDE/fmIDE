@@ -1,0 +1,13 @@
+<CustomFunction id="53" name="_Random" access="All">
+	<UUID modifications="2" userName="R.Watson" accountName="Admin" timestamp="2026-03-24T08:30:20">D38F1BF2-C2AA-42CD-BB4E-65AF978A819D</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="31D930BCF93CFDA97480E1B9B5F5D01D">_D38F1BF2-C2AA-42CD-BB4E-65AF978A819D</DDRREF>
+		<Text><![CDATA[Let([pRange = pTo+1 - pFrom];pFrom + Floor ( Random * pRange ))]]></Text>
+	</Calculation>
+	<Display>_Random ( pFrom ; pTo )</Display>
+	<ObjectList membercount="2">
+		<Parameter name="pFrom"></Parameter>
+		<Parameter name="pTo"></Parameter>
+	</ObjectList>
+</CustomFunction>

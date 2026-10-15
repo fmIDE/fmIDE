@@ -1,0 +1,3 @@
+Let( vList = Substitute ( ¶ & DatabaseNames & ¶ ; "¶" & Get ( FileName ) & "¶" ; "¶" ) ; 
+Middle ( vList ; 2 ; Length ( vList ) -2 )
+)

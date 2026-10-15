@@ -1,0 +1,18 @@
+
+# 20260305 @mrwatson-de Fix so that SHIFT = Show Omitted Only and extend so that ALT = SYS Omit Multiple Records
+# 20160603 MrW More intelligent
+# 20151006 MrW Intelligent omit button
+
+Set Error Capture [ ON ]
+Allow User Abort [ OFF ]
+If [ _IsFindMode ]
+	Omit Record
+Else If [ _IsKeySHIFT ]
+	Show Omitted Only
+Else If [ _IsKeyALT ]
+	Perform Script [ "SYS Omit Multiple Records" ; Specified: From list ; Parameter: ]
+Else
+	Omit Record
+End If
+
+

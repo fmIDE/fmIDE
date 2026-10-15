@@ -1,0 +1,34 @@
+
+# 20260326 @mrwatson-de A script to animate logo compression & expansion
+
+
+
+# Param
+Set Variable [ $_JSP[1] ; Case ( not IsEmpty ( Get ( ScriptParameter ) ) ; Get ( ScriptParameter ) ; "{}" ) ]
+Set Variable [ $source_rep[1] ; JSONGetElement ( $_JSP ; "source_rep" ) ]
+Set Variable [ $key_phrase_rep[1] ; JSONGetElement ( $_JSP ; "key_phrase_rep" ) ]
+Set Variable [ $target_rep[1] ; JSONGetElement ( $_JSP ; "target_rep" ) ]
+Set Variable [ $compress[1] ; JSONGetElement ( $_JSP ; "compress" ) ]
+
+Set Variable [ $seconds[1] ; 2 ]
+
+Set Variable [ $result[1] ; fmIDE::_gText[$source_rep] ]
+Set Variable [ $key_phrase[1] ; fmIDE::_gText[$key_phrase_rep] ]
+
+Set Variable [ $i[1] ; 1 ]
+Set Variable [ $n[1] ; Length ( $key_phrase ) ]
+Set Variable [ $seconds[1] ; $seconds / $n ]
+Loop [ Flush: Always ]
+	Set Field [ fmIDE::_gText ; $result ]
+	Exit Loop If [ $i > $n ]
+	Pause/Resume Script [ ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ]
+	
+	Set Variable [ $char[1] ; Middle ( $key_phrase ; $i ; 1 ) ]
+	Set Variable [ $result[1] ; Case( $compress ;
+					Substitute ( $result ; fmJAML_LogoFun_TokenFromChar ( $char ) ; $char ) ;
+					Substitute ( $result ; $char ; fmJAML_LogoFun_TokenFromChar ( $char ) )
+					) ]
+	
+	Set Variable [ $i[1] ; $i + 1 ]
+End Loop
+

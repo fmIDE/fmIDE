@@ -1,0 +1,9 @@
+<CustomFunction id="13" name="_MetaURLAppNews" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-09-15T23:06:19">A1CB121F-B4CF-48CF-81EB-DD3D125D3641</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="1AB8430901838542BA2C8843BE94ACEF">_A1CB121F-B4CF-48CF-81EB-DD3D125D3641</DDRREF>
+		<Text><![CDATA["https://www.fmworkmate.com/mrwatson's-blog"]]></Text>
+	</Calculation>
+	<Display>_MetaURLAppNews</Display>
+</CustomFunction>

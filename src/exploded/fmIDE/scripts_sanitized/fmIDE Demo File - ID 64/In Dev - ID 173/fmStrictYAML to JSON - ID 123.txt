@@ -1,0 +1,127 @@
+
+
+
+
+
+
+
+Set Variable [ $_JSP[1] ; Case( not IsEmpty( Get( ScriptParameter ) ) ; Get( ScriptParameter ) ; "{}" ) ]
+Set Variable [ $yaml[1] ; JSONGetElement( $_JSP ; "yaml" ) ]
+Set Variable [ $indent[1] ; JSONGetElement( $_JSP ; "indent" ) ]
+Set Variable [ $output[1] ; JSONGetElement( $_JSP ; "indent" ) ]
+
+
+
+Set Variable [ $indent[1] ; "" ]
+
+Set Variable [ $result_json[1] ; "" ]
+Set Variable [ $result_json_path[1] ; "" ]
+
+Set Variable [ $stack_index[1] ; 1 ]
+Set Variable [ $indent[$stack_index] ; "" ]
+
+Set Variable [ $what[1] ; "" ]
+
+Set Variable [ $lineNr[1] ; 1 ]
+Set Variable [ $lineNrMax[1] ; ValueCount( $yaml ) ]
+Loop [ Flush: Always ]
+	Exit Loop If [ $lineNr > $lineNrMax ]
+	Set Variable [ $line[1] ; GetValue( $yaml ; $lineNr ) ]
+	
+	Loop [ Flush: Always ]
+		Exit Loop If [ not Exact ( Left ( $line ; Length ( $indent[$stack_index] ) ) ; $indent[$stack_index] ) ]
+		# OUTDENT / POP STACK
+		Set Variable [ $stack_index[1] ; $stack_index - 1 ]
+		Exit Loop If [ not $stack_index ]
+	End Loop
+	Exit Loop If [ not $stack_index ]
+	
+	# Remove indent
+	Set Variable [ $line[1] ; Right( $line ; Length( $line ) - $indent_length ) ]
+	If [ 0 ]
+		
+	Else If [ $what[$stack_index] = "value" ]
+		Set Variable [ $char1[1] ; Left( $line ; 1 ) ]
+		Set Variable [ $stringValue[1] ; $char1 = "|" or /* literal string */
+						$char1 = ">" or /* folded string */
+						$char1 = "\""   /* quoted string */ ]
+		# > = folded string
+		# => Read string from the following lines until non-empty-line :
+		#    (ONLY WS + a comment # can come after a >)
+		#    block_indent = indent of first non-empty line
+		#      indent > block_indent = "\n" (or "¶") + EXTRA indent
+		#    outdent = line_indent = 0 or block_indent and line_indent < block_indent
+		
+		#    $string &= ($line - $block_indent) & "\n" (or "¶")
+		#    OR:   $string = Substitute( $whole_text_inkl_EOL ; "¶" & $block_indent ; "¶" )
+		
+		#    outdent = end of string
+		#    end of string = "\n" (or "¶")
+		#    end of string = save value / write JSON
+		# > = Read string from the following lines:
+		#    (ONLY WS + a comment # can come after a >)
+		#    empty-line = "\n" (or "¶")
+		#    block indent = indent of first non-empty line
+		#      indent > block indent = "\n" (or "¶") + EXTRA indent
+		#    outdent = end of string
+		#    end of string = save value / write JSON
+		Set Variable [ $stringLines[1] ; "" ]
+		If [ 0 ]
+		Else If []
+			
+		End If
+	Else If [ $what[$stack_index]= "string_folded" ]
+		Set Variable [ $value[1] ; "" ]
+		Set Variable [ $indent_length[1] ; Length ( $indent ) ]
+		Set Variable [ $indent_length[1] ; Length ( $indent ) ]
+		Loop [ Flush: Always ]
+			Set Variable [ $lineNr[1] ; $lineNr + 1 ]
+			Exit Loop If [ $lineNr > $lineNrMax ]
+			Set Variable [ $line[1] ; GetValue( $yaml ; $lineNr ) ]
+			If [ not IsEmpty ( $line ) ]
+				# outdent / no indent:
+				Exit Loop If [ not Exact ( Left ( $line ; $indent_length ) ; $indent[$stack_index] ) ]
+				If [ IsEmpty ( $block_indent ) ]
+					Set Variable [ $block_indent[1] ; Position ( $line ; Left ( $line ; 1 ) ; 1 ; 1 ) ]
+				End If
+			End If
+			Set Variable [ $value[1] ; $value & $line & "¶" ]
+		End Loop
+		# OUTDENT / POP STACK
+		Set Variable [ $value[1] ; $value & $line & "¶" ]
+		Set Variable [ $stack_index[1] ; $stack_index - 1 ]
+		Exit Loop If [ not $stack_index ]
+		Set Variable [ $value[$stack_index] ; Substitute( List( $value[$stack_index] ; $line ) ; "¶" ; " " ) ]
+		
+	Else If [ $what = "string_literal" ]
+		Set Variable [ $value[1] ; $value & Case( not IsEmpty( $value ) ; "¶" ) & $line ]
+		
+	Else If [ Left ( $line ; 1 ) = "-" ]
+		# INDENT - Start sequence / JSONArray
+		# push stack
+		Set Variable [ $stack_index[1] ; $stack_index + 1 ]
+		Set Variable [ $result_json_path[$stack_index] ; Substitute ( List( $result_json_path[$stack_index] ; "[0]" ) ; "¶" ; "." ) ]
+		Set Variable [ $result_json[1] ; JSONSetElement ( $result_json ; $result_json_path ; $json ; $result_json_type ) ]
+		
+		
+		Set Variable [ $what[1] ; "Sequence of scalars" ]
+		Set Variable [ $indent[1] ; "" ]
+		
+	Else If [ Left ( $line ; 1 ) = " " ]
+		# indent - item
+	Else If [ $what = "Sequence of scalars" ]
+		
+	End If
+	
+	
+	
+	If [ 0 ]
+	Else If [ Left ( $line ; 3 ) = "---" ]
+		Set Variable [ $tokens[1] ; List( $tokens ; "START_DOCUMENT" ) ]
+	Else If [ Left ( $line ; 3 ) = "..." ]
+		Set Variable [ $tokens[1] ; List( $tokens ; "END_DOCUMENT" ) ]
+	Else If [ Left ( $line ; 2 ) = "- " ]
+		Set Variable [ $tokens[1] ; List( $tokens ; "ITEM" ) ]
+	End If
+End Loop
+

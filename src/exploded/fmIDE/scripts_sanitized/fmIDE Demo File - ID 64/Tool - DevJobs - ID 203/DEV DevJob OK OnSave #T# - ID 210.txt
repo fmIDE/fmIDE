@@ -1,0 +1,20 @@
+
+
+
+If [ Get ( WindowMode ) = 1 ]
+	Exit Script []
+End If
+
+If [ IsEmpty ( Get ( ActiveFieldContents ) ) and fmDevJob::_sCountDone > 0 ]
+	Show Custom Dialog [ Message: "Reset job done statues?" ; Default Button: "OK" ; Button 2: "Cancel" ]
+	Set Variable [ $btn[1] ; Get ( LastMessageChoice ) ]
+	If [ $btn ≠ 1 ]
+		Exit Script []
+	End If
+	
+	Perform Script [ "DEV DevJob go to  DevJob Tasks" ; Specified: From list ; Parameter: ]
+	Replace Field Contents [ fmDevJobTask::OK ; Replace with calculation: "" ]
+	
+End If
+
+

@@ -1,0 +1,5 @@
+# Passing extended_privilege_name performs a Go to Extended Privilege action
+
+Set Variable [ $extended_privilege_name[1] ; "fmurlscript" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: "$extended_privilege_name=" & Quote( $extended_privilege_name ) ]
+

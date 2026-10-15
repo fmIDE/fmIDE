@@ -1,0 +1,16 @@
+
+# 20110818 MrW 
+
+If [ $$window.maximised ]
+	Adjust Window [ Resize to Fit ]
+	Set Variable [ $$window.maximised[1] ; "" ]
+	If [ _IsLayoutQuickLinkLayout ]
+		Perform Script [ "Quick Link - Settings - OnSave Y" ; Specified: From list ; Parameter: ]
+	End If
+Else
+	Adjust Window [ Maximize ]
+	Set Variable [ $$window.maximised[1] ; 1 ]
+End If
+
+
+

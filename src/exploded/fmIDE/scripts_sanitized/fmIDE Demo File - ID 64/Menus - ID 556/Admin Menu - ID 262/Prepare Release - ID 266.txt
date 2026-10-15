@@ -1,0 +1,17 @@
+
+# 20261005 @mrwatson-de Refactored into subscripts
+# 20260829 @mrwatson-de Reset fmIDE Tests
+# 20260530 @mrwatson-de Reset Logo fun fields
+# 20230307 @mrwatson-de fmWorkMate API
+
+Perform Script [ "Prepare Quiet" ; Specified: From list ; Parameter: ]
+
+Perform Script [ "fmIDE: Prepare Release" ; Specified: From list ; Parameter: ]
+Perform Script [ "fmIDE 'Name that Thing' API : Prepare Release" ; Specified: From list ; Parameter: ]
+Perform Script [ "fmIDE Examples :Prepare Release" ; Specified: From list ; Parameter: ]
+Perform Script [ "fmIDE Tests: Prepare Release" ; Specified: From list ; Parameter: ]
+Perform Script [ "fmIDE Actions: Prepare Release" ; Specified: From list ; Parameter: ]
+Perform Script [ "Thingamajig URIs: Prepare Release" ; Specified: From list ; Parameter: ]
+Perform Script [ "fmJAML: Prepare Release" ; Specified: From list ; Parameter: ]
+
+

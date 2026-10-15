@@ -1,0 +1,52 @@
+# Script: fmIDE.OpenFile ({file,hidden})
+
+# This script is (can be) called from fmIDE to open a file.
+
+# 1. It first uses the custom script "fmIDE.OpenFile" to attempt this
+# 2. Otherwise it tries to open the file via PSBN
+# 3. Finally it tries to open the file via fmpurl
+     - Important: This can cause it the file to be opened in the wrong FileMaker!
+
+# @return fmide_file_opening (boolean) - flag indicating that an attempt was made to open the file 
+
+
+# 20261009 @mrwatson-de Fix #168 Error handling: Renamed fmide_last_error to fmide_**get_**last_error
+# 20260624 @mrwatson-de New
+
+# Param
+Set Variable [ $_JSP[1] ; Case ( not IsEmpty ( Get ( ScriptParameter ) ) ; Get ( ScriptParameter )  ; "{}" ) ]
+Set Variable [ $file[1] ; JSONGetElement( $_JSP ; "file" ) ]
+Set Variable [ $hidden[1] ; JSONGetElement( $_JSP ; "hidden" ) ]
+
+If [ IsEmpty ( $file ) ]
+	# Error - Parameter missing
+	Set Variable [ $$fmide_get_last_error[1] ; 958 ]
+	Set Variable [ $$fmide_get_last_error_detail[1] ; "Parameter is missing: `file`" ]
+	
+	# Duplicate the secton between the chevrons (vvv/^^^) for each file as needed 
+	# vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+Else If [ $file = "FileA" ]
+	# Open File SomeFile
+	If [ $hidden ]
+		Open File [ Open hidden: ON ; "FileA" ]
+	Else
+		Open File [ Open hidden: OFF ; "FileA" ]
+	End If
+	Set Variable [ $$fmide_get_last_error[1] ; Let( $$fmide_get_last_error_detail = Get ( LastErrorDetail ) ; Get ( LastError ) ) ]
+	Set Variable [ $fmide_file_opening[1] ; 1 ]
+	
+	# ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Else
+	# Error - File is missing
+	Set Variable [ $$fmide_get_last_error[1] ; 802 ]
+	Set Variable [ $$fmide_get_last_error_detail[1] ; "Unable to open unknown file: '" & $file & "'" ]
+	
+End If
+
+Exit Script [ JSONSetElement ( "{}"
+				;["fmide_last_error" ; $$fmide_get_last_error ; JSONNumber]
+				;["fmide_last_error_detail" ; $$fmide_get_last_error_detail ; JSONString]
+				;["file_opening" ; $fmide_file_opening ; JSONBoolean]
+				) ]
+
+

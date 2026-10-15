@@ -1,0 +1,11 @@
+# /##
+# A Hello World Script, which displays a dialog with Title = ScriptName and message = ScriptParameter
+
+# - Use this script to test fmIDE
+# - Beware the SPACE in the name that must be encoded in an fmp URL as %20
+
+# #/
+
+Show Custom Dialog [ Title: Get( ScriptName ) ; Message: Get( ScriptParameter ) ; Default Button: "Hi" ]
+
+

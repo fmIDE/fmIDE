@@ -1,0 +1,6 @@
+/*
+2026-02-06 @mrwatson-de Fix GH-112 Link to help
+*/
+_MetaURLHelpPage & 
+"?" & _URLParam ( "ver" ; _MetaAppVersion ) &
+"#" & GetAsURLEncoded ( Lower( _MetaAppName ) )

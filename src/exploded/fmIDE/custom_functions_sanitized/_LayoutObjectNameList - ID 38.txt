@@ -1,0 +1,1 @@
+_RemoveEmptyLines ( UniqueValues ( Substitute ( LayoutObjectNames ( pFileName ; pLayoutName ) ; ["<" ; ""] ; [">" ; ""] ) ) )

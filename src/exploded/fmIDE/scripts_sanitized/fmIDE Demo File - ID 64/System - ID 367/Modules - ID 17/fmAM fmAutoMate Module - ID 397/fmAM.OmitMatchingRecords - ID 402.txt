@@ -1,0 +1,99 @@
+
+# 20260224 @mrwatson-de Remove dead wood from find steps
+# 20251118 @mrwatson-de Add Param MatchWholeField to match entire field and extend for find, constrain and extend
+# 20250205 @mrwatson-de This is really getting fun
+
+Set Error Capture [ ON ]
+
+# Param
+Set Variable [ $MatchWholeField[1] ; GetValue( Get( ScriptParameter ) ; 1 ) ]
+Set Variable [ $action[1] ; GetValue( Get( ScriptParameter ) ; 2 ) ]
+
+Set Variable [ $action[1] ; Case ( not IsEmpty ( $action ) ; $action ; "omit" ) ]
+
+# No can do if not in a field
+Set Variable [ $Feldname[1] ; Get ( ActiveFieldTableName ) & "::" & Get ( ActiveFieldName ) ]
+If [ $Feldname = "::" ]
+	Beep
+	// Show Custom Dialog [ Message: "Please click in a field first" ; Default Button: "Cancel" ]
+	Exit Script []
+End If
+
+# What is selected? If nothing then the entire field contents
+Set Variable [ $ActiveSelectionStart[1] ; Get ( ActiveSelectionStart ) ]
+Set Variable [ $ActiveSelectionSize[1] ; Get ( ActiveSelectionSize ) ]
+Set Variable [ $ActiveSelection[1] ; Case ( $ActiveSelectionSize ;
+				Middle ( Get ( ActiveFieldContents ) ; $ActiveSelectionStart ; $ActiveSelectionSize ) ;
+				Get ( ActiveFieldContents )
+				) ]
+
+# Create the equivalent search string - either "==" or an escaped version of the text
+Set Variable [ $FindString[1] ; Let(
+				[
+				
+				pString = $ActiveSelection ;
+				pMatchWholeField = $MatchWholeField
+				
+				];
+				
+				/* G_TX_FMSuchString( pString )
+				
+				Gibt den FileMaker Suchkriterion zurück, der genau den String findet, d.h. 
+				Sonderzeichen werden 'escaped' - genau wie beim Rechtsklick > Übereinstimmende Datensätze suchen.
+				
+				Beispiele:
+				G_TX_FMSuchString( "" ) -> "="
+				G_TX_FMSuchString( "r.watson@guenther-bs.de" ) -> "r\.watson\@guenther-bs\.de"
+				G_TX_FMSuchString( "r.watson@guenther-bs.de¶s.guenther@guenther-bs.de" ) - Findet "r.watson@guenther-bs.de¶s.guenther@guenther-bs.de" ABER NICHT "s.guenther@guenther-bs.de¶r.watson@guenther-bs.de"
+				
+				
+				2025-11-18 RW: v2.0 Mit pMatchWholeField sucht genau 
+				2013-01-10 RW: v1.1 Funktion von G_TX_SuchString umbenannt und Param- und Varnamen standardisiert.
+				2012-03-09 RW: v1.0
+				*/
+				
+				
+				Case( IsEmpty( pString ) or pMatchWholeField ; "==" ) &
+				
+				Let( vBackslash = Char( 92 ) ;
+				Substitute( pString ; 
+				[ vBackslash ; vBackslash & vBackslash ] ;
+				[Char(9) ; vBackslash & Char(9)] ;
+				["¶" ; vBackslash & "¶"] ;
+				[" " ; vBackslash & " "] ;
+				["!" ; vBackslash & "!"] ;
+				["\"" ; vBackslash & "\""] ;
+				["#" ; vBackslash & "#"] ;
+				["*" ; vBackslash & "*"] ;
+				["." ; vBackslash & "."] ;
+				["<" ; vBackslash & "<"] ;
+				["=" ; vBackslash & "="] ;
+				[">" ; vBackslash & ">"] ;
+				["?" ; vBackslash & "?"] ;
+				["@" ; vBackslash & "@"] ;
+				["~" ; vBackslash & "~"] ;
+				["\¶" ; vBackslash & "\¶"] ;
+				["≤" ; vBackslash & "≤"] ;
+				["≠" ; vBackslash & "≠"] ;
+				["≥" ; vBackslash & "≥"] ;
+				["\„" ; vBackslash & "\„"] ;
+				["\“" ; vBackslash & "\“"] ;
+				["…" ; vBackslash & "…"] 
+				))) ]
+# Omit the matching string
+Enter Find Mode [ Pause: OFF ]
+Set Field By Name [ Specify target field: ON ; $Feldname ; $FindString ]
+If [ $action = "find" ]
+	Perform Find
+Else If [ $action = "constrain" ]
+	Constrain Found Set [ ⚠️ RESTORE ⚠️ ]
+Else If [ $action = "extend" ]
+	Extend Found Set
+Else
+	# Omit Matching Records
+	Omit Record
+	Constrain Found Set [ ⚠️ RESTORE ⚠️ ]
+End If
+Perform Script [ "fmAM.OnChangeFoundSet" ; Specified: From list ; Parameter: $action ]
+
+

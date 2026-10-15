@@ -1,0 +1,50 @@
+
+
+
+Set Variable [ $ActiveRepetitionNumber[1] ; Get ( ActiveRepetitionNumber ) ]
+
+Set Variable [ $parameter_name[1] ; ThingamajigURI::NameThatThingParameter[$ActiveRepetitionNumber] ]
+
+If [ $parameter_name = "field_name" ]
+	Set Variable [ $file_name[1] ; ThingamajigURI::_kFileName ]
+	Set Variable [ $table_name[1] ; ThingamajigURI::NameThatThingValue[$ActiveRepetitionNumber-1] ]
+	Set Variable [ $TempFileRefTest[1] ; $file_name ]
+	Perform Script [ Specified: By name ; "$TempFileRefTest::fmIDE" ; Parameter: JSONSetElement ( ""
+					; ["Get Field Names.table_name" ; $table_name ; JSONString] 
+					) ]
+	Set Variable [ $_JSR[1] ; Case( not IsEmpty ( Get( ScriptResult ) ) ; Get( ScriptResult ) ; "{}" ) ]
+	Set Variable [ $field_names[1] ; JSONGetElement( $_JSR ; "data.field_names" ) ]
+	Set Variable [ $$MVL_DropDown[1] ; $field_names ]
+	
+	Show Custom Dialog [ Message: $field_names ; Default Button: "OK" ]
+Else
+	Set Variable [ $$MVL_DropDown[1] ; Let(
+					[
+					¢parameter_name = ThingamajigURI::NameThatThingParameter[Get ( ActiveRepetitionNumber )] ;
+					
+					¢MVL_DropDown = Case ( 
+					  ¢parameter_name = "script_name" ; ScriptNames ( ThingamajigURI::FileName ) ;
+					  ¢parameter_name = "script_name_stub" ; While(
+					  [
+					  ¢scripts = ScriptNames ( ThingamajigURI::FileName ) ;
+					  ¢search = "(" ;
+					  ¢result = "" ;
+					  ¢i = 1 ;
+					  ¢n = ValueCount ( ¢scripts )
+					  ]; ¢i<=¢n ; [
+					  ¢name = GetValue ( ¢scripts ; ¢i ) ;
+					  ¢stub = Left( ¢name ; Position ( ¢name & ¢search ; ¢search ; 1 ; 1 ) - 1 ) ;
+					  ¢result = ¢result & ¢stub & ¶;
+					  ¢i = ¢i + 1
+					  ];
+					  ¢result
+					  ) ;
+					
+					 
+					  ¢parameter_name = "table_name" ; TableNames ( ThingamajigURI::FileName ) ;
+					  ¢parameter_name = "layout_name" ; LayoutNames ( ThingamajigURI::FileName ) ;
+					  ¢parameter_name = "field_name" ; FieldNames ( ThingamajigURI::FileName ; "" )
+					  )
+					]; ¢MVL_DropDown ) ]
+End If
+

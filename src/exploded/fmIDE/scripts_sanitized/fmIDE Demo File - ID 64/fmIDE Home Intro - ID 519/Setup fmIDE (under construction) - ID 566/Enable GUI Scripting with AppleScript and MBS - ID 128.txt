@@ -1,0 +1,13 @@
+
+# 20261005 @mrwatson-de Users could probably do with some help getting started with fmIDE … This script could be the start of a permissions wizard
+
+
+# See MBS Blog "macOS Privacy and FileMaker" https://www.mbsplugins.de/archive/2020-08-11/macOS_Privacy_and_FileMaker/monkeybreadsoftware_blog_filemaker
+
+# r = MBS("Files.Launch"; "/System/Library/CoreServices/System Events.app") ;
+  r = MBS( "Applescript.DeterminePermissionToAutomateTarget"; "com.apple.systemevents"; "****"; "****"; 1) ;
+  
+Set Variable [ $r[1] ; MBS("Files.Launch"; "/System/Library/CoreServices/System Events.app") ]
+Set Variable [ $r[1] ; MBS( "Applescript.DeterminePermissionToAutomateTarget"; "com.apple.systemevents"; "****"; "****"; 1) ]
+Show Custom Dialog [ Title: Get ( ScriptName ) ; Message: $r ; Default Button: "OK" ]
+

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "exportedAt": "2026-10-15T10:12:16.115060Z",
+  "source": {
+    "path": "fmIDE.fmp12",
+    "stat": {
+      "modifiedNs": 1792059040440811244,
+      "bytes": 40411136
+    },
+    "changedDuringExport": false
+  },
+  "xml": {
+    "path": "src/xml/fmIDE.xml",
+    "sha256": "6c95e9e1274bb03daec4575f3a49f34e240f28a1cc913e1efc85708536941035",
+    "bytes": 24637131,
+    "databaseUUID": "23A61086-CA9A-4239-94DF-A66272315BD6"
+  },
+  "applicationVersion": "Pro 26.0.3",
+  "fmideRelease": "20261014 @mrwatson-de v0.95",
+  "fmideError": 0
+}

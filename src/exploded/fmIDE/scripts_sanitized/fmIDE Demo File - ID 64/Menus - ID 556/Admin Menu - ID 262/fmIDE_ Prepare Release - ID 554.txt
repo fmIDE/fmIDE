@@ -1,0 +1,18 @@
+
+# 20261005 @mrwatson-de Refactored
+
+# ## fmIDE Table
+
+Set Field [ fmIDE::_gMVL_Input ; "" ]
+Set Field [ fmIDE::_gMVL_Prompt ; "" ]
+Set Field [ fmIDE::_gMVL_Title ; "" ]
+
+Set Field [ fmIDE::_gTargetFile ; "" ]
+
+Set Field [ fmIDE::_gQuickLinkFmpUrl ; "" ]
+Set Field [ fmIDE::_gQuickLinkTargetFmpProtocol ; "" ]
+Set Field [ fmIDE::_gQuickLinkWindowY ; 80 ]
+
+Set Field [ fmIDE::_gLayoutShowObjects ; "" ]
+
+

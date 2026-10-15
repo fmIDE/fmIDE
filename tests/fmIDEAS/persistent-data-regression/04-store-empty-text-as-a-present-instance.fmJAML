@@ -1,0 +1,27 @@
+[+].Set Error Capture = 1
+[+].Set
+[:]..target = "$pd_id"
+[:]..calculation = == "fmIDE_Test.PersistentRegression." & Get ( UUID )
+[+].If = == not IsEmpty ( FilterValues ( ListPersistentDataIDs ( "fmIDE" ) ; $pd_id ) )
+[+].Exit Script = == "Fixture collision: no existing resource will be modified"
+[+].End If
+#@test
+[+].Configure Persistent Data
+[:]..instance_id = == $pd_id
+[:]..calculation = == ""
+#@endtest
+[+].Set
+[:]..target = "$pd_result"
+[:]..calculation = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["present" ; not IsEmpty ( FilterValues ( ListPersistentDataIDs ( "fmIDE" ) ; $pd_id ) ) ; JSONBoolean] ; ["value" ; GetPersistentData ( "fmIDE" ; $pd_id ) ; JSONString] )
+[+].Set
+[:]..target = "$pd_cleanup_error"
+[:]..calculation = == 0
+[+].If = == not IsEmpty ( FilterValues ( ListPersistentDataIDs ( "fmIDE" ) ; $pd_id ) )
+[+].Configure Persistent Data
+[:]..instance_id = == $pd_id
+[:]..delete = == 1
+[+].Set
+[:]..target = "$pd_cleanup_error"
+[:]..calculation = == $$fmide_get_last_error
+[+].End If
+[+].Exit Script = == JSONSetElement ( $pd_result ; ["cleanupError" ; $pd_cleanup_error ; JSONNumber] ; ["cleaned" ; not ( not IsEmpty ( FilterValues ( ListPersistentDataIDs ( "fmIDE" ) ; $pd_id ) ) ) ; JSONBoolean] )

@@ -1,0 +1,11 @@
+
+
+
+Set Variable [ $actions[1] ; JSONSetElement ( "[]" ;
+				["[0].Set.target" ; "$$a" ; JSONString];
+				["[0].Set.value" ; "0" ; JSONString]
+				
+				) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: $actions ]
+
+

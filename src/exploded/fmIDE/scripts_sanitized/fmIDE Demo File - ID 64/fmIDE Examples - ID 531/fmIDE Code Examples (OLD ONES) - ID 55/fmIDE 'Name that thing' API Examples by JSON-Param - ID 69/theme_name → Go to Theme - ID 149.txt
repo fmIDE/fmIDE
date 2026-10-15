@@ -1,0 +1,8 @@
+# Passing a theme_name performs a Go to Theme action
+
+Set Variable [ $theme_name[1] ; Case ( Get ( ActiveModifierKeys ) ; "[Minimalist]" ; "MrW.App" ) ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "theme_name" ; $theme_name ; JSONString ) ]
+
+Go to Layout [ Layout: <original layout> ; Animation: None ]
+
+

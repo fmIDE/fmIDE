@@ -1,0 +1,22 @@
+# /##
+# A Hello World Script, which displays a dialog with Title = ScriptName and message = ScriptParameter
+
+# - Use this script to test fmIDE
+# - Beware the SPACE in the name that must be encoded in an fmp URL as %20
+
+# #/
+
+Show Custom Dialog [ Title: Get( ScriptName ) ; Message: Get( ScriptParameter ) ; Default Button: "Hi" ]
+
+Set Variable [ $web_request[1] ; Get ( ScriptParameter ) ]
+Set Variable [ $$fmide_test_callback_result[1] ; MBS ( "WebRequest.GetBody" ; $web_request ; "UTF-8" ) ]
+Set Variable [ $$fmide_test_callback_method[1] ; MBS ( "WebRequest.GetHTTPMethod" ; $web_request ) ]
+Set Variable [ $r[1] ; MBS ( "WebRequest.Release" ; $web_request ) ]
+
+Show Custom Dialog [ Title: "WebRequest # " & $web_request ; Message: List(
+				"Result: " & $$fmide_test_callback_result ;
+				"Method: " & $$fmide_test_callback_method
+				) ; Default Button: "OK" ]
+Exit Script [ $$fmide_test_callback_result ]
+
+

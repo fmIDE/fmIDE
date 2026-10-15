@@ -1,0 +1,4 @@
+Case ( 
+Get ( WindowMode ) = 1 and pBoolean ; "==" ;
+Get ( WindowMode ) = 1 and pBoolean = "==" ; "" ; 
+not pBoolean ; 1 )

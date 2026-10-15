@@ -1,0 +1,9 @@
+<CustomFunction id="79" name="_TimestampMS" access="All">
+	<UUID modifications="0" userName="R.Watson" accountName="Admin" timestamp="2026-09-30T06:01:07">E8FD2D70-BEB1-4E6D-B150-8E70D96CD170</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="748035066197472E12B4BA9A75082214">_E8FD2D70-BEB1-4E6D-B150-8E70D96CD170</DDRREF>
+		<Text><![CDATA[Let([¢ts = Get ( CurrentHostTimeStamp ) ;¢ms = Get ( CurrentTimeUTCMilliseconds )];SerialIncrement ( "0000" ; Year ( ¢ts ) ) &SerialIncrement (  "-00" ; Month ( ¢ts ) ) &SerialIncrement (  "-00" ; Day ( ¢ts ) ) &SerialIncrement (  "_00" ; Hour ( ¢ts ) ) &SerialIncrement (  "-00" ; Minute ( ¢ts ) ) &SerialIncrement (  "-00" ; Seconds ( ¢ts ) ) &SerialIncrement ( "-000" ; Mod ( ¢ms ; 1000  ) ))]]></Text>
+	</Calculation>
+	<Display>_TimestampMS</Display>
+</CustomFunction>

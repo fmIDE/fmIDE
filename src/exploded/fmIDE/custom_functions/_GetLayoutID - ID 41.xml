@@ -1,0 +1,9 @@
+<CustomFunction id="41" name="_GetLayoutID" access="All">
+	<UUID modifications="0" userName="R.Watson" accountName="Admin" timestamp="2025-09-25T19:43:31">D227216D-5536-4C50-A9B9-8121BBE8D5FA</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="940594DEB50151A6C8695D80B7C615A6">_D227216D-5536-4C50-A9B9-8121BBE8D5FA</DDRREF>
+		<Text><![CDATA[GetValue( LayoutIDs ( "" ) ; Get ( LayoutNumber ) )]]></Text>
+	</Calculation>
+	<Display>_GetLayoutID</Display>
+</CustomFunction>

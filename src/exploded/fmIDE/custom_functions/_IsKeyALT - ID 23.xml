@@ -1,0 +1,9 @@
+<CustomFunction id="23" name="_IsKeyALT" access="All">
+	<UUID modifications="1" userName="GBS-Support-FMS" accountName="Admin" timestamp="2022-10-08T07:02:53">82B21660-B1F1-4857-88BA-93631F902F6D</UUID>
+	<TagList></TagList>
+	<Calculation>
+		<DDRREF kind="ChunkList" hash="7AFB5B8808DF2B7703103C316B30209A">_82B21660-B1F1-4857-88BA-93631F902F6D</DDRREF>
+		<Text><![CDATA[Mod( Get( ActiveModifierKeys) ; 8*2 )  >= 8]]></Text>
+	</Calculation>
+	<Display>_IsKeyALT</Display>
+</CustomFunction>

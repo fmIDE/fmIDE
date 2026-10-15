@@ -1,0 +1,9 @@
+[+].Set Error Capture = 1
+[+].Set
+[:]..target = "$mr_calls"
+[:]..calculation = == 0
+#@test
+[+].fmIDE Run Macro
+[:]..frontmatter = == Let ( $mr_calls = $mr_calls + 1 ; "" )
+#@endtest
+[+].Exit Script = == JSONSetElement ( "{}" ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["calls" ; $mr_calls ; JSONNumber] )

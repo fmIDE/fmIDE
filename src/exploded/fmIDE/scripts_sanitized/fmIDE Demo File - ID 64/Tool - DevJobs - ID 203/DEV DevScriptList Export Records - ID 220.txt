@@ -1,0 +1,16 @@
+
+# 2022-06-20 RW: New
+
+Set Error Capture [ ON ]
+
+Set Variable [ $FileName[1] ; Case( not IsEmpty ( fmDevJob::Job Title ) ; fmDevJob::Job Title ; "DevJob" ) & ".xlsx" ]
+Set Variable [ $FolderPathFM[1] ; Get ( DesktopPath ) ]
+Set Variable [ $FilePathFM[1] ; $FolderPathFM & $FileName ]
+
+Save Records as Excel [ ⚠️ PARAMETER "Restore" NOT PARSED ⚠️ ; With dialog: OFF ; ⚠️ PARAMETER "UniversalPathList" NOT PARSED ⚠️ ; ⚠️ PARAMETER "Options" NOT PARSED ⚠️ ; Create folders: ON ]
+Show Custom Dialog [ Message: Case ( Get ( LastError ) ; 
+				"Error " & Get ( LastError ) & " saving file " & $FileName & " to the Desktop." ; 
+				"File '" & $DateiName & "' saved to the Desktop."
+				) ; Default Button: "OK" ]
+
+

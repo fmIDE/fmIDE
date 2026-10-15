@@ -1,0 +1,35 @@
+
+# 20260930 @mrwatson-de Return here
+# 20260928 @mrwatson-de New
+
+# Starts in Examples Layout
+
+Commit Records/Requests [ With dialog: ON ]
+If [ Get ( LastError ) ]
+	Show Custom Dialog [ Message: "Please Commit/Revert the record first." ; Default Button: "OK" ]
+	Exit Script []
+End If
+
+
+Set Variable [ $Context[1] ; Get ( LayoutTableName ) & " " & Get ( RecordID ) ]
+
+Set Variable [ $ReturnHere[1] ; fmIDE_Example::ReturnHere ]
+
+# Reset Result fields
+Set Field [ fmIDE_Example::fmIDE_ScriptResult ; "" ]
+Commit Records/Requests [ With dialog: OFF ]
+
+# # Perform Example
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: fmIDE_Example::_gkExampleWithAddedFrontmatter ]
+
+
+Set Variable [ $$ExampleScriptResult[1] ; Get( ScriptResult ) ]
+If [ $Context = Get ( LayoutTableName ) & " " & Get ( RecordID ) ]
+	Set Field [ fmIDE_Example::fmIDE_ScriptResult ; $$ExampleScriptResult ]
+End If
+If [ $ReturnHere ]
+	Select Window
+	Refresh Window
+End If
+
+

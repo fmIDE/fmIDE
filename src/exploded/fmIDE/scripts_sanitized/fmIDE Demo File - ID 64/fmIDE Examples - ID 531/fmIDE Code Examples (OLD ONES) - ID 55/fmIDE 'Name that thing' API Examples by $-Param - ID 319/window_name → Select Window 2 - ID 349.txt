@@ -1,0 +1,6 @@
+# Passing a window_name performs a Go to Window action
+
+Set Variable [ $window_name[1] ; "fmAutoMate" ]
+Perform Script [ Specified: By name ; "fmIDE" ; Parameter: JSONSetElement ( "" ; "window_name" ; $window_name ; JSONString ) ]
+
+

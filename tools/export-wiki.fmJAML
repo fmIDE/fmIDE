@@ -1,0 +1,139 @@
+# Export current Wiki calculations and action summaries to a new folder beside fmIDE.fmp12.
+# tools/export_wiki.py validates this staging folder and publishes it as docs/actions.
+# No records are edited. No existing documentation files are overwritten by this action script.
+
+[+].Set Error Capture = 1
+[+].If = == Get ( FileName ) ≠ "fmIDE" or Left ( Get ( FilePath ) ; 6 ) = "fmnet:" or ( not IsEmpty ( $docs_expected_database_suffix ) and Right ( Get ( FilePath ) ; Length ( $docs_expected_database_suffix ) ) ≠ $docs_expected_database_suffix )
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "Open the local fmIDE database" ; JSONString] )
+[+].End If
+
+[+].Set.$docs_ids = == ExecuteSQL ( "SELECT \"__UUID\" FROM \"fmIDE_Action\" ORDER BY \"ActionName\"" ; "" ; Char ( 13 ) )
+[+].If = == IsEmpty ( $docs_ids ) or Left ( $docs_ids ; 1 ) = "?"
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "Read action IDs" ; JSONString] ; ["detail" ; $docs_ids ; JSONString] )
+[+].End If
+[+].Set.$docs_folder = == Let ( p = Get ( FilePath ) ; Left ( p ; Position ( p ; "/" ; Length ( p ) ; -1 ) ) & "docs/.wiki-export/" & Get ( UUID ) & "/" )
+
+# Take one snapshot before writing files. The calculation fields remain the source of detail content.
+[+].Set.$docs_pages = ===
+While ( [ vI = 1 ; vPages = "[]" ] ; vI <= ValueCount ( $docs_ids ) ; [
+ vID = GetValue ( $docs_ids ; vI ) ;
+ vName = ExecuteSQL ( "SELECT \"ActionName\" FROM \"fmIDE_Action\" WHERE \"__UUID\" = ?" ; "" ; "" ; vID ) ;
+ vSlug = ExecuteSQL ( "SELECT \"_kActionNameForWikiPageName\" FROM \"fmIDE_Action\" WHERE \"__UUID\" = ?" ; "" ; "" ; vID ) ;
+ vSlug = Case ( vSlug = "#" ; "comment" ; vSlug ) ;
+ vSummary = ExecuteSQL ( "SELECT \"SummaryTextForListView\" FROM \"fmIDE_Action\" WHERE \"__UUID\" = ?" ; "" ; "" ; vID ) ;
+ vDetail = ExecuteSQL ( "SELECT \"_kWikiDetailMarkdown\" FROM \"fmIDE_Action\" WHERE \"__UUID\" = ?" ; "" ; "" ; vID ) ;
+ vStep = ExecuteSQL ( "SELECT \"StepName\" FROM \"fmIDE_Action\" WHERE \"__UUID\" = ?" ; "" ; "" ; vID ) ;
+ vSupport = ExecuteSQL ( "SELECT \"Support\" FROM \"fmIDE_Action\" WHERE \"__UUID\" = ?" ; "" ; "" ; vID ) ;
+ vState = ExecuteSQL ( "SELECT \"DevState\" FROM \"fmIDE_Action\" WHERE \"__UUID\" = ?" ; "" ; "" ; vID ) ;
+ vVersion = ExecuteSQL ( "SELECT \"OriginatedInFmIDEVersion\" FROM \"fmIDE_Action\" WHERE \"__UUID\" = ?" ; "" ; "" ; vID ) ;
+ vPage = JSONSetElement ( "{}"
+ ; ["id" ; vID ; JSONString]
+ ; ["name" ; vName ; JSONString]
+ ; ["slug" ; vSlug ; JSONString]
+ ; ["file" ; vSlug & ".md" ; JSONString]
+ ; ["summary" ; vSummary ; JSONString]
+ ; ["detail" ; vDetail ; JSONString]
+ ; ["step" ; vStep ; JSONString]
+ ; ["support" ; vSupport ; JSONString]
+ ; ["state" ; vState ; JSONString]
+ ; ["version" ; vVersion ; JSONString]
+ ) ;
+ vPages = JSONSetElement ( vPages ; "[+]" ; vPage ; JSONObject ) ;
+ vI = vI + 1
+] ; vPages )
+===
+[+].If = == JSONGetElementType ( $docs_pages ; "" ) ≠ JSONArray
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "Build documentation snapshot" ; JSONString] )
+[+].End If
+
+# Restrict output to unique, portable filenames before any file is created.
+[+].Set.$docs_validation = ===
+While ( [ vI = 0 ; vSeen = "" ; vError = "" ] ; vI < ValueCount ( $docs_ids ) and IsEmpty ( vError ) ; [
+ vPage = JSONGetElement ( $docs_pages ; vI ) ;
+ vSlug = JSONGetElement ( vPage ; "slug" ) ;
+ vName = JSONGetElement ( vPage ; "name" ) ;
+ vDetail = JSONGetElement ( vPage ; "detail" ) ;
+ vError = Case (
+  IsEmpty ( vSlug ) or Filter ( vSlug ; "abcdefghijklmnopqrstuvwxyz0123456789-" ) ≠ vSlug ; "Unsafe filename for " & vName ;
+  not IsEmpty ( FilterValues ( vSeen ; vSlug ) ) or vSlug = "readme" ; "Duplicate filename for " & vName ;
+  Left ( vDetail ; 9 ) ≠ "# Action " ; "Missing Wiki detail for " & vName ;
+  IsEmpty ( JSONGetElement ( vPage ; "summary" ) ) ; "Missing summary for " & vName ;
+  ""
+ ) ;
+ vSeen = List ( vSeen ; vSlug ) ;
+ vI = vI + 1
+] ; vError )
+===
+[+].If = == not IsEmpty ( $docs_validation )
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "Validate snapshot" ; JSONString] ; ["detail" ; $docs_validation ; JSONString] )
+[+].End If
+
+[+].Set.$docs_manifest = == JSONSetElement ( "{}" ; ["generator" ; "fmIDE Wiki docs exporter v1" ; JSONString] ; ["fmIDERelease" ; $fmide_release ; JSONString] ; ["fileMakerVersion" ; Get ( ApplicationVersion ) ; JSONString] ; ["exportedAt" ; Get ( CurrentTimestamp ) ; JSONString] ; ["exportedAtUTCMilliseconds" ; Get ( CurrentTimeUTCMilliseconds ) ; JSONNumber] ; ["actionCount" ; ValueCount ( $docs_ids ) ; JSONNumber] ; ["pages" ; "[]" ; JSONArray] )
+[+].Set.$docs_index = == "<!-- Generated from fmIDE_Action. Edit the database, then export again. -->" & Char ( 13 ) & "# fmIDE Actions" & Char ( 13 ) & Char ( 13 ) & "Short descriptions for people and AI agents. Each action links to its current Wiki detail, syntax, usage examples and recorded test results." & Char ( 13 ) & Char ( 13 ) & "In fmJAML, `= == expression` preserves calculation text for fmIDE to evaluate when the action runs. A single `=` can evaluate it earlier, while fmJAML builds the action script. Data-processing specifiers do not format later fmIDE results." & Char ( 13 ) & Char ( 13 ) & "Support and development-state values come from the Actions table. Recorded test results are snapshots, not a guarantee that every option works. Removed and proposed actions remain listed and are identified in their summaries." & Char ( 13 ) & Char ( 13 ) & "| Action | Summary | FileMaker script step | Support | State | Introduced |" & Char ( 13 ) & "| --- | --- | --- | --- | --- | --- |"
+[+].Set.$docs_i = 0
+[+].Loop
+[+].Exit Loop If = == $docs_i >= ValueCount ( $docs_ids )
+[+].Set.$docs_page = == JSONGetElement ( $docs_pages ; $docs_i )
+[+].Set.$docs_row = == "| [`" & JSONGetElement ( $docs_page ; "name" ) & "`](" & JSONGetElement ( $docs_page ; "file" ) & ") | " & Substitute ( JSONGetElement ( $docs_page ; "summary" ) ; ["|" ; "&#124;"] ; [Char ( 13 ) ; " "] ; [Char ( 10 ) ; " "] ) & " | " & JSONGetElement ( $docs_page ; "step" ) & " | " & JSONGetElement ( $docs_page ; "support" ) & " | " & JSONGetElement ( $docs_page ; "state" ) & " | " & JSONGetElement ( $docs_page ; "version" ) & " |"
+[+].Set.$docs_index = == $docs_index & Char ( 13 ) & $docs_row
+[+].Set.$docs_manifest = == JSONSetElement ( $docs_manifest ; "pages[+]" ; JSONSetElement ( "{}" ; ["id" ; JSONGetElement ( $docs_page ; "id" ) ; JSONString] ; ["name" ; JSONGetElement ( $docs_page ; "name" ) ; JSONString] ; ["file" ; JSONGetElement ( $docs_page ; "file" ) ; JSONString] ) ; JSONObject )
+[+].Set.$docs_i = == $docs_i + 1
+[+].End Loop
+
+# Append index and manifest to the write queue. The manifest is written last.
+[+].Set.$docs_pages = == JSONSetElement ( $docs_pages ; "[+]" ; JSONSetElement ( "{}" ; ["file" ; "README.md" ; JSONString] ; ["content" ; $docs_index ; JSONString] ) ; JSONObject )
+[+].Set.$docs_pages = == JSONSetElement ( $docs_pages ; "[+]" ; JSONSetElement ( "{}" ; ["file" ; "_manifest.json" ; JSONString] ; ["content" ; JSONFormatElements ( $docs_manifest ) ; JSONString] ) ; JSONObject )
+[+].Set.$docs_i = 0
+[+].Set.$docs_written = 0
+[+].Loop
+[+].Exit Loop If = == $docs_i >= ValueCount ( $docs_ids ) + 2
+[+].Set.$docs_page = == JSONGetElement ( $docs_pages ; $docs_i )
+[+].Set.$docs_path = == $docs_folder & JSONGetElement ( $docs_page ; "file" )
+[+].Set.$docs_content = ===
+Let ( [
+ vContent = Case ( $docs_i >= ValueCount ( $docs_ids ) ; JSONGetElement ( $docs_page ; "content" ) ;
+  "<!-- Generated from fmIDE_Action. Edit the database, then export again. -->" & Char ( 13 ) &
+  "# Action `" & JSONGetElement ( $docs_page ; "name" ) & "`" & Char ( 13 ) & Char ( 13 ) &
+  JSONGetElement ( $docs_page ; "summary" ) & Char ( 13 ) & Char ( 13 ) &
+  "[All actions](README.md)" & Char ( 13 ) &
+  Let ( vDetail = JSONGetElement ( $docs_page ; "detail" ) ; Middle ( vDetail ; Position ( vDetail ; Char ( 13 ) ; 1 ; 1 ) + 1 ; Length ( vDetail ) ) )
+ ) ;
+ vContent = Case ( $docs_i < ValueCount ( $docs_ids ) ;
+  While ( [ vJ = 0 ; vText = vContent ] ; vJ < ValueCount ( $docs_ids ) ; [
+   vOther = JSONGetElement ( $docs_pages ; vJ ) ;
+   vSlug = JSONGetElement ( vOther ; "slug" ) ;
+   vFile = JSONGetElement ( vOther ; "file" ) ;
+   vText = Substitute ( vText ; ["](" & vSlug & ")" ; "](" & vFile & ")"] ; ["](" & vSlug & "-alias)" ; "](" & vFile & ")"] ) ;
+   vJ = vJ + 1
+  ] ; vText ) ; vContent
+ ) ;
+ vContent = Substitute ( vContent ; [Char ( 13 ) & Char ( 10 ) ; Char ( 10 )] ; [Char ( 13 ) ; Char ( 10 )] ) ;
+ vContent = While ( [ vC = 1 ; vText = vContent ] ; vC < 32 ; [ vText = Case ( vC = 9 or vC = 10 ; vText ; Substitute ( vText ; Char ( vC ) ; "" ) ) ; vC = vC + 1 ] ; vText )
+] ; vContent & Char ( 10 ) )
+===
+[+].Create Data File
+[:]..file_path = == $docs_path
+[:]..create_folders = 1
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "Create file" ; JSONString] ; ["path" ; $docs_path ; JSONString] ; ["written" ; $docs_written ; JSONNumber] ; ["error" ; $$fmide_get_last_error ; JSONNumber] )
+[+].End If
+[+].Open Data File
+[:]..file_path = == $docs_path
+[:]..target = "$docs_file_id"
+[+].If = == $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "Open file" ; JSONString] ; ["path" ; $docs_path ; JSONString] ; ["written" ; $docs_written ; JSONNumber] ; ["error" ; $$fmide_get_last_error ; JSONNumber] )
+[+].End If
+[+].Write to Data File
+[:]..file_id = == $docs_file_id
+[:]..data_source = == $docs_content
+[:]..write_as = 8
+[:]..append_line_feed = 0
+[+].Set.$docs_write_error = == $$fmide_get_last_error
+[+].Close Data File = == $docs_file_id
+[+].If = == $docs_write_error or $$fmide_get_last_error
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "stopped" ; JSONString] ; ["stage" ; "Write or close file" ; JSONString] ; ["path" ; $docs_path ; JSONString] ; ["written" ; $docs_written ; JSONNumber] ; ["writeError" ; $docs_write_error ; JSONNumber] ; ["closeError" ; $$fmide_get_last_error ; JSONNumber] )
+[+].End If
+[+].Set.$docs_written = == $docs_written + 1
+[+].Set.$docs_i = == $docs_i + 1
+[+].End Loop
+[+].Exit Script = == JSONSetElement ( "{}" ; ["status" ; "exported" ; JSONString] ; ["database" ; Get ( FilePath ) ; JSONString] ; ["folder" ; $docs_folder ; JSONString] ; ["actionCount" ; ValueCount ( $docs_ids ) ; JSONNumber] ; ["filesWritten" ; $docs_written ; JSONNumber] ; ["error" ; $$fmide_get_last_error ; JSONNumber] )

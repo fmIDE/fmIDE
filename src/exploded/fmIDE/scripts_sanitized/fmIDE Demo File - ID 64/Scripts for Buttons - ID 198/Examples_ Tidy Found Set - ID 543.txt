@@ -1,0 +1,6 @@
+
+Enter Find Mode [ Pause: OFF ]
+Set Field [ fmIDE_Example::Select ; 1 ]
+Constrain Found Set [ ⚠️ RESTORE ⚠️ ]
+Perform Script [ "Examples: Sort" ; Specified: From list ; Parameter: ]
+

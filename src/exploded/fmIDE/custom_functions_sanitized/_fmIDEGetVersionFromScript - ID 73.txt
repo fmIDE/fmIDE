@@ -1,0 +1,21 @@
+/* _fmIDEGetVersionFromScript
+
+Returns the versions number from the last word of the script starting with ###.
+
+20260909 @mrwatson-de v0.1
+*/
+Let([
+
+pAppChangesScriptNameStub = "###" ;
+
+vScriptNames = ScriptNames ( Get( FileName ) ) ;
+vAppChangesScriptNumber = ValueCount( Left( vScriptNames ; Position( ¶ & vScriptNames ; ¶ & pAppChangesScriptNameStub ; 1 ; 1 ) ) ) ;
+vAppChangesScriptName = GetValue( vScriptNames ; vAppChangesScriptNumber ) ;
+vAppChangesVersionString = Trim( Substitute( Middle( vAppChangesScriptName ; Length( pAppChangesScriptNameStub ) +1 ; 999 ) ; "#" ; "" ) ) ;
+vAppChangesVersionShort = RightWords( vAppChangesVersionString ; 1 )
+
+];
+
+vAppChangesVersionShort
+
+)
