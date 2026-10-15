@@ -28,7 +28,7 @@ This example finds selected records in the demo file's **fmIDE Examples** layout
 ```fmjaml
 [+].Go to Layout = "fmIDE Examples"
 [+].Enter Find Mode
-[+].Set Field.fmIDE_Example::Select = == 1
+[+].Set Field.fmIDE_Example::Select = 1
 [+].Perform Find
 [+].Perform Script = "Examples: Sort"
 [+].Go to Record/Request/Page = "First"
