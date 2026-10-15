@@ -21,7 +21,7 @@ person
        ] = "AI+U+Me"
 ```
 
-Dots introduce object keys, brackets address arrays, `[+]` appends, and `[:]` refers to the last array element. An omitted repeated key inherits the previous key at that level. Prefer explicit paths until the structure is clear. Use `;N;` and `;B;` when the JSON type must be numeric or boolean.
+Dots introduce object keys, brackets address arrays, `[+]` appends, and `[:]` refers to the last array element. An omitted repeated key inherits the previous key at that level. Prefer explicit paths until the structure is clear.
 
 An action script is an array of single-action objects:
 
