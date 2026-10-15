@@ -23,7 +23,7 @@ Navigate straight to an object and continue in FileMaker's native development in
 
 ## An action script in fmJAML
 
-This example finds selected records in the demo file's **fmIDE Examples** layout, sorts them and goes to the first record:
+This example finds selected records in the demo file's **fmIDE Examples** layout, sorts them and goes to the last record and finally turns the number of found records.
 
 ```fmjaml
 [+].Go to Layout = "fmIDE Examples"
@@ -31,10 +31,16 @@ This example finds selected records in the demo file's **fmIDE Examples** layout
 [+].Set Field.fmIDE_Example::Select = 1
 [+].Perform Find
 [+].Perform Script = "Examples: Sort"
-[+].Go to Record/Request/Page = "First"
+[+].Go to Record/Request/Page = "Last"
+[+].Exit Script = == Get ( Found Count )
 ```
 
-The layout and script names above are literal values. `= ==` preserves a FileMaker calculation for evaluation when the action runs. See the [fmJAML and fmIDEAS guide](docs/fmjaml-fmideas.md) for syntax and evaluation rules.
+The layout and script names above are literal values.
+
+```
+`= ==` preserves a FileMaker calculation for evaluation when the action runs.
+# See the [fmJAML and fmIDEAS guide](docs/fmjaml-fmideas.md) for syntax and evaluation rules.
+```
 
 ## Documentation and support
 
