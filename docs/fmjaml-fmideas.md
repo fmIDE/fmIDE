@@ -36,6 +36,7 @@ Here `[:]..layout_name` means the `layout_name` parameter of the preceding actio
 
 All fmIDEAS written in fmJAML should look as much like native FileMaker statements as possible. Apply this to handwritten and generated scripts, macros, test records and documentation examples.
 
+- Use short forms, where possible, to reduce noise and actions on one line.
 - Indent the body of each `If`, `Loop` or other block by **two spaces** per level. Align `Else If`, `Else`, `End If` and `End Loop` with their opening action.
 - Keep the array-path prefix (`[+].` or `[:].`) at the start of the line. Place indentation **after that prefix**, before the action name or the leading dot of `.parameter_name`.
 - Use spaces, **never tabs**, for indentation. Fixed two-space levels avoid visual inconsistencies and recognition problems caused by different tab stops.
