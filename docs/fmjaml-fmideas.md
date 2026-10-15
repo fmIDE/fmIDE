@@ -1,6 +1,6 @@
 # Writing fmJAML and fmIDEAS
 
-fmJAML - FileMaker JSON as a Markdown Language - constructs JSON. 
+fmJAML - FileMaker JSON as a Markdown Language - constructs JSON (elegantly).
 
 fmIDEAS is an fmIDE Action Script, usually expressed in fmJAML. fmIDE executes it; fmIDE-CLI dispatches it. Keep those four layers distinct.
 
