@@ -1,17 +1,20 @@
 # Writing fmJAML and fmIDEAS
 
-fmJAML constructs JSON. fmIDEAS is an action script, usually expressed in that JSON. fmIDE executes it; fmIDE-CLI dispatches it. Keep those four layers distinct.
+fmJAML - FileMaker JSON as a Markdown Language constructs JSON. fmIDEAS is an fmIDE Action Script, usually expressed in that JSON. fmIDE executes it; fmIDE-CLI dispatches it. Keep those four layers distinct.
 
 Use fmIDEAS for supported navigation, calculations, record operations, local Data API queries, backups, exports and repeatable tests. Use the native script editor for implementation changes that the action API cannot safely perform. Use Python for filesystem orchestration, comparisons and packaging; the calculations still run in FileMaker.
 
 ## Build a structure
 
 ```fmjaml
-person.name = "Russell"
-person.age = ;N; 42
-person.active = ;B; 1
-person.tags[+] = "FileMaker"
-person.tags[+] = "AI"
+person
+.name = "Russell"
+.age = 42
+.active = true
+.tags[+] = "FileMaker"
+.    [+] = "MrWatson"
+     [+] = "ToolMaker"
+       ] = "AI"
 ```
 
 Dots introduce object keys, brackets address arrays, `[+]` appends, and `[:]` refers to the last array element. An omitted repeated key inherits the previous key at that level. Prefer explicit paths until the structure is clear. Use `;N;` and `;B;` when the JSON type must be numeric or boolean.
@@ -25,7 +28,7 @@ An action script is an array of single-action objects:
 [+].Exit Script = == $answer
 ```
 
-Here `[:]..layout_name` means the `layout_name` parameter of the preceding action. Compare an action's short and long forms in the [action reference](actions/README.md); parameter names are not interchangeable across actions.
+Here `[:]..layout_name` means the `layout_name` parameter of the preceding action. Compare an action's short and long forms in the [action reference](actions/README.md);
 
 ## Format like FileMaker statements
 
@@ -53,7 +56,7 @@ The parameter lines above follow their action's block indentation: the spaces ar
 
 ## File paths
 
-Use `.file_path` for a filesystem path: Create Data File, Delete File, Get File Exists, Get File Size, Open Data File, Recover File, Rename File, Save a Copy as, and Save a Copy as XML. Supply a calculation that returns a FileMaker-format path.
+Use `.file_path` for a (FileMaker) filesystem path: Create Data File, Delete File, Get File Exists, Get File Size, Open Data File, Recover File, Rename File, Save a Copy as, and Save a Copy as XML. Supply a calculation that returns a FileMaker-format path.
 
 ```fmjaml
 [+].Get File Exists
