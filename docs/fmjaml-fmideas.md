@@ -2,7 +2,9 @@
 
 fmJAML - FileMaker JSON as a Markdown Language - constructs JSON (elegantly).
 
-fmIDEAS is an fmIDE Action Script, usually written in fmJAML. fmIDE executes it; fmIDE-CLI dispatches it. Keep those four layers distinct.
+fmIDEAS is an fmIDE Action Script, usually written in fmJAML - a text based dynamic FileMaker script, if you like.
+
+fmIDE executes it; fmIDE-CLI dispatches it. Keep those four layers distinct.
 
 Use fmIDEAS for supported navigation, calculations, record operations, local Data API queries, backups, exports and repeatable tests. Use the native script editor for implementation changes that the action API cannot safely perform. Use Python for filesystem orchestration, comparisons and packaging; the calculations still run in FileMaker.
 
@@ -11,12 +13,12 @@ Use fmIDEAS for supported navigation, calculations, record operations, local Dat
 ```fmjaml
 person
 .name = "Russell"
-.age = 42
+.age = == 42 + Random * 20
 .active = true
 .tags[+] = "FileMaker"
 .    [+] = "MrWatson"
      [+] = "ToolMaker"
-       ] = "AI"
+       ] = "AI+U+Me"
 ```
 
 Dots introduce object keys, brackets address arrays, `[+]` appends, and `[:]` refers to the last array element. An omitted repeated key inherits the previous key at that level. Prefer explicit paths until the structure is clear. Use `;N;` and `;B;` when the JSON type must be numeric or boolean.
