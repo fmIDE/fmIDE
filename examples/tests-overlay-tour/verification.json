@@ -1,0 +1,42 @@
+{
+  "tested_at": "2026-10-16T19:44:33.015681+00:00",
+  "platform": "macOS",
+  "filemaker": "Pro 26.0.3",
+  "mbs": "16.4.0.08",
+  "fmide_cli": "0.4.6",
+  "database": "Disposable copy of the fmIDE demo file; no installed scripts or records changed.",
+  "protected_repository_database_unchanged": true,
+  "verification": "FileMaker completion files, JavaScript state, native overlay coordinates and GUI controls were checked.",
+  "passed": [
+    "six tour stops",
+    "Back",
+    "Next",
+    "Finish cleanup",
+    "X cleanup",
+    "fallback stop",
+    "native overlay movement follows FileMaker window"
+  ],
+  "not_tested": [
+    "Windows",
+    "keyboard shortcuts"
+  ],
+  "limitations": [
+    "Current Tests header coordinates; 100 percent zoom; minimum content width 1102 points"
+  ],
+  "last_error_by_check": {
+    "tour-six-stops": "0",
+    "finish-check": "0",
+    "movement-check": "0",
+    "restore-check": "0",
+    "stop-check": "0"
+  },
+  "sha256": {
+    "README.txt": "0c340ebc9cb49fff907b99477978b90b37c8b4438edb75df72ad4645a5a6ab91",
+    "build.py": "b559a37db339bde8a5df2e42fb35ae755b30239b01369503e1de498c5eec7ff0",
+    "tests-tour.fmIDEAS.fmJAML": "48c685b2b174a9a22ce2ee45e95c8b82d1fdae555578e13677e9818f58be7cfb",
+    "stop-tour.fmIDEAS.fmJAML": "5c14f40f43def27178d8468cc7d7bf0b632bc4f36b5aeb80a4972826779cf5ac",
+    "tour.html": "58179e1dbae5557337dd320444df9d3584c9e141c05e1c2f988531a0f04ae7cc",
+    "tour-first-stop.jpg": "e8e47690e06b9cc1fcaa00056dc4c4f9533e4bf18365b42602a804b8cc9b8f9f",
+    "tour-results.jpg": "78f0a744208c7bb03ad20bf2fca826a4232c4a7742e62214cd8e4b4311d9b34b"
+  }
+}

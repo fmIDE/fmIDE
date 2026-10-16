@@ -12,6 +12,8 @@ fmIDE connects FileMaker's native development environment with developer tools a
 
 Agents can use the repository skills in [`.agents/skills`](../.agents/skills/README.md). The [native test sources](../tests/fmIDEAS/README.md), [current source workflow](../src/README.md), [public API variables](fmIDE-public-api-variables.md) and [internal-variable notes](fmIDE-private-internal-variables.md) provide more detail.
 
+Try the [Tests layout overlay tour](../examples/tests-overlay-tour/README.txt): a standalone fmIDEAS example with HTML speech bubbles and Back/Stop/Next controls, tested on macOS with MBS.
+
 ## Documentation from the database
 
 Edit `fmIDE_Action::SummaryTextForListView`, Description and syntax/usage content through **fmIDE Actions**. Review its calculated Wiki content on **fmIDE Actions Wiki Docs**. The action exporter produces a summary index and one detail page per action, including stored examples and test results.

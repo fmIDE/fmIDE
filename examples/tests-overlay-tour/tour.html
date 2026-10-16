@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'">
+<title>fmIDE Tests tour</title>
+<style>
+  :root { color-scheme: light; --green: #008800; --tail-x: 190px; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: transparent; overflow: hidden; }
+  body { padding: 19px 8px 9px; font: 14px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #193023; }
+  .bubble { position: relative; min-height: 205px; padding: 17px 19px 14px; border: 2px solid var(--green); border-radius: 18px; background: #fff; box-shadow: 0 3px 6px #0002; }
+  .bubble::before, .bubble::after { content: ""; position: absolute; left: var(--tail-x); width: 0; height: 0; transform: translateX(-50%); border-left: 15px solid transparent; border-right: 15px solid transparent; }
+  .bubble::before { top: -18px; border-bottom: 18px solid var(--green); }
+  .bubble::after { top: -15px; border-bottom: 17px solid white; }
+  .eyebrow { display: flex; justify-content: space-between; color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
+  h1 { margin: 10px 0 7px; font-size: 21px; line-height: 1.15; letter-spacing: -.02em; }
+  p { margin: 0; min-height: 58px; }
+  nav { display: flex; align-items: center; justify-content: space-between; margin-top: 13px; }
+  .hint { color: #647467; font-size: 11px; }
+  .buttons { display: flex; gap: 7px; }
+  button { width: 38px; height: 32px; border-radius: 9px; border: 1px solid #c9dfca; background: #f2f8f2; color: var(--green); font-family: inherit; font-size: 18px; font-weight: 700; line-height: 1; cursor: pointer; }
+  button:hover { background: #e0f1e1; }
+  button:focus-visible { outline: 3px solid #f2b434; outline-offset: 2px; }
+  button:disabled { opacity: .32; cursor: default; }
+  #next { background: var(--green); border-color: var(--green); color: white; }
+  #error { color: #a83224; font-size: 12px; min-height: 0; margin-top: 5px; }
+</style>
+<section class="bubble" aria-label="fmIDE Tests guided tour">
+  <div class="eyebrow"><span>fmIDE / Tests</span><span id="count">1 / 6</span></div>
+  <h1 id="title">Opening the tour…</h1>
+  <p id="description">A quick introduction to the main test controls.</p>
+  <nav>
+    <span class="hint" id="hint">Explore without running tests</span>
+    <div class="buttons">
+      <button id="back" aria-label="Previous tour step" title="Back">&lt;</button>
+      <button id="stop" aria-label="Stop tour" title="Stop">X</button>
+      <button id="next" aria-label="Next tour step" title="Next">&gt;</button>
+    </div>
+  </nav>
+  <p id="error" role="alert"></p>
+</section>
+<script>
+/* Injected at runtime by tests-tour.fmIDEAS.fmJAML. No file or record writes. */
+const config = __TOUR_CONFIG__;
+const steps = [
+  { id: "found", title: "Run THESE Tests", rect: [303, 0, 197, 30], text: "Run the automatic tests in your current found set. Find a suite or action first to keep the check focused." },
+  { id: "automatic", title: "Run ALL automatic Tests", rect: [501, 0, 197, 30], text: "Check all automatic tests across the test collection. Use this for a wider regression check after a change." },
+  { id: "retry", title: "Run FAILed tests again", rect: [501, 31, 197, 30], text: "Rerun failed automatic tests after a fix. This helps you check the failures before repeating the full suite." },
+  { id: "manual", title: "Run ALL manual Tests", rect: [699, 0, 197, 30], text: "Start the tests that need your participation. Follow their instructions and inspect the visible behaviour in FileMaker." },
+  { id: "results", title: "Show Results", rect: [898, 0, 111, 30], text: "Open the test-results summary to review passes, failures and skipped tests. A skipped test still needs attention or its prerequisites." },
+  { id: "code", title: "Focus on test code", rect: [303, 31, 197, 30], text: "Give the test code more room while you work. Compare the expected and actual result beside it, then run a focused check." }
+];
+const $ = id => document.getElementById(id);
+const fmQuote = value => '"' + String(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\r/g, '" & Char ( 13 ) & "').replace(/\n/g, '" & Char ( 10 ) & "') + '"';
+const state = window.tourState = { index: 0, ready: false, busy: false, stopped: false, history: [], error: "", geometry: null };
+let followTimer;
+let lastGeometry = "";
+
+async function evaluate(calculation) {
+  if (!window.FileMaker || typeof FileMaker.Evaluate !== "function") throw new Error("MBS FileMaker.Evaluate is unavailable; MBS 16.2 or later is required.");
+  return await FileMaker.Evaluate(calculation);
+}
+function buttons() {
+  $("back").disabled = state.busy || state.index === 0;
+  $("next").disabled = state.busy;
+  $("next").title = state.index === steps.length - 1 ? "Finish tour" : "Next";
+  $("next").setAttribute("aria-label", state.index === steps.length - 1 ? "Finish tour" : "Next tour step");
+}
+function failure(error) {
+  state.error = String(error.message || error);
+  $("error").textContent = state.error;
+}
+
+async function geometry() {
+  const calculation = `Case (
+    Get ( FilePath ) ≠ ${fmQuote(config.file_path)} or Get ( LayoutName ) ≠ "fmIDE Tests" or Get ( WindowName ) ≠ ${fmQuote(config.window_name)} ; "context_changed" ;
+    JSONSetElement ( "{}"
+    ; [ "left" ; MBS ( "Window.GetLeft" ; ${config.window_ref} ) ; JSONNumber ]
+    ; [ "top" ; MBS ( "Window.GetTop" ; ${config.window_ref} ) + Get ( WindowHeight ) - Get ( WindowContentHeight ) ; JSONNumber ]
+    ; [ "width" ; Get ( WindowContentWidth ) ; JSONNumber ]
+    ; [ "height" ; Get ( WindowContentHeight ) ; JSONNumber ]
+    ; [ "zoom" ; Get ( WindowZoomLevel ) / 100 ; JSONNumber ]
+    )
+  )`;
+  const raw = await evaluate(calculation);
+  if (raw === "context_changed") throw new Error("Return to the tour's fmIDE Tests window, or press X to stop.");
+  const g = JSON.parse(raw);
+  if (!Number.isFinite(g.left) || !Number.isFinite(g.top) || g.width < 1102 || g.zoom !== 1) throw new Error("This prototype needs the Tests layout at 100% zoom and a window at least 1102 points wide.");
+  return g;
+}
+
+async function position(force) {
+  const g = await geometry();
+  const key = JSON.stringify([state.index, g]);
+  if (!force && key === lastGeometry) return;
+  const s = steps[state.index];
+  // Header buttons are right-anchored; exported design width is 1102 points.
+  const shift = g.width - 1102;
+  const [left, top, width, height] = s.rect;
+  const target = { x: g.left + left + shift, y: g.top + top, width, height };
+  const bubbleWidth = 400, bubbleHeight = 246;
+  const x = Math.round(Math.max(g.left + 8, Math.min(target.x + width / 2 - bubbleWidth / 2, g.left + g.width - bubbleWidth - 8)));
+  const y = Math.round(target.y + height + 10);
+  const tail = Math.max(25, Math.min(bubbleWidth - 45, target.x + width / 2 - x - 10));
+  document.documentElement.style.setProperty("--tail-x", tail + "px");
+  const calc = `Let ( [
+    vHighlight = MBS ( "Overlay.SetFrame" ; ${config.highlight} ; ${target.x - 3} ; ${target.y - 3} ; ${width + 6} ; ${height + 6} ) ;
+    vMove = MBS ( "Overlay.Move" ; ${config.overlay} ; ${x} ; ${y} ; 16 / 100 ) ;
+    vShowHighlight = MBS ( "Overlay.SetVisible" ; ${config.highlight} ; 1 ) ;
+    vShowBubble = MBS ( "Overlay.SetVisible" ; ${config.overlay} ; 1 ) ;
+    vFocus = ${force ? `MBS ( "Overlay.SetFocus" ; ${config.overlay} )` : '"OK"'}
+    ] ; List ( vHighlight ; vMove ; vShowHighlight ; vShowBubble ; vFocus ) )`;
+  const result = String(await evaluate(calc));
+  if (result.split(/[\r\n]+/).some(value => value !== "OK")) throw new Error(result);
+  state.geometry = { ...g, target, bubble: { x, y, width: bubbleWidth, height: bubbleHeight } };
+  lastGeometry = key;
+}
+
+async function show(index) {
+  if (state.busy || state.stopped) return;
+  state.busy = true;
+  state.index = index;
+  buttons();
+  const s = steps[index];
+  $("count").textContent = (index + 1) + " / " + steps.length;
+  $("title").textContent = s.title;
+  $("description").textContent = s.text;
+  $("hint").textContent = index === steps.length - 1 ? "Next finishes the tour" : "Explore without running tests";
+  try {
+    await position(true);
+    state.ready = true;
+    state.error = "";
+    $("error").textContent = "";
+    state.history.push(s.id);
+  } catch (error) { failure(error); }
+  finally { state.busy = false; buttons(); }
+}
+
+async function stop() {
+  if (state.stopped) return;
+  state.stopped = true;
+  clearInterval(followTimer);
+  // Release after the JS callback has returned, not from inside its own WebView.
+  try {
+    const cleanup = `Let ( [ vH = MBS ( "Overlay.Release" ; ${config.highlight} ) ; vB = MBS ( "Overlay.Release" ; ${config.overlay} ) ; $$fmidetour_overlay = "" ; $$fmidetour_highlight = "" ; $$fmidetour_web = "" ] ; List ( vH ; vB ) )`;
+    const scheduled = String(await evaluate(`MBS ( "Schedule.EvaluateAfterDelay" ; 2 / 10 ; ${fmQuote(cleanup)} )`));
+    if (!/^\d+$/.test(scheduled)) throw new Error(scheduled);
+  } catch (error) { state.stopped = false; failure(error); }
+}
+$("back").onclick = () => show(Math.max(0, state.index - 1));
+$("next").onclick = () => state.index === steps.length - 1 ? stop() : show(state.index + 1);
+$("stop").onclick = stop;
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") stop();
+  if (event.key === "ArrowLeft" && state.index > 0) show(state.index - 1);
+  if (event.key === "ArrowRight") $("next").click();
+});
+async function start() {
+  // MBS injects its FileMaker bridge after the page's own scripts execute.
+  const deadline = Date.now() + 10000;
+  while ((!window.FileMaker || typeof FileMaker.Evaluate !== "function") && Date.now() < deadline) {
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+  await show(0);
+  if (!state.ready) return;
+  followTimer = setInterval(async () => {
+    if (state.busy || state.stopped) return;
+    state.busy = true;
+    try { await position(false); } catch (error) { failure(error); }
+    finally { state.busy = false; }
+  }, 1000);
+}
+start();
+</script>
+</html>

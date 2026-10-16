@@ -1,0 +1,22 @@
+# Stop only the two overlays created by this tour in the current database session.
+[+].Set Error Capture = 1
+[+].Set.$tour_stop_results = ===
+Let(
+[
+
+vHighlight = Case ( not IsEmpty ( $$fmidetour_highlight ) ; MBS ( "Overlay.Release" ; $$fmidetour_highlight ) ; "Not running" ) ;
+vBubble = Case ( not IsEmpty ( $$fmidetour_overlay ) ; MBS ( "Overlay.Release" ; $$fmidetour_overlay ) ; "Not running" ) ;
+$$fmidetour_overlay = "" ;
+$$fmidetour_highlight = "" ;
+$$fmidetour_web = ""
+
+];
+
+JSONSetElement ( "{}"
+; [ "highlight" ; vHighlight ; JSONString ]
+; [ "bubble" ; vBubble ; JSONString ]
+)
+
+)
+===
+[+].Exit Script = == $tour_stop_results
