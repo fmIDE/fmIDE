@@ -13,6 +13,8 @@ Format every fmIDEAS script written in fmJAML to look as much like native FileMa
 
 See the [formatting example](../../../docs/fmjaml-fmideas.md#format-like-filemaker-statements).
 
+Macro definitions use `macro_name`, optional `metadata`, and `script`. Define receives calculations for `macro_name` and `script`; Get returns their stored values. Read these keys by name, preserve metadata as data, and retain unrelated keys such as `error.code`. Require a build supporting this contract; older exports may still show `name`/`code`. See [the macro contract](../../../docs/fmjaml-fmideas.md#macro-definition-contract).
+
 1. Establish host, CLI version, FileMaker version, database path and required capability. Do not infer the target from the frontmost window.
 2. Separate construction-time evaluation from action-time evaluation. Preserve runtime calculations with `= ==` or raw here-text; use quoted here-text for literal strings without manual escaping.
 3. Use named lower_snake_case frontmatter parameters. Return structured results with a runtime JSONSetElement calculation. Do not invent runtime structured-leaf evaluation.

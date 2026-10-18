@@ -140,6 +140,37 @@ Use named, lower_snake_case inputs. Avoid hidden dependencies on globals. Stored
 
 Define replaces an existing macro of that name. Check for collisions before installing a library. Read `Get ( ScriptResult )` immediately after Run Macro. Macros require FileMaker 26's persistent store.
 
+### Macro definition contract
+
+The renamed contract uses `macro_name`, optional `metadata`, and `script`. It requires a supporting fmIDE build; the older `name`/`code` stored keys are not aliases assumed by these examples.
+
+```fmjaml
+[+].fmIDE Define Macro
+[:]..macro_name = == "Greeting"
+[:]..metadata.description = "Return a greeting"
+[:]..script = =====GREETING
+[+].Exit Script = == "Hello"
+===GREETING
+[+].fmIDE Get Macro
+[:]..macro_name = == "Greeting"
+[:]..target = "$macro"
+[+].Exit Script = == JSONGetElement ( $macro ; "script" )
+```
+
+Define evaluates the name and script calculations once and stores their results. The script text is executed later by Run Macro; metadata stays data. Get returns the stored object, for example:
+
+```json
+{
+  "macro_name": "Greeting",
+  "metadata": {"description": "Return a greeting"},
+  "script": "[+].Exit Script = == \"Hello\""
+}
+```
+
+Alphabetical presentation puts identity first, metadata second and implementation last. Read properties by key, never by their position. The dot-name shorthand, Run frontmatter and Get target keep their existing roles. Keys inside metadata and result objects, such as `error.code`, are unaffected.
+
+Generated action pages still reflect their last database export. Refresh those from FileMaker after the native implementation and its tests are updated.
+
 ## Verify errors and identity
 
 `Set Error Capture` suppresses the engine's error dialogue; it does not abort your action script. Check `$$fmide_get_last_error` immediately after a fallible action, before another action can replace it. Save code, detail, location and description together when preserving an error across cleanup.

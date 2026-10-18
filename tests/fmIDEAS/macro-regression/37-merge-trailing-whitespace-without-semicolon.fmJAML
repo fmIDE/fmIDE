@@ -1,9 +1,9 @@
 [+].Set Error Capture = 1
 [+].fmIDE Define Macro
 [:]..macro_name = == "fmIDE_Test.MacroRegression.MergedWhitespaceNoSemicolon"
-[:]..code = == "---" & Char ( 13 ) & "$mr_stored = \"stored\"" & Char ( 13 ) & "---" & Char ( 13 ) & "[+].Exit Script = == $mr_input & \"/\" & $mr_stored"
+[:]..script = == "---" & Char ( 13 ) & "$mr_stored = \"stored\"" & Char ( 13 ) & "---" & Char ( 13 ) & "[+].Exit Script = == $mr_input & \"/\" & $mr_stored"
 [+].If = == $$fmide_get_last_error
-[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "fixture setup" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].  Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "fixture setup" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
 [+].End If
 #@test
 [+].fmIDE Run Macro

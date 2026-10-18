@@ -1,9 +1,9 @@
 [+].Set Error Capture = 1
 [+].fmIDE Define Macro
 [:]..macro_name = == "fmIDE_Test.MacroRegression.TargetLocal"
-[:]..code = == "[+].Exit Script = == \"local\""
+[:]..script = == "[+].Exit Script = == \"local\""
 [+].If = == $$fmide_get_last_error
-[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "fixture setup" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].  Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "fixture setup" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
 [+].End If
 #@test
 [+].fmIDE Get Macro.fmIDE_Test.MacroRegression.TargetLocal = "$mr_macro"

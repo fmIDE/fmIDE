@@ -2,12 +2,12 @@
 #@test
 [+].fmIDE Define Macro
 [:]..macro_name = == "fmIDE_Test.MacroRegression.Metadata"
-[:]..code = == "[+].Exit Script = == \"meta\""
+[:]..script = == "[+].Exit Script = == \"meta\""
 [:]..metadata.description = "Quotes \" and backslash \\ and café"
 [:]..metadata.author = "fmIDE regression tests"
 [:]..metadata.version = 2
 [+].If = == $$fmide_get_last_error
-[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "define" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].  Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "define" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
 [+].End If
 [+].fmIDE Get Macro
 [:]..macro_name = == "fmIDE_Test.MacroRegression.Metadata"
