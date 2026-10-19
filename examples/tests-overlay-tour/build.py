@@ -92,5 +92,5 @@ JSONSetElement ( "{}"
 )
 ===
 '''
-(HERE / 'tests-tour.fmIDEAS.fmJAML').write_text(source)
-print('Built tests-tour.fmIDEAS.fmJAML:', len(source.encode()), 'bytes')
+(HERE / 'tests-tour.fmIDEAS').write_text(source)
+print('Built tests-tour.fmIDEAS:', len(source.encode()), 'bytes')

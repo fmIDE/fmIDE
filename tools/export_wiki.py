@@ -66,7 +66,7 @@ def export(fmp, timeout):
             '$docs_expected_database_suffix = ' + fm_quote((REPO / 'fmIDE.fmp12').as_posix())
         )
         subprocess.run(['fmide', '-fmp', fmp, '-file', 'fmIDE', '-frontmatter', frontmatter,
-                        '--parameter-file', str(REPO / 'tools/export-wiki.fmJAML')], check=True)
+                        '--parameter-file', str(REPO / 'tools/export-wiki.fmIDEAS')], check=True)
         expected = ['script_result.txt', 'last_error.txt', 'last_error_detail.txt',
                     'last_error_location.txt', 'last_error_description.txt']
         deadline = time.monotonic() + timeout

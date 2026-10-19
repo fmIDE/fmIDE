@@ -31,12 +31,25 @@
     "stop-check": "0"
   },
   "sha256": {
-    "README.txt": "0c340ebc9cb49fff907b99477978b90b37c8b4438edb75df72ad4645a5a6ab91",
-    "build.py": "b559a37db339bde8a5df2e42fb35ae755b30239b01369503e1de498c5eec7ff0",
-    "tests-tour.fmIDEAS.fmJAML": "48c685b2b174a9a22ce2ee45e95c8b82d1fdae555578e13677e9818f58be7cfb",
-    "stop-tour.fmIDEAS.fmJAML": "5c14f40f43def27178d8468cc7d7bf0b632bc4f36b5aeb80a4972826779cf5ac",
-    "tour.html": "58179e1dbae5557337dd320444df9d3584c9e141c05e1c2f988531a0f04ae7cc",
+    "README.txt": "de843dd790d383a2c984490e7a151d582d891849029036c9ed65a21c038f54c5",
+    "build.py": "7f5bcca54e182e0a9e21d557e6f275d53249ade79e7127eda3012922888b0303",
+    "tests-tour.fmIDEAS": "482c593606a459270bf4e1f09023d5ab3b2c3bed51847543882e96ea242f41af",
+    "stop-tour.fmIDEAS": "5c14f40f43def27178d8468cc7d7bf0b632bc4f36b5aeb80a4972826779cf5ac",
+    "tour.html": "1a59a0359c64897750936542f93b0a6536aed259d31e18804b10d4931f7b91c6",
     "tour-first-stop.jpg": "e8e47690e06b9cc1fcaa00056dc4c4f9533e4bf18365b42602a804b8cc9b8f9f",
     "tour-results.jpg": "78f0a744208c7bb03ad20bf2fca826a4232c4a7742e62214cd8e4b4311d9b34b"
+  },
+  "filename_migration": {
+    "date": "2026-10-16",
+    "note": "Action-script filenames and references migrated to .fmIDEAS. Current sha256 values reflect the renamed files and reference edits. The recorded live checks predate this migration; they were not rerun.",
+    "tested_sha256": {
+      "README.txt": "0c340ebc9cb49fff907b99477978b90b37c8b4438edb75df72ad4645a5a6ab91",
+      "build.py": "b559a37db339bde8a5df2e42fb35ae755b30239b01369503e1de498c5eec7ff0",
+      "tests-tour.fmIDEAS": "48c685b2b174a9a22ce2ee45e95c8b82d1fdae555578e13677e9818f58be7cfb",
+      "stop-tour.fmIDEAS": "5c14f40f43def27178d8468cc7d7bf0b632bc4f36b5aeb80a4972826779cf5ac",
+      "tour.html": "58179e1dbae5557337dd320444df9d3584c9e141c05e1c2f988531a0f04ae7cc",
+      "tour-first-stop.jpg": "e8e47690e06b9cc1fcaa00056dc4c4f9533e4bf18365b42602a804b8cc9b8f9f",
+      "tour-results.jpg": "78f0a744208c7bb03ad20bf2fca826a4232c4a7742e62214cd8e4b4311d9b34b"
+    }
   }
 }

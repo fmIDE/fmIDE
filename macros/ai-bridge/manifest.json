@@ -9,7 +9,7 @@
   "macros": [
     {
       "name": "AI Bridge.Context",
-      "file": "context.fmJAML",
+      "file": "context.fmIDEAS",
       "version": 1,
       "inputs": {},
       "effect": "read",
@@ -18,7 +18,7 @@
     },
     {
       "name": "AI Bridge.Design Names",
-      "file": "design-names.fmJAML",
+      "file": "design-names.fmIDEAS",
       "version": 1,
       "inputs": {},
       "effect": "read",
@@ -27,7 +27,7 @@
     },
     {
       "name": "AI Bridge.Read Records",
-      "file": "read-records.fmJAML",
+      "file": "read-records.fmIDEAS",
       "version": 1,
       "inputs": {
         "layout_name": "required text",
@@ -41,7 +41,7 @@
     },
     {
       "name": "AI Bridge.Write JSON",
-      "file": "write-json.fmJAML",
+      "file": "write-json.fmIDEAS",
       "version": 2,
       "inputs": {
         "output_file_path": "required FileMaker absolute path; must not exist",
@@ -53,7 +53,7 @@
     },
     {
       "name": "AI Bridge.Backup",
-      "file": "backup.fmJAML",
+      "file": "backup.fmIDEAS",
       "version": 2,
       "inputs": {
         "backup_file_path": "required new FileMaker absolute .fmp12 path"
@@ -64,7 +64,7 @@
     },
     {
       "name": "AI Bridge.Inspect Script",
-      "file": "inspect-script.fmJAML",
+      "file": "inspect-script.fmIDEAS",
       "version": 1,
       "inputs": {
         "script_name": "required existing script name",
@@ -76,7 +76,7 @@
     },
     {
       "name": "AI Bridge.Comment Steps",
-      "file": "comment-steps.fmJAML",
+      "file": "comment-steps.fmIDEAS",
       "version": 1,
       "inputs": {
         "comment_lines_json": "required JSON array of literal comment strings"
@@ -87,7 +87,7 @@
     },
     {
       "name": "AI Bridge.Script Edit Plan",
-      "file": "script-edit-plan.fmJAML",
+      "file": "script-edit-plan.fmIDEAS",
       "version": 1,
       "inputs": {
         "script_name": "required target name",

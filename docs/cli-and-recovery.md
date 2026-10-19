@@ -16,7 +16,7 @@ Use the actual installed application path. Agents should use their authorized ap
 command -v fmide
 fmide --version
 fmide --help
-python3 tools/fmide_run.py tools/probe-context.fmJAML \
+python3 tools/fmide_run.py tools/probe-context.fmIDEAS \
   --fmp 26 --file fmIDE --database-path "$PWD/fmIDE.fmp12"
 ```
 
@@ -29,7 +29,7 @@ For another database, use its actual open filename. The fmIDE script, required c
 ```sh
 fmide -fmp 26 -file fmIDE \
   --frontmatter '$fmide_on_exit_script_write_data_to_folder_path = Get ( DocumentsPath ) & "fmIDE-response-UNIQUE/";' \
-  --parameter-file job.fmJAML
+  --parameter-file job.fmIDEAS
 ```
 
 Replace `UNIQUE` with a new request ID. Single quotes keep the shell from expanding `$` variables. Do not reuse a response folder: stale files can look like a new success. The folder must be reachable by FileMaker on the execution host.

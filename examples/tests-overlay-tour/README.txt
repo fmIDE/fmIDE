@@ -11,7 +11,7 @@ and a content area at least 1102 points wide. MBS 16.2 or later is required.
 
 From this folder, replacing fmIDE-Overlay-Tour with the open copy's database name:
 
-  fmide -fmp 26 -file fmIDE-Overlay-Tour --parameter-file tests-tour.fmIDEAS.fmJAML
+  fmide -fmp 26 -file fmIDE-Overlay-Tour --parameter-file tests-tour.fmIDEAS
 
 The tour opens the fmIDE Tests layout. Use < for Back, X to stop, and > for
 Next (Finish on the last stop). The tour explains controls; it does not run tests.
@@ -19,7 +19,7 @@ It follows the FileMaker window and animates between six header buttons.
 
 Fallback stop command, targeting the same database:
 
-  fmide -fmp 26 -file fmIDE-Overlay-Tour --parameter-file stop-tour.fmIDEAS.fmJAML
+  fmide -fmp 26 -file fmIDE-Overlay-Tour --parameter-file stop-tour.fmIDEAS
 
 CLI exit success confirms dispatch only. Check that the bubble appears.
 Both stop methods release this tour's overlays and clear its session variables.

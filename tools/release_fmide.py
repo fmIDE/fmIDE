@@ -43,12 +43,12 @@ def stage(args):
     name='fmIDE-release-work-'+uuid.uuid4().hex[:12]
     working=root/(name+'.fmp12')
     relative=working.relative_to(Path.home()/'Documents').as_posix()
-    probe=require_ok(dispatch((REPO/'tools/probe-context.fmJAML').read_text(),fmp=args.fmp,file_name=args.file,database_path=str(source)))
+    probe=require_ok(dispatch((REPO/'tools/probe-context.fmIDEAS').read_text(),fmp=args.fmp,file_name=args.file,database_path=str(source)))
     actual=probe['context']
     if not actual['file_path'].endswith(str(source)) or actual['fmide_release']!=args.expected_release:
         raise RuntimeError('Wrong source path or release string')
     # Use the source's verified Documents path calculation instead of assuming a volume name.
-    code=(REPO/'macros/ai-bridge/backup.fmJAML').read_text()
+    code=(REPO/'macros/ai-bridge/backup.fmIDEAS').read_text()
     code='[+].Set.$backup_file_path = == Get ( DocumentsPath ) & '+quote(relative)+'\n'+code
     result=require_ok(dispatch(code,fmp=args.fmp,file_name=args.file,database_path=str(source)))
     if not working.is_file() or working.stat().st_size!=result['data']['bytes']:raise RuntimeError('Staged copy size mismatch')
@@ -74,7 +74,7 @@ def prepare(args):
     output=state['working_filemaker_path'].rsplit('/',1)[0]+'/fmIDE.fmp12'
     values={'release_source_path':state['source_filemaker_path'],'release_expected_release':state['expected_release'],'release_output_path':output}
     state['phase']='preparing';write_state(path,state)
-    result=require_ok(dispatch((REPO/'tools/prepare-release.fmJAML').read_text(),fmp=state['fmp'],file_name=state['working_file_name'],database_path=str(working),values=values,timeout=240))
+    result=require_ok(dispatch((REPO/'tools/prepare-release.fmIDEAS').read_text(),fmp=state['fmp'],file_name=state['working_file_name'],database_path=str(working),values=values,timeout=240))
     finish_preparation(path,state,result)
 
 

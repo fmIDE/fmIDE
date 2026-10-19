@@ -1,6 +1,6 @@
 # Native fmIDEAS regression tests
 
-These are the action scripts and complete record snapshots for 61 tests added to `fmIDE_Test` on 14 October 2026. The database is the test runner; the `.fmJAML` files make the cases readable and recoverable in Git.
+These are the action scripts and complete record snapshots for 61 tests added to `fmIDE_Test` on 14 October 2026. The database is the test runner; the `.fmIDEAS` files make the cases readable and recoverable in Git.
 
 | Group | Cases | Last verified result |
 | --- | ---: | --- |
@@ -25,11 +25,11 @@ The file-path group covers all six renamed actions: canonical and legacy keys, p
 Open this repository's `fmIDE.fmp12` in FileMaker 26, then run from the repository root:
 
 ```sh
-fmide -fmp 26 -file fmIDE --parameter-file tests/fmIDEAS/run-macro-regression.fmJAML
-fmide -fmp 26 -file fmIDE --parameter-file tests/fmIDEAS/run-script-search-regression.fmJAML
-fmide -fmp 26 -file fmIDE --parameter-file tests/fmIDEAS/run-persistent-data-regression.fmJAML
-fmide -fmp 26 -file fmIDE --parameter-file tests/fmIDEAS/run-exit-output-regression.fmJAML
-python3 tools/fmide_run.py tests/fmIDEAS/run-file-path-regression.json \
+fmide -fmp 26 -file fmIDE --parameter-file tests/fmIDEAS/run-macro-regression.fmIDEAS
+fmide -fmp 26 -file fmIDE --parameter-file tests/fmIDEAS/run-script-search-regression.fmIDEAS
+fmide -fmp 26 -file fmIDE --parameter-file tests/fmIDEAS/run-persistent-data-regression.fmIDEAS
+fmide -fmp 26 -file fmIDE --parameter-file tests/fmIDEAS/run-exit-output-regression.fmIDEAS
+python3 tools/fmide_run.py tests/fmIDEAS/run-file-path-regression.fmIDEAS \
   --fmp 26 --file fmIDE --database-path "$PWD/fmIDE.fmp12"
 ```
 

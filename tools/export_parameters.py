@@ -80,7 +80,7 @@ def publish(snapshot):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--fmp',required=True);p.add_argument('--timeout',type=float,default=240);a=p.parse_args()
-    result=dispatch((REPO/'tools/export-parameters.fmJAML').read_text(),fmp=a.fmp,file_name='fmIDE',database_path=str(REPO/'fmIDE.fmp12'),timeout=a.timeout)
+    result=dispatch((REPO/'tools/export-parameters.fmIDEAS').read_text(),fmp=a.fmp,file_name='fmIDE',database_path=str(REPO/'fmIDE.fmp12'),timeout=a.timeout)
     snapshot=result['result']
     if result['last_error'].strip()!='0' or not isinstance(snapshot,dict) or not snapshot.get('file','').endswith(str(REPO/'fmIDE.fmp12')):
         raise RuntimeError('Wrong or failed FileMaker response; previous pages preserved')

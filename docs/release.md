@@ -30,7 +30,7 @@ python3 tools/release_fmide.py prepare \
   --state '/Users/you/Documents/fmIDE-release-v0.95/release-state.json'
 ```
 
-The fmIDEAS in `tools/prepare-release.fmJAML` refuses the ordinary development file, checks the release string, refuses an existing output, runs preparation, verifies postconditions and saves the compacted copy. A failure leaves its staging evidence in place. An existing record edit also stops preparation.
+The fmIDEAS in `tools/prepare-release.fmIDEAS` refuses the ordinary development file, checks the release string, refuses an existing output, runs preparation, verifies postconditions and saves the compacted copy. A failure leaves its staging evidence in place. An existing record edit also stops preparation.
 
 ## 3. Package and review
 

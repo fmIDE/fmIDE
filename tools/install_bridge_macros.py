@@ -46,7 +46,7 @@ def main():
     args = parser.parse_args()
     folder = REPO / 'macros/ai-bridge'
     # The verified Backup body works before any macros are installed.
-    backup = dispatch((folder/'backup.fmJAML').read_text(),fmp=args.fmp,file_name=args.file,database_path=args.database_path,
+    backup = dispatch((folder/'backup.fmIDEAS').read_text(),fmp=args.fmp,file_name=args.file,database_path=args.database_path,
                       values={'backup_file_path':args.backup_file_path})
     if backup['last_error'].strip() != '0' or backup['result'].get('ok') is not True:
         raise RuntimeError('Backup failed: ' + json.dumps(backup['result']))

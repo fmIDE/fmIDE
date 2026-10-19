@@ -72,6 +72,6 @@ The export manifest records UTC export completion time, the source database's co
 
 The check exits 0 when recorded metadata/checksum match, 1 when the XML is potentially stale, and 2 when the check cannot be completed. It does not export or change the database. FileMaker can cache changes before writing to disk, and data changes also update the file; this is a conservative disk-metadata check, not a design-change detector. Copying the checkout can also change modification times. `changedDuringExport` records whether the source metadata differed across the export; this is not an atomic database snapshot guarantee.
 
-Use the wrapper rather than dispatching `tools/export-source.fmJAML` directly when you need the freshness manifest refreshed. The exploded-tree manifest separately records which XML checksum it was built from; rebuild after a new export.
+Use the wrapper rather than dispatching `tools/export-source.fmIDEAS` directly when you need the freshness manifest refreshed. The exploded-tree manifest separately records which XML checksum it was built from; rebuild after a new export.
 
 Run the focused freshness checks with `python3 -B tests/test_source_xml.py`.

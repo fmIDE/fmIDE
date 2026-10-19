@@ -48,7 +48,7 @@ def export(fmp, timeout):
     before = stamp(DATABASE)
     # Share the retained, single-dispatch response transport used by the bridge.
     from fmide_run import dispatch
-    completion = dispatch((REPO / 'tools/export-source.fmJAML').read_text(),
+    completion = dispatch((REPO / 'tools/export-source.fmIDEAS').read_text(),
                           fmp=fmp, file_name='fmIDE', database_path=str(DATABASE),
                           timeout=timeout, work_root=REPO / '.fmide-work')
     result = completion['result']

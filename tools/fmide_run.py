@@ -85,7 +85,7 @@ def dispatch(source, *, fmp, file_name, database_path, values=None, timeout=180,
     values['expected_file_path'] = database_path
     frontmatter = variable_definitions(values)
     frontmatter += ' $fmide_on_exit_script_write_data_to_folder_path = Get ( DocumentsPath ) & ' + quote(relative) + ';'
-    source_path = response / 'request.fmJAML'
+    source_path = response / 'request.fmIDEAS'
     source_path.write_text(source, encoding='utf-8')
     request = {'request_id': request_id, 'started_at': datetime.now(timezone.utc).isoformat(),
                'fmp': str(fmp), 'file_name': file_name, 'database_path': database_path,
