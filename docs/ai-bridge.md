@@ -31,6 +31,8 @@ These are bounded building blocks, not an unrestricted mutation API. Script Edit
 
 ## Install
 
+The library manifest uses `macro_name` for each entry's identity (schema version 2). The installer targets the [`macro_name` / `metadata` / `script` definition contract](fmjaml-fmideas.md#macro-definition-contract); use an fmIDE build implementing those keys. Macro execution results keep their existing `macro` and `error.code` fields.
+
 With the local demo file open, from the repository root:
 
 ```sh
@@ -40,7 +42,7 @@ python3 tools/install_bridge_macros.py \
   --backup-file-path 'file:/Volume/path/to/new-checkpoint.fmp12'
 ```
 
-Use real paths for that machine. Installation first saves a checkpoint, preflights every macro name, defines missing entries, and verifies the stored source. An identical entry is retained. Different existing code stops the installer; review that macro before replacing it. The library lives in the file's `fmide_macros` store and requires FileMaker 26 plus the current macro fixes.
+Use real paths for that machine. Installation first saves a checkpoint, preflights every macro name, defines missing entries, and verifies the stored `macro_name` and `script`. An identical entry is retained. A different definition or legacy `name`/`code` object stops the installer; review that macro before replacing it. Existing metadata is retained when the name and script match. The library lives in the file's `fmide_macros` store and requires FileMaker 26 plus the current macro fixes.
 
 ## Compose
 
@@ -50,7 +52,7 @@ Use real paths for that machine. Installation first saves a checkpoint, prefligh
 [:]..frontmatter = == "$expected_file_path = " & Quote ( Get ( FilePath ) ) & ";"
 [+].Set.$report = == Get ( ScriptResult )
 [+].If = == not JSONGetElement ( $report ; "ok" )
-[+].Exit Script = == $report
+[+].  Exit Script = == $report
 [+].End If
 
 [+].fmIDE Run Macro

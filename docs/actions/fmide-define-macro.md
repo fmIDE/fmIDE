@@ -5,6 +5,8 @@ Store named, reusable fmIDEAS code with optional metadata in the fmide_macros pe
 
 [All actions](README.md)
 
+The macro contract and syntax below were reconciled in the repository on 19 October 2026. Use `macro_name`, optional `metadata`, and `script`; older `name`/`code` objects are not assumed to be aliases. These corrections await synchronization to the database documentation and a fresh export. The recorded usage results below predate this revision.
+
 
 | FileMaker Script Step | Support | DevState | Originated in fmIDE version |
 |-----------------------|:-------:|:--------:|:--------------------:|
@@ -15,7 +17,7 @@ Store named, reusable fmIDEAS code with optional metadata in the fmide_macros pe
 Store reusable fmIDEAS code in the file's `fmide_macros` persistent store (FileMaker 26 or later).
 
 - `macro_name`: a calculation returning a non-empty name. A dotted name in the action key is literal shorthand.
-- `code`: a calculation returning fmJAML or JSON action-script text. It is evaluated once when Define runs; the resulting text is stored.
+- `script`: a calculation returning fmJAML or JSON action-script text. It is evaluated once when Define runs; the resulting text is stored.
 - `metadata`: an optional JSON object, stored as data rather than reevaluated when the macro runs.
 
 Defining an existing name replaces the whole macro, including its metadata. A missing or empty name reports error 5. Use explicit `macro_name` for names containing reserved parameter words. Use Get Macro to inspect the stored object.
@@ -23,7 +25,7 @@ Defining an existing name replaces the whole macro, including its metadata. A mi
 ## Full Syntax
 
 ```
-# Literal name in the key; the here-text becomes the stored code.
+# Literal name in the key; the here-text becomes the stored script.
 [+].fmIDE Define Macro.Example = =====
 [+].Exit Script = == "Hello"
 =====
@@ -31,7 +33,7 @@ Defining an existing name replaces the whole macro, including its metadata. A mi
 # Equivalent long form, with optional metadata.
 [+].fmIDE Define Macro
 [:]..macro_name = == "Example"
-[:]..code = =====
+[:]..script = =====
 [+].Exit Script = == "Hello"
 =====
 [:]..metadata.description = "Greeting example"

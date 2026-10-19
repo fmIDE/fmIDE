@@ -5,6 +5,8 @@ Retrieve a stored macro object into a target; without a target, return it and ex
 
 [All actions](README.md)
 
+The macro contract and syntax below were reconciled in the repository on 19 October 2026. Use `macro_name`, optional `metadata`, and `script`; older `name`/`code` objects are not assumed to be aliases. These corrections await synchronization to the database documentation and a fresh export. The recorded usage results below predate this revision.
+
 
 | FileMaker Script Step | Support | DevState | Originated in fmIDE version |
 |-----------------------|:-------:|:--------:|:--------------------:|
@@ -12,7 +14,7 @@ Retrieve a stored macro object into a target; without a target, return it and ex
 
 ## Description
 
-Retrieve the complete stored macro object: `name`, `code`, and any `metadata` (FileMaker 26 or later).
+Retrieve the complete stored macro object: `macro_name`, `script`, and any `metadata` (FileMaker 26 or later).
 
 - `macro_name`: a calculation returning the name; a dotted action-key name is literal shorthand.
 - `target`: an optional literal variable or field name. With a target, Get writes the object there and continues.
@@ -29,7 +31,7 @@ Without a target, Get returns the object and exits the current fmIDE action scri
 # [+].fmIDE Get Macro
 # [:]..macro_name = == "Example"
 # [:]..target = "$macro"
-# [+].Exit Script = == JSONGetElement ( $macro ; "code" )
+# [+].Exit Script = == JSONGetElement ( $macro ; "script" )
 ```
 
 ## Usage

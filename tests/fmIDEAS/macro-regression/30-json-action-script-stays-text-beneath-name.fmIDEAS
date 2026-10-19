@@ -2,7 +2,7 @@
 #@test
 [+].fmIDE Define Macro.fmIDE_Test.MacroRegression.JsonCode = == "[{\"Exit Script\":\"37\"}]"
 [+].If = == $$fmide_get_last_error
-[+].Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "define" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
+[+].  Exit Script = == JSONSetElement ( "{}" ; ["stage" ; "define" ; JSONString] ; ["error" ; $$fmide_get_last_error ; JSONNumber] ; ["detail" ; $$fmide_get_last_error_detail ; JSONString] )
 [+].End If
 [+].fmIDE Run Macro
 [:]..macro_name = == "fmIDE_Test.MacroRegression.JsonCode"

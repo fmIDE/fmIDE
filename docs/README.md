@@ -31,6 +31,8 @@ Run these sequentially. Both use the installed fmIDE CLI and verify completion b
 
 Do not hand-edit generated pages: change their database source and export again. Reference entries include historical/proposed actions and parameters. Their support/state columns matter. Stored test passes describe specific examples, not every option. Older details and explicit gaps still need targeted review.
 
+The 19 October 2026 merge reconciled the repository copies of [Define Macro](actions/fmide-define-macro.md) and [Get Macro](actions/fmide-get-macro.md) with the [current macro contract](fmjaml-fmideas.md#macro-definition-contract). These two pages carry explicit correction notices; their database documentation must be synchronized before the next export. The action manifest retains the original export provenance and records these repository corrections separately. The preserved source XML and exploded scripts are older snapshots; editing them would not change the native implementation.
+
 ## Existing wiki material
 
 The local docs are the replacement entry point. [The migration map](wiki-migration.json) accounts for all 19 existing wiki pages. Core API and workflow pages now link here; background material and local images are preserved under `wiki/` with its historical status stated.

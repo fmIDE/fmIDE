@@ -9,6 +9,15 @@ from fmide_run import dispatch, quote
 REPO = Path(__file__).resolve().parents[1]
 
 
+def definition_matches(existing, macro_name, script):
+    """Compare the stored identity and script, accepting FileMaker's CR line ends."""
+    return (
+        'Exact ( JSONGetElement ( ' + existing + ' ; "macro_name" ) ; ' + quote(macro_name) + ' )'
+        ' and Exact ( Substitute ( JSONGetElement ( ' + existing + ' ; "script" ) ; Char ( 13 ) ; Char ( 10 ) ) ; '
+        + quote(script) + ' )'
+    )
+
+
 def make_installer(folder):
     manifest = json.loads((folder / 'manifest.json').read_text())
     actions = [{'Set Error Capture': '1'}]
@@ -17,22 +26,24 @@ def make_installer(folder):
     stop_if('IsEmpty ( $expected_file_path ) or not ( Exact ( Get ( FilePath ) ; $expected_file_path ) or Exact ( Right ( Get ( FilePath ) ; Length ( $expected_file_path ) ) ; $expected_file_path ) )', 'Wrong database')
     # Preflight the whole library before the first write.
     for macro in manifest['macros']:
-        code = (folder / macro['file']).read_text()
-        if hashlib.sha256(code.encode()).hexdigest() != macro['sha256']:
+        script = (folder / macro['file']).read_text()
+        if hashlib.sha256(script.encode()).hexdigest() != macro['sha256']:
             raise ValueError('Source hash mismatch: ' + macro['file'])
-        name = quote(macro['name'])
+        name = quote(macro['macro_name'])
         existing = 'GetPersistentData ( "fmide_macros" ; ' + name + ' )'
-        stop_if('not IsEmpty ( FilterValues ( ListPersistentDataIDs ( "fmide_macros" ) ; ' + name + ' ) ) and not Exact ( Substitute ( JSONGetElement ( ' + existing + ' ; "code" ) ; Char ( 13 ) ; Char ( 10 ) ) ; ' + quote(code) + ' )', 'Existing macro differs: ' + macro['name'] + '. Review it before replacement.')
+        stop_if('not IsEmpty ( FilterValues ( ListPersistentDataIDs ( "fmide_macros" ) ; ' + name + ' ) ) and not ( ' + definition_matches(existing, macro['macro_name'], script) + ' )', 'Existing macro differs or uses legacy keys: ' + macro['macro_name'] + '. Review it before replacement.')
     for macro in manifest['macros']:
-        code = (folder / macro['file']).read_text()
-        actions += [{'If': 'IsEmpty ( FilterValues ( ListPersistentDataIDs ( "fmide_macros" ) ; ' + quote(macro['name']) + ' ) )'},
-                    {'fmIDE Define Macro': {'macro_name': quote(macro['name']), 'code': quote(code),
-                     'metadata': {'owner':'fmIDE-AI-Bridge','version':macro['version'],'source_sha256':macro['sha256'],'inputs':macro['inputs'],'effect':macro['effect']}}}]
-        stop_if('$$fmide_get_last_error ≠ 0', 'Define failed: ' + macro['name'])
+        script = (folder / macro['file']).read_text()
+        actions += [{'If': 'IsEmpty ( FilterValues ( ListPersistentDataIDs ( "fmide_macros" ) ; ' + quote(macro['macro_name']) + ' ) )'},
+                    {'fmIDE Define Macro': {'macro_name': quote(macro['macro_name']),
+                     'metadata': {'owner':'fmIDE-AI-Bridge','version':macro['version'],'source_sha256':macro['sha256'],'inputs':macro['inputs'],'effect':macro['effect']},
+                     'script': quote(script)}}]
+        stop_if('$$fmide_get_last_error ≠ 0', 'Define failed: ' + macro['macro_name'])
         actions += [{'End If': None}]
     for macro in manifest['macros']:
-        code = (folder / macro['file']).read_text()
-        stop_if('not Exact ( Substitute ( JSONGetElement ( GetPersistentData ( "fmide_macros" ; ' + quote(macro['name']) + ' ) ; "code" ) ; Char ( 13 ) ; Char ( 10 ) ) ; ' + quote(code) + ' )', 'Readback failed: ' + macro['name'])
+        script = (folder / macro['file']).read_text()
+        existing = 'GetPersistentData ( "fmide_macros" ; ' + quote(macro['macro_name']) + ' )'
+        stop_if('not ( ' + definition_matches(existing, macro['macro_name'], script) + ' )', 'Readback failed: ' + macro['macro_name'])
     actions += [{'Exit Script':'JSONSetElement ( "{}" ; ["ok" ; 1 ; JSONBoolean] ; ["verified_macros" ; ' + str(len(manifest['macros'])) + ' ; JSONNumber] ; ["file_path" ; Get ( FilePath ) ; JSONString] )'}]
     return json.dumps(actions, ensure_ascii=False, indent=2)
 

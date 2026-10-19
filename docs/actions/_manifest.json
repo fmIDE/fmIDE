@@ -5,6 +5,13 @@
 	"fileMakerVersion" : "Pro 26.0.3",
 	"fmIDERelease" : "20261014 @mrwatson-de v0.95",
 	"generator" : "fmIDE Wiki docs exporter v1",
+	"repositoryCorrections" : {
+		"date" : "2026-10-19",
+		"reason" : "Reconcile the macro_name/metadata/script contract during merge resolution.",
+		"files" : ["fmide-define-macro.md", "fmide-get-macro.md"],
+		"databaseDocumentationSync" : "pending",
+		"nativeVerification" : "not_run"
+	},
 	"pages" : 
 	[
 		{
