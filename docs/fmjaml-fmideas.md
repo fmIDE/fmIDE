@@ -103,6 +103,8 @@ This second layer is why the text and text-to-quote value operators are especial
 
 **fmJAML value operators are designed so that you never need to manually escape a string.**
 
+> **fmIDEAS-specific rule:** use `====` and `=====` when the target action parameter is a **calculation parameter** that fmIDE will evaluate later, but you want that evaluation to produce literal text. If the action parameter is already literal, use the literal parameter directly instead of text-to-quote.
+
 ### No value operator (normal single-line calculation)
 
 **fmJAML:**
@@ -277,7 +279,7 @@ When fmIDE evaluates that calculation, the result is exactly:
 value = Quote ( «single-line-text» )
 ```
 
-That is precisely what fmIDEAS needs when a parameter will be evaluated by fmIDE, but the desired runtime result is literal text rather than a calculation result.
+In fmIDEAS, use this specifically for an action parameter that fmIDE treats as a **calculation**: fmIDE will evaluate the generated quoted calculation, and the result will be the literal text you wrote. Do not use text-to-quote merely because the value is text; if the action parameter itself is literal, supply the literal text directly.
 
 #### Syntax
 
