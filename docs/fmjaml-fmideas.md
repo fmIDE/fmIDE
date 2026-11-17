@@ -81,18 +81,128 @@ From v0.95, Recover File still accepts `.file`; Delete File accepts `.target_fil
 
 Keep `.file` for a database name, `.file_id` for an open data-file handle, `.new_name` for Rename File's new filename, and `.target` for an output variable or field. These represent different things.
 
-## Preserve calculation text until runtime
+## Value operators and fmIDE's second evaluation layer
 
-The `=` after the key separates the path from its value. The following value operator determines how fmJAML builds the JSON:
+fmJAML first constructs JSON. fmIDE then executes that JSON as an Action Script, and most action parameters are evaluated as FileMaker calculations at the moment the action runs.
 
-| Source | JSON contains | Intended use |
-| --- | --- | --- |
-| `key = "Hello"` | `Hello` | Literal parameter |
-| `key = $name` | The current value of `$name` | Construction-time evaluation |
-| `key = == $name` | `$name` | A calculation for later execution |
-| `key = ==== Hello "Russell"` | A quoted calculation string | A runtime literal, without hand escaping |
+That gives fmIDEAS two evaluation layers:
 
-For multiline calculation text, use a raw here-text:
+```text
+fmJAML source
+    │
+    │  1. fmJAML constructs the JSON
+    ▼
+JSON Action Script
+    │
+    │  2. fmIDE evaluates calculation parameters
+    ▼
+running FileMaker action
+```
+
+This second layer is why the text and text-to-quote value operators are especially useful in fmIDEAS.
+
+### No value operator (normal single-line calculation)
+
+**fmJAML:**
+
+```fmjaml
+value = 42
+```
+
+**JSON:**
+
+```json
+{"value":42}
+```
+
+#### How it works
+
+```text
+value = Evaluate ( «single-line-calculation» )
+```
+
+fmJAML evaluates the calculation while constructing the JSON. Simple values such as `42`, `true`, and `false` visually resonate with the JSON value they produce.
+
+In an fmIDEAS parameter this means the expression is resolved **before the Action Script begins to run**. Do not use the bare form when the expression depends on variables or state created by earlier actions.
+
+#### Syntax
+
+```fmjaml
+«path» = «single-line-calculation»
+```
+
+### Value operator `=` (multiline calculation operator / 'herecalc' operator)
+
+**fmJAML:**
+
+```fmjaml
+value = =
+Let ( [
+    a = 6 ;
+    b = 7
+] ;
+    a * b
+)
+===
+```
+
+**JSON:**
+
+```json
+{"value":"42"}
+```
+
+#### How it works
+
+```text
+value = Evaluate ( «multiline-calculation» )
+```
+
+The herecalc is the multiline counterpart of the normal calculation form. It is evaluated by fmJAML while constructing the JSON.
+
+#### Syntax
+
+```fmjaml
+«path» = =
+«multiline-calculation»
+===
+```
+
+### Value operator `==` (single-line text-value / 'hereline' operator)
+
+**fmJAML:**
+
+```fmjaml
+[+].Set.$answer = == 6 * 7
+```
+
+**JSON contains:**
+
+```json
+[{"Set":{"$answer":"6 * 7"}}]
+```
+
+When the `Set` action runs, fmIDE evaluates `6 * 7`, so `$answer` becomes `42`.
+
+#### How it works
+
+fmJAML takes the remainder of the line literally:
+
+```text
+value = «single-line-text-as-is»
+```
+
+For fmIDEAS this is normally **calculation text for later evaluation by fmIDE**.
+
+#### Syntax
+
+```fmjaml
+«path» = == «single-line-text»
+```
+
+### Value operator `===` (multiline text-value operator)
+
+**fmJAML:**
 
 ```fmjaml
 [+].Exit Script = ===
@@ -103,23 +213,137 @@ JSONSetElement ( "{}"
 ===
 ```
 
-For multiline **literal** text passed to a calculation parameter, use a quoted here-text:
+The JSON contains that multiline FileMaker calculation as text. When `Exit Script` runs, fmIDE evaluates it.
 
-```fmjaml
-[+].Set.$message = =====
-Hello "Russell"
-This text contains quotes and a second line.
-=====
-[+].Exit Script = == $message
+#### How it works
+
+```text
+value = «multiline-text-as-is»
 ```
 
-Choose a delimiter that does not appear inside its payload. Nested macro definitions can instead be built with a real JSON serializer; that removes delimiter collisions without changing the stored fmJAML.
+This is the multiline counterpart of `==`: fmJAML preserves the calculation text so fmIDE can evaluate it later.
 
-`Set.$answer` uses the key as the variable target. `Set.Table::Field` similarly selects a field target. Keep runtime expressions after `==`; otherwise fmJAML may evaluate them before preceding actions have created their variables.
+#### Syntax
 
-Data-processing specifiers run while fmJAML constructs JSON. They do **not** format a later fmIDE result. In particular, `;M;` cannot pretty-print JSON that an action has yet to calculate. Call `JSONFormatElements` in the runtime expression instead.
+```fmjaml
+«path» = ===
+«multiline-text»
+===
+```
 
-The supported structured `Execute FileMaker Data API.request` is useful for static request data. Do not generalize that into runtime evaluation of arbitrary structured `Set` or `Exit Script` leaves. Return a JSON object using a normal runtime `JSONSetElement` calculation, as above. Exit Script's long parameter is **`script_result`**.
+An optional **identifier** can make the block unambiguous when the payload itself contains `===`:
+
+```fmjaml
+[+].Set.$javascript = ===JS
+return value === 42;
+===JS
+```
+
+The identifier is `JS`; the complete closing marker is `===JS`.
+
+### Value operator `====` (single-line text-to-quote operator)
+
+**fmJAML:**
+
+```fmjaml
+[+].Set.$message = ==== "Hello Foo", said Baz in the bar.
+```
+
+The source text is:
+
+```text
+"Hello Foo", said Baz in the bar.
+```
+
+fmJAML places a quoted FileMaker calculation into the JSON:
+
+```text
+"\"Hello Foo\", said Baz in the bar."
+```
+
+When fmIDE evaluates that calculation, the result is exactly:
+
+```text
+"Hello Foo", said Baz in the bar.
+```
+
+#### How it works
+
+**Text-to-quote takes the text as written and produces a FileMaker calculation which evaluates back to exactly that text.**
+
+```text
+value = Quote ( «single-line-text» )
+```
+
+That is precisely what fmIDEAS needs when a parameter will be evaluated by fmIDE, but the desired runtime result is literal text rather than a calculation result.
+
+#### Syntax
+
+```fmjaml
+«path» = ==== «single-line-text»
+```
+
+### Value operator `=====` (multiline text-to-quote operator)
+
+**fmJAML:**
+
+```fmjaml
+[+].Set.$message = =====MESSAGE
+"Hello Foo",
+said Baz
+in the bar.
+===MESSAGE
+```
+
+fmJAML turns the complete block into a quoted FileMaker calculation. When fmIDE evaluates that calculation, `$message` receives exactly the multiline text written in the source.
+
+#### How it works
+
+```text
+value = Quote ( «multiline-text» )
+```
+
+This is the multiline counterpart of `====`.
+
+#### Syntax
+
+```fmjaml
+«path» = =====«identifier»
+«multiline-text»
+===«identifier»
+```
+
+The identifier is optional. Both `===` and `=====` blocks use a closing marker beginning with exactly `===`; when an identifier is present, repeat it after those three equals signs.
+
+### The fmIDEAS rule of thumb
+
+For parameters that fmIDE evaluates as calculations:
+
+| You want fmIDE to… | fmJAML form |
+| --- | --- |
+| evaluate a one-line calculation later | `= == «calculation»` |
+| evaluate a multiline calculation later | `= === «calculation» … ===` |
+| receive one-line literal text after evaluation | `= ==== «text»` |
+| receive multiline literal text after evaluation | `= =====«identifier» … ===«identifier»` |
+
+So in fmIDEAS:
+
+- `==` / `===` mean **preserve this as calculation text for fmIDE to evaluate later**.
+- `====` / `=====` mean **text-to-quote: make a calculation that evaluates back to this literal text**.
+- the bare form and herecalc `=` are evaluated by fmJAML **up front**, before the first action executes.
+
+For example:
+
+```fmjaml
+[+].Set.$n = == 1
+[+].Set.$n = == $n + 1
+[+].Exit Script = $n      # evaluated by fmJAML before the actions run
+[+].Exit Script = == $n   # evaluated by fmIDE when this action runs
+```
+
+Anything that depends on what an earlier action did should normally use `==` or `===`.
+
+Not every fmIDE parameter is calculation-valued. Some identifiers and explicit literal parameters are consumed directly; consult the relevant [action reference](actions/README.md) when that distinction matters.
 
 ## Frontmatter and macros
 
@@ -138,7 +362,7 @@ Use named, lower_snake_case inputs. Avoid hidden dependencies on globals. Stored
 ```fmjaml
 [+].fmIDE Define Macro.Greeting = =====
 [+].Exit Script = == JSONSetElement ( "{}" ; "greeting" ; "Hello " & $name ; JSONString )
-=====
+===
 [+].fmIDE Run Macro.Greeting = ==== $name = "Russell";
 [+].Exit Script = == Get ( ScriptResult )
 ```
