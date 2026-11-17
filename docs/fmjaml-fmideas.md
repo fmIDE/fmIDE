@@ -107,6 +107,31 @@ This second layer is why the text and text-to-quote value operators are especial
 
 > **fmIDEAS-specific rule:** use `====` and `=====` when the target action parameter is a **calculation parameter** that fmIDE will evaluate later, but you want that evaluation to produce literal text. If the action parameter is already literal, use the literal parameter directly instead of text-to-quote.
 
+### The operators compose
+
+The six written forms are not six unrelated operators. They come from two simple, composable ideas:
+
+1. **Each pair of `=` moves one step from calculation → text → text-to-quote.**
+2. **One extra `=` makes the current form multiline.**
+
+So the complete family is:
+
+| Meaning | Single line | Multiline |
+| --- | --- | --- |
+| calculation | *(no value operator)* | `=` |
+| text | `==` | `===` |
+| text-to-quote | `====` | `=====` |
+
+For fmIDEAS calculation parameters, those two `==` steps line up naturally with the two evaluation layers:
+
+- with **no pair of equals**, fmJAML evaluates the calculation immediately;
+- add the **first `==`**, and fmJAML leaves the text alone so fmIDE can evaluate it later;
+- add the **second `==`**, and fmJAML quotes that text so fmIDE's later evaluation produces the literal text you wrote.
+
+In that sense, the first `==` is about crossing the **fmJAML evaluation layer**, and the second `==` is about crossing the **fmIDE evaluation layer**.
+
+The multiline modifier is independent: add one extra `=` to any of those three forms, giving `=`, `===`, or `=====`.
+
 ### No value operator (normal single-line calculation)
 
 **fmJAML:**
