@@ -85,6 +85,8 @@ Keep `.file` for a database name, `.file_id` for an open data-file handle, `.new
 
 fmJAML first constructs JSON. fmIDE then executes that JSON as an Action Script, and most action parameters are evaluated as FileMaker calculations at the moment the action runs.
 
+fmIDE follows a simple calculation philosophy: **if a value is a calculation in FileMaker, it is a calculation in fmIDE too. In addition, numeric and Boolean values are treated as calculations.** For example, a repetition number or a Boolean state flag such as the state for Set Error Capture is a calculated value in fmIDE.
+
 That gives fmIDEAS two evaluation layers:
 
 ```text
