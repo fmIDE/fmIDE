@@ -101,6 +101,8 @@ running FileMaker action
 
 This second layer is why the text and text-to-quote value operators are especially useful in fmIDEAS.
 
+**fmJAML value operators are designed so that you never need to manually escape a string.**
+
 ### No value operator (normal single-line calculation)
 
 **fmJAML:**
